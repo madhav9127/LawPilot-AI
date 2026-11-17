@@ -40,13 +40,13 @@ def generate_conversation_title(message: str, category: Optional[CaseCategoryEnu
             return "Rent Increase Dispute"
         return "Rental Agreement Issue"
 
-    if any(k in lower for k in ["landlord", "tenant", "makan malik", "kirayedar", "flat", "pg", "room", "મકાનમાલિક", "ഭാടകക്കാരൻ", "வீட்டு உரிமையாளர்", "ఇంటి యజమాని", "বাড়িওয়ালা"]):
+    if any(k in lower for k in ["landlord", "tenant", "makan malik", "kirayedar", "flat", "pg", "room", "મકાનમાલિક", "ഭാടകക്കാരൻ", "வீட்டு உரிமையாளர்", "ఇంటి యజమాని", "বাড়িওয়ালা", "घरमालक", "घरमालकाने", "भाडेकरू"]):
         if any(r in lower for r in ["repair", "damage", "seepage", "water", "electricity"]):
             return "Tenancy Property Issue"
         return "Tenant Landlord Dispute"
 
     # 3. Employment & Wage Disputes
-    if any(k in lower for k in ["salary", "unpaid", "wages", "pay", "vetan", "tankhwah", "tankha", "वेतन", "ശമ്പളം", "પગાર", "சம்பளம்", "జీతం", "বেতন", "ಸಂಬಳ"]):
+    if any(k in lower for k in ["salary", "unpaid", "wages", "pay", "vetan", "tankhwah", "tankha", "वेतन", "ശമ്പളം", "પગાર", "சம்பளம்", "జీతం", "বেতন", "ಸಂಬಳ", "पगार"]):
         if any(d in lower for d in ["deduct", "cut", "katoti"]):
             return "Salary Deduction Dispute"
         return "Unpaid Salary Issue"
@@ -65,7 +65,7 @@ def generate_conversation_title(message: str, category: Optional[CaseCategoryEnu
 
     # 4. Consumer Protection & E-Commerce
     if any(k in lower for k in ["defective", "damaged", "broken", "faulty", "kharab", "soap bar", "ખામીયુક્ત", "ખરાબ", "दोषपूर्ण", "വ്യാജമായ", "குறைபாடுள்ள", "లోపభూయిష్ట", "ত্রুটিযুক্ত"]):
-        if any(r in lower for r in ["phone", "mobile", "laptop", "product", "item", "device", "ફોન"]):
+        if any(r in lower for r in ["phone", "mobile", "laptop", "product", "item", "device", "ફોન", "मोबाईल"]):
             return "Defective Product Refund"
         return "Defective Goods Complaint"
 

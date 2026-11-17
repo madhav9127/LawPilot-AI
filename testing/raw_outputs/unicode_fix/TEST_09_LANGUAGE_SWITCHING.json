@@ -1,0 +1,19 @@
+{
+  "test_id": "TEST_09_LANGUAGE_SWITCHING",
+  "status": "PASS",
+  "turn1": {
+    "prompt": "My employer has withheld my salary for two months.",
+    "status": "PASS",
+    "response": "I understand how stressful and difficult it is to have your hard-earned salary withheld by your employer.\n\n### | Your Situation\nYou are an employee whose employer has withheld your salary for two mont"
+  },
+  "turn2": {
+    "prompt": "मी आता कंपनीला लीगल नोटीस कशी पाठवू शकतो?",
+    "status": "PASS",
+    "response": "मी तुमचा पगार न मिळाल्यामुळे झालेल्या त्रासाबद्दल पूर्णपणे समजू शकतो.\n\n### | तुमची परिस्थिती (Your Situation)\nतुम्ही दोन महिन्यांचे रखडलेले वेतन देण्याबाबत तुमच्या मालकाला कायदेशीर नोटीस कशी पाठवायची "
+  },
+  "turn3": {
+    "prompt": "अगर कंपनी 15 दिन में जवाब न दे तो क्या करें?",
+    "status": "PASS",
+    "response": "मैं आपकी इस कठिन परिस्थिति को पूरी तरह समझ सकता हूँ और आपके अधिकारों की रक्षा के लिए आपकी सहायता करने के लिए यहाँ हूँ।\n\n### | आपकी स्थिति (Your Situation)\nआपने अपने नियोक्ता (कंपनी) को दो महीने के रोक"
+  }
+}

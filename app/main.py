@@ -155,15 +155,16 @@ def chat_stream_endpoint(request: ChatRequest):
             state_jurisdiction=request.state_jurisdiction,
             session_id=request.session_id or "default_session"
         ):
-            yield f"data: {json.dumps(event)}\n\n"
+            yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(
         event_stream(),
-        media_type="text/event-stream",
+        media_type="text/event-stream; charset=utf-8",
         headers={
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
-            "X-Accel-Buffering": "no"
+            "X-Accel-Buffering": "no",
+            "Content-Type": "text/event-stream; charset=utf-8"
         }
     )
 

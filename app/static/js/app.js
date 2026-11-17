@@ -463,7 +463,13 @@ async function handleSend() {
 
         while (true) {
             const { done, value } = await reader.read();
-            if (done) break;
+            if (done) {
+                buffer += decoder.decode();
+                if (buffer.trim()) {
+                    lines.push(buffer);
+                }
+                break;
+            }
 
             buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split("\n\n");
@@ -594,7 +600,13 @@ async function retryMessage(userMsgId) {
 
         while (true) {
             const { done, value } = await reader.read();
-            if (done) break;
+            if (done) {
+                buffer += decoder.decode();
+                if (buffer.trim()) {
+                    lines.push(buffer);
+                }
+                break;
+            }
 
             buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split("\n\n");
@@ -904,12 +916,12 @@ function formatLegalMarkdown(text) {
     html = html.replace(/###\s*([^\n]+)/g, '<div class="section-header-bar">$1</div>');
 
     // Callout box for Information I still need from you (supports multilingual headings)
-    html = html.replace(/(?:ℹ️\s*)?(?:Information\s*I\s*still\s*need\s*from\s*you|आपसे\s*आवश्यक\s*जानकारी|Zaroori\s*Jankari|ആവശ്യമായ\s*വിവരങ്ങൾ)\s*([\s\S]*?)(?=(?:<div class="section-header-bar"|$))/gi, (match, body) => {
+    html = html.replace(/(?:ℹ️\s*)?(?:Information\s*I\s*still\s*need\s*from\s*you|आपसे\s*आवश्यक\s*जानकारी|तुमच्याकडून\s*आवश्यक\s*माहिती|તમારી\s*પાસેથી\s*જરૂરી\s*માહિતી|ആവശ്യമായ\s*വിവരങ്ങൾ|உங்களிடம்\s*இருந்து\s*தேவைப்படும்\s*தகவல்கள்|మీ\s*నుండి\s*ఇంకా\s*అవసరమైన\s*సమాచారం|আপনার\s*কাছ\s*থেকে\s*প্রয়োজনীয়\s*তথ্য|Zaroori\s*Jankari)\s*([\s\S]*?)(?=(?:<div class="section-header-bar"|$))/gi, (match, body) => {
         return `
             <div class="info-callout-card">
                 <div class="info-callout-title">
                     <span>${SVG_ICONS.info}</span>
-                    <span>Information I still need from you / आवश्यक जानकारी</span>
+                    <span>Information Needed / आवश्यक माहिती / आवश्यक जानकारी</span>
                 </div>
                 <div class="info-callout-body">${body.trim()}</div>
             </div>
@@ -919,8 +931,8 @@ function formatLegalMarkdown(text) {
     // Bold text: **text**
     html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-    // Numbered steps with circle badge (e.g., "1. Gather evidence")
-    html = html.replace(/(?:^|\n)\s*(\d+)\.\s+([^\n]+)/g, (match, num, stepText) => {
+    // Numbered steps with circle badge (supports Latin digits 1-9 and Indic digits like Devanagari १-९)
+    html = html.replace(/(?:^|\n)\s*([0-9\u0966-\u096F]+)\.\s+([^\n]+)/gu, (match, num, stepText) => {
         return `<div class="step-item"><span class="step-num">${num}</span><span>${stepText}</span></div>`;
     });
 

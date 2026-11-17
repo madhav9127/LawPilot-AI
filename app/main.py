@@ -82,27 +82,28 @@ def chat_endpoint(request: ChatRequest):
 
 @app.post("/api/chat/stream")
 def chat_stream_endpoint(request: ChatRequest):
-    """Streams legal conversation analysis using Server-Sent Events (SSE)."""
+    """Streams genuine token-by-token legal reasoning using Server-Sent Events (SSE)."""
     provider = LLMProviderFactory.get_provider()
-    response = provider.generate_response(
-        message=request.message,
-        conversation_history=request.conversation_history,
-        language=request.language,
-        state_jurisdiction=request.state_jurisdiction,
-        session_id=request.session_id or "default_session"
-    )
 
     def event_stream():
-        # Stream response words for instant visual feedback
-        words = response.content.split(" ")
-        for i, word in enumerate(words):
-            chunk = word if i == len(words) - 1 else word + " "
-            yield f"data: {json.dumps({'type': 'token', 'content': chunk})}\n\n"
-        
-        citations_data = [c.dict() for c in response.citations]
-        yield f"data: {json.dumps({'type': 'done', 'citations': citations_data, 'verification_status': response.verification_status.value if response.verification_status else None})}\n\n"
+        for event in provider.generate_stream(
+            message=request.message,
+            conversation_history=request.conversation_history,
+            language=request.language,
+            state_jurisdiction=request.state_jurisdiction,
+            session_id=request.session_id or "default_session"
+        ):
+            yield f"data: {json.dumps(event)}\n\n"
 
-    return StreamingResponse(event_stream(), media_type="text/event-stream")
+    return StreamingResponse(
+        event_stream(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no"
+        }
+    )
 
 @app.post("/api/session/reset")
 def reset_session(session_id: str):

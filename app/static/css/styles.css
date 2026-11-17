@@ -306,27 +306,6 @@ body {
     border-radius: 50%;
 }
 
-.language-dropdown-wrapper {
-    position: relative;
-}
-
-.language-select {
-    appearance: none;
-    background: #f8fafc;
-    border: 1px solid var(--border-color);
-    padding: 4px 12px;
-    border-radius: var(--radius-sm);
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    cursor: pointer;
-    outline: none;
-}
-
-.language-select:hover {
-    border-color: #cbd5e1;
-}
-
 /* --- Chat Viewport & Messages --- */
 .chat-viewport {
     flex: 1;

@@ -60,6 +60,17 @@ class BaseLLMProvider(ABC):
     ) -> ChatMessage:
         pass
 
+    @abstractmethod
+    def generate_stream(
+        self,
+        message: str,
+        conversation_history: List[Dict[str, str]],
+        language: Optional[LanguageEnum] = None,
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
+    ):
+        pass
+
 
 class DeterministicDemoProvider(BaseLLMProvider):
     """
@@ -606,15 +617,47 @@ class DeterministicDemoProvider(BaseLLMProvider):
                 f"Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n"
                 f"### | Your Situation\n"
                 f"You have shared a civil dispute or inquiry. LawPilot AI specializes in three everyday civil legal domains:\n"
-                f"1. 🏠 **Tenant & Landlord Disputes**\n"
-                f"2. 🛒 **Consumer Protection & Refunds**\n"
-                f"3. 💼 **Employment & Wage Issues**\n\n"
+                f"1. Tenant & Landlord Disputes\n"
+                f"2. Consumer Protection & Refunds\n"
+                f"3. Employment & Wage Issues\n\n"
                 f"### | Practical Next Steps\n"
                 f"1. Share specific details regarding the parties, location, and disputed amount.\n"
                 f"2. Identify available written documents, receipts, or communication records.\n\n"
-                f"### ℹ️ Information I still need from you\n"
+                f"### Information I still need from you\n"
                 f"Could you share more details about which of these domains your issue relates to?"
             )
+
+    def generate_stream(
+        self,
+        message: str,
+        conversation_history: List[Dict[str, str]],
+        language: Optional[LanguageEnum] = None,
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
+    ):
+        from app.core.title_generator import generate_conversation_title
+        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
+        title = generate_conversation_title(message, case.category)
+        citations_data = [c.dict() for c in citations]
+
+        # Early metadata event
+        yield {"type": "metadata", "title": title, "citations": citations_data}
+
+        resp = self.generate_response(
+            message=message,
+            conversation_history=conversation_history,
+            language=language or LanguageEnum.ENGLISH,
+            state_jurisdiction=state_jurisdiction,
+            session_id=session_id
+        )
+
+        words = re.split(r'(\s+)', resp.content)
+        for w in words:
+            if w:
+                yield {"type": "token", "content": w}
+
+        yield {"type": "done", "title": title, "citations": citations_data, "content": resp.content}
 
 
 class GeminiInteractionsProvider(BaseLLMProvider):
@@ -631,119 +674,93 @@ class GeminiInteractionsProvider(BaseLLMProvider):
     def __init__(self, api_key: str):
         self.api_key = api_key
 
-    def generate_response(
-        self,
-        message: str,
-        conversation_history: List[Dict[str, str]],
-        language: LanguageEnum,
-        state_jurisdiction: Optional[str] = None,
-        session_id: str = "default_session"
-    ) -> ChatMessage:
-        req_id = f"req_{uuid.uuid4().hex[:8]}"
-        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
-        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
-
-        # Pre-screen safety guardrails
-        # Medical emergency
-        is_med, med_reply = EscalationDetector.check_medical_emergency(message)
-        if is_med:
-            return ChatMessage(role="assistant", content=med_reply, citations=[], escalation_detected=True)
-
-        # Fraud refusal
-        is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
-        if is_fraud:
-            return ChatMessage(role="assistant", content=fraud_reply, citations=[])
-
-        # Prompt injection
-        is_threat, threats = Sanitizer.inspect_for_threats(message)
-        if is_threat and any("prompt injection" in t.lower() for t in threats):
-            content = (
-                "🛡️ **Safety Guardrail: Instruction Override Neutralized**\n\n"
-                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
-                "The assistant adheres strictly to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
-            )
-            return ChatMessage(role="assistant", content=content, citations=[])
-
-        # Determine language directive
-        lang_str = language.value if hasattr(language, "value") else str(language).lower()
-        lower_msg = message.strip().lower()
-
-        # Fast-track conversational greetings (<5ms response)
+    def _check_fast_track(self, lower_msg: str, lang_str: str) -> Optional[str]:
+        """Fast-track conversational remarks with sub-5ms latency and zero emojis."""
         if lower_msg in ["hi", "hello", "hey", "namaste", "namaskar", "hi lawpilot", "hello lawpilot", "greetings"]:
             if lang_str in ["hi", "hindi"]:
-                content = (
+                return (
                     "नमस्ते! मैं **LawPilot AI** हूँ, भारत में दैनिक कानूनी मामलों के लिए आपका सहायक।\n\n"
                     "मैं आपके अधिकारों को समझने, साक्ष्य जुटाने और औपचारिक लीगल नोटिस तैयार करने में मदद करता हूँ:\n"
-                    "1. 🏠 **किरायेदारी व मकान मालिक विवाद** (डिपॉज़िट वापसी, अवैध कटौती, मरम्मत)\n"
-                    "2. 🛒 **उपभोक्ता संरक्षण** (दोषपूर्ण उत्पाद, रिफंड में देरी, ई-कॉमर्स धोखाधड़ी)\n"
-                    "3. 💼 **रोजगार व वेतन विवाद** (रुका हुआ वेतन, अनुभव व रिलीविंग लेटर, पूर्ण व अंतिम निपटान)\n\n"
+                    "1. किरायेदारी व मकान मालिक विवाद (डिपॉज़िट वापसी, अवैध कटौती, मरम्मत)\n"
+                    "2. उपभोक्ता संरक्षण (दोषपूर्ण उत्पाद, रिफंड में देरी, ई-कॉमर्स धोखाधड़ी)\n"
+                    "3. रोजगार व वेतन विवाद (रुका हुआ वेतन, अनुभव व रिलीविंग लेटर, पूर्ण व अंतिम निपटान)\n\n"
                     "आज मैं आपकी क्या सहायता कर सकता हूँ? कृपया अपनी समस्या साझा करें।"
                 )
             elif lang_str in ["hinglish"]:
-                content = (
+                return (
                     "Hello! Main **LawPilot AI** hoon, India me everyday legal problems ke liye aapka legal assistant.\n\n"
                     "Main aapko rights samjhne, evidence collect karne aur legal notices draft karne me madad karta hoon:\n"
-                    "1. 🏠 **Rental & Tenancy Issues** (deposit refund, deductions, eviction)\n"
-                    "2. 🛒 **Consumer Protection** (defective products, refund delays, e-commerce issues)\n"
-                    "3. 💼 **Employment & Wages** (unpaid salary, relieving letter, FnF settlement)\n\n"
+                    "1. Rental & Tenancy Issues (deposit refund, deductions, eviction)\n"
+                    "2. Consumer Protection (defective products, refund delays, e-commerce issues)\n"
+                    "3. Employment & Wages (unpaid salary, relieving letter, FnF settlement)\n\n"
                     "Aap apni situation simple English, Hindi ya Hinglish me batayein — main aapko poori legal guidance dunga."
                 )
             else:
-                content = (
+                return (
                     "Hello! I am **LawPilot AI**, your expert conversational legal assistant for everyday civil challenges in India.\n\n"
                     "I specialize in helping you understand your rights, evaluate evidence, and draft formal legal notices across three core areas:\n"
-                    "1. 🏠 **Rental & Tenancy Issues** (security deposit refunds, unlawful deductions, eviction protection)\n"
-                    "2. 🛒 **Consumer Protection** (defective goods, refund delays, e-commerce grievances)\n"
-                    "3. 💼 **Employment & Wages** (unpaid salary, withheld relieving letters, full & final settlement)\n\n"
+                    "1. Rental & Tenancy Issues (security deposit refunds, unlawful deductions, eviction protection)\n"
+                    "2. Consumer Protection (defective goods, refund delays, e-commerce grievances)\n"
+                    "3. Employment & Wages (unpaid salary, withheld relieving letters, full & final settlement)\n\n"
                     "How can I assist you today? Feel free to describe your situation in plain English, Hindi, or Hinglish."
                 )
-            return ChatMessage(role="assistant", content=content, citations=[])
 
-        # Fast-track Name / Identity Check
         if any(p in lower_msg for p in ["what is your name", "who are you", "your name"]):
-            content = (
+            return (
                 "I am **LawPilot AI**, an intelligent legal assistant for ordinary citizens in India. "
                 "I help you understand your legal standing, verify statutory rights, and draft formal notices for tenancy disputes, consumer complaints, and employment matters."
             )
-            return ChatMessage(role="assistant", content=content, citations=[])
 
-        # Fast-track Scope / Help Check
         if any(p in lower_msg for p in ["what can you help me with", "what do you do", "help me with"]):
-            content = (
+            return (
                 "LawPilot AI assists ordinary citizens across three core civil legal domains in India:\n\n"
-                "1. 🏠 **Tenant & Landlord Disputes:** Security deposit non-refunds, arbitrary painting/repair deductions, unlawful eviction threats, and rent agreements.\n"
-                "2. 🛒 **Consumer Protection:** Defective or damaged products, uncredited refunds, e-commerce fraud, and deficiency of services under CPA 2019.\n"
-                "3. 💼 **Employment & Wages:** Unpaid salary dues, delayed FnF settlements, illegal deductions, and withheld relieving letters under the Payment of Wages Act.\n\n"
+                "1. Tenant & Landlord Disputes: Security deposit non-refunds, arbitrary painting/repair deductions, unlawful eviction threats, and rent agreements.\n"
+                "2. Consumer Protection: Defective or damaged products, uncredited refunds, e-commerce fraud, and deficiency of services under CPA 2019.\n"
+                "3. Employment & Wages: Unpaid salary dues, delayed FnF settlements, illegal deductions, and withheld relieving letters under the Payment of Wages Act.\n\n"
                 "You can also attach rent agreements or invoices, or generate formal legal demand notices directly in the chat."
             )
-            return ChatMessage(role="assistant", content=content, citations=[])
 
-        # Fast-track Math
         if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2"]):
-            content = (
+            return (
                 "2 + 2 is **4**.\n\n"
                 "I am LawPilot AI, dedicated to assisting you with Indian legal matters (tenancy, consumer rights, and employment wages). "
                 "How can I help you with your legal situation today?"
             )
-            return ChatMessage(role="assistant", content=content, citations=[])
 
-        # Fast-track Jokes
         if "tell me a joke" in lower_msg or lower_msg == "joke":
-            content = (
-                "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand! 😄\n\n"
+            return (
+                "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand!\n\n"
                 "On a serious note, I am LawPilot AI, ready to assist you with everyday legal problems in India. "
                 "What legal challenge can I help you evaluate today?"
             )
-            return ChatMessage(role="assistant", content=content, citations=[])
 
-        # Fast-track Closings
         if any(w in lower_msg for w in ["bye", "goodbye", "good night", "alvida", "see you"]):
-            content = (
+            return (
                 "Goodbye! Thank you for consulting LawPilot AI. "
                 "If you ever need legal clarity, rights information, or help drafting formal legal notices in the future, I will be here to assist you. Have a great day!"
             )
-            return ChatMessage(role="assistant", content=content, citations=[])
+
+        return None
+
+    def _detect_language(self, message: str, language: Optional[LanguageEnum] = None) -> str:
+        """Automatically detects user language: English, Hindi, Hinglish, or Malayalam."""
+        if language and hasattr(language, "value") and language.value != "en":
+            return language.value
+        lower_msg = message.strip().lower()
+        if any(w in lower_msg for w in [
+            "mera", "meri", "mere", "nahi", "kya", "bhai", "bol raha", "kaat lega", "bhejna hai",
+            "kar sakta hoon", "ab mujhe", "paisa", "rupaye", "chahiye", "karu", "raha hai",
+            "de raha", "dunga", "dena", "apna", "apni", "main", "hum", "madad", "batayein"
+        ]):
+            return "hinglish"
+        if any(ord(char) >= 0x0900 and ord(char) <= 0x097F for char in message):
+            return "hi"
+        if any(ord(char) >= 0x0D00 and ord(char) <= 0x0D7F for char in message):
+            return "ml"
+        return "en"
+
+    def _build_prompt(self, message: str, conversation_history: List[Dict[str, str]], lang_str: str, statutory_context: str) -> str:
+        """Constructs prompt with strict legal formatting rules and zero emojis."""
         if lang_str in ["hi", "hindi"]:
             lang_rule = (
                 "CRITICAL MANDATORY LANGUAGE REQUIREMENT: You MUST reply entirely in pure, clear, empathetic HINDI (हिंदी - Devanagari script).\n"
@@ -751,7 +768,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "'### | आपकी स्थिति (Your Situation)'\n"
                 "'### | आपकी कानूनी स्थिति (Your Legal Position)'\n"
                 "'### | व्यावहारिक अगले कदम (Practical Next Steps)'\n"
-                "'### ℹ️ आपसे आवश्यक जानकारी (Information I still need from you)'\n"
+                "'### आपसे आवश्यक जानकारी (Information I still need from you)'\n"
                 "Explain the legal position and steps in simple Hindi that an ordinary Indian citizen can easily understand.\n"
                 "Do NOT reply in English."
             )
@@ -762,36 +779,41 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "'### | Your Situation (Aapki Situation)'\n"
                 "'### | Your Legal Position (Aapke Kanooni Adhikar)'\n"
                 "'### | Practical Next Steps (Agla Kadam)'\n"
-                "'### ℹ️ Information I still need from you (Zaroori Jankari)'\n"
-                "Explain the points in conversational Hinglish (e.g. 'Aapki situation me landlord bina valid notice ya deduction ke deposit nahi rok sakta. Model Tenancy Act ke mutabik lawful dues ke baad poora deposit return karna hota hai...').\n"
+                "'### Information I still need from you (Zaroori Jankari)'\n"
+                "Explain the points in conversational Hinglish.\n"
                 "Do NOT write in pure English or pure Devanagari script."
+            )
+        elif lang_str in ["ml", "malayalam"]:
+            lang_rule = (
+                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: Reply in MALAYALAM (മലയാളം script) with clear legal terms.\n"
+                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### Information I still need from you'."
             )
         else:
             lang_rule = (
                 "CRITICAL MANDATORY LANGUAGE REQUIREMENT: Reply in plain, clear, professional ENGLISH.\n"
-                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### ℹ️ Information I still need from you'."
+                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### Information I still need from you'."
             )
 
         system_instruction = (
             "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens in India.\n"
             "You cover 3 everyday domains: (1) Tenant & Landlord Disputes, (2) Consumer Protection, (3) Employment Issues.\n\n"
             f"{lang_rule}\n\n"
-            "MANDATORY FORMAT RULES:\n"
+            "MANDATORY FORMAT RULES (NO EMOJIS):\n"
             "For legal questions or disputes, format your answer strictly using this clean layout:\n"
             "1. A friendly, empathetic 1-sentence opening in the chosen language.\n"
             "2. Situation section (Brief 2-sentence summary of the facts: parties, amount, location, key issue)\n"
             "3. Legal Position section (Bullet points explaining statutory rights under Indian law using the verified statutes below. In tenancy, explain reasonable wear and tear. In employment, explain Section 5 Payment of Wages Act. In consumer, explain Section 2(47) CPA 2019. Never invent fake sections or judgments.)\n"
             "4. Practical Next Steps section (Numbered 1, 2, 3: 1. Gather evidence, 2. Send written demand notice granting 15 days, 3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner)\n"
             "5. Information I still need from you section (Ask 1 or 2 targeted missing questions naturally)\n\n"
+            "DO NOT USE EMOJIS in headers or body text. Maintain a clean, professional legal appearance.\n\n"
             "FOR CASUAL REMARKS, GREETINGS ('Hi', 'Hello'), CLOSINGS ('Bye', 'Thank you'), MATH ('2+2'), OR JOKES:\n"
-            "Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI in the chosen language.\n\n"
+            "Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI in the chosen language without emojis.\n\n"
             "ETHICAL BOUNDARIES:\n"
             "- Never guarantee a 100% court win.\n"
             "- Refuse requests to invent non-existent sections.\n"
             f"- Ground your statutory analysis in these verified provisions:\n{statutory_context}\n"
         )
 
-        # Build context from recent history
         history_text = ""
         if conversation_history:
             turns = []
@@ -800,16 +822,53 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 turns.append(f"{role}: {h.get('content', '')}")
             history_text = "\n\nConversation History:\n" + "\n".join(turns)
 
-        full_prompt = f"{system_instruction}{history_text}\n\nCurrent User Message: {message}\nAssistant:"
+        return f"{system_instruction}{history_text}\n\nCurrent User Message: {message}\nAssistant:"
 
+    def generate_response(
+        self,
+        message: str,
+        conversation_history: List[Dict[str, str]],
+        language: Optional[LanguageEnum] = None,
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
+    ) -> ChatMessage:
+        req_id = f"req_{uuid.uuid4().hex[:8]}"
+        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
+        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
+
+        # Pre-screen safety guardrails
+        is_med, med_reply = EscalationDetector.check_medical_emergency(message)
+        if is_med:
+            return ChatMessage(role="assistant", content=med_reply, citations=[], escalation_detected=True)
+
+        is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
+        if is_fraud:
+            return ChatMessage(role="assistant", content=fraud_reply, citations=[])
+
+        is_threat, threats = Sanitizer.inspect_for_threats(message)
+        if is_threat and any("prompt injection" in t.lower() for t in threats):
+            content = (
+                "Safety Guardrail: Instruction Override Neutralized\n\n"
+                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
+                "The assistant adheres strictly to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        lang_str = self._detect_language(message, language)
+        lower_msg = message.strip().lower()
+
+        fast_reply = self._check_fast_track(lower_msg, lang_str)
+        if fast_reply:
+            return ChatMessage(role="assistant", content=fast_reply, citations=[])
+
+        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context)
         headers = {
             "x-goog-api-key": self.api_key,
             "Content-Type": "application/json"
         }
 
-        # Model cascade: try interactions with gemini-3.8-flash (quick check), then gemini-flash-lite-latest, then generateContent
         models_to_try = [("gemini-3.8-flash", 4), ("gemini-flash-lite-latest", 5)]
-
         for model_name, t_sec in models_to_try:
             payload = {
                 "model": model_name,
@@ -862,10 +921,124 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         except Exception as e:
             logger.warning(f"ReqID={req_id} | generateContent fallback exception: {e}")
 
-        # If Interactions API fails or times out, seamlessly use the Grounded Structured Deterministic Provider
         logger.info(f"ReqID={req_id} | Falling back to Structured Deterministic Provider")
         demo = DeterministicDemoProvider()
-        return demo.generate_response(message, conversation_history, language, state_jurisdiction, session_id)
+        return demo.generate_response(message, conversation_history, language or LanguageEnum.ENGLISH, state_jurisdiction, session_id)
+
+    def generate_stream(
+        self,
+        message: str,
+        conversation_history: List[Dict[str, str]],
+        language: Optional[LanguageEnum] = None,
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
+    ):
+        """
+        Genuine token streaming directly from Google Gemini API with Server-Sent Events.
+        Falls back seamlessly to Deterministic streaming on API quotas or network timeouts.
+        """
+        req_id = f"req_{uuid.uuid4().hex[:8]}"
+        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
+        citations_data = [c.dict() for c in citations]
+        from app.core.title_generator import generate_conversation_title
+        title = generate_conversation_title(message, case.category)
+
+        # 1. Early metadata event
+        yield {"type": "metadata", "title": title, "citations": citations_data}
+
+        # 2. Safety checks
+        is_med, med_reply = EscalationDetector.check_medical_emergency(message)
+        if is_med:
+            for chunk in re.split(r'(\s+)', med_reply):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": title, "citations": [], "content": med_reply}
+            return
+
+        is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
+        if is_fraud:
+            for chunk in re.split(r'(\s+)', fraud_reply):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": title, "citations": [], "content": fraud_reply}
+            return
+
+        is_threat, threats = Sanitizer.inspect_for_threats(message)
+        if is_threat and any("prompt injection" in t.lower() for t in threats):
+            content = (
+                "Safety Guardrail: Instruction Override Neutralized\n\n"
+                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
+                "The assistant adheres strictly to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
+            )
+            for chunk in re.split(r'(\s+)', content):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": title, "citations": [], "content": content}
+            return
+
+        # 3. Language auto-detection
+        lang_str = self._detect_language(message, language)
+        lower_msg = message.strip().lower()
+
+        # 4. Fast-track conversational responses (<5ms)
+        fast_reply = self._check_fast_track(lower_msg, lang_str)
+        if fast_reply:
+            for chunk in re.split(r'(\s+)', fast_reply):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": title, "citations": citations_data, "content": fast_reply}
+            return
+
+        # 5. Genuine Google Gemini SSE Streaming
+        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
+        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context)
+
+        stream_models = ["gemini-flash-lite-latest", "gemini-3.8-flash"]
+        full_output = ""
+        stream_success = False
+
+        for model_name in stream_models:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:streamGenerateContent?key={self.api_key}&alt=sse"
+            payload = {
+                "contents": [{"parts": [{"text": full_prompt}]}]
+            }
+            logger.info(f"ReqID={req_id} | Connecting to genuine streamGenerateContent with model={model_name}")
+            try:
+                resp = requests.post(url, json=payload, stream=True, timeout=12)
+                if resp.status_code == 200:
+                    for line in resp.iter_lines(decode_unicode=True):
+                        if line and line.startswith("data: "):
+                            data_str = line[6:].strip()
+                            if data_str:
+                                try:
+                                    data_obj = json.loads(data_str)
+                                    cands = data_obj.get("candidates", [])
+                                    if cands:
+                                        parts = cands[0].get("content", {}).get("parts", [])
+                                        if parts and "text" in parts[0]:
+                                            token_text = parts[0]["text"]
+                                            full_output += token_text
+                                            yield {"type": "token", "content": token_text}
+                                except Exception:
+                                    pass
+                    if full_output.strip():
+                        stream_success = True
+                        break
+                else:
+                    logger.warning(f"ReqID={req_id} | Stream model {model_name} HTTP {resp.status_code}")
+            except Exception as e:
+                logger.warning(f"ReqID={req_id} | Stream model {model_name} error: {e}")
+
+        if stream_success:
+            yield {"type": "done", "title": title, "citations": citations_data, "content": full_output.strip()}
+            return
+
+        # 6. Fallback to Structured Deterministic Provider
+        logger.info(f"ReqID={req_id} | Falling back to Deterministic streaming")
+        demo = DeterministicDemoProvider()
+        for event in demo.generate_stream(message, conversation_history, language, state_jurisdiction, session_id):
+            yield event
 
 
 class LLMProviderFactory:

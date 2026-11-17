@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LawPilot AI — India Legal Assistant</title>
     <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%2024%2024%22 fill=%22none%22 stroke=%22%232563eb%22 stroke-width=%222%22><path d=%22m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z%22/><path d=%22m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z%22/><path d=%22M7 21h10%22/><path d=%22M12 3v18%22/><path d=%22M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2%22/></svg>">
 </head>
 <body>
 
@@ -45,11 +45,22 @@
             <!-- Sidebar Footer -->
             <div class="sidebar-footer">
                 <button class="footer-link" id="settingsBtn">
-                    <span class="footer-icon">⚙️</span>
+                    <span class="footer-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </span>
                     <span>Settings</span>
                 </button>
                 <button class="footer-link" id="aboutBtn">
-                    <span class="footer-icon">ℹ️</span>
+                    <span class="footer-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </span>
                     <span>About LawPilot AI</span>
                 </button>
             </div>
@@ -67,13 +78,6 @@
                     <div class="grounded-pill">
                         <span class="grounded-dot"></span>
                         <span>Grounded in Official Sources</span>
-                    </div>
-                    <div class="language-dropdown-wrapper">
-                        <select id="languageSelect" class="language-select" title="Choose response language: English, Hindi, or Hinglish">
-                            <option value="en" selected>English</option>
-                            <option value="hi">हिंदी (Hindi)</option>
-                            <option value="hinglish">Hinglish</option>
-                        </select>
                     </div>
                 </div>
             </header>
@@ -93,25 +97,45 @@
                     </div>
                     <h1 class="welcome-heading">How can I help you today?</h1>
                     <p class="welcome-desc">
-                        Describe your legal problem in plain English, Hindi, or Hinglish.
-                        LawPilot AI analyzes your facts, clarifies your rights under Indian law, and generates formal notices.
+                        Describe your legal problem. LawPilot AI analyzes your facts, clarifies your rights under Indian law, and generates formal legal notices.
                     </p>
 
                     <div class="prompts-grid">
                         <button class="prompt-card" onclick="useExamplePrompt('My landlord in Jaipur is refusing to return my ₹25,000 security deposit. I vacated the flat 20 days ago. What can I do?')">
-                            <span class="prompt-icon">🏠</span>
+                            <span class="prompt-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </span>
                             <span class="prompt-text">My landlord in Jaipur is refusing to return my ₹25,000 security deposit.</span>
                         </button>
                         <button class="prompt-card" onclick="useExamplePrompt('I purchased a defective phone online and the seller is refusing a refund.')">
-                            <span class="prompt-icon">🛒</span>
+                            <span class="prompt-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <circle cx="8" cy="21" r="1"/>
+                                    <circle cx="19" cy="21" r="1"/>
+                                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+                                </svg>
+                            </span>
                             <span class="prompt-text">I bought a defective product and the seller is refusing a refund.</span>
                         </button>
                         <button class="prompt-card" onclick="useExamplePrompt('My employer in Bangalore has not paid my salary for two months.')">
-                            <span class="prompt-icon">💼</span>
+                            <span class="prompt-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                </svg>
+                            </span>
                             <span class="prompt-text">My company has not paid my salary for two months.</span>
                         </button>
                         <button class="prompt-card" onclick="useExamplePrompt('Help me understand a legal notice I received from my landlord.')">
-                            <span class="prompt-icon">📑</span>
+                            <span class="prompt-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </span>
                             <span class="prompt-text">Help me understand a legal notice I received.</span>
                         </button>
                     </div>
@@ -123,9 +147,6 @@
 
             <!-- Floating Bottom Input Area -->
             <footer class="bottom-input-area">
-                <!-- Subtle language switch notification toast -->
-                <div class="lang-switch-toast" id="langSwitchToast" style="display: none;"></div>
-
                 <!-- Voice Permission / Error Alert -->
                 <div class="voice-error-toast" id="voiceErrorToast" style="display: none;"></div>
 
@@ -139,7 +160,7 @@
                     </button>
 
                     <!-- Standard Mode: Text input textarea -->
-                    <textarea id="chatInput" rows="1" placeholder="Describe your legal problem in plain English..." autofocus></textarea>
+                    <textarea id="chatInput" rows="1" placeholder="Describe your legal problem..." autofocus></textarea>
 
                     <!-- Standard Mode: Microphone button -->
                     <button class="tool-btn" id="voiceBtn" title="Speak via microphone">
@@ -202,16 +223,16 @@
     <div class="modal-overlay" id="docModal" style="display: none;">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 class="modal-title" id="modalDocTitle">📄 Formal Legal Document Draft</h3>
+                <h3 class="modal-title" id="modalDocTitle">Formal Legal Document Draft</h3>
                 <button class="modal-close-btn" onclick="closeDocModal()">✕</button>
             </div>
             <div class="modal-body">
                 <pre class="modal-doc-pre" id="modalDocContent"></pre>
             </div>
             <div class="modal-footer">
-                <button class="modal-action-btn primary" id="modalDownloadPdf">⬇️ Download PDF</button>
-                <button class="modal-action-btn secondary" id="modalDownloadDocx">⬇️ Download Word (DOCX)</button>
-                <button class="modal-action-btn tertiary" id="modalCopyBtn">📋 Copy Text</button>
+                <button class="modal-action-btn primary" id="modalDownloadPdf">Download PDF</button>
+                <button class="modal-action-btn secondary" id="modalDownloadDocx">Download Word (DOCX)</button>
+                <button class="modal-action-btn tertiary" id="modalCopyBtn">Copy Text</button>
             </div>
         </div>
     </div>
@@ -220,7 +241,7 @@
     <div class="modal-overlay" id="settingsModal" style="display: none;">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 class="modal-title">⚙️ LawPilot AI Settings</h3>
+                <h3 class="modal-title">LawPilot AI Settings</h3>
                 <button class="modal-close-btn" onclick="closeSettingsModal()">✕</button>
             </div>
             <div class="modal-body">

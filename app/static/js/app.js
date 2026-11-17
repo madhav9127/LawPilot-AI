@@ -1005,7 +1005,10 @@ function closeDocModal() {
 
 function openSettingsModal() {
     const settingsModal = document.getElementById('settingsModal');
-    if (settingsModal) settingsModal.style.display = 'flex';
+    if (settingsModal) {
+        settingsModal.style.display = 'flex';
+        loadSystemStatus();
+    }
 }
 
 function closeSettingsModal() {
@@ -1013,7 +1016,71 @@ function closeSettingsModal() {
     if (settingsModal) settingsModal.style.display = 'none';
 }
 
+async function loadSystemStatus() {
+    try {
+        const res = await fetch('/api/system/status');
+        if (!res.ok) return;
+        const data = await res.json();
+
+        // 1. AI Engine
+        if (data.ai_engine) {
+            const provEl = document.getElementById('statusProvider');
+            if (provEl && data.ai_engine.provider) provEl.textContent = data.ai_engine.provider;
+
+            const modelEl = document.getElementById('statusModel');
+            if (modelEl && data.ai_engine.model) modelEl.textContent = data.ai_engine.model;
+
+            const connEl = document.getElementById('statusConnection');
+            if (connEl && data.ai_engine.connection_status) {
+                connEl.innerHTML = `<span class="status-dot"></span> ${data.ai_engine.connection_status}`;
+            }
+        }
+
+        // 2. Knowledge & Grounding
+        if (data.knowledge_and_grounding) {
+            const ragEl = document.getElementById('statusRag');
+            if (ragEl) {
+                const isRag = data.knowledge_and_grounding.rag_enabled;
+                ragEl.innerHTML = `<span class="status-dot"></span> ${isRag ? 'Enabled (Pre-generation Statutory Retrieval)' : 'Disabled'}`;
+            }
+
+            const retEl = document.getElementById('statusRetrieval');
+            if (retEl) {
+                const isAvail = data.knowledge_and_grounding.retrieval_available;
+                retEl.innerHTML = `<span class="status-dot"></span> ${isAvail ? 'Online & Available' : 'Unavailable'}`;
+            }
+        }
+
+        // 3. Capabilities
+        if (data.capabilities) {
+            const multiEl = document.getElementById('statusMultilingual');
+            if (multiEl && data.capabilities.multilingual_support) {
+                multiEl.textContent = data.capabilities.multilingual_support;
+            }
+
+            const voiceEl = document.getElementById('statusVoice');
+            if (voiceEl && data.capabilities.voice_input) {
+                voiceEl.innerHTML = `<span class="status-dot"></span> ${data.capabilities.voice_input}`;
+            }
+
+            const memEl = document.getElementById('statusMemory');
+            if (memEl && data.capabilities.conversation_memory) {
+                memEl.textContent = data.capabilities.conversation_memory;
+            }
+
+            const docEl = document.getElementById('statusDocGen');
+            if (docEl && data.capabilities.document_generation) {
+                docEl.textContent = data.capabilities.document_generation;
+            }
+        }
+    } catch (err) {
+        console.warn('System status update error:', err);
+    }
+}
+
 function initModals() {
+    loadSystemStatus();
+
     const settingsBtn = document.getElementById('settingsBtn');
     if (settingsBtn) {
         settingsBtn.addEventListener('click', openSettingsModal);

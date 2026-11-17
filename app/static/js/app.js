@@ -424,52 +424,260 @@ function initFileUpload() {
     }
 }
 
-/* --- Web Speech API (Microphone) --- */
+/* --- ChatGPT-Style Responsive Voice Speech Recognition --- */
 function initSpeech() {
     const voiceBtn = document.getElementById('voiceBtn');
-    if (!voiceBtn) return;
+    const chatInput = document.getElementById('chatInput');
+    const inputCard = document.getElementById('floatingInputCard');
+    const voiceBanner = document.getElementById('voiceListeningBanner');
+    const voiceDoneBtn = document.getElementById('voiceDoneBtn');
+    const voiceLangHint = document.getElementById('voiceLangHint');
+    const errorToast = document.getElementById('voiceErrorToast');
+    const eqBarsContainer = document.getElementById('voiceEqBars');
+
+    if (!voiceBtn || !chatInput) return;
 
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        voiceBtn.style.display = 'none';
+        voiceBtn.title = 'Speech recognition not supported in this browser';
+        voiceBtn.style.opacity = '0.4';
         return;
     }
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.lang = 'en-IN';
-
+    let recognition = null;
     let isListening = false;
+    let startingText = '';
+    let committedTranscript = '';
+    let originalPlaceholder = chatInput.placeholder || "Describe your legal problem in English, Hindi, or any language...";
 
-    voiceBtn.addEventListener('click', () => {
-        if (!isListening) {
-            recognition.start();
-            voiceBtn.style.color = '#dc2626';
+    // Audio Visualizer State
+    let audioStream = null;
+    let audioCtx = null;
+    let analyserNode = null;
+    let visualizerAnimationId = null;
+
+    function getSelectedLang() {
+        const langSelect = document.getElementById('languageSelect');
+        const langVal = langSelect ? langSelect.value : 'en';
+        if (langVal === 'hi') return 'hi-IN';
+        if (langVal === 'hinglish') return 'hi-IN';
+        return 'en-IN';
+    }
+
+    function createRecognitionInstance() {
+        const rec = new SpeechRecognition();
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.maxAlternatives = 1;
+        rec.lang = getSelectedLang();
+
+        rec.onstart = () => {
             isListening = true;
+            startingText = chatInput.value ? (chatInput.value.trim() + ' ') : '';
+            committedTranscript = '';
+            
+            // UI Animations (ChatGPT-style)
+            voiceBtn.classList.add('listening');
+            voiceBtn.title = 'Click to finish speaking';
+            if (inputCard) inputCard.classList.add('listening');
+            if (voiceBanner) voiceBanner.style.display = 'flex';
+            if (errorToast) errorToast.style.display = 'none';
+
+            // Placeholder feedback
+            chatInput.placeholder = "Listening... Speak your legal problem now (English / हिंदी / Hinglish)...";
+
+            // Language hint update
+            if (voiceLangHint) {
+                const lang = getSelectedLang();
+                if (lang === 'hi-IN') {
+                    voiceLangHint.innerText = 'हिंदी या हिंग्लिश में बोलें';
+                } else {
+                    voiceLangHint.innerText = 'Speak in Indian English or Hindi';
+                }
+            }
+
+            // Start reactive sound wave
+            startAudioWave();
+        };
+
+        rec.onresult = (event) => {
+            let interimTranscript = '';
+            let newFinal = '';
+
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                const text = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    newFinal += text + ' ';
+                } else {
+                    interimTranscript += text;
+                }
+            }
+
+            if (newFinal) {
+                committedTranscript += newFinal;
+            }
+
+            // Live real-time streaming into the textarea!
+            const liveTotal = (startingText + committedTranscript + interimTranscript).trim();
+            chatInput.value = liveTotal;
+
+            // Auto-resize input box to fit dictated content
+            chatInput.style.height = 'auto';
+            chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
+        };
+
+        rec.onerror = (event) => {
+            console.warn("Speech recognition error:", event.error);
+            if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                showVoiceError("⚠️ Microphone access denied. Please click the lock icon in your browser address bar to allow microphone.");
+            } else if (event.error === 'network') {
+                showVoiceError("⚠️ Voice recognition network glitch. You can type directly in the input box.");
+            }
+            stopListening();
+        };
+
+        rec.onend = () => {
+            if (isListening) {
+                // If stopped unexpectedly by engine, stop gracefully
+                stopListening();
+            }
+        };
+
+        return rec;
+    }
+
+    function showVoiceError(msg) {
+        if (!errorToast) return;
+        errorToast.innerHTML = `<span>${msg}</span><button onclick="document.getElementById('voiceErrorToast').style.display='none'">✕</button>`;
+        errorToast.style.display = 'flex';
+        setTimeout(() => {
+            if (errorToast) errorToast.style.display = 'none';
+        }, 8000);
+    }
+
+    async function startAudioWave() {
+        if (eqBarsContainer) {
+            eqBarsContainer.classList.add('animated');
+        }
+
+        try {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    audioCtx = new AudioContext();
+                    analyserNode = audioCtx.createAnalyser();
+                    analyserNode.fftSize = 32;
+                    const source = audioCtx.createMediaStreamSource(audioStream);
+                    source.connect(analyserNode);
+
+                    const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
+                    const bars = eqBarsContainer ? eqBarsContainer.querySelectorAll('.eq-bar') : [];
+
+                    function animateBars() {
+                        if (!isListening) return;
+                        analyserNode.getByteFrequencyData(dataArray);
+
+                        let sum = 0;
+                        for (let i = 0; i < dataArray.length; i++) {
+                            sum += dataArray[i];
+                        }
+                        const avg = sum / dataArray.length;
+
+                        bars.forEach((bar, index) => {
+                            const freqVal = dataArray[index * 2] || avg;
+                            const scale = Math.max(0.25, Math.min(2.2, freqVal / 38));
+                            bar.style.transform = `scaleY(${scale})`;
+                        });
+
+                        visualizerAnimationId = requestAnimationFrame(animateBars);
+                    }
+                    animateBars();
+                }
+            }
+        } catch (e) {
+            // If microphone stream for Web Audio isn't accessible, CSS keyframes animate smoothly
+            console.log("Using CSS wave animation for voice equalizer");
+        }
+    }
+
+    function stopAudioWave() {
+        if (visualizerAnimationId) {
+            cancelAnimationFrame(visualizerAnimationId);
+            visualizerAnimationId = null;
+        }
+        if (audioStream) {
+            audioStream.getTracks().forEach(track => track.stop());
+            audioStream = null;
+        }
+        if (audioCtx && audioCtx.state !== 'closed') {
+            audioCtx.close();
+            audioCtx = null;
+        }
+        if (eqBarsContainer) {
+            const bars = eqBarsContainer.querySelectorAll('.eq-bar');
+            bars.forEach(bar => { bar.style.transform = ''; });
+        }
+    }
+
+    function stopListening() {
+        isListening = false;
+        if (recognition) {
+            try {
+                recognition.stop();
+            } catch (e) {}
+            recognition = null;
+        }
+
+        stopAudioWave();
+
+        // UI Reset
+        voiceBtn.classList.remove('listening');
+        voiceBtn.title = 'Speak via microphone';
+        if (inputCard) inputCard.classList.remove('listening');
+        if (voiceBanner) voiceBanner.style.display = 'none';
+
+        chatInput.placeholder = originalPlaceholder;
+        chatInput.focus();
+    }
+
+    function startListening() {
+        if (isListening) return;
+        try {
+            recognition = createRecognitionInstance();
+            recognition.start();
+        } catch (e) {
+            console.error("Could not start speech recognition:", e);
+            stopListening();
+        }
+    }
+
+    // Toggle button handler
+    voiceBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (isListening) {
+            stopListening();
         } else {
-            recognition.stop();
-            voiceBtn.style.color = '';
-            isListening = false;
+            startListening();
         }
     });
 
-    recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        const input = document.getElementById('chatInput');
-        input.value = input.value ? (input.value + ' ' + transcript) : transcript;
-        input.focus();
-        voiceBtn.style.color = '';
-        isListening = false;
-    };
+    // Done button on voice banner
+    if (voiceDoneBtn) {
+        voiceDoneBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            stopListening();
+        });
+    }
 
-    recognition.onerror = () => {
-        voiceBtn.style.color = '';
-        isListening = false;
-    };
-
-    recognition.onend = () => {
-        voiceBtn.style.color = '';
-        isListening = false;
-    };
+    // When language changes in top dropdown, update recognition language if active
+    const langSelect = document.getElementById('languageSelect');
+    if (langSelect) {
+        langSelect.addEventListener('change', () => {
+            if (isListening) {
+                stopListening();
+                setTimeout(() => startListening(), 200);
+            }
+        });
+    }
 }

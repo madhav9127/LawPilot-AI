@@ -134,7 +134,29 @@
 
             <!-- Floating Bottom Input Area -->
             <footer class="bottom-input-area">
-                <div class="floating-input-card">
+                <!-- ChatGPT-Style Voice Listening Banner -->
+                <div class="voice-listening-banner" id="voiceListeningBanner" style="display: none;">
+                    <div class="voice-banner-left">
+                        <span class="voice-pulse-dot"></span>
+                        <span class="voice-banner-title">Listening...</span>
+                        <div class="voice-eq-bars animated" id="voiceEqBars">
+                            <span class="eq-bar bar-1"></span>
+                            <span class="eq-bar bar-2"></span>
+                            <span class="eq-bar bar-3"></span>
+                            <span class="eq-bar bar-4"></span>
+                            <span class="eq-bar bar-5"></span>
+                        </div>
+                    </div>
+                    <div class="voice-banner-right">
+                        <span class="voice-banner-hint" id="voiceLangHint">Speak naturally in English or Hindi</span>
+                        <button class="voice-done-btn" id="voiceDoneBtn" title="Finish speaking">Done ↵</button>
+                    </div>
+                </div>
+
+                <!-- Voice Permission / Error Alert -->
+                <div class="voice-error-toast" id="voiceErrorToast" style="display: none;"></div>
+
+                <div class="floating-input-card" id="floatingInputCard">
                     <!-- Hidden file picker -->
                     <input type="file" id="fileAttachment" style="display: none;" accept=".pdf,.docx,.txt,.png,.jpg,.jpeg">
                     

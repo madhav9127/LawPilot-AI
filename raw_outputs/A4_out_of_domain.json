@@ -1,0 +1,54 @@
+{
+  "test_id": "A4",
+  "input": "My neighbor committed murder and I want advice on how to file for patent infringement and divorce custody.",
+  "expected": "Identify query falls outside core domains (Tenant, Consumer, Employment); state clear limitations; advise NALSA 15100 or criminal/family advocate.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\nℹ️ **Jurisdiction & Domain Scope Notice**\n\nThis query falls outside LawPilot AI's core specialized domains (Tenant Disputes, Consumer Protection, and Employment Issues).\n\n**Important Limitation:** For criminal matters, matrimonial disputes (divorce/custody), or specialized intellectual property, automated guidance cannot provide reliable procedural coverage. You must consult a qualified advocate specializing in criminal or family law.\n\n**Legal Aid Option:** If you cannot afford an advocate, you may apply for free legal aid through the National Legal Services Authority (NALSA) at https://nalsa.gov.in/ or call the national helpline **15100**.",
+  "citations": [],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "general",
+    "sub_category": "general_inquiry",
+    "user_role": "Aggrieved Party",
+    "counterparty_name": "Opposing Party",
+    "counterparty_role": "Opposing Party",
+    "incident_description": "My neighbor committed murder and I want advice on how to file for patent infringement and divorce custody.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": null,
+      "formatted_primary": "Not specified"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Exact financial amount in dispute (in ₹).",
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "All India",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.624348"
+  },
+  "full_generated_document": null,
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 95.0,
+    "case_extraction": 90.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 90.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 94.2,
+  "passed": true
+}

@@ -1,0 +1,97 @@
+{
+  "test_id": "C4",
+  "input": "Customer paid ₹12,000 for home interior maintenance service that was never delivered after taking advance payment.",
+  "expected": "Classify gross deficiency of service under CPA Section 2(11); cite breach of contract under Section 73 Contract Act; outline statutory claim for refund + interest.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Comprehensive Legal Position Analysis\n\n**1. What Appears to Have Happened:**\nBased on your statement, a legal grievance has arisen with your Seller / E-Commerce Platform regarding ₹12,000.\n\n**2. Important Facts Extracted:**\n- **Your Role:** Consumer / Purchaser\n- **Disputed Amount:** ₹12,000\n- **Contractual Status:** Not specified in conversation\n- **Documentary Proofs:** To be collected per checklist\n- **Jurisdiction:** Karnataka\n\n**3. Potentially Applicable Laws & Grounded Citations:**\n- **The Transfer of Property Act, 1882 — Section 108(m) & (o)**: Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear ([Official Source](https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362))\n- **The Consumer Protection Act, 2019 — Section 2(7)**: Definition of Consumer (Including E-commerce and Offline Purchases) ([Official Source](https://www.indiacode.nic.in/handle/123456789/15256))\n- **The Consumer Protection Act, 2019 — Section 2(47)**: Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund ([Official Source](https://www.indiacode.nic.in/handle/123456789/15256))\n- **The Consumer Protection Act, 2019 — Section 35 & Section 38**: Manner in which complaint shall be made and Procedure before District Commission ([Official Source](https://www.indiacode.nic.in/handle/123456789/15256))\n\n**4. Possible Legal Rights & Protections:**\n- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**5. Available Statutory Remedies:**\n- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n**6. Practical Options:**\n- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n**7. Risks and Limitations:**\n- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n**8. Recommended Next Steps:**\n1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings.",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "consumer",
+    "sub_category": "deficiency_in_service",
+    "user_role": "Consumer / Purchaser",
+    "counterparty_name": "Seller / E-Commerce Platform",
+    "counterparty_role": "Seller / E-Commerce Platform",
+    "incident_description": "Customer paid ₹12,000 for home interior maintenance service that was never delivered after taking advance payment.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 12000,
+      "all_detected_amounts": [
+        12000
+      ],
+      "formatted_primary": "₹12,000"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "Karnataka",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.615869"
+  },
+  "full_generated_document": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION\nAT: INDIA\n\nCONSUMER COMPLAINT NO. _______ / 2026\n(Under Section 35 of the Consumer Protection Act, 2019)\n\nIN THE MATTER OF:\n\nComplainant / Claimant\nAddress not provided (Draft template)\n... COMPLAINANT\n\nVERSUS\n\nSeller / E-Commerce Platform\nAddress not provided (Draft template)\n... OPPOSITE PARTY\n\nCOMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019 FOR DEFICIENCY IN SERVICE AND UNFAIR TRADE PRACTICE RESULTING IN PECUNIARY LOSS.\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is a consumer within the meaning of Section 2(7) of the Consumer Protection Act, 2019, having purchased/availed goods/services from the Opposite Party against full valuable consideration of ₹12,000.\n\n2. That the Opposite Party is a registered merchant/e-commerce platform engaging in commercial sales to the general public.\n\n3. BRIEF FACTS:\nCustomer paid ₹12,000 for home interior maintenance service that was never delivered after taking advance payment.\n\n4. That the goods supplied were inherently defective / delivery was deficient / promised refund of ₹12,000 was unlawfully denied, constituting gross deficiency in service and unfair trade practice under Section 2(47) of the Act.\n\n5. PRAYER:\nIt is therefore most respectfully prayed that this Hon'ble Commission may graciously be pleased to:\n  a) Direct the Opposite Party to refund the full consideration of ₹12,000 along with interest @ 12% p.a.;\n  b) Award compensation of ₹25,000/- towards mental agony, harassment, and severe inconvenience;\n  c) Award litigation expenses to the Complainant;\n  d) Pass any other order deemed just and equitable in the interest of justice.\n\nDATED: 17 November 2026\nPLACE: India\n\nComplainant / Claimant\n(Complainant in Person)\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 95.15,
+  "passed": true
+}

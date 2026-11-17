@@ -1,0 +1,97 @@
+{
+  "test_id": "T1",
+  "input": "Tenant paid ₹25,000 as security deposit. Landlord refuses to return it after the tenant vacates.",
+  "expected": "Identify deposit withholding; extract ₹25,000; cite TPA Section 108 / Model Tenancy Act; advise 15-day demand notice.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Comprehensive Legal Position Analysis\n\n**1. What Appears to Have Happened:**\nBased on your statement, a legal grievance has arisen with your Landlord / Property Owner regarding ₹25,000.\n\n**2. Important Facts Extracted:**\n- **Your Role:** Tenant\n- **Disputed Amount:** ₹25,000\n- **Contractual Status:** Not specified in conversation\n- **Documentary Proofs:** To be collected per checklist\n- **Jurisdiction:** Karnataka\n\n**3. Potentially Applicable Laws & Grounded Citations:**\n- **Model Tenancy Act, 2021 (Guidelines & State Enactments) — Section 11 & Section 13**: Cap on Security Deposit and Condition for Deductions ([Official Source](https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf))\n- **The Transfer of Property Act, 1882 — Section 108(m) & (o)**: Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear ([Official Source](https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362))\n- **The Transfer of Property Act, 1882 — Section 106**: Duration of certain leases in absence of written contract or local usage ([Official Source](https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362))\n- **The Specific Relief Act, 1963 — Section 6**: Suit by person dispossessed of immovable property without due process ([Official Source](https://www.indiacode.nic.in/handle/123456789/1583))\n\n**4. Possible Legal Rights & Protections:**\n- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**5. Available Statutory Remedies:**\n- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n**6. Practical Options:**\n- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n**7. Risks and Limitations:**\n- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n**8. Recommended Next Steps:**\n1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings.",
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "tenant",
+    "sub_category": "security_deposit_withheld",
+    "user_role": "Tenant",
+    "counterparty_name": "Landlord / Property Owner",
+    "counterparty_role": "Landlord / Property Owner",
+    "incident_description": "Tenant paid ₹25,000 as security deposit. Landlord refuses to return it after the tenant vacates.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 25000,
+      "all_detected_amounts": [
+        25000
+      ],
+      "formatted_primary": "₹25,000"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "Karnataka",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.605893"
+  },
+  "full_generated_document": "FORMAL WRITTEN DEMAND FOR REFUND OF SECURITY DEPOSIT\n(Sent via Registered Post A.D. / Speed Post / Email)\n\nDate: 17 November 2026\n\nFROM:\nComplainant / Claimant\nAddress not provided (Draft template)\n\nTO:\nLandlord / Property Owner\nAddress not provided (Draft template)\n\nSUBJECT: Formal Demand for immediate refund of Security Deposit amount of ₹25,000 in respect of tenancy at the subject premises.\n\nSir / Madam,\n\n1. That I was inducted as a lawful tenant into the residential premises under your ownership/management, having paid an upfront refundable security deposit amounting to ₹25,000.\n\n2. That during the entire subsistence of the tenancy, I regularly cleared monthly rent and utility charges without default, fulfilling all reciprocal obligations under law.\n\n3. That peaceful and vacant possession of the premises was formally handed over on or about As specified in communication. The premises was delivered in clean, habitable condition, subject only to normal wear and tear recognized under Section 108(m) of the Transfer of Property Act, 1882.\n\n4. That despite repeated amicable requests and follow-ups, you have wrongfully withheld/delayed refunding the said security deposit of ₹25,000, without any legitimate justification or itemized damage proofs.\n\n5. DEMAND: You are hereby called upon to refund the entire sum of ₹25,000 to my bank account within 15 days of receipt of this notice, failing which I shall be constrained to initiate appropriate legal remedies before the competent Rent Authority / Civil Court under applicable laws, including claiming statutory interest @ 18% p.a. and litigation costs entirely at your risk.\n\nYours sincerely,\n\nComplainant / Claimant\n(Tenant / Aggrieved Party)\n\n--------------------------------------------------\nLEGAL NOTICE DISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 95.15,
+  "passed": true
+}

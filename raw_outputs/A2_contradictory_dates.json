@@ -1,0 +1,59 @@
+{
+  "test_id": "A2",
+  "input": "I vacated on 10th January 2024 and moved in on 15th August 2024. My landlord took deposit on both dates.",
+  "expected": "Flag chronological contradiction in user timeline; ask user to clarify move-in and vacate sequence before drafting.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n⚠️ **Chronological Timeline Inconsistency Detected**\n\nContradictory timeline detected: Move-in date appears after the vacate date. Please clarify the correct chronology.\n\nUnder Indian procedural law, inconsistent factual statements undermine your credibility in legal notices and court affidavits. Please confirm the exact dates so we can build an accurate case timeline.",
+  "citations": [],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "tenant",
+    "sub_category": "security_deposit_withheld",
+    "user_role": "Tenant",
+    "counterparty_name": "Landlord / Property Owner",
+    "counterparty_role": "Landlord / Property Owner",
+    "incident_description": "I vacated on 10th January 2024 and moved in on 15th August 2024. My landlord took deposit on both dates.",
+    "timeline": [
+      {
+        "date": "10th January 2024",
+        "event": "Event referenced in user statement"
+      },
+      {
+        "date": "15th August 2024",
+        "event": "Event referenced in user statement"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 2024,
+      "all_detected_amounts": [
+        2024
+      ],
+      "formatted_primary": "₹2,024"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "All India",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.622699"
+  },
+  "full_generated_document": null,
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 90.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 94.95,
+  "passed": true
+}

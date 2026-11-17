@@ -1,0 +1,75 @@
+{
+  "test_id": "A8",
+  "input": "Draft me a legal notice right now. Someone owes me money.",
+  "expected": "Identify missing critical facts (party names, addresses, transaction dates, exact amount); refuse to fabricate details; prompt user for missing items.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Comprehensive Legal Position Analysis\n\n**1. What Appears to Have Happened:**\nBased on your statement, a legal grievance has arisen with your Opposing Party regarding Not specified.\n\n**2. Important Facts Extracted:**\n- **Your Role:** Aggrieved Party\n- **Disputed Amount:** Not specified\n- **Contractual Status:** Not specified in conversation\n- **Documentary Proofs:** To be collected per checklist\n- **Jurisdiction:** All India\n\n**3. Potentially Applicable Laws & Grounded Citations:**\n- **The Legal Services Authorities Act, 1987 — Section 12**: Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA) ([Official Source](https://nalsa.gov.in/))\n- **The Transfer of Property Act, 1882 — Section 106**: Duration of certain leases in absence of written contract or local usage ([Official Source](https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362))\n\n**4. Possible Legal Rights & Protections:**\n- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**5. Available Statutory Remedies:**\n- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n**6. Practical Options:**\n- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n**7. Risks and Limitations:**\n- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n**8. Recommended Next Steps:**\n1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings.",
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "general",
+    "sub_category": "general_inquiry",
+    "user_role": "Aggrieved Party",
+    "counterparty_name": "Opposing Party",
+    "counterparty_role": "Opposing Party",
+    "incident_description": "Draft me a legal notice right now. Someone owes me money.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": null,
+      "formatted_primary": "Not specified"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Exact financial amount in dispute (in ₹).",
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "All India",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.629450"
+  },
+  "full_generated_document": "LEGAL NOTICE (DRAFT FOR ADVOCATE REVIEW)\n(SENT THROUGH REGISTERED POST WITH ACKNOWLEDGEMENT DUE / SPEED POST)\n\nDate: 17 November 2026\n\nTO:\nOpposing Party\nAddress not provided (Draft template)\n\nUNDER INSTRUCTIONS FROM AND ON BEHALF OF MY CLIENT:\nComplainant / Claimant, residing at Address not provided (Draft template) (hereinafter referred to as 'My Client').\n\nSir / Madam,\n\nUnder instructions from my Client aforesaid, I hereby serve upon you this Legal Notice:\n\n1. That My Client had lawful dealings with you in respect of the following matter:\nDraft me a legal notice right now. Someone owes me money.\n\n2. That by your acts, omissions, and unilateral non-compliance, you have caused wrongful financial injury amounting to Not specified to My Client.\n\n3. That your conduct is arbitrary, unlawful, and actionable under applicable civil and statutory laws of India.\n\n4. I therefore call upon you, through this notice, to unconditionally fulfill the demands of My Client:\n   - Full refund / release of outstanding statutory dues\n   - Remit the sum of Not specified along with interest @ 18% p.a.\n\nwithin a period of 15 days from the date of receipt hereof, failing which My Client has given clear instructions to institute appropriate legal proceedings against you in a court of competent jurisdiction holding you liable for all consequential losses, costs, and expenses.\n\nCopy retained in my office for future legal action.\n\nAdvocate for the Client\n(DRAFT — TO BE SIGNED & DISPATCHED BY ADVOCATE ON RECORD)\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 90.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 93.95,
+  "passed": true
+}

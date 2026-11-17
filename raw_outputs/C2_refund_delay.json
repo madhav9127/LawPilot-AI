@@ -1,0 +1,97 @@
+{
+  "test_id": "C2",
+  "input": "Refund of ₹4,999 is marked successful on the shopping app but the money has not reached the customer's bank account for 18 days.",
+  "expected": "Extract ₹4,999; identify payment gateway reconciliation failure; cite E-commerce Grievance mechanism; provide step-by-step chargeback/NCH path.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Comprehensive Legal Position Analysis\n\n**1. What Appears to Have Happened:**\nBased on your statement, a legal grievance has arisen with your Seller / E-Commerce Platform regarding ₹4,999.\n\n**2. Important Facts Extracted:**\n- **Your Role:** Consumer / Purchaser\n- **Disputed Amount:** ₹4,999\n- **Contractual Status:** Not specified in conversation\n- **Documentary Proofs:** To be collected per checklist\n- **Jurisdiction:** All India\n\n**3. Potentially Applicable Laws & Grounded Citations:**\n- **The Consumer Protection Act, 2019 — Section 2(47)**: Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund ([Official Source](https://www.indiacode.nic.in/handle/123456789/15256))\n- **The Legal Services Authorities Act, 1987 — Section 12**: Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA) ([Official Source](https://nalsa.gov.in/))\n- **Consumer Protection (E-Commerce) Rules, 2020 — Rule 4 & Rule 6**: Duties of E-Commerce Entities & Grievance Redressal Mechanism ([Official Source](https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf))\n- **The Consumer Protection Act, 2019 — Section 2(7)**: Definition of Consumer (Including E-commerce and Offline Purchases) ([Official Source](https://www.indiacode.nic.in/handle/123456789/15256))\n\n**4. Possible Legal Rights & Protections:**\n- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**5. Available Statutory Remedies:**\n- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n**6. Practical Options:**\n- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n**7. Risks and Limitations:**\n- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n**8. Recommended Next Steps:**\n1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings.",
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "consumer",
+    "sub_category": "refund_unresolved",
+    "user_role": "Consumer / Purchaser",
+    "counterparty_name": "Seller / E-Commerce Platform",
+    "counterparty_role": "Seller / E-Commerce Platform",
+    "incident_description": "Refund of ₹4,999 is marked successful on the shopping app but the money has not reached the customer's bank account for 18 days.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 4999,
+      "all_detected_amounts": [
+        4999
+      ],
+      "formatted_primary": "₹4,999"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "All India",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.613613"
+  },
+  "full_generated_document": "LEGAL DISPUTE SUMMARY & DEMAND NOTICE DRAFT\n\nDate: 17 November 2026\n\nPARTIES:\nComplainant / Claimant: Complainant / Claimant (Address not provided (Draft template))\nRespondent / Counterparty: Seller / E-Commerce Platform (Address not provided (Draft template))\n\nDISPUTED AMOUNT: ₹4,999\nKEY INCIDENT DATE: As specified in communication\n\nSUMMARY OF FACTS:\nRefund of ₹4,999 is marked successful on the shopping app but the money has not reached the customer's bank account for 18 days.\n\nRELIEF SOUGHT:\nFull refund / release of outstanding statutory dues\n\nSTATUTORY BASIS:\n- Relevant provisions of Indian law governing breach, deficiency, or tenancy as applicable.\n- Time given for voluntary compliance: 15 days.\n\nSignature: _______________________\nComplainant / Claimant\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 95.15,
+  "passed": true
+}

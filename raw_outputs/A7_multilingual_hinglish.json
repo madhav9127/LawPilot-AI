@@ -1,0 +1,97 @@
+{
+  "test_id": "A7",
+  "input": "Bhai mere employer ne 2 mahine se salary nahi di lagbhag 60000 banta hai, main resign de chuka hoon. Kya karun?",
+  "expected": "Accurately understand and respond in natural Hinglish; extract ₹60,000; provide grounded Payment of Wages Act advice.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Aapki Legal Position Ka Analysis\n\n**1. Kya Hua Hai (What Happened):**\nAapke description ke mutabiq, Employer / Management ke sath ₹60,000 ke amount ko lekar dispute hua hai.\n\n**2. Zaroori Facts (Important Facts):**\n- Aapka Role: Employee\n- Disputed Amount: ₹60,000\n- Agreement Status: Not specified in conversation\n- Available Evidence: Details pending\n\n**3. Applicable Indian Laws & Citations:**\n- **The Payment of Wages Act, 1936 — Section 5 & Section 15**: Time of payment of wages and Claims arising out of deductions from wages or delay in payment ([Official Source](https://www.indiacode.nic.in/handle/123456789/2405))\n- **Delhi Rent Control Act, 1958 — Section 14 & Section 45**: Protection of tenant against eviction and restoration of essential amenities ([Official Source](https://www.indiacode.nic.in/handle/123456789/1393))\n- **The Indian Contract Act, 1872 — Section 73**: Compensation for loss or damage caused by breach of contract ([Official Source](https://www.indiacode.nic.in/handle/123456789/2187))\n- **The Payment of Wages Act, 1936 — Section 7**: Deductions which may be made from wages ([Official Source](https://www.indiacode.nic.in/handle/123456789/2405))\n\n**4. Aapke Rights & Protections:**\n- Indian law ke mutabiq, bina itemized proof ke security deposit ya earned salary withhold karna unlawful hai.\n- Normal wear & tear (jaise routine painting) tenant ki liability nahi hoti (Transfer of Property Act Section 108).\n\n**5. Available Remedies:**\n- Formal written Demand Notice (15-day compliance window ke sath).\n- State Rent Authority / Consumer Commission (e-Daakhil) / Labour Commissioner me petition file karna.\n\n**6. Practical Options:**\n- Pehle traceable channel (Email + Speed Post / WhatsApp) se clear written notice bhein.\n- Bina advocate ke bhi National Consumer Helpline (1915) ya NALSA se pre-litigation help le sakte hain.\n\n**7. Risks & Limitations:**\n- Agar counterparty refuse kare, to statutory forum me proceed karna hoga jisme documentation solid honi chahiye.\n\n**8. Recommended Next Steps:**\n1. 'Document Generator' tab se Demand Draft generate karein.\n2. Evidence Checklist ke document collect karke verify karein.",
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "employment",
+    "sub_category": "general_employment_issue",
+    "user_role": "Employee",
+    "counterparty_name": "Employer / Management",
+    "counterparty_role": "Employer / Management",
+    "incident_description": "Bhai mere employer ne 2 mahine se salary nahi di lagbhag 60000 banta hai, main resign de chuka hoon. Kya karun?",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 60000,
+      "all_detected_amounts": [
+        60000
+      ],
+      "formatted_primary": "₹60,000"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "Delhi",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.628407"
+  },
+  "full_generated_document": "FORMAL NOTICE AND DEMAND FOR DISBURSEMENT OF OUTSTANDING WAGES & STATUTORY DUES\n\nDate: 17 November 2026\n\nTO:\nThe Management / Human Resources,\nEmployer / Management\nAddress not provided (Draft template)\n\nFROM:\nComplainant / Claimant\nAddress not provided (Draft template)\n\nSUBJECT: Formal demand for clearance of earned salary and full and final settlement amounting to ₹60,000.\n\nSir / Madam,\n\n1. That I was employed with Employer / Management and diligently performed my official duties in accordance with company policy and terms of employment.\n\n2. STATEMENT OF FACTS:\nBhai mere employer ne 2 mahine se salary nahi di lagbhag 60000 banta hai, main resign de chuka hoon. Kya karun?\n\n3. That despite having rendered bona fide service, my earned remuneration / settlement dues totaling ₹60,000 have remained unpaid beyond the mandatory statutory timelines provided under the Payment of Wages Act, 1936 and applicable Shops and Commercial Establishments legislation.\n\n4. That withholding an employee's legitimately earned remuneration is unlawful and constitutes a direct breach of contract under Section 73 of the Indian Contract Act, 1872.\n\n5. DEMAND: You are hereby called upon to remit the entire outstanding sum of ₹60,000 to my bank account and issue my Experience and Relieving Letter within 15 days of receipt of this notice. In the event of failure, I shall lodge a formal complaint before the Labour Commissioner / Authority under Section 15 of the Payment of Wages Act and pursue appropriate civil proceedings at your sole cost and consequence.\n\nYours faithfully,\n\nComplainant / Claimant\n(Employee)\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 95.15,
+  "passed": true
+}

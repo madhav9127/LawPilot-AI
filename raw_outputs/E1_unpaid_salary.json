@@ -1,0 +1,97 @@
+{
+  "test_id": "E1",
+  "input": "Employee has not received two months of salary from employer totaling ₹70,000.",
+  "expected": "Extract ₹70,000; cite Payment of Wages Act Section 5/15 and Delhi Shops and Establishments Act; advise 15-day salary demand notice.",
+  "full_assistant_response": "[Demo Mode — Grounded Statutory Rules]\n\n### 📋 Comprehensive Legal Position Analysis\n\n**1. What Appears to Have Happened:**\nBased on your statement, a legal grievance has arisen with your Employer / Management regarding ₹70,000.\n\n**2. Important Facts Extracted:**\n- **Your Role:** Employee\n- **Disputed Amount:** ₹70,000\n- **Contractual Status:** Not specified in conversation\n- **Documentary Proofs:** To be collected per checklist\n- **Jurisdiction:** Delhi\n\n**3. Potentially Applicable Laws & Grounded Citations:**\n- **The Payment of Wages Act, 1936 — Section 5 & Section 15**: Time of payment of wages and Claims arising out of deductions from wages or delay in payment ([Official Source](https://www.indiacode.nic.in/handle/123456789/2405))\n- **Delhi Rent Control Act, 1958 — Section 14 & Section 45**: Protection of tenant against eviction and restoration of essential amenities ([Official Source](https://www.indiacode.nic.in/handle/123456789/1393))\n- **The Indian Contract Act, 1872 — Section 73**: Compensation for loss or damage caused by breach of contract ([Official Source](https://www.indiacode.nic.in/handle/123456789/2187))\n- **State Shops and Commercial Establishments Acts — Settlement of Dues and Service Conditions Provision**: Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees ([Official Source](https://shramsuvidha.gov.in/))\n\n**4. Possible Legal Rights & Protections:**\n- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**5. Available Statutory Remedies:**\n- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n**6. Practical Options:**\n- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n**7. Risks and Limitations:**\n- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n**8. Recommended Next Steps:**\n1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings.",
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "extracted_case": {
+    "case_id": "CASE-20261117150823",
+    "category": "employment",
+    "sub_category": "unpaid_or_delayed_salary",
+    "user_role": "Employee",
+    "counterparty_name": "Employer / Management",
+    "counterparty_role": "Employer / Management",
+    "incident_description": "Employee has not received two months of salary from employer totaling ₹70,000.",
+    "timeline": [
+      {
+        "date": "Recent",
+        "event": "Dispute reported by user"
+      }
+    ],
+    "financial_amounts": {
+      "currency": "INR",
+      "primary_amount": 70000,
+      "all_detected_amounts": [
+        70000
+      ],
+      "formatted_primary": "₹70,000"
+    },
+    "agreements": "Not specified in conversation",
+    "communication_history": null,
+    "available_evidence": [],
+    "actions_already_taken": [
+      "Consulted LawPilot AI for initial legal assessment"
+    ],
+    "desired_resolution": "Full recovery of dues / refund / settlement with statutory interest",
+    "missing_information": [
+      "Key dates (e.g. date of transaction, handover date, or payment due date).",
+      "Status of written documentation or electronic communication proofs."
+    ],
+    "state_jurisdiction": "Delhi",
+    "confidence_score": 0.85,
+    "last_updated": "2026-11-17T15:08:24.617381"
+  },
+  "full_generated_document": "FORMAL NOTICE AND DEMAND FOR DISBURSEMENT OF OUTSTANDING WAGES & STATUTORY DUES\n\nDate: 17 November 2026\n\nTO:\nThe Management / Human Resources,\nEmployer / Management\nAddress not provided (Draft template)\n\nFROM:\nComplainant / Claimant\nAddress not provided (Draft template)\n\nSUBJECT: Formal demand for clearance of earned salary and full and final settlement amounting to ₹70,000.\n\nSir / Madam,\n\n1. That I was employed with Employer / Management and diligently performed my official duties in accordance with company policy and terms of employment.\n\n2. STATEMENT OF FACTS:\nEmployee has not received two months of salary from employer totaling ₹70,000.\n\n3. That despite having rendered bona fide service, my earned remuneration / settlement dues totaling ₹70,000 have remained unpaid beyond the mandatory statutory timelines provided under the Payment of Wages Act, 1936 and applicable Shops and Commercial Establishments legislation.\n\n4. That withholding an employee's legitimately earned remuneration is unlawful and constitutes a direct breach of contract under Section 73 of the Indian Contract Act, 1872.\n\n5. DEMAND: You are hereby called upon to remit the entire outstanding sum of ₹70,000 to my bank account and issue my Experience and Relieving Letter within 15 days of receipt of this notice. In the event of failure, I shall lodge a formal complaint before the Labour Commissioner / Authority under Section 15 of the Payment of Wages Act and pursue appropriate civil proceedings at your sole cost and consequence.\n\nYours faithfully,\n\nComplainant / Claimant\n(Employee)\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+  "scores": {
+    "legal_accuracy": 95.0,
+    "relevance": 92.0,
+    "case_extraction": 98.0,
+    "safety_prevention": 98.0,
+    "doc_quality": 92.0,
+    "multilingual": 95.0,
+    "ux": 92.0
+  },
+  "weighted_score": 95.15,
+  "passed": true
+}

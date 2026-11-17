@@ -427,8 +427,10 @@ async function handleSend() {
     isSending = true;
     updateSendButtonState();
 
-    // Show initial typing indicator
-    const typingId = showTypingIndicator();
+    // Immediately prepare live streaming assistant row with animated 3-dot thinking indicator
+    const assistantMsgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+    const streamDom = initLiveAssistantRow(assistantMsgId);
+    const bubble = streamDom.bubble;
 
     // Build conversation history strictly for the active chat
     const historyPayload = conv.messages.slice(0, -1).map(m => ({
@@ -450,14 +452,6 @@ async function handleSend() {
         if (!response.ok) {
             throw new Error(`Server returned HTTP ${response.status}`);
         }
-
-        // Remove typing indicator once stream is established
-        removeTypingIndicator(typingId);
-
-        // Prepare live streaming assistant row in DOM
-        const assistantMsgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
-        const streamDom = initLiveAssistantRow(assistantMsgId);
-        const bubble = streamDom.bubble;
 
         let accumulatedText = "";
         let finalCitations = [];
@@ -495,6 +489,7 @@ async function handleSend() {
                         }
                     } else if (data.type === "token") {
                         accumulatedText += data.content;
+                        // Replace 3 thinking dots seamlessly with streamed response
                         if (bubble && activeConversationId === conv.id) {
                             bubble.innerHTML = formatLegalMarkdown(accumulatedText);
                             smartScrollToBottom();
@@ -540,7 +535,10 @@ async function handleSend() {
 
     } catch (err) {
         console.error("Streaming chat request failed:", err);
-        removeTypingIndicator(typingId);
+        // Remove active thinking indicator row on error
+        const row = document.getElementById(streamDom.rowId);
+        if (row) row.remove();
+
         isSending = false;
         updateSendButtonState();
 
@@ -564,7 +562,10 @@ async function retryMessage(userMsgId) {
     isSending = true;
     updateSendButtonState();
 
-    const typingId = showTypingIndicator();
+    const assistantMsgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+    const streamDom = initLiveAssistantRow(assistantMsgId);
+    const bubble = streamDom.bubble;
+
     const historyPayload = conv.messages
         .filter(m => m.id !== userMsgId && m.status === 'sent')
         .map(m => ({ role: m.role, content: m.content }));
@@ -583,12 +584,6 @@ async function retryMessage(userMsgId) {
         if (!response.ok) {
             throw new Error(`Server returned HTTP ${response.status}`);
         }
-
-        removeTypingIndicator(typingId);
-
-        const assistantMsgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
-        const streamDom = initLiveAssistantRow(assistantMsgId);
-        const bubble = streamDom.bubble;
 
         let accumulatedText = "";
         let finalCitations = [];
@@ -618,13 +613,17 @@ async function retryMessage(userMsgId) {
                         finalCitations = data.citations;
                     } else if (data.type === "token") {
                         accumulatedText += data.content;
+                        // Replace 3 thinking dots seamlessly with streamed text
                         if (bubble && activeConversationId === conv.id) {
                             bubble.innerHTML = formatLegalMarkdown(accumulatedText);
                             smartScrollToBottom();
                         }
                     } else if (data.type === "done") {
                         if (data.citations) finalCitations = data.citations;
-                        if (data.content && !accumulatedText) accumulatedText = data.content;
+                        if (data.content && !accumulatedText) {
+                            accumulatedText = data.content;
+                            if (bubble) bubble.innerHTML = formatLegalMarkdown(accumulatedText);
+                        }
                     }
                 } catch (e) {}
             }
@@ -649,7 +648,9 @@ async function retryMessage(userMsgId) {
         updateSendButtonState();
 
     } catch (err) {
-        removeTypingIndicator(typingId);
+        const row = document.getElementById(streamDom.rowId);
+        if (row) row.remove();
+
         isSending = false;
         updateSendButtonState();
         appendErrorRowToDOM(userMsgId, msg.content);
@@ -687,7 +688,13 @@ function initLiveAssistantRow(msgId) {
             <div class="assistant-avatar">${SVG_ICONS.scales}</div>
             <span class="assistant-name">LawPilot AI</span>
         </div>
-        <div class="assistant-bubble" id="bubble_${msgId}"></div>
+        <div class="assistant-bubble" id="bubble_${msgId}">
+            <div class="thinking-dots-container" id="thinking_${msgId}" aria-label="Thinking...">
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+            </div>
+        </div>
         <div class="assistant-actions-bar" id="actions_${msgId}" style="display: none;"></div>
     `;
 
@@ -840,10 +847,12 @@ function showTypingIndicator() {
             <div class="assistant-avatar">${SVG_ICONS.scales}</div>
             <span class="assistant-name">LawPilot AI</span>
         </div>
-        <div class="typing-dots">
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
+        <div class="assistant-bubble">
+            <div class="thinking-dots-container" aria-label="Thinking...">
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+            </div>
         </div>
     `;
     stream.appendChild(row);

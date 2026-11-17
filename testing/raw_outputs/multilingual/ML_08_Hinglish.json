@@ -1,0 +1,16 @@
+{
+  "test_id": "ML_08_Hinglish",
+  "test_name": "Test 8 — Hinglish",
+  "input_prompt": "Meri company ne do mahine se salary nahi di hai. Main kya kar sakta hoon?",
+  "detected_target_lang": "hinglish",
+  "status": "PASS",
+  "latency_sec": 6.47,
+  "evaluation_notes": "Conversational Hinglish verified (14 markers).",
+  "raw_response": "Main aapki pareshani samajh sakta hoon aur aapki is mushkil samay mein poori madad karoonga.\n\n### | Your Situation (Aapki Situation)\nAapki company ne aapko pichle do mahine se salary nahi di hai, jisse aapko financial aur mental pareshani ka samna karna pad raha hai. Yeh mamla employment dispute aur unpaid wages ke antargat aata hai.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- The Payment of Wages Act, 1936 ke Section 5 ke anusar, wages (salary) ka bhugtaan wage period khatam hone ke 7 din ke andar (ya agar 1,000 se zyada karmchari hain toh 10 din ke andar) ho jana chahiye. Bina kisi kanooni aadhar ke salary rokna ya deduction karna Payment of Wages Act, 1936 ke Section 7 ke tahat galat hai.\n- Aap State Shops and Commercial Establishments Act aur Payment of Wages Act, 1936 ke Section 15 ke antargat delayed ya withheld salary ke liye Labour Commissioner ke paas application daal sakte hain, jisme penalty ki maang bhi ki ja sakti hai.\n\n### | Practical Next Steps (Agla Kadam)\n1. Apni employment contract, appointment letter, payslips aur pichle kuch mahino ke bank statements ki copies ikattha karein.\n2. Company ko ek likhit demand notice bhejiye jisme 15 din ke andar apni baaki salary ka poora bhugtaan karne ko kahein.\n3. Agar company 15 din mein salary nahi deti hai, toh apne kshetra ke Labour Commissioner ke paas formal shikayat ya claim darj karein.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aapke paas koi appointment letter ya email hai jisme aapka salary structure likha ho, aur aapki company kis state (shahar) mein sthit hai?",
+  "citations": [
+    "The Payment of Wages Act, 1936 Section 5 & Section 15",
+    "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+    "The Indian Contract Act, 1872 Section 73",
+    "The Payment of Wages Act, 1936 Section 7"
+  ]
+}

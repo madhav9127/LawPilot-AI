@@ -1,0 +1,16 @@
+{
+  "test_id": "ML_01_English",
+  "test_name": "Test 1 — English",
+  "input_prompt": "My employer in Bangalore has not paid my salary for two months.",
+  "detected_target_lang": "en",
+  "status": "PASS",
+  "latency_sec": 7.46,
+  "evaluation_notes": "Fluent English verified.",
+  "raw_response": "Hello, I am LawPilot AI, your Indian legal assistant. I understand how stressful it is to face non-payment of your hard-earned salary, but please rest assured that Indian labor laws provide clear protections for employees in this exact situation.\n\n### | Your Situation\nYou are an employee working in Bangalore whose employer has withheld your salary for two months. The key issue is the illegal withholding of earned wages without lawful justification.\n\n### | Your Legal Position\n* Under Section 5 of The Payment of Wages Act, 1936, wages must be paid before the expiry of the seventh day after the last day of the wage period for which the wages are payable. Withholding salary for two months is a direct statutory violation.\n* Under Section 7 of The Payment of Wages Act, 1936, employers can only make specific, authorized deductions. Arbitrary withholding or non-payment of wages does not fall under permissible deductions and is unlawful.\n* Under the Karnataka Shops and Commercial Establishments Act, private and commercial establishments in Bangalore are mandated to clear all earned wages and final dues upon the completion of the wage period or upon separation.\n* Under Section 15 of The Payment of Wages Act, 1936, you have the right to approach the designated Labour Authority to claim your delayed wages, along with potential compensation for the delay.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, offer letter, salary slips for previous months, bank statements showing the last received payment, and any written communication or emails demanding your unpaid salary from your employer.\n2. Send a formal written demand notice to your employer stating the exact amount due for the two months, referencing your statutory rights under the Payment of Wages Act, and granting them 15 days to clear the full payment.\n3. Approach the appropriate forum: If the employer fails to clear your dues within the 15-day period, file a formal wage claim application before the Labour Commissioner or the designated Payment of Wages Authority in Bangalore.\n\n### ℹ️ Information I still need from you\n1. What is the approximate monthly salary amount due, and did you receive any formal written reason from your employer regarding this delay?\n2. Are you still actively employed with this company in Bangalore, or has your employment been terminated or resigned?",
+  "citations": [
+    "The Payment of Wages Act, 1936 Section 5 & Section 15",
+    "The Indian Contract Act, 1872 Section 73",
+    "The Payment of Wages Act, 1936 Section 7",
+    "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision"
+  ]
+}

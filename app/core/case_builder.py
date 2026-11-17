@@ -12,13 +12,16 @@ class CaseBuilder:
 
     # Category classification patterns
     TENANT_KEYWORDS = [
-        r"\b(tenant|landlord|rent|deposit|security deposit|owner|flat|apartment|lease|evict|eviction|broker|society|roommate|wear and tear|painting charges|makaan\s*malik|kiraya|kirayedar|makandari)\b"
+        r"\b(tenant|landlord|rent|deposit|security deposit|owner|flat|apartment|lease|evict|eviction|broker|society|roommate|wear and tear|painting charges|makaan\s*malik|kiraya|kirayedar|makandari)\b",
+        r"(સિક્યોરિટી|ડિપોઝિટ|મકાનમાલિક|ભાડું|મકાન\s*ખાલી|किराया|मकान\s*मालिक|डिपॉज़िट|വാടക|ഡെപ്പോസിറ്റ്|வாடகை|வைப்புத்தொகை|అద్దె|డిపాజిట్|ভাড়া|আমানত)"
     ]
     CONSUMER_KEYWORDS = [
-        r"\b(consumer|product|defective|amazon|flipkart|meesho|order|delivery|delivered|refund|return|courier|warranty|shopping|service not provided|damaged phone|seller|retailer|kharida|saman|paise wapas|kharab nikla)\b"
+        r"\b(consumer|product|defective|amazon|flipkart|meesho|order|delivery|delivered|refund|return|courier|warranty|shopping|service not provided|damaged phone|seller|retailer|kharida|saman|paise wapas|kharab nikla)\b",
+        r"(ખામીયુક્ત|રિફંડ|વેચનાર|ખરીદ્યો|ફોન|दोषपूर्ण|विक्रेता|उपभोक्ता|റീഫണ്ട്|തകരാർ|குறைபாடு|ரீபண்ட்|లోపం|రీఫండ్|ত্রুটি|ফেরত)"
     ]
     EMPLOYMENT_KEYWORDS = [
-        r"\b(salary|employee|employer|boss|company|job|resigned|resignation|appointment letter|wages|dues|full and final|fnf|relieving letter|payslip|pf|workplace|manager|naukri|vetan|tanakhwah|kaam)\b"
+        r"\b(salary|employee|employer|boss|company|job|resigned|resignation|appointment letter|wages|dues|full and final|fnf|relieving letter|payslip|pf|workplace|manager|naukri|vetan|tanakhwah|kaam)\b",
+        r"(પગાર|નિયોક્તા|કંપની|वेतन|नियोक्ता|तनख्वाह|തൊഴിലുടമ|ശമ്പളം|சம்பளம்|நிறுவனம்|జీతం|యజమాని|বেতন|নিয়োগকর্তা|ಸಂಬಳ)"
     ]
 
     # Currency extraction regex patterns

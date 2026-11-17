@@ -33,6 +33,47 @@ class DocumentGenerator:
         
         # 1. SECURITY DEPOSIT DEMAND
         if req.doc_type == DocumentTypeEnum.SECURITY_DEPOSIT_DEMAND:
+            lang_str = req.language.value if hasattr(req.language, "value") else str(req.language).lower()
+            if lang_str in ["gu", "gujarati"]:
+                return (
+                    f"સિક્યોરિટી ડિપોઝિટ પરત મેળવવા માટેનું ઔપચારિક લેખિત માંગ પત્ર (Formal Demand Notice)\n"
+                    f"(રજિસ્ટર્ડ પોસ્ટ / સ્પીડ પોસ્ટ / ઈમેઈલ દ્વારા મોકલવા માટે)\n\n"
+                    f"તારીખ: {date_str}\n\n"
+                    f"પ્રેષક (ભાડૂઆત):\n{req.user_name}\n{req.user_address}\n\n"
+                    f"પ્રતિ (મકાનમાલિક):\n{req.counterparty_name}\n{req.counterparty_address}\n\n"
+                    f"વિષય: ભાડાના મકાનની ₹{req.disputed_amount} ની સિક્યોરિટી ડિપોઝિટ તાત્કાલિક પરત કરવા બાબત.\n\n"
+                    f"મહોદય / મહોદયા,\n\n"
+                    f"૧. હું આપના રહેણાંક મકાનમાં કાયદેસરના ભાડૂઆત તરીકે રહેતો હતો, અને મેં શરૂઆતમાં આપને ₹{req.disputed_amount} ની રિફંડેબલ સિક્યોરિટી ડિપોઝિટ ચૂકવી હતી.\n\n"
+                    f"૨. ભાડૂઆત તરીકેના સમગ્ર સમયગાળા દરમિયાન મેં તમામ માસિક ભાડું અને બિલ નિયમિતપણે ચૂકવ્યા છે અને તમામ કાનૂની શરતોનું પાલન કર્યું છે.\n\n"
+                    f"૩. મેં મકાન ખાલી કરીને તેનો શાંતિપૂર્ણ કબજો {req.incident_date} ના રોજ સુપરત કરી દીધો છે. મિલકત સામાન્ય ઘસારા (reasonable wear and tear) સિવાય યોગ્ય સ્થિતિમાં પરત સોંપવામાં આવી છે (ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ ની કલમ ૧૦૮).\n\n"
+                    f"૪. વારંવારની વિનંતી છતાં આપે કોઈપણ કાયદેસર કારણ કે હિસાબ વગર મારી ₹{req.disputed_amount} ની ડિપોઝિટ પરત કરવામાં અયોગ્ય વિલંબ કર્યો છે.\n\n"
+                    f"૫. માંગણી: આ નોટિસ મળ્યાના {req.deadline_days} દિવસની અંદર ₹{req.disputed_amount} ની સંપૂર્ણ રકમ મારા બેંક ખાતામાં જમા કરવા વિનંતી છે. જો નિર્ધારિત સમયમાં રકમ નહીં મળે તો સક્ષમ રેન્ટ ઓથોરિટી / અદાલતમાં કાનૂની કાર્યવાહી શરૂ કરવામાં આવશે.\n\n"
+                    f"આપનો વિશ્વાસુ,\n\n"
+                    f"{req.user_name}\n"
+                    f"(ભાડૂઆત / અરજદાર)\n\n"
+                    f"--------------------------------------------------\n"
+                    f"કાનૂની સૂચના (DISCLAIMER):\n{cls.MANDATORY_DISCLAIMER}"
+                )
+            elif lang_str in ["hi", "hindi"]:
+                return (
+                    f"सुरक्षा जमा (Security Deposit) वापसी हेतु औपचारिक मांग पत्र (Demand Notice)\n"
+                    f"(रजिस्टर्ड डाक / स्पीड पोस्ट / ईमेल द्वारा प्रेषित)\n\n"
+                    f"दिनांक: {date_str}\n\n"
+                    f"प्रेषक (किरायेदार):\n{req.user_name}\n{req.user_address}\n\n"
+                    f"प्रति (मकान मालिक):\n{req.counterparty_name}\n{req.counterparty_address}\n\n"
+                    f"विषय: किराये के परिसर की ₹{req.disputed_amount} की सुरक्षा जमा राशि तुरंत वापस करने बाबत।\n\n"
+                    f"महोदय / महोदया,\n\n"
+                    f"1. मैं आपके स्वामित्व वाले आवासीय परिसर में वैध किरायेदार के रूप में निवासरत था और मैंने अग्रिम रूप से ₹{req.disputed_amount} की प्रतिदेय सुरक्षा जमा राशि का भुगतान किया था।\n\n"
+                    f"2. किरायेदारी की पूरी अवधि के दौरान मैंने बिना किसी चूक के नियमित रूप से मासिक किराया एवं उपयोगिता शुल्क चुकाया है।\n\n"
+                    f"3. परिसर का शांतिपूर्ण और रिक्त कब्जा {req.incident_date} को औपचारिक रूप से सौंप दिया गया था (संपत्ति अंतरण अधिनियम, 1882 की धारा 108(m))।\n\n"
+                    f"4. बार-बार अनुरोध के बावजूद आपने ₹{req.disputed_amount} की जमा राशि अवैध रूप से रोक रखी है।\n\n"
+                    f"5. मांग: यह नोटिस प्राप्त होने के {req.deadline_days} दिनों के भीतर ₹{req.disputed_amount} की पूरी राशि मेरे बैंक खाते में वापस करें, अन्यथा सक्षम रेंट अथॉरिटी में कानूनी कार्रवाई की जाएगी।\n\n"
+                    f"भवदीय,\n\n"
+                    f"{req.user_name}\n"
+                    f"(किरायेदार)\n\n"
+                    f"--------------------------------------------------\n"
+                    f"कानूनी अस्वीकरण:\n{cls.MANDATORY_DISCLAIMER}"
+                )
             return (
                 f"FORMAL WRITTEN DEMAND FOR REFUND OF SECURITY DEPOSIT\n"
                 f"(Sent via Registered Post A.D. / Speed Post / Email)\n\n"

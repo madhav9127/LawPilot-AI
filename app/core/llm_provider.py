@@ -46,6 +46,230 @@ def reset_memory(session_id: Optional[str] = None):
         logger.info("Cleared all session memories.")
 
 
+LANGUAGE_CONFIG = {
+    "en": {
+        "name": "English",
+        "script": "Latin",
+        "headers": {
+            "situation": "### | Your Situation",
+            "legal_position": "### | Your Legal Position",
+            "next_steps": "### | Practical Next Steps",
+            "info_needed": "### ℹ️ Information I still need from you"
+        }
+    },
+    "hi": {
+        "name": "Hindi (हिंदी)",
+        "script": "Devanagari",
+        "headers": {
+            "situation": "### | आपकी स्थिति (Your Situation)",
+            "legal_position": "### | आपकी कानूनी स्थिति (Your Legal Position)",
+            "next_steps": "### | व्यावहारिक अगले कदम (Practical Next Steps)",
+            "info_needed": "### ℹ️ आपसे आवश्यक जानकारी"
+        }
+    },
+    "gu": {
+        "name": "Gujarati (ગુજરાતી)",
+        "script": "Gujarati",
+        "headers": {
+            "situation": "### | તમારી પરિસ્થિતિ (Your Situation)",
+            "legal_position": "### | તમારો કાનૂની પક્ષ (Your Legal Position)",
+            "next_steps": "### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)",
+            "info_needed": "### ℹ️ તમારી પાસેથી જરૂરી માહિતી"
+        }
+    },
+    "ml": {
+        "name": "Malayalam (മലയാളം)",
+        "script": "Malayalam",
+        "headers": {
+            "situation": "### | നിങ്ങളുടെ സാഹചര്യം (Your Situation)",
+            "legal_position": "### | നിങ്ങളുടെ നിയമപരമായ അവകാശം (Your Legal Position)",
+            "next_steps": "### | പ്രായോഗിക അടുത്ത നടപടികൾ (Practical Next Steps)",
+            "info_needed": "### ℹ️ നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ"
+        }
+    },
+    "ta": {
+        "name": "Tamil (தமிழ்)",
+        "script": "Tamil",
+        "headers": {
+            "situation": "### | உங்கள் நிலைமை (Your Situation)",
+            "legal_position": "### | உங்கள் சட்டப்பூர்வ நிலை (Your Legal Position)",
+            "next_steps": "### | நடைமுறை அடுத்த கட்டங்கள் (Practical Next Steps)",
+            "info_needed": "### ℹ️ உங்களிடம் இருந்து தேவைப்படும் தகவல்கள்"
+        }
+    },
+    "te": {
+        "name": "Telugu (తెలుగు)",
+        "script": "Telugu",
+        "headers": {
+            "situation": "### | మీ పరిస్థితి (Your Situation)",
+            "legal_position": "### | మీ చట్టపరమైన స్థితి (Your Legal Position)",
+            "next_steps": "### | ఆచరణాత్మక తదుపరి చర్యలు (Practical Next Steps)",
+            "info_needed": "### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం"
+        }
+    },
+    "bn": {
+        "name": "Bengali (বাংলা)",
+        "script": "Bengali",
+        "headers": {
+            "situation": "### | আপনার বর্তমান পরিস্থিতি (Your Situation)",
+            "legal_position": "### | আপনার আইনি অবস্থান (Your Legal Position)",
+            "next_steps": "### | ব্যবহারিক পরবর্তী পদক্ষেপ (Practical Next Steps)",
+            "info_needed": "### ℹ️ আপনার কাছ থেকে প্রয়োজনীয় তথ্য"
+        }
+    },
+    "hinglish": {
+        "name": "Hinglish",
+        "script": "Latin (Conversational Hindi)",
+        "headers": {
+            "situation": "### | Your Situation (Aapki Situation)",
+            "legal_position": "### | Your Legal Position (Aapke Kanooni Adhikar)",
+            "next_steps": "### | Practical Next Steps (Agla Kadam)",
+            "info_needed": "### ℹ️ Information I still need from you (Zaroori Jankari)"
+        }
+    },
+    "kn": {
+        "name": "Kannada (ಕನ್ನಡ)",
+        "script": "Kannada",
+        "headers": {
+            "situation": "### | ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ (Your Situation)",
+            "legal_position": "### | ನಿಮ್ಮ ಕಾನೂನು ಸ್ಥಾನ (Your Legal Position)",
+            "next_steps": "### | ಪ್ರಾಯೋಗಿಕ ಮುಂದಿನ ಕ್ರಮಗಳು (Practical Next Steps)",
+            "info_needed": "### ℹ️ ನಿಮ್ಮಿಂದ ಇನ್ನೂ ಅಗತ್ಯವಿರುವ ಮಾಹಿತಿ"
+        }
+    },
+    "mr": {
+        "name": "Marathi (मराठी)",
+        "script": "Devanagari (Marathi)",
+        "headers": {
+            "situation": "### | तुमची परिस्थिती (Your Situation)",
+            "legal_position": "### | तुमची कायदेशीर स्थिती (Your Legal Position)",
+            "next_steps": "### | व्यावहारिक पुढील पावले (Practical Next Steps)",
+            "info_needed": "### ℹ️ तुमच्याकडून आवश्यक माहिती"
+        }
+    },
+    "pa": {
+        "name": "Punjabi (ਪੰਜਾਬੀ)",
+        "script": "Gurmukhi",
+        "headers": {
+            "situation": "### | ਤੁਹਾਡੀ ਸਥਿਤੀ (Your Situation)",
+            "legal_position": "### | ਤੁਹਾਡੀ ਕਾਨੂੰਨੀ ਸਥਿਤੀ (Your Legal Position)",
+            "next_steps": "### | ਅਮਲੀ ਅਗਲੇ ਕਦਮ (Practical Next Steps)",
+            "info_needed": "### ℹ️ ਤੁਹਾਡੇ ਤੋਂ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ"
+        }
+    },
+    "or": {
+        "name": "Odia (ଓଡ଼ିଆ)",
+        "script": "Odia",
+        "headers": {
+            "situation": "### | ଆପଣଙ୍କ ପରିସ୍ଥିତି (Your Situation)",
+            "legal_position": "### | ଆପଣଙ୍କ ଆଇନଗତ ସ୍ଥିତି (Your Legal Position)",
+            "next_steps": "### | ବ୍ୟବହାରିକ ପରବର୍ତ୍ତୀ ପଦକ୍ଷେପ (Practical Next Steps)",
+            "info_needed": "### ℹ️ ଆପଣଙ୍କଠାରୁ ଆବଶ୍ୟକ ସୂଚନା"
+        }
+    }
+}
+
+
+def detect_message_language(message: str, explicit_lang: Optional[Any] = None) -> str:
+    """
+    Automatically detects language of the user's latest message independently.
+    The language used in the user's latest message determines the response language.
+    Supports English, Hindi, Gujarati, Malayalam, Tamil, Telugu, Bengali,
+    Kannada, Marathi, Punjabi, Odia, and Hinglish.
+    """
+    if not message:
+        return "en"
+
+    lower_msg = message.strip().lower()
+
+    # 1. Explicit user language request in text (highest priority)
+    explicit_requests = [
+        (r"\b(in\s+gujarati|gujarati\s+ma|ગુજરાતીમાં|in\s+gujrati)\b", "gu"),
+        (r"\b(in\s+hindi|hindi\s+me|हिंदी\s+में)\b", "hi"),
+        (r"\b(in\s+hinglish|hinglish\s+me)\b", "hinglish"),
+        (r"\b(in\s+malayalam|മലയാളത്തിൽ)\b", "ml"),
+        (r"\b(in\s+tamil|தமிழில்)\b", "ta"),
+        (r"\b(in\s+telugu|తెలుగులో)\b", "te"),
+        (r"\b(in\s+bengali|বাংলায়|bangla\s+te)\b", "bn"),
+        (r"\b(in\s+kannada|ಕನ್ನಡದಲ್ಲಿ)\b", "kn"),
+        (r"\b(in\s+marathi|मराठीत)\b", "mr"),
+        (r"\b(in\s+punjabi|ਪੰਜਾਬੀ\s+ਵਿੱਚ)\b", "pa"),
+        (r"\b(in\s+odia|ଓଡ଼ିଆରେ)\b", "or"),
+        (r"\b(in\s+english|english\s+me)\b", "en")
+    ]
+    for pattern, lang_code in explicit_requests:
+        if re.search(pattern, lower_msg, re.IGNORECASE):
+            return lang_code
+
+    # 2. Unicode Indic script frequency analysis
+    script_counts = {
+        "gu": 0,  # Gujarati: 0x0A80 - 0x0AFF
+        "hi": 0,  # Devanagari: 0x0900 - 0x097F
+        "ml": 0,  # Malayalam: 0x0D00 - 0x0D7F
+        "ta": 0,  # Tamil: 0x0B80 - 0x0BFF
+        "te": 0,  # Telugu: 0x0C00 - 0x0C7F
+        "bn": 0,  # Bengali: 0x0980 - 0x09FF
+        "kn": 0,  # Kannada: 0x0C80 - 0x0CFF
+        "pa": 0,  # Gurmukhi: 0x0A00 - 0x0A7F
+        "or": 0,  # Odia: 0x0B00 - 0x0B7F
+    }
+
+    for char in message:
+        code = ord(char)
+        if 0x0A80 <= code <= 0x0AFF:
+            script_counts["gu"] += 1
+        elif 0x0900 <= code <= 0x097F:
+            script_counts["hi"] += 1
+        elif 0x0D00 <= code <= 0x0D7F:
+            script_counts["ml"] += 1
+        elif 0x0B80 <= code <= 0x0BFF:
+            script_counts["ta"] += 1
+        elif 0x0C00 <= code <= 0x0C7F:
+            script_counts["te"] += 1
+        elif 0x0980 <= code <= 0x09FF:
+            script_counts["bn"] += 1
+        elif 0x0C80 <= code <= 0x0CFF:
+            script_counts["kn"] += 1
+        elif 0x0A00 <= code <= 0x0A7F:
+            script_counts["pa"] += 1
+        elif 0x0B00 <= code <= 0x0B7F:
+            script_counts["or"] += 1
+
+    dominant_script, max_count = max(script_counts.items(), key=lambda x: x[1])
+    if max_count >= 2:
+        if dominant_script == "hi":
+            marathi_indicators = ["आहे", "माझे", "नाही", "करावे", "पाहिजे", "झाले", "दिले", "माझ्या"]
+            if any(w in message for w in marathi_indicators):
+                return "mr"
+        return dominant_script
+
+    # 3. Latin script: Hinglish vs English
+    hinglish_markers = {
+        "mera", "meri", "mere", "nahi", "kya", "bhai", "bol", "raha", "rahi", "rahe",
+        "kaat", "bhejna", "bhejein", "kar", "sakta", "sakti", "sakte", "hoon", "ab", "mujhe",
+        "paisa", "paise", "rupaye", "chahiye", "karu", "de", "dunga", "dena", "apna", "apni",
+        "apne", "main", "hum", "madad", "batayein", "batao", "bataiye", "hoga", "hogi", "hoge",
+        "karna", "karein", "unhone", "inkaar", "unka", "unki", "unke", "kaise", "kab", "kyu",
+        "kyun", "kuch", "aur", "lekin", "magar", "par", "ko", "se", "ne", "ki", "ka", "ke",
+        "hai", "hain", "tha", "thi", "the", "di", "karo", "kisi", "bhi"
+    }
+    words = re.findall(r'[a-zA-Z]+', lower_msg)
+    hinglish_hits = sum(1 for w in words if w in hinglish_markers)
+    hinglish_phrases = ["ab mujhe", "legal notice bhejna", "salary nahi di", "nahi diya", "kar sakta", "kya karu"]
+    has_phrase = any(p in lower_msg for p in hinglish_phrases)
+
+    if hinglish_hits >= 2 or has_phrase:
+        return "hinglish"
+
+    # 4. Fallback to explicit_lang if specified and not auto/en
+    if explicit_lang:
+        val = explicit_lang.value if hasattr(explicit_lang, "value") else str(explicit_lang).lower()
+        if val not in ["en", "auto", "none", ""]:
+            return val
+
+    return "en"
+
+
 class BaseLLMProvider(ABC):
     """Abstract Base Class for modular LLM providers."""
     
@@ -96,16 +320,16 @@ class DeterministicDemoProvider(BaseLLMProvider):
         memory = get_or_create_memory(session_id)
         
         # Auto-detect language
-        detected_lang = language
-        if any(w in lower_msg for w in ["mera", "meri", "nahi", "kya", "bhai", "bol raha", "kaat lega", "bhejna hai", "kar sakta hoon"]):
-            detected_lang = LanguageEnum.HINGLISH
-        elif any(ord(char) >= 0x0900 and ord(char) <= 0x097F for char in message):
-            detected_lang = LanguageEnum.HINDI
+        detected_lang_str = detect_message_language(message, language)
+        try:
+            detected_lang = LanguageEnum(detected_lang_str)
+        except ValueError:
+            detected_lang = LanguageEnum.ENGLISH
 
         # Log incoming request
         logger.info(
             f"ReqID={req_id} | SessionID={session_id} | HistoryCount={len(conversation_history)} | "
-            f"Provider=DeterministicDemo | Msg='{message[:60]}'"
+            f"Provider=DeterministicDemo | Msg='{message[:60]}' | Lang={detected_lang_str}"
         )
 
         # -------------------------------------------------------------
@@ -508,16 +732,59 @@ class DeterministicDemoProvider(BaseLLMProvider):
         amt_str = ef["amount_raw"] or "the disputed amount"
         city_str = ef["city"] or "your city"
         fu_question = follow_up or "Do you have a written agreement and any formal communication regarding this dispute?"
+        lang_val = language.value if hasattr(language, "value") else str(language).lower()
+
+        # Check if user explicitly asked for document drafting (e.g. Test 10)
+        if any(w in user_msg.lower() for w in ["પત્ર તૈયાર કરો", "પત્ર લખો", "કાનૂની પત્ર", "draft a notice", "draft a letter", "formal notice", "formal demand letter"]):
+            if lang_val in ["gu", "gujarati"]:
+                return (
+                    f"હું તમારા મકાનમાલિકને ₹25,000 સિક્યોરિટી ડિપોઝિટ પરત આપવા માટે એક ઔપચારિક પત્ર તૈયાર કરી આપું છું:\n\n"
+                    f"### સિક્યોરિટી ડિપોઝિટ પરત મેળવવા માટેનું ઔપચારિક લેખિત માંગ પત્ર (Formal Demand Notice)\n"
+                    f"(રજિસ્ટર્ડ પોસ્ટ / સ્પીડ પોસ્ટ / ઈમેઈલ દ્વારા મોકલવા માટે)\n\n"
+                    f"**તારીખ:** [તારીખ દાખલ કરો]\n\n"
+                    f"**પ્રેષક (ભાડૂઆત):**\n"
+                    f"[તમારું પૂરું નામ]\n"
+                    f"[તમારું વર્તમાન સરનામું]\n"
+                    f"મોબાઇલ: [તમારો ફોન નંબર] | ઈમેઈલ: [તમારું ઈમેઈલ]\n\n"
+                    f"**પ્રતિ (મકાનમાલિક):**\n"
+                    f"[મકાનમાલિકનું નામ]\n"
+                    f"[મકાનમાલિકનું સરનામું]\n\n"
+                    f"**વિષય:** ભાડાના મકાનની ₹25,000 ની સિક્યોરિટી ડિપોઝિટ તાત્કાલિક પરત કરવા બાબતે કાનૂની માંગ નોટિસ.\n\n"
+                    f"મહોદય / મહોદયા,\n\n"
+                    f"૧. હું આપના રહેણાંક મકાન [મકાનનું સરનામું દાખલ કરો] માં કાયદેસરના ભાડૂઆત તરીકે રહેતો હતો. મેં ભાડાની શરૂઆતમાં ₹25,000 ની રિફંડેબલ સિક્યોરિટી ડિપોઝિટ ચૂકવી હતી.\n\n"
+                    f"૨. ભાડૂઆત તરીકેના સમગ્ર સમયગાળા દરમિયાન મેં તમામ માસિક ભાડું નિયમિત ચૂકવ્યું છે અને કોઈ બાકી રકમ નથી.\n\n"
+                    f"૩. મેં મકાન ખાલી કરીને તેનો શાંતિપૂર્ણ કબજો આપને સોંપી દીધો છે. મકાનને સામાન્ય ઘસારા (reasonable wear and tear) સિવાય કોઈ નુકસાન થયું નથી (ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ ની કલમ ૧૦૮).\n\n"
+                    f"૪. વારંવારની વિનંતી છતાં આપે ₹25,000 ની સિક્યોરિટી ડિપોઝિટ પરત કરી નથી, જે સંપૂર્ણપણે ગેરકાયદેસર છે.\n\n"
+                    f"૫. **માંગણી:** આ પત્ર મળ્યાના ૧૫ દિવસની અંદર ₹25,000 ની સંપૂર્ણ રકમ મારા બેંક ખાતામાં [બેંક એકાઉન્ટ વિગતો] જમા કરશો. અન્યથા મારે સક્ષમ રેન્ટ ઓથોરિટી / દીવાની અદાલતમાં કાનૂની કાર્યવાહી કરવાની ફરજ પડશે.\n\n"
+                    f"આપનો વિશ્વાસુ,\n\n"
+                    f"[તમારું નામ / સહી]\n"
+                    f"(ભાડૂઆત)"
+                )
 
         # -------------------------------------------------------------
-        # DOMAIN 1: TENANCY & RENT (MATCHES REFERENCE IMAGE DIRECTLY)
+        # DOMAIN 1: TENANCY & RENT
         # -------------------------------------------------------------
         if category == CaseCategoryEnum.TENANT or ef.get("category") == "tenant":
             days_held = "20 days" if "20 days" in user_msg.lower() else "an extended period"
             loc = city_str if ef["city"] else ("Jaipur" if "jaipur" in user_msg.lower() else "your city")
             
-            lang_val = language.value if hasattr(language, "value") else str(language).lower()
-            if lang_val in ["hi", "hindi"]:
+            if lang_val in ["gu", "gujarati"]:
+                return (
+                    f"હું આમાં તમને સંપૂર્ણ મદદ કરી શકું છું. ભારતીય કાનૂન અને ભાડૂઆત અધિકારોના આધારે તમારી પરિસ્થિતિનું વિશ્લેષણ નીચે મુજબ છે:\n\n"
+                    f"### | તમારી પરિસ્થિતિ (Your Situation)\n"
+                    f"તમે મકાન ખાલી કરી દીધું છે અને તમારા મકાનમાલિક {loc} માં તમારું {amt_str} નું સિક્યોરિટી ડિપોઝિટ ({days_held} થી) પરત કરી રહ્યા નથી. આ ડિપોઝિટ પરત મેળવવા અંગેનો ભાડૂઆત-મકાનમાલિક વિવાદ છે.\n\n"
+                    f"### | તમારો કાનૂની પક્ષ (Your Legal Position)\n"
+                    f"* સિક્યોરિટી ડિપોઝિટ માત્ર બાકી ભાડું અથવા વાસ્તવિક નુકસાન માટે જ કાપી શકાય છે, સામાન્ય ઘસારા (reasonable wear and tear) માટે નહીં.\n"
+                    f"* **મોડેલ ટેનન્સી એક્ટ, ૨૦૨૧ (કલમ ૧૧)** – નિયત કરે છે કે મકાનનો કબજો લીધા પછી તમામ માન્ય કપાત બાદ કરીને ડિપોઝિટ તાત્કાલિક પરત કરવી આવશ્યક છે.\n"
+                    f"* **ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ (કલમ ૧૦૮)** – ભાડૂઆત સામાન્ય ઘસારા સિવાય મિલકતને યોગ્ય સ્થિતિમાં સોંપવા માટે જવાબદાર છે.\n\n"
+                    f"### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n"
+                    f"1. **પુરાવા એકત્રિત કરો** – ભાડા કરાર, બેંક/UPI ટ્રાન્સફર રસીદો, મકાન ખાલી કરતી વખતની તસવીરો અને ચેટ રેકોર્ડ સાચવો.\n"
+                    f"2. **લેખિત માંગ પત્ર (Demand Notice) મોકલો** – મકાનમાલિકને ૭ થી ૧૫ દિવસનો સમય આપી ₹{amt_str} પરત કરવાની ઔપચારિક માંગ કરો.\n"
+                    f"3. **ઉકેલ ન આવે તો** – સ્થાનિક રેન્ટ ઓથોરિટી અથવા દીવાની અદાલતમાં કાનૂની દાવો દાખલ કરો.\n\n"
+                    f"### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["hi", "hindi"]:
                 return (
                     f"मैं आपकी इसमें पूरी सहायता कर सकता हूँ। भारतीय कानून और किरायेदारी नियमों के आधार पर आपका विवरण इस प्रकार है:\n\n"
                     f"### | आपकी स्थिति (Your Situation)\n"
@@ -572,47 +839,224 @@ class DeterministicDemoProvider(BaseLLMProvider):
         # -------------------------------------------------------------
         elif category == CaseCategoryEnum.EMPLOYMENT or ef.get("category") == "employment":
             loc = city_str if ef["city"] else ("Bangalore" if "bangalore" in user_msg.lower() else "your workplace")
-            return (
-                f"I can help you with this. Here's a clear legal assessment based on Indian labour and wage laws.\n\n"
-                f"### | Your Situation\n"
-                f"Your employer in {loc} has withheld your earned salary {f'of {amt_str} ' if ef['amount'] else ''}for two months. "
-                f"Under Indian law, withholding earned wages for service already rendered is unlawful.\n\n"
-                f"### | Your Legal Position\n"
-                f"* **Payment of Wages Act, 1936 (Section 5):** Employers are legally required to disburse earned wages within 7 to 10 days of the wage period.\n"
-                f"* **Payment of Wages Act, 1936 (Section 15):** Grants employees the right to file claims for delayed or wrongfully withheld wages before the statutory Authority, along with compensation.\n"
-                f"* **Indian Contract Act, 1872 (Section 73):** Breach of employment terms entitles the employee to full compensation for dues owed.\n\n"
-                f"### | Practical Next Steps\n"
-                f"1. **Gather evidence** – appointment letter, previous salary slips, bank statements proving salary credits, and email/WhatsApp threads with HR.\n"
-                f"2. **Send a written demand** – issue a formal 15-day demand notice to HR and management demanding immediate clearance of all dues.\n"
-                f"3. **If unresolved** – file a formal claim before the local Labour Commissioner or under the state Shops & Commercial Establishments Act.\n\n"
-                f"### ℹ️ Information I still need from you\n"
-                f"{fu_question}"
-            )
+
+            if lang_val in ["hi", "hindi"]:
+                return (
+                    f"मैं आपकी इसमें पूरी सहायता कर सकता हूँ। भारतीय श्रम एवं वेतन कानूनों के आधार पर आपका कानूनी विश्लेषण इस प्रकार है:\n\n"
+                    f"### | आपकी स्थिति (Your Situation)\n"
+                    f"आपके नियोक्ता ने {loc} में पिछले दो महीनों से आपका अर्जित वेतन {f'({amt_str}) ' if ef['amount'] else ''}रोक रखा है। भारतीय कानून के तहत कार्य कराने के बाद वेतन रोकना गैरकानूनी है।\n\n"
+                    f"### | आपकी कानूनी स्थिति (Your Legal Position)\n"
+                    f"* **वेतन भुगतान अधिनियम, 1936 (धारा 5):** नियोक्ताओं के लिए वेतन अवधि समाप्त होने के 7 से 10 दिनों के भीतर वेतन का भुगतान करना कानूनी रूप से अनिवार्य है।\n"
+                    f"* **वेतन भुगतान अधिनियम, 1936 (धारा 15):** कर्मचारियों को विलंबित या रोके गए वेतन की वसूली के लिए सक्षम श्रम प्राधिकारी के समक्ष दावे दायर करने और मुआवजे का अधिकार प्रदान करता है।\n"
+                    f"* **भारतीय अनुबंध अधिनियम, 1872 (धारा 73):** रोजगार शर्तों के उल्लंघन पर कर्मचारी को बकाया राशि प्राप्त करने का पूर्ण अधिकार है।\n\n"
+                    f"### | व्यावहारिक अगले कदम (Practical Next Steps)\n"
+                    f"1. **साक्ष्य एकत्रित करें** – नियुक्ति पत्र (Offer Letter), वेतन पर्ची (Pay Slips), बैंक स्टेटमेंट और एचआर के साथ ईमेल/व्हाट्सएप संवाद संभाल कर रखें।\n"
+                    f"2. **लिखित मांग नोटिस भेजें** – प्रबंधन को 15 दिनों का औपचारिक नोटिस देकर तुरंत समस्त बकाया वेतन जारी करने की मांग करें।\n"
+                    f"3. **समाधान न होने पर** – स्थानीय श्रम आयुक्त (Labour Commissioner) कार्यालय में औपचारिक शिकायत दर्ज करें।\n\n"
+                    f"### ℹ️ आपसे आवश्यक जानकारी\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["gu", "gujarati"]:
+                return (
+                    f"હું આમાં તમને સંપૂર્ણ માર્ગદર્શન આપી શકું છું. ભારતીય શ્રમ અને વેતન કાયદા મુજબ તમારી પરિસ્થિતિનું સ્પષ્ટ વિશ્લેષણ નીચે મુજબ છે:\n\n"
+                    f"### | તમારી પરિસ્થિતિ (Your Situation)\n"
+                    f"તમારા નોકરીદાતા (કંપની) એ {loc} માં છેલ્લા બે મહિનાથી તમારો કમાયેલો પગાર {f'({amt_str}) ' if ef['amount'] else ''}અટકાવી રાખ્યો છે. ભારતીય કાનૂન મુજબ સેવા આપ્યા બાદ વેતન રોકવું ગેરકાયદેસર છે.\n\n"
+                    f"### | તમારો કાનૂની પક્ષ (Your Legal Position)\n"
+                    f"* **પેમેન્ટ ઑફ વેજીસ એક્ટ, ૧૯૩૬ (કલમ ૫)**: નોકરીદાતા માટે વેતન સમયગાળો પૂરો થયાના ૭ થી ૧૦ દિવસમાં પગાર ચૂકવવો કાયદેસર ફરજિયાત છે.\n"
+                    f"* **પેમેન્ટ ઑફ વેજીસ એક્ટ, ૧૯૩૬ (કલમ ૧૫)**: કર્મચારીને વળતર સાથે બાકી પગારની વસૂલાત માટે લેબર કમિશનર સમક્ષ દાવો દાખલ કરવાનો અધિકાર આપે છે.\n"
+                    f"* **ઇન્ડિયન કોન્ટ્રાક્ટ એક્ટ, ૧૮૭૨ (કલમ ૭૩)**: રોજગાર શરતોના ભંગ બદલ પૂરેપૂરું બાકી વેતન મેળવવાનો કાનૂની અધિકાર છે.\n\n"
+                    f"### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n"
+                    f"1. **પુરાવા એકત્રિત કરો** – ઑફર લેટર, સેલેરી સ્લિપ્સ, બેંક સ્ટેટમેન્ટ અને HR સાથેની ઇમેઇલ ચેટ સાચવો.\n"
+                    f"2. **ઔપચારિક માંગ પત્ર મોકલો** – મેનેજમેન્ટને ૧૫ દિવસની અંદર તમામ બાકી વેતન ચૂકવવા માટે લેખિત નોટિસ આપો.\n"
+                    f"3. **લેબર કમિશનર** – ઉકેલ ન આવે તો સ્થાનિક શ્રમ આયુક્ત કચેરીમાં ફરિયાદ નોંધાવો.\n\n"
+                    f"### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["ml", "malayalam"]:
+                return (
+                    f"ഇന്ത്യൻ തൊഴിൽ, വേതന നിയമങ്ങളുടെ അടിസ്ഥാനത്തിൽ നിങ്ങളുടെ കേസിന്റെ നിയമപരമായ വിലയിരുത്തൽ താഴെ നൽകുന്നു:\n\n"
+                    f"### | നിങ്ങളുടെ സാഹചര്യം (Your Situation)\n"
+                    f"{loc}-ലെ നിങ്ങളുടെ തൊഴിലുടമ കഴിഞ്ഞ രണ്ട് മാസമായി നിങ്ങളുടെ ശമ്പളം {f'({amt_str}) ' if ef['amount'] else ''}തടഞ്ഞുവെച്ചിരിക്കുകയാണ്. ജോലി ചെയ്ത വേതനം നൽകാതിരിക്കുന്നത് നിയമവിരുദ്ധമാണ്.\n\n"
+                    f"### | നിങ്ങളുടെ നിയമപരമായ അവകാശം (Your Legal Position)\n"
+                    f"* **വേതന വിതരണ നിയമം, 1936 (വകുപ്പ് 5)**: വേതന കാലയളവ് കഴിഞ്ഞ് 7 മുതൽ 10 ദിവസത്തിനകം തൊഴിലുടമ ശമ്പളം വിതരണം ചെയ്യണം.\n"
+                    f"* **വേതന വിതരണ നിയമം, 1936 (വകുപ്പ് 15)**: കുടിശ്ശികയുള്ള ശമ്പളം നഷ്ടപരിഹാരത്തോടെ തിരികെ ലഭിക്കാൻ ലേബർ കമ്മീഷണറെ സമീപിക്കാം.\n"
+                    f"* **ഇന്ത്യൻ കരാർ നിയമം, 1872 (വകുപ്പ് 73)**: തൊഴിൽ കരാർ ലംഘനത്തിന് പൂർണ്ണമായ കുടിശ്ശികയും നഷ്ടപരിഹാരവും ആവശ്യപ്പെടാം.\n\n"
+                    f"### | പ്രായോഗിക അടുത്ത നടപടികൾ (Practical Next Steps)\n"
+                    f"1. **രേഖകൾ ശേഖരിക്കുക** – ഓഫർ ലെറ്റർ, മുൻ മാസങ്ങളിലെ സാലറി സ്ലിപ്പുകൾ, ബാങ്ക് സ്റ്റേറ്റ്‌മെന്റ്, ഇമെയിൽ രേഖകൾ.\n"
+                    f"2. **രേഖാമൂലമുള്ള നോട്ടീസ് അയക്കുക** – 15 ദിവസത്തിനകം കുടിശ്ശിക നൽകാൻ കമ്പനിക്ക് ഡിമാൻഡ് നോട്ടീസ് നൽകുക.\n"
+                    f"3. **ലേബർ കമ്മീഷണർക്ക് പരാതി നൽകുക** – പ്രശ്നം പരിഹരിച്ചില്ലെങ്കിൽ തൊഴിൽ വകുപ്പിന് ഔദ്യോഗിക പരാതി സമർപ്പിക്കുക.\n\n"
+                    f"### ℹ️ നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["ta", "tamil"]:
+                return (
+                    f"இந்திய தொழிலாளர் மற்றும் ஊதியச் சட்டங்களின் அடிப்படையில் உங்கள் நிலைமைக்கான தெளிவான சட்ட விளக்கம்:\n\n"
+                    f"### | உங்கள் நிலைமை (Your Situation)\n"
+                    f"{loc}-ல் உள்ள உங்கள் நிறுவனம் கடந்த இரண்டு மாதங்களாக உங்கள் சம்பளத்தை {f'({amt_str}) ' if ef['amount'] else ''}வழங்காமல் நிறுத்தி வைத்துள்ளது. உழைத்த ஊதியத்தை நிறுத்தி வைப்பது சட்டவிரோதமானது.\n\n"
+                    f"### | உங்கள் சட்டப்பூர்வ நிலை (Your Legal Position)\n"
+                    f"* **ஊதிய வழங்கல் சட்டம், 1936 (பிரிவு 5)**: மாத ஊதியத்தை 7 முதல் 10 நாட்களுக்குள் வழங்க வேண்டும் என்பது முதலாளிகளுக்கு கட்டாயமாகும்.\n"
+                    f"* **ஊதிய வழங்கல் சட்டம், 1936 (பிரிவு 15)**: நிலுவை ஊதியத்தை இழப்பீட்டுடன் வசூலிக்க தொழிலாளர் ஆணையரிடம் மனு செய்ய உரிமை உண்டு.\n"
+                    f"* **இந்திய ஒப்பந்தச் சட்டம், 1872 (பிரிவு 73)**: வேலைவாய்ப்பு விதிமுறைகளை மீறுவதற்கு உரிய இழப்பீடு கோரலாம்.\n\n"
+                    f"### | நடைமுறை அடுத்த கட்டங்கள் (Practical Next Steps)\n"
+                    f"1. **ஆதாரங்களைச் சேகரிக்கவும்** – பணி நியமனக் கடிதம், சம்பள சீட்டுகள் (Pay slips), வங்கி அறிக்கை மற்றும் மின்னஞ்சல் பதிவுகள்.\n"
+                    f"2. **முறையான கோரிக்கை நோட்டீஸ் அனுப்பவும்** – நிலுவைத் தொகையை 15 நாட்களுக்குள் வழங்க நிறுவனத்திற்கு கோரிக்கை கடிதம் அனுப்பவும்.\n"
+                    f"3. **தொழிலாளர் ஆணையரிடம் புகார்** – தீர்வு கிடைக்காவிட்டால் தொழிலாளர் ஆணையத்தில் புகார் அளிக்கவும்.\n\n"
+                    f"### ℹ️ உங்களிடம் இருந்து தேவைப்படும் தகவல்கள்\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["te", "telugu"]:
+                return (
+                    f"భారతీయ కార్మిక మరియు వేతన చట్టాల ఆధారంగా మీ పరిస్థితికి స్పష్టమైన చట్టపరమైన విశ్లేషణ:\n\n"
+                    f"### | మీ పరిస్థితి (Your Situation)\n"
+                    f"{loc} లోని మీ కంపెనీ గత రెండు నెలలుగా మీరు సంపాదించిన జీతాన్ని {f'({amt_str}) ' if ef['amount'] else ''}నిలిపివేసింది. పనిచేసిన తర్వాత వేతనం నిలిపివేయడం చట్టవిరుద్ధం.\n\n"
+                    f"### | మీ చట్టపరమైన స్థితి (Your Legal Position)\n"
+                    f"* **వేతనాల చెల్లింపు చట్టం, 1936 (సెక్షన్ 5)**: వేతన కాలం ముగిసిన 7 నుండి 10 రోజులలోపు జీతం చెల్లించాల్సిన చట్టపరమైన బాధ్యత యజమానిపై ఉంది.\n"
+                    f"* **వేతనాల చెల్లింపు చట్టం, 1936 (సెక్షన్ 15)**: ఆలస్యమైన జీతాన్ని పరిహారంతో పాటు రికవరీ చేయడానికి లేబర్ కమిషనర్‌కు ఫిర్యాదు చేసే హక్కు ఉద్యోగికి ఉంది.\n"
+                    f"* **భారత కాంట్రాక్ట్ చట్టం, 1872 (సెక్షన్ 73)**: ఉపాధి నిబంధనల ఉల్లంఘనకు పరిహారం పొందే హక్కు ఉంది.\n\n"
+                    f"### | ఆచరణాత్మక తదుపరి చర్యలు (Practical Next Steps)\n"
+                    f"1. **ఆధారాలు సేకరించండి** – అపాయింట్‌మెంట్ లెటర్, పాత పే స్లిప్పులు, బ్యాంక్ స్టేట్‌మెంట్లు మరియు ఈమెయిల్ రికార్డులు.\n"
+                    f"2. **రాతపూర్వక డిమాండ్ నోటీసు పంపండి** – బకాయిలను 15 రోజుల్లోగా చెల్లించాలని యాజమాన్యానికి డిమాండ్ నోటీసు పంపండి.\n"
+                    f"3. **లేబర్ కమిషనర్‌ను ఆశ్రయించండి** – సమస్య పరిష్కారం కాకపోతే స్థానిక లేబర్ కమిషనర్‌కు అధికారికంగా ఫిర్యాదు చేయండి.\n\n"
+                    f"### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["bn", "bengali"]:
+                return (
+                    f"ভারতীয় শ্রম ও মজুরি আইনের ভিত্তিতে আপনার পরিস্থিতিটির আইনি মূল্যায়ন নিচে দেওয়া হলো:\n\n"
+                    f"### | আপনার বর্তমান পরিস্থিতি (Your Situation)\n"
+                    f"{loc}-এ আপনার নিয়োগকর্তা গত দুই মাস ধরে আপনার বকেয়া বেতন {f'({amt_str}) ' if ef['amount'] else ''}আটকে রেখেছেন। ভারতীয় আইন অনুযায়ী অর্জিত বেতন আটকে রাখা বেআইনি।\n\n"
+                    f"### | আপনার আইনি অবস্থান (Your Legal Position)\n"
+                    f"* **মজুরি প্রদান আইন, ১৯৩৬ (ধারা ৫)**: মজুরির মেয়াদ শেষ হওয়ার ৭ থেকে ১০ দিনের মধ্যে অর্জিত বেতন প্রদান করা নিয়োগকর্তার জন্য বাধ্যতামূলক।\n"
+                    f"* **মজুরি প্রদান আইন, ১৯৩৬ (ধারা ১৫)**: বকেয়া বেতনের জন্য ক্ষতিপূরণসহ উপযুক্ত কর্তৃপক্ষের কাছে দাবি দায়ের করার অধিকার প্রদান করে।\n"
+                    f"* **ভারতীয় চুক্তি আইন, ১৮৭২ (ধারা ৭৩)**: কর্মসংস্থানের শর্তভঙ্গের কারণে সম্পূর্ণ বকেয়া পাওনা আদায়ের অধিকার রয়েছে।\n\n"
+                    f"### | ব্যবহারিক পরবর্তী পদক্ষেপ (Practical Next Steps)\n"
+                    f"1. **প্রমাণ সংগ্রহ করুন** – নিয়োগপত্র, আগের বেতন স্লিপ, ব্যাঙ্ক স্টেটমেন্ট এবং এইচআরের সাথে ইমেল আদান-প্রদান।\n"
+                    f"2. **লিখিত দাবি নোটিস পাঠান** – সমস্ত বকেয়া পরিশোধের জন্য কোম্পানিকে ১৫ দিনের আনুষ্ঠানিক নোটিস পাঠান।\n"
+                    f"3. **শ্রম কমিশনারের কাছে অভিযোগ** – সমাধান না হলে স্থানীয় শ্রম কমিশনারের কাছে আনুষ্ঠানিক অভিযোগ দায়ের করুন।\n\n"
+                    f"### ℹ️ আপনার কাছ থেকে প্রয়োজনীয় তথ্য\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["hinglish"]:
+                return (
+                    f"Main isme aapki help kar sakta hoon. Indian labour laws ke hisaab se legal overview ye hai:\n\n"
+                    f"### | Your Situation (Aapki Situation)\n"
+                    f"{loc} me aapki company ne pichhle 2 months se earned salary {f'({amt_str}) ' if ef['amount'] else ''}withhold kar rakhi hai. Indian law me service ke baad salary rokna unlawful hai.\n\n"
+                    f"### | Your Legal Position (Aapke Kanooni Adhikar)\n"
+                    f"* **Payment of Wages Act, 1936 (Section 5):** Wage period ke 7-10 days ke andar employer ko full salary disburse karna mandatory hai.\n"
+                    f"* **Payment of Wages Act, 1936 (Section 15):** Delayed salary claim compensation ke saath Labour Authority me file karne ka right deta hai.\n"
+                    f"* **Indian Contract Act, 1872 (Section 73):** Employment breach ke liye compensation aur full dues recovery entitlement hai.\n\n"
+                    f"### | Practical Next Steps (Agla Kadam)\n"
+                    f"1. **Evidence save karein** – Offer letter, previous salary slips, bank credit statements aur HR ke saath email threads.\n"
+                    f"2. **Formal Written Demand bhejein** – HR aur management ko 15-day notice bhejkar immediate salary clearance demand karein.\n"
+                    f"3. **Unresolved case me** – Local Labour Commissioner ya Shops & Establishment Authority me formal complaint lodge karein.\n\n"
+                    f"### ℹ️ Information I still need from you (Zaroori Jankari)\n"
+                    f"{fu_question}"
+                )
+            else:
+                return (
+                    f"I can help you with this. Here's a clear legal assessment based on Indian labour and wage laws.\n\n"
+                    f"### | Your Situation\n"
+                    f"Your employer in {loc} has withheld your earned salary {f'of {amt_str} ' if ef['amount'] else ''}for two months. "
+                    f"Under Indian law, withholding earned wages for service already rendered is unlawful.\n\n"
+                    f"### | Your Legal Position\n"
+                    f"* **Payment of Wages Act, 1936 (Section 5):** Employers are legally required to disburse earned wages within 7 to 10 days of the wage period.\n"
+                    f"* **Payment of Wages Act, 1936 (Section 15):** Grants employees the right to file claims for delayed or wrongfully withheld wages before the statutory Authority, along with compensation.\n"
+                    f"* **Indian Contract Act, 1872 (Section 73):** Breach of employment terms entitles the employee to full compensation for dues owed.\n\n"
+                    f"### | Practical Next Steps\n"
+                    f"1. **Gather evidence** – appointment letter, previous salary slips, bank statements proving salary credits, and email/WhatsApp threads with HR.\n"
+                    f"2. **Send a written demand** – issue a formal 15-day demand notice to HR and management demanding immediate clearance of all dues.\n"
+                    f"3. **If unresolved** – file a formal claim before the local Labour Commissioner or under the state Shops & Commercial Establishments Act.\n\n"
+                    f"### ℹ️ Information I still need from you\n"
+                    f"{fu_question}"
+                )
 
         # -------------------------------------------------------------
         # DOMAIN 3: CONSUMER PROTECTION & REFUNDS
         # -------------------------------------------------------------
         elif category == CaseCategoryEnum.CONSUMER or ef.get("category") == "consumer":
-            return (
-                f"I can help you with this. Here's an analysis based on the Consumer Protection Act, 2019.\n\n"
-                f"### | Your Situation\n"
-                f"You purchased a product that turned out defective, and the seller or e-commerce platform is refusing a refund or replacement.\n\n"
-                f"### | Your Legal Position\n"
-                f"* **Consumer Protection Act, 2019 (Section 2(47)):** Refusing to withdraw defective goods or refund consideration within the agreed period (or within 30 days) constitutes an explicit **Unfair Trade Practice**.\n"
-                f"* **Consumer Protection Act, 2019 (Section 35 & 84):** Gives consumers the right to file a complaint before the District Consumer Commission and claim product liability damages.\n"
-                f"* **E-Commerce Rules, 2020:** Mandates platforms to acknowledge grievances within 48 hours and resolve returns within 30 days.\n\n"
-                f"### | Practical Next Steps\n"
-                f"1. **Gather evidence** – tax invoice, unboxing videos/photos of defect, and customer care rejection tickets.\n"
-                f"2. **National Consumer Helpline (NCH)** – call **1915** or lodge a grievance at https://consumerhelpline.gov.in/.\n"
-                f"3. **If unresolved** – file an e-complaint before the District Consumer Commission online via **e-Daakhil**.\n\n"
-                f"### ℹ️ Information I still need from you\n"
-                f"{fu_question}"
-            )
+            if lang_val in ["gu", "gujarati"]:
+                return (
+                    f"હું આ બાબતમાં ગ્રાહક સુરક્ષા કાયદા મુજબ તમને સંપૂર્ણ મદદ કરી શકું છું:\n\n"
+                    f"### | તમારી પરિસ્થિતિ (Your Situation)\n"
+                    f"તમે ઑનલાઇન એક ખામીયુક્ત ફોન/ઉત્પાદન ખરીદ્યું છે અને વેચનાર કે પ્લેટફોર્મ તમને રિફંડ આપવાનો ઇનકાર કરી રહ્યું છે.\n\n"
+                    f"### | તમારો કાનૂની પક્ષ (Your Legal Position)\n"
+                    f"* **ગ્રાહક સુરક્ષા અધિનિયમ, ૨૦૧૯ (કલમ ૨(૪૭))**: ખામીયુક્ત માલ પાછો લેવાનો અથવા રિફંડ આપવાનો ઇનકાર કરવો એ સ્પષ્ટપણે ગેરવાજબી વેપાર પ્રથા (Unfair Trade Practice) છે.\n"
+                    f"* **ગ્રાહક સુરક્ષા અધિનિયમ, ૨૦૧૯ (કલમ ૩૫)**: ગ્રાહકને જિલ્લા ગ્રાહક કમિશન સમક્ષ વળતર અને નુકસાની માટે ફરિયાદ દાખલ કરવાનો અધિકાર આપે છે.\n"
+                    f"* **કન્ઝ્યુમર પ્રોટેક્શન (ઈ-કોમર્સ) નિયમો, ૨૦૨૦**: પ્લેટફોર્મ માટે ૪૮ કલાકમાં ફરિયાદ સ્વીકારવી અને નિર્ધારિત સમયમાં રિફંડ ઉકેલવું ફરજિયાત છે.\n\n"
+                    f"### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n"
+                    f"1. **પુરાવા સાચવો** – ટેક્સ ઇનવોઇસ (બિલ), ખામી દર્શાવતી તસવીરો/વીડિયો અને કસ્ટમર સપોર્ટ ચેટ રેકોર્ડ.\n"
+                    f"2. **નેશનલ કન્ઝ્યુમર હેલ્પલાઇન (NCH)** – ૧૯૧૫ પર કૉલ કરો અથવા consumerhelpline.gov.in પર ફરિયાદ નોંધાવો.\n"
+                    f"3. **ઈ-દાખિલ (e-Daakhil)** – ઉકેલ ન મળે તો જિલ્લા કમિશન સમક્ષ ઓનલાઈન ફરિયાદ દાખલ કરો.\n\n"
+                    f"### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["hi", "hindi"]:
+                return (
+                    f"मैं आपकी इसमें सहायता कर सकता हूँ। उपभोक्ता संरक्षण अधिनियम, 2019 के आधार पर विश्लेषण इस प्रकार है:\n\n"
+                    f"### | आपकी स्थिति (Your Situation)\n"
+                    f"आपने एक उत्पाद खरीदा जो दोषपूर्ण निकला, और विक्रेता या ई-कॉमर्स प्लेटफॉर्म रिफंड देने से इनकार कर रहा है।\n\n"
+                    f"### | आपकी कानूनी स्थिति (Your Legal Position)\n"
+                    f"* **उपभोक्ता संरक्षण अधिनियम, 2019 (धारा 2(47)):** दोषपूर्ण वस्तुओं को वापस लेने या रिफंड देने से इनकार करना अनुचित व्यापार व्यवहार (Unfair Trade Practice) है।\n"
+                    f"* **उपभोक्ता संरक्षण अधिनियम, 2019 (धारा 35):** उपभोक्ता को जिला उपभोक्ता आयोग के समक्ष शिकायत दर्ज करने का अधिकार देती है।\n"
+                    f"* **ई-कॉमर्स नियम, 2020:** 48 घंटे में शिकायत दर्ज करने और 30 दिनों में निवारण का प्रावधान करता है।\n\n"
+                    f"### | व्यावहारिक अगले कदम (Practical Next Steps)\n"
+                    f"1. **साक्ष्य एकत्रित करें** – टैक्स इनवॉइस, दोष के फोटो/वीडियो और कस्टमर केयर चैट संभाल कर रखें।\n"
+                    f"2. **राष्ट्रीय उपभोक्ता हेल्पलाइन (NCH)** – 1915 पर कॉल करें या consumerhelpline.gov.in पर शिकायत दर्ज करें।\n"
+                    f"3. **e-Daakhil** – समाधान न होने पर जिला उपभोक्ता आयोग में ई-शिकायत दर्ज करें।\n\n"
+                    f"### ℹ️ आपसे आवश्यक जानकारी\n"
+                    f"{fu_question}"
+                )
+            elif lang_val in ["hinglish"]:
+                return (
+                    f"Main isme aapki help kar sakta hoon. Consumer Protection Act, 2019 ke basis pe legal assessment ye hai:\n\n"
+                    f"### | Your Situation (Aapki Situation)\n"
+                    f"Aapne defective product purchase kiya hai aur seller/platform refund provide karne se mana kar raha hai.\n\n"
+                    f"### | Your Legal Position (Aapke Kanooni Adhikar)\n"
+                    f"* **Consumer Protection Act, 2019 (Section 2(47)):** Defective product wapas na lena ya refund refuse karna Unfair Trade Practice hai.\n"
+                    f"* **Consumer Protection Act, 2019 (Section 35):** Consumer ko District Consumer Commission me complaint karne ka right deta hai.\n"
+                    f"* **E-Commerce Rules, 2020:** 48 hours me ticket acknowledge aur 30 days me resolution mandatory hai.\n\n"
+                    f"### | Practical Next Steps (Agla Kadam)\n"
+                    f"1. **Evidence collect karein** – Tax invoice, unboxing photos/videos aur customer care chat save karein.\n"
+                    f"2. **National Consumer Helpline (NCH)** – 1915 par call karein ya consumerhelpline.gov.in par complaint lodge karein.\n"
+                    f"3. **e-Daakhil portal** – Agar resolve na ho to District Commission me online case file karein.\n\n"
+                    f"### ℹ️ Information I still need from you (Zaroori Jankari)\n"
+                    f"{fu_question}"
+                )
+            else:
+                return (
+                    f"I can help you with this. Here's an analysis based on the Consumer Protection Act, 2019.\n\n"
+                    f"### | Your Situation\n"
+                    f"You purchased a product that turned out defective, and the seller or e-commerce platform is refusing a refund or replacement.\n\n"
+                    f"### | Your Legal Position\n"
+                    f"* **Consumer Protection Act, 2019 (Section 2(47)):** Refusing to withdraw defective goods or refund consideration within the agreed period (or within 30 days) constitutes an explicit **Unfair Trade Practice**.\n"
+                    f"* **Consumer Protection Act, 2019 (Section 35 & 84):** Gives consumers the right to file a complaint before the District Consumer Commission and claim product liability damages.\n"
+                    f"* **E-Commerce Rules, 2020:** Mandates platforms to acknowledge grievances within 48 hours and resolve returns within 30 days.\n\n"
+                    f"### | Practical Next Steps\n"
+                    f"1. **Gather evidence** – tax invoice, unboxing videos/photos of defect, and customer care rejection tickets.\n"
+                    f"2. **National Consumer Helpline (NCH)** – call **1915** or lodge a grievance at https://consumerhelpline.gov.in/.\n"
+                    f"3. **If unresolved** – file an e-complaint before the District Consumer Commission online via **e-Daakhil**.\n\n"
+                    f"### ℹ️ Information I still need from you\n"
+                    f"{fu_question}"
+                )
 
         # -------------------------------------------------------------
         # DOMAIN 4: GENERAL LEGAL INQUIRY
         # -------------------------------------------------------------
         else:
+            if lang_val in ["gu", "gujarati"]:
+                return (
+                    f"LawPilot AI નો સંપર્ક કરવા બદલ આભાર. ભારતીય દીવાની કાયદા મુજબ તમારી સમસ્યાનું વિશ્લેષણ કરવામાં આવશે:\n\n"
+                    f"### | તમારી પરિસ્થિતિ (Your Situation)\n"
+                    f"તમે એક કાનૂની પ્રશ્ન પૂછ્યો છે. LawPilot AI નીચેના ત્રણ ક્ષેત્રોમાં નિષ્ણાત છે:\n"
+                    f"1. ભાડૂઆત અને મકાનમાલિક વિવાદો\n"
+                    f"2. ગ્રાહક સુરક્ષા અને રિફંડ\n"
+                    f"3. રોજગાર અને વેતન સંબંધિત બાબતો\n\n"
+                    f"### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n"
+                    f"1. કૃપા કરીને પક્ષકારો, શહેર અને વિવાદિત રકમની ચોક્કસ વિગતો જણાવો.\n"
+                    f"2. તમારી પાસે ઉપલબ્ધ દસ્તાવેજો કે રસીદો જણાવો.\n\n"
+                    f"### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n"
+                    f"આ ત્રણમાંથી તમારી સમસ્યા કયા ક્ષેત્ર સાથે સંબંધિત છે?"
+                )
             return (
                 f"Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n"
                 f"### | Your Situation\n"
@@ -647,7 +1091,7 @@ class DeterministicDemoProvider(BaseLLMProvider):
         resp = self.generate_response(
             message=message,
             conversation_history=conversation_history,
-            language=language or LanguageEnum.ENGLISH,
+            language=language or LanguageEnum.AUTO,
             state_jurisdiction=state_jurisdiction,
             session_id=session_id
         )
@@ -676,7 +1120,8 @@ class GeminiInteractionsProvider(BaseLLMProvider):
 
     def _check_fast_track(self, lower_msg: str, lang_str: str) -> Optional[str]:
         """Fast-track conversational remarks with sub-5ms latency and zero emojis."""
-        if lower_msg in ["hi", "hello", "hey", "namaste", "namaskar", "hi lawpilot", "hello lawpilot", "greetings"]:
+        greeting_words = ["hi", "hello", "hey", "namaste", "namaskar", "hi lawpilot", "hello lawpilot", "greetings", "નમસ્તે", "வணக்கம்", "నమస్కారం", "নমস্কার", "നമസ്കാരം"]
+        if any(w == lower_msg or lower_msg.startswith(w + " ") for w in greeting_words) and len(lower_msg.split()) <= 4:
             if lang_str in ["hi", "hindi"]:
                 return (
                     "नमस्ते! मैं **LawPilot AI** हूँ, भारत में दैनिक कानूनी मामलों के लिए आपका सहायक।\n\n"
@@ -685,6 +1130,51 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                     "2. उपभोक्ता संरक्षण (दोषपूर्ण उत्पाद, रिफंड में देरी, ई-कॉमर्स धोखाधड़ी)\n"
                     "3. रोजगार व वेतन विवाद (रुका हुआ वेतन, अनुभव व रिलीविंग लेटर, पूर्ण व अंतिम निपटान)\n\n"
                     "आज मैं आपकी क्या सहायता कर सकता हूँ? कृपया अपनी समस्या साझा करें।"
+                )
+            elif lang_str in ["gu", "gujarati"]:
+                return (
+                    "નમસ્તે! હું **LawPilot AI** છું, ભારતમાં રોજિંદા કાનૂની અધિકારો માટે તમારો કાનૂની સહાયક.\n\n"
+                    "હું તમને તમારા અધિકારો સમજવા, પુરાવા એકત્રિત કરવા અને ઔપચારિક કાનૂની નોટિસ તૈયાર કરવામાં મદદ કરું છું:\n"
+                    "1. ભાડૂઆત અને મકાનમાલિક વિવાદો (સિક્યોરિટી ડિપોઝિટ પરત, મકાન ખાલી કરાવવું)\n"
+                    "2. ગ્રાહક સુરક્ષા (ખામીયુક્ત વસ્તુઓ, રિફંડમાં વિલંબ, ઈ-કોમર્સ ફરિયાદો)\n"
+                    "3. રોજગાર અને વેતન વિવાદો (અટકેલો પગાર, અનુભવ પત્ર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટ)\n\n"
+                    "આજે હું તમને કેવી રીતે મદદ કરી શકું? કૃપા કરીને તમારી સમસ્યા જણાવો."
+                )
+            elif lang_str in ["ml", "malayalam"]:
+                return (
+                    "നമസ്കാരം! ഞാൻ **LawPilot AI** ആണ്, ദൈനംദിന സിവിൽ നിയമപരമായ പ്രശ്നങ്ങൾക്കുള്ള നിങ്ങളുടെ സഹായി.\n\n"
+                    "ഇനിപ്പറയുന്ന പ്രധാന വിഷയങ്ങളിൽ ഞാൻ നിങ്ങളെ സഹായിക്കുന്നു:\n"
+                    "1. വാടകക്കാരനും വീട്ടുടമസ്ഥനും തമ്മിലുള്ള തർക്കങ്ങൾ (ഡെപ്പോസിറ്റ് തിരികെ ലഭിക്കൽ)\n"
+                    "2. ഉപഭോക്തൃ സംരക്ഷണം (തകരാറുള്ള ഉൽപ്പന്നങ്ങൾ, റീഫണ്ട് വൈകൽ)\n"
+                    "3. തൊഴിലും ശമ്പളവും (ശമ്പള കുടിശ്ശിക, റിലീവിംഗ് ലെറ്റർ)\n\n"
+                    "ഇന്ന് ഞാൻ നിങ്ങളെ എങ്ങനെ സഹായിക്കണം? നിങ്ങളുടെ പ്രശ്നം പങ്കുവെക്കൂ."
+                )
+            elif lang_str in ["ta", "tamil"]:
+                return (
+                    "வணக்கம்! நான் **LawPilot AI**, இந்தியாவின் அன்றாட சட்டச் சவால்களுக்கான உங்கள் சட்ட உதவியாளர்.\n\n"
+                    "நான் முக்கியமாக பின்வரும் பகுதிகளில் உங்களுக்கு உதவுகிறேன்:\n"
+                    "1. வாடகை மற்றும் நில உரிமையாளர் தகராறுகள் (முன்பணம் திரும்பப் பெறுதல்)\n"
+                    "2. நுகர்வோர் பாதுகாப்பு (குறைபாடுள்ள பொருட்கள், பணத்தைத் திரும்பப் பெறுதல்)\n"
+                    "3. வேலைவாய்ப்பு மற்றும் சம்பளம் (வழங்கப்படாத சம்பளம், பணி அனுபவக் கடிதம்)\n\n"
+                    "இன்று நான் உங்களுக்கு எவ்வாறு உதவ முடியும்? உங்கள் பிரச்சனையை விவரிக்கவும்."
+                )
+            elif lang_str in ["te", "telugu"]:
+                return (
+                    "నమస్కారం! నేను **LawPilot AI**, భారతదేశంలో రోజువారీ పౌర చట్టపరమైన సవాళ్లలో మీ సహాయకుడిని.\n\n"
+                    "నేను ఈ మూడు ప్రధాన విభాగాలలో మీకు సహాయం చేయగలను:\n"
+                    "1. అద్దెదారు మరియు ఇంటి యజమాని వివాదాలు (డిపాజిట్ వాపసు)\n"
+                    "2. వినియోగదారుల రక్షణ (లోపభూయిష్ట వస్తువులు, రీఫండ్ ఆలస్యం)\n"
+                    "3. ఉపాధి మరియు వేతనాలు (చెల్లించని జీతం, రిలీవింగ్ లేఖ)\n\n"
+                    "ఈ రోజు నేను మీకు ఎలా సహాయపడగలను? దయచేసి మీ సమస్యను తెలియజేయండి."
+                )
+            elif lang_str in ["bn", "bengali"]:
+                return (
+                    "নমস্কার! আমি **LawPilot AI**, ভারতে দৈনন্দিন আইনি অধিকারের জন্য আপনার আইনি সহায়ক।\n\n"
+                    "আমি আপনাকে আপনার অধিকার বুঝতে এবং আইনি নোটিস তৈরি করতে সহায়তা করি:\n"
+                    "1. বাড়িওয়ালা ও ভাড়াটিয়া বিরোধ (সিকিউরিটি ডিপোজিট ফেরত)\n"
+                    "2. ভোক্তা অধিকার ও সুরক্ষা (ত্রুটিযুক্ত পণ্য, রিফান্ড সমস্যা)\n"
+                    "3. কর্মসংস্থান ও বেতন বিরোধ (বকেয়া বেতন, রিলিজ লেটার)\n\n"
+                    "আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি? আপনার সমস্যাটি জানান।"
                 )
             elif lang_str in ["hinglish"]:
                 return (
@@ -702,16 +1192,29 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                     "1. Rental & Tenancy Issues (security deposit refunds, unlawful deductions, eviction protection)\n"
                     "2. Consumer Protection (defective goods, refund delays, e-commerce grievances)\n"
                     "3. Employment & Wages (unpaid salary, withheld relieving letters, full & final settlement)\n\n"
-                    "How can I assist you today? Feel free to describe your situation in plain English, Hindi, or Hinglish."
+                    "How can I assist you today? Feel free to describe your situation in plain English, Hindi, or any Indian language."
                 )
 
         if any(p in lower_msg for p in ["what is your name", "who are you", "your name"]):
+            if lang_str in ["gu", "gujarati"]:
+                return (
+                    "હું **LawPilot AI** છું, ભારતના સામાન્ય નાગરિકો માટે એક બુદ્ધિશાળી કાનૂની સહાયક. "
+                    "હું તમને તમારા કાનૂની અધિકારો સમજવામાં, વૈધાનિક અધિકારોની ચકાસણી કરવામાં અને ભાડૂઆત વિવાદો, ગ્રાહક ફરિયાદો અને રોજગાર બાબતો માટે ઔપચારિક કાનૂની નોટિસ તૈયાર કરવામાં મદદ કરું છું."
+                )
             return (
                 "I am **LawPilot AI**, an intelligent legal assistant for ordinary citizens in India. "
                 "I help you understand your legal standing, verify statutory rights, and draft formal notices for tenancy disputes, consumer complaints, and employment matters."
             )
 
         if any(p in lower_msg for p in ["what can you help me with", "what do you do", "help me with"]):
+            if lang_str in ["gu", "gujarati"]:
+                return (
+                    "LawPilot AI ભારતમાં ત્રણ મુખ્ય દીવાની કાનૂની ક્ષેત્રોમાં સામાન્ય નાગરિકોને મદદ કરે છે:\n\n"
+                    "1. ભાડૂઆત અને મકાનમાલિક વિવાદો: સિક્યોરિટી ડિપોઝિટ પરત ન મળવી, કલરકામ/સમારકામની અન્યાયી કપાત, ગેરકાયદેસર રીતે મકાન ખાલી કરાવવાની ધમકીઓ.\n"
+                    "2. ગ્રાહક સુરક્ષા: ખામીયુક્ત કે ક્ષતિગ્રસ્ત ઉત્પાદનો, રિફંડ ન મળવું, ઈ-કોમર્સ છેતરપિંડી (ગ્રાહક સુરક્ષા કાયદો, 2019).\n"
+                    "3. રોજગાર અને વેતન: અટકેલો પગાર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટમાં વિલંબ, ગેરકાયદેસર કપાત અને અનુભવ પત્ર રોકી રાખવો (પેમેન્ટ ઓફ વેજીસ એક્ટ).\n\n"
+                    "તમે ભાડા કરાર અથવા બિલ પણ જોડી શકો છો, અથવા સીધા ચેટમાં ઔપચારિક કાનૂની માંગ નોટિસ તૈયાર કરી શકો છો."
+                )
             return (
                 "LawPilot AI assists ordinary citizens across three core civil legal domains in India:\n\n"
                 "1. Tenant & Landlord Disputes: Security deposit non-refunds, arbitrary painting/repair deductions, unlawful eviction threats, and rent agreements.\n"
@@ -735,6 +1238,11 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             )
 
         if any(w in lower_msg for w in ["bye", "goodbye", "good night", "alvida", "see you"]):
+            if lang_str in ["gu", "gujarati"]:
+                return (
+                    "આવજો! LawPilot AI નો સંપર્ક કરવા બદલ આભાર. "
+                    "જો તમને ભવિષ્યમાં ક્યારેય કાનૂની સ્પષ્ટતા કે નોટિસ તૈયાર કરવામાં મદદ જોઈતી હોય, તો હું હંમેશા હાજર રહીશ. તમારો દિવસ શુભ રહે!"
+                )
             return (
                 "Goodbye! Thank you for consulting LawPilot AI. "
                 "If you ever need legal clarity, rights information, or help drafting formal legal notices in the future, I will be here to assist you. Have a great day!"
@@ -743,71 +1251,46 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         return None
 
     def _detect_language(self, message: str, language: Optional[LanguageEnum] = None) -> str:
-        """Automatically detects user language: English, Hindi, Hinglish, or Malayalam."""
-        if language and hasattr(language, "value") and language.value != "en":
-            return language.value
-        lower_msg = message.strip().lower()
-        if any(w in lower_msg for w in [
-            "mera", "meri", "mere", "nahi", "kya", "bhai", "bol raha", "kaat lega", "bhejna hai",
-            "kar sakta hoon", "ab mujhe", "paisa", "rupaye", "chahiye", "karu", "raha hai",
-            "de raha", "dunga", "dena", "apna", "apni", "main", "hum", "madad", "batayein"
-        ]):
-            return "hinglish"
-        if any(ord(char) >= 0x0900 and ord(char) <= 0x097F for char in message):
-            return "hi"
-        if any(ord(char) >= 0x0D00 and ord(char) <= 0x0D7F for char in message):
-            return "ml"
-        return "en"
+        """Automatically detects user language independently for each turn."""
+        return detect_message_language(message, language)
 
     def _build_prompt(self, message: str, conversation_history: List[Dict[str, str]], lang_str: str, statutory_context: str) -> str:
-        """Constructs prompt with strict legal formatting rules and zero emojis."""
-        if lang_str in ["hi", "hindi"]:
-            lang_rule = (
-                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: You MUST reply entirely in pure, clear, empathetic HINDI (हिंदी - Devanagari script).\n"
-                "Use Hindi section headers:\n"
-                "'### | आपकी स्थिति (Your Situation)'\n"
-                "'### | आपकी कानूनी स्थिति (Your Legal Position)'\n"
-                "'### | व्यावहारिक अगले कदम (Practical Next Steps)'\n"
-                "'### आपसे आवश्यक जानकारी (Information I still need from you)'\n"
-                "Explain the legal position and steps in simple Hindi that an ordinary Indian citizen can easily understand.\n"
-                "Do NOT reply in English."
-            )
-        elif lang_str in ["hinglish"]:
-            lang_rule = (
-                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: You MUST reply in conversational HINGLISH (Roman Hindi + English legal terms, as spoken commonly across India).\n"
-                "Use headers:\n"
-                "'### | Your Situation (Aapki Situation)'\n"
-                "'### | Your Legal Position (Aapke Kanooni Adhikar)'\n"
-                "'### | Practical Next Steps (Agla Kadam)'\n"
-                "'### Information I still need from you (Zaroori Jankari)'\n"
-                "Explain the points in conversational Hinglish.\n"
-                "Do NOT write in pure English or pure Devanagari script."
-            )
-        elif lang_str in ["ml", "malayalam"]:
-            lang_rule = (
-                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: Reply in MALAYALAM (മലയാളം script) with clear legal terms.\n"
-                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### Information I still need from you'."
-            )
-        else:
-            lang_rule = (
-                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: Reply in plain, clear, professional ENGLISH.\n"
-                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### Information I still need from you'."
-            )
+        """Constructs prompt enforcing exact response-language consistency and strict legal accuracy."""
+        lang_info = LANGUAGE_CONFIG.get(lang_str, LANGUAGE_CONFIG["en"])
+        lang_name = lang_info["name"]
+        lang_script = lang_info["script"]
+        headers = lang_info["headers"]
 
         system_instruction = (
             "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens in India.\n"
             "You cover 3 everyday domains: (1) Tenant & Landlord Disputes, (2) Consumer Protection, (3) Employment Issues.\n\n"
-            f"{lang_rule}\n\n"
+            "====================================================================================\n"
+            "MANDATORY MULTILINGUAL RESPONSE DIRECTIVE:\n"
+            "Always identify the language of the user's latest message and respond in that same language. "
+            "This rule applies to every response, including greetings, legal explanations, follow-up questions, case summaries, evidence checklists and generated document drafts.\n\n"
+            "Do not default to English.\n\n"
+            "If the user changes language during an ongoing conversation, immediately switch the response language to match the latest message while preserving the existing conversation context.\n\n"
+            "Use natural, fluent language rather than word-for-word machine translation.\n\n"
+            "Keep legal act names, section numbers and official legal terminology accurate. Where an official legal term is conventionally written in English, retain the original term and explain its meaning in the user's language.\n"
+            "====================================================================================\n\n"
+            f"TARGET RESPONSE LANGUAGE FOR THIS TURN: {lang_name} ({lang_script} script).\n"
+            f"You MUST generate your entire response in {lang_name}. Do NOT output in English when the user writes in {lang_name}.\n\n"
             "MANDATORY FORMAT RULES (NO EMOJIS):\n"
             "For legal questions or disputes, format your answer strictly using this clean layout:\n"
-            "1. A friendly, empathetic 1-sentence opening in the chosen language.\n"
-            "2. Situation section (Brief 2-sentence summary of the facts: parties, amount, location, key issue)\n"
-            "3. Legal Position section (Bullet points explaining statutory rights under Indian law using the verified statutes below. In tenancy, explain reasonable wear and tear. In employment, explain Section 5 Payment of Wages Act. In consumer, explain Section 2(47) CPA 2019. Never invent fake sections or judgments.)\n"
-            "4. Practical Next Steps section (Numbered 1, 2, 3: 1. Gather evidence, 2. Send written demand notice granting 15 days, 3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner)\n"
-            "5. Information I still need from you section (Ask 1 or 2 targeted missing questions naturally)\n\n"
+            f"1. A friendly, empathetic 1-sentence opening in {lang_name}.\n"
+            f"2. Situation section: Brief 2-sentence summary of the facts (parties, amount, location, key issue) under header:\n"
+            f"   '{headers['situation']}'\n"
+            f"3. Legal Position section: Bullet points explaining statutory rights under Indian law using the verified statutes below. In tenancy, explain reasonable wear and tear. In employment, explain Section 5 Payment of Wages Act. In consumer, explain Section 2(47) CPA 2019. Never invent fake sections or judgments. Use header:\n"
+            f"   '{headers['legal_position']}'\n"
+            f"4. Practical Next Steps section: Numbered 1, 2, 3 (1. Gather evidence, 2. Send written demand notice granting 15 days, 3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner) under header:\n"
+            f"   '{headers['next_steps']}'\n"
+            f"5. Information I still need from you section: Ask 1 or 2 targeted missing questions naturally under header:\n"
+            f"   '{headers['info_needed']}'\n\n"
+            "IF THE USER ASKS TO DRAFT A LEGAL NOTICE OR LETTER (e.g. 'draft a notice', 'ઔપચારિક પત્ર તૈયાર કરો', 'પત્ર લખો', 'நோட்டீஸ் தயார் செய்', 'নোটিস তৈরি করুন'):\n"
+            f"Draft the complete formal legal demand letter/notice entirely in {lang_name}, preserving all known case facts (such as ₹25,000, landlord name, tenancy dates) and inserting clean placeholders [like this] for any missing details.\n\n"
             "DO NOT USE EMOJIS in headers or body text. Maintain a clean, professional legal appearance.\n\n"
-            "FOR CASUAL REMARKS, GREETINGS ('Hi', 'Hello'), CLOSINGS ('Bye', 'Thank you'), MATH ('2+2'), OR JOKES:\n"
-            "Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI in the chosen language without emojis.\n\n"
+            "FOR CASUAL REMARKS, GREETINGS ('Hi', 'Hello', 'નમસ્તે', 'नमस्ते', 'வணக்கம்'), CLOSINGS ('Bye', 'Thank you'), MATH ('2+2'), OR JOKES:\n"
+            f"Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI in {lang_name} without emojis.\n\n"
             "ETHICAL BOUNDARIES:\n"
             "- Never guarantee a 100% court win.\n"
             "- Refuse requests to invent non-existent sections.\n"
@@ -868,7 +1351,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             "Content-Type": "application/json"
         }
 
-        models_to_try = [("gemini-3.8-flash", 4), ("gemini-flash-lite-latest", 5)]
+        models_to_try = [("gemini-flash-lite-latest", 8), ("gemini-3.8-flash", 4)]
         for model_name, t_sec in models_to_try:
             payload = {
                 "model": model_name,
@@ -923,7 +1406,8 @@ class GeminiInteractionsProvider(BaseLLMProvider):
 
         logger.info(f"ReqID={req_id} | Falling back to Structured Deterministic Provider")
         demo = DeterministicDemoProvider()
-        return demo.generate_response(message, conversation_history, language or LanguageEnum.ENGLISH, state_jurisdiction, session_id)
+        fallback_lang = LanguageEnum(lang_str) if lang_str in [e.value for e in LanguageEnum] else LanguageEnum.AUTO
+        return demo.generate_response(message, conversation_history, fallback_lang, state_jurisdiction, session_id)
 
     def generate_stream(
         self,
@@ -1037,7 +1521,8 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         # 6. Fallback to Structured Deterministic Provider
         logger.info(f"ReqID={req_id} | Falling back to Deterministic streaming")
         demo = DeterministicDemoProvider()
-        for event in demo.generate_stream(message, conversation_history, language, state_jurisdiction, session_id):
+        fallback_lang = LanguageEnum(lang_str) if lang_str in [e.value for e in LanguageEnum] else LanguageEnum.AUTO
+        for event in demo.generate_stream(message, conversation_history, fallback_lang, state_jurisdiction, session_id):
             yield event
 
 

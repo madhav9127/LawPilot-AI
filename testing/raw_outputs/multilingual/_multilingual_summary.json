@@ -1,0 +1,170 @@
+{
+  "total_tests": 10,
+  "passed": 10,
+  "partial": 0,
+  "failed": 0,
+  "timestamp": "2026-11-18T01:44:18Z",
+  "results": [
+    {
+      "test_id": "ML_01_English",
+      "test_name": "Test 1 — English",
+      "input_prompt": "My employer in Bangalore has not paid my salary for two months.",
+      "detected_target_lang": "en",
+      "status": "PASS",
+      "latency_sec": 7.46,
+      "evaluation_notes": "Fluent English verified.",
+      "raw_response": "Hello, I am LawPilot AI, your Indian legal assistant. I understand how stressful it is to face non-payment of your hard-earned salary, but please rest assured that Indian labor laws provide clear protections for employees in this exact situation.\n\n### | Your Situation\nYou are an employee working in Bangalore whose employer has withheld your salary for two months. The key issue is the illegal withholding of earned wages without lawful justification.\n\n### | Your Legal Position\n* Under Section 5 of The Payment of Wages Act, 1936, wages must be paid before the expiry of the seventh day after the last day of the wage period for which the wages are payable. Withholding salary for two months is a direct statutory violation.\n* Under Section 7 of The Payment of Wages Act, 1936, employers can only make specific, authorized deductions. Arbitrary withholding or non-payment of wages does not fall under permissible deductions and is unlawful.\n* Under the Karnataka Shops and Commercial Establishments Act, private and commercial establishments in Bangalore are mandated to clear all earned wages and final dues upon the completion of the wage period or upon separation.\n* Under Section 15 of The Payment of Wages Act, 1936, you have the right to approach the designated Labour Authority to claim your delayed wages, along with potential compensation for the delay.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, offer letter, salary slips for previous months, bank statements showing the last received payment, and any written communication or emails demanding your unpaid salary from your employer.\n2. Send a formal written demand notice to your employer stating the exact amount due for the two months, referencing your statutory rights under the Payment of Wages Act, and granting them 15 days to clear the full payment.\n3. Approach the appropriate forum: If the employer fails to clear your dues within the 15-day period, file a formal wage claim application before the Labour Commissioner or the designated Payment of Wages Authority in Bangalore.\n\n### ℹ️ Information I still need from you\n1. What is the approximate monthly salary amount due, and did you receive any formal written reason from your employer regarding this delay?\n2. Are you still actively employed with this company in Bangalore, or has your employment been terminated or resigned?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Indian Contract Act, 1872 Section 73",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision"
+      ]
+    },
+    {
+      "test_id": "ML_02_Hindi",
+      "test_name": "Test 2 — Hindi",
+      "input_prompt": "मेरे नियोक्ता ने पिछले दो महीनों से मेरा वेतन नहीं दिया है। मैं क्या कर सकता हूँ?",
+      "detected_target_lang": "hi",
+      "status": "PASS",
+      "latency_sec": 11.79,
+      "evaluation_notes": "Rich Hindi Devanagari script detected (1216 characters).",
+      "raw_response": "नमस्ते, आपकी इस समस्या को सुनकर मुझे बहुत दुख हुआ और मैं आपकी सहायता के लिए यहाँ LawPilot AI हूँ।\n\n### | आपकी स्थिति (Your Situation)\nआपके नियोक्ता (employer) ने पिछले दो महीनों से आपका वेतन रोक लिया है, जिससे आपको गंभीर वित्तीय कठिनाई का सामना करना पड़ रहा है। यह मामला एक व्यावसायिक प्रतिष्ठान या कंपनी में कार्यरत कर्मचारी के अवैतनिक वेतन (unpaid wages) से संबंधित है।\n\n### | आपकी कानूनी स्थिति (Your Legal Position)\n- **द पेमेंट ऑफ़ वेजेज एक्ट, 1936 की धारा 5 (The Payment of Wages Act, 1936 Section 5):** इस कानून के अनुसार, वेतन का भुगतान वेतन अवधि समाप्त होने के बाद 7वें दिन से पहले (या जहाँ 1,000 से अधिक कर्मचारी कार्यरत हैं, वहाँ 10वें दिन से पहले) किया जाना अनिवार्य है। वेतन में किसी भी प्रकार की अनधिकृत देरी या रोक लगाना कानूनन अवैध है।\n- **द पेमेंट ऑफ़ वेजेज एक्ट, 1936 की धारा 15 (The Payment of Wages Act, 1936 Section 15):** इस धारा के तहत, आप विलंबित वेतन या अनुचित कटौती के मामलों में निर्धारित प्राधिकारी (Authority / Labour Commissioner) के समक्ष आवेदन कर सकते हैं, जो विलंबित राशि पर मुआवजे का आदेश दे सकता है।\n- **राज्य की दुकानें और व्यावसायिक प्रतिष्ठान अधिनियम (State Shops and Commercial Establishments Act):** यह कानून निजी और वाणिज्यिक प्रतिष्ठानों के कर्मचारियों के सेवा की शर्तों और समय पर वेतन भुगतान को विनियमित करता है।\n\n### | व्यावहारिक अगले कदम (Practical Next Steps)\n1. अपने सभी आवश्यक दस्तावेज (जैसे नियुक्ति पत्र / Appointment Letter, वेतन पर्ची / Payslips, बैंक स्टेटमेंट और पिछले संवाद के ईमेल या संदेश) एकत्र करें।\n2. अपने नियोक्ता को लिखित रूप में एक औपचारिक मांग नोटिस (Demand Notice) भेजें, जिसमें बकाया वेतन के भुगतान के लिए स्पष्ट रूप से 15 दिन का समय दें।\n3. यदि 15 दिनों के भीतर भुगतान नहीं होता है, तो अपने क्षेत्र के संबंधित श्रम आयुक्त (Labour Commissioner) के पास शिकायत दर्ज कराएं या लेबर कोर्ट / लेबर अथॉरिटी में आवेदन करें।\n\n### ℹ️ आपसे आवश्यक जानकारी\n1. क्या आपके पास अपना नियुक्ति पत्र और पिछले महीनों की वेतन पर्चियाँ या बैंक स्टेटमेंट मौजूद हैं?\n2. आपका कार्यस्थल किस शहर या राज्य में स्थित है?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73"
+      ]
+    },
+    {
+      "test_id": "ML_03_Gujarati",
+      "test_name": "Test 3 — Gujarati",
+      "input_prompt": "મેં ઑનલાઇન એક ખામીયુક્ત ફોન ખરીદ્યો છે અને વેચનાર મને રિફંડ આપવાનો ઇનકાર કરી રહ્યો છે. હવે હું શું કરી શકું?",
+      "detected_target_lang": "gu",
+      "status": "PASS",
+      "latency_sec": 13.48,
+      "evaluation_notes": "Rich Gujarati script detected (1284 characters). Consistent terminology.",
+      "raw_response": "તમારી મુશ્કેલી બદલ મને ખેદ છે, હું તમારા કાનૂની અધિકારો મેળવવામાં તમારી મદદ કરવા માટે અહીં છું.\n\n### | તમારી પરિસ્થિતિ (Your Situation)\nતમે ઑનલાઇન પ્લેટફોર્મ પરથી એક મોબાઈલ ફોન ખરીદ્યો છે જે ખામીયુક્ત નીકળ્યો છે, અને વેચનાર કે ઈ-કોમર્સ કંપની તમને રિફંડ આપવાનો ઇનકાર કરી રહી છે. આ બાબત ગ્રાહક અધિકારોના ભંગ અને ગેરવાજબી વેપાર પ્રથા હેઠળ આવે છે.\n\n### | તમારો કાનૂની પક્ષ (Your Legal Position)\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 2(7) મુજબ, તમે કિંમત ચૂકવીને માલ ખરીદનાર \"ગ્રાહક\" છો, જે ઑનલાઇન અને ઑફલાઇન બંને ખરીદીને લાગુ પડે છે.\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 2(47) હેઠળ ખામીયુક્ત ચીજવસ્તુ પાછી લેવાનો ઇનકાર કરવો અથવા 30 દિવસની અંદર રિફંડ ન આપવું એ એક \"અનફેર ટ્રેડ પ્રેક્ટિસ\" (અયોગ્ય વેપાર પ્રથા) ગણાય છે.\n- ગ્રાહક સુરક્ષા (ઈ-કોમર્સ) નિયમો, 2020 ના નિયમ 4 અને 6 અનુસાર, ઈ-કોમર્સ કંપનીઓએ ગ્રીવન્સ ઓફિસર (ફરિયાદ અધિકારી) નીમવા પડે છે, જેણે 48 કલાકમાં ફરિયાદ સ્વીકારીને 1 મહિનાની અંદર તેનો નિકાલ કરવાનો રહે છે.\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 35 અને 38 હેઠળ, તમે ડિસ્ટ્રિક્ટ કમિશન સમક્ષ (ઈ-દ दाखिल પૉર્ટલ દ્વારા પણ) ફરિયાદ દાખલ કરીને વળતર અને રિફંડની માંગણી કરી શકો છો. (નોંધ: અમે અદાલતમાં 100% જીતની ખાતરી આપી શકતા નથી.)\n\n### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n1. ઓર્ડરની પહોંચ (Invoice), પેમેન્ટની રસીદ, ખામી દર્શાવતા ફોટોગ્રાફ્સ અને વેચનાર કે કંપની સાથે થયેલી વાતચીતના સ્ક્રીનશોટ ભેગા કરો.\n2. કંપની અથવા વેચનારને લેખિતમાં માંગણી નોટિસ મોકલો અને તેમને 15 દિવસની અંદર રિફંડ આપવા માટે જણાવો.\n3. જો તેઓ 15 દિવસમાં જવાબ ન આપે, તો તમે રાષ્ટ્રીય ગ્રાહક હેલ્પલાઇન (NCH) પર ફરિયાદ કરી શકો છો અથવા e-Daakhil પૉર્ટલ દ્વારા સંબંધિત જિલ્લા ગ્રાહક તકરાર નિવારણ આયોગ (District Commission) માં કેસ દાખલ કરી શકો છો.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n૧. ફોનની ખરીદી કઈ તારીખે કરવામાં આવી હતી અને તેની કિંમત કેટલી હતી?\n૨. શું તમે કંપનીના ગ્રીવન્સ ઑફિસર અથવા ગ્રાહક સેવા કેન્દ્ર (Customer Support) નો સંપર્ક કર્યો છે અને તેમનો જવાબ શું હતો?",
+      "citations": [
+        "The Consumer Protection Act, 2019 Section 2(7)",
+        "The Consumer Protection Act, 2019 Section 2(47)",
+        "The Consumer Protection Act, 2019 Section 35 & Section 38",
+        "Consumer Protection (E-Commerce) Rules, 2020 Rule 4 & Rule 6"
+      ]
+    },
+    {
+      "test_id": "ML_04_Malayalam",
+      "test_name": "Test 4 — Malayalam",
+      "input_prompt": "എന്റെ ബാംഗ്ലൂരിലുള്ള തൊഴിലുടമ കഴിഞ്ഞ രണ്ട് മാസമായി എനിക്ക് ശമ്പളം നൽകിയിട്ടില്ല. ഞാൻ എന്ത് ചെയ്യണം?",
+      "detected_target_lang": "ml",
+      "status": "PASS",
+      "latency_sec": 18.04,
+      "evaluation_notes": "Rich Malayalam script detected (830 characters).",
+      "raw_response": "ഇന്ത്യൻ തൊഴിൽ, വേതന നിയമങ്ങളുടെ അടിസ്ഥാനത്തിൽ നിങ്ങളുടെ കേസിന്റെ നിയമപരമായ വിലയിരുത്തൽ താഴെ നൽകുന്നു:\n\n### | നിങ്ങളുടെ സാഹചര്യം (Your Situation)\nyour workplace-ലെ നിങ്ങളുടെ തൊഴിലുടമ കഴിഞ്ഞ രണ്ട് മാസമായി നിങ്ങളുടെ ശമ്പളം തടഞ്ഞുവെച്ചിരിക്കുകയാണ്. ജോലി ചെയ്ത വേതനം നൽകാതിരിക്കുന്നത് നിയമവിരുദ്ധമാണ്.\n\n### | നിങ്ങളുടെ നിയമപരമായ അവകാശം (Your Legal Position)\n* **വേതന വിതരണ നിയമം, 1936 (വകുപ്പ് 5)**: വേതന കാലയളവ് കഴിഞ്ഞ് 7 മുതൽ 10 ദിവസത്തിനകം തൊഴിലുടമ ശമ്പളം വിതരണം ചെയ്യണം.\n* **വേതന വിതരണ നിയമം, 1936 (വകുപ്പ് 15)**: കുടിശ്ശികയുള്ള ശമ്പളം നഷ്ടപരിഹാരത്തോടെ തിരികെ ലഭിക്കാൻ ലേബർ കമ്മീഷണറെ സമീപിക്കാം.\n* **ഇന്ത്യൻ കരാർ നിയമം, 1872 (വകുപ്പ് 73)**: തൊഴിൽ കരാർ ലംഘനത്തിന് പൂർണ്ണമായ കുടിശ്ശികയും നഷ്ടപരിഹാരവും ആവശ്യപ്പെടാം.\n\n### | പ്രായോഗിക അടുത്ത നടപടികൾ (Practical Next Steps)\n1. **രേഖകൾ ശേഖരിക്കുക** – ഓഫർ ലെറ്റർ, മുൻ മാസങ്ങളിലെ സാലറി സ്ലിപ്പുകൾ, ബാങ്ക് സ്റ്റേറ്റ്‌മെന്റ്, ഇമെയിൽ രേഖകൾ.\n2. **രേഖാമൂലമുള്ള നോട്ടീസ് അയക്കുക** – 15 ദിവസത്തിനകം കുടിശ്ശിക നൽകാൻ കമ്പനിക്ക് ഡിമാൻഡ് നോട്ടീസ് നൽകുക.\n3. **ലേബർ കമ്മീഷണർക്ക് പരാതി നൽകുക** – പ്രശ്നം പരിഹരിച്ചില്ലെങ്കിൽ തൊഴിൽ വകുപ്പിന് ഔദ്യോഗിക പരാതി സമർപ്പിക്കുക.\n\n### ℹ️ നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ\nWhat was your agreed monthly salary and the total unpaid salary amount?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73"
+      ]
+    },
+    {
+      "test_id": "ML_05_Tamil",
+      "test_name": "Test 5 — Tamil",
+      "input_prompt": "எனது நிறுவனம் கடந்த இரண்டு மாதங்களாக எனக்கு சம்பளம் வழங்கவில்லை. நான் என்ன செய்ய வேண்டும்?",
+      "detected_target_lang": "ta",
+      "status": "PASS",
+      "latency_sec": 6.49,
+      "evaluation_notes": "Rich Tamil script detected (1251 characters).",
+      "raw_response": "வணக்கம், நான் உங்கள் லாவ் பிலாட் ஏஐ (LawPilot AI), உங்களுக்கு உதவ இங்கே இருக்கிறேன்.\n\n### | உங்கள் நிலைமை (Your Situation)\nஉங்கள் நிறுவனம் கடந்த இரண்டு மாதங்களாக உங்களுக்கு சம்பளம் வழங்கவில்லை என்றும், இதற்கு நீங்கள் என்ன செய்ய வேண்டும் என்றும் கேட்டுள்ளீர்கள். இந்த சம்பள நிலுவை உங்களது அன்றாட வாழ்க்கையையும் நிதிப் பாதுகாப்பையும் கடுமையாகப் பாதித்துள்ளது என்பதை நான் முழுமையாகப் புரிந்து கொள்ளுகிறேன்.\n\n### | உங்கள் சட்டப்பூர்வ நிலை (Your Legal Position)\n- ஊதிய வழங்கல் சட்டம், 1936 இன் பிரிவு 5 (The Payment of Wages Act, 1936 Section 5) மற்றும் மாநில கடைகள் மற்றும் வணிக நிறுவனங்கள் சட்டத்தின் (State Shops and Commercial Establishments Act) படி, நிறுவனங்கள் குறிப்பிட்ட காலத்திற்குள் ஊழியர்களுக்கு ஊதியம் வழங்குவது கட்டாயமாகும்.\n- நியாயமான காரணமின்றி அல்லது சட்டத்திற்குப் புறம்பாக ஊதியத்தை நிறுத்திவைப்பது அல்லது தாமதப்படுத்துவது சட்டவிரோதமாகும்.\n- ஊதிய வழங்கல் சட்டம், 1936 இன் பிரிவு 15 (Section 15) இன் கீழ், தாமதமாக வழங்கப்பட்ட சம்பளத்திற்கு இழப்பீட்டுடன் சேர்த்துப் பெற தொழிலாளர் அதிகாரியிடம் (Labour Authority/Commissioner) முறையிட உங்களுக்கு உரிமை உண்டு.\n\n### | நடைமுறை அடுத்த கட்டங்கள்\n1. உங்களது நியமனக் கடிதம் (Appointment Letter), ஊதியச் சீட்டுகள் (Payslips), மற்றும் கடந்த இரண்டு மாதங்களாக வேலை செய்ததற்கான வருகைப் பதிவு போன்ற அனைத்து ஆவணங்களையும் சேகரிக்கவும்.\n2. நிறுவனத்தின் HR அல்லது மேலாண்மைக்கு எழுத்துப்பூர்வமாக சம்பளத்தைக் கோரி முறையான கோரிக்கை அறிவிப்பை (Written Demand Notice) அனுப்பி, 15 நாட்கள் அவகாசம் வழங்கவும்.\n3. நிறுவனம் உரிய பதவளிக்காவிட்டால், சம்பந்தப்பட்ட மாவட்ட தொழிலாளர் ஆணையரை (Labour Commissioner) அணுகி முறைப்படி புகார் அளித்து தீர்வு காணவும்.\n\n### ℹ️ உங்களிடம் இருந்து தேவைப்படும் தகவல்கள்\nஉங்கள் நிறுவனம் எந்த மாநிலத்தில் அமைந்துள்ளது மற்றும் உங்கள் நிறுவனத்தில் பணியாற்றும் மொத்த ஊழியர்களின் தோராயமான எண்ணிக்கை என்ன?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73"
+      ]
+    },
+    {
+      "test_id": "ML_06_Telugu",
+      "test_name": "Test 6 — Telugu",
+      "input_prompt": "నా యజమాని గత రెండు నెలలుగా నాకు జీతం చెల్లించలేదు. నేను ఏమి చేయాలి?",
+      "detected_target_lang": "te",
+      "status": "PASS",
+      "latency_sec": 9.28,
+      "evaluation_notes": "Rich Telugu script detected (1306 characters).",
+      "raw_response": "నమస్కారం, మీ యజమాని గత రెండు నెలలుగా జీతం చెల్లించకపోవడం వల్ల మీరు ఎదుర్కొంటున్న ఆర్థిక ఇబ్బందికి నేను చింతిస్తున్నాను.\n\n### | మీ పరిస్థితి (Your Situation)\nమీరు ఒక ఉద్యోగి అయి ఉండి, మీ యజమాని మీకు గత రెండు నెలలుగా రావాల్సిన జీతాన్ని ఇవ్వకుండా నిలిపివేశారు. ఈ చట్టవిరుద్ధమైన ఆలస్యం వల్ల మీకు తీవ్రమైన ఆర్థిక సమస్యలు ఏర్పడ్డాయి.\n\n### | మీ చట్టపరమైన స్థితి (Your Legal Position)\n- ది పేమెంట్ ఆఫ్ వేజెస్ యాక్ట్, 1936 (The Payment of Wages Act, 1936) సెక్షన్ 5 ప్రకారం, వేతన కాలం ముగిసిన తర్వాత 7వ తేదీలోపు (లేదా వెయ్యి మంది కంటే ఎక్కువ మంది ఉద్యోగులు ఉంటే 10వ తేదీలోపు) యజమాని జీతం చెల్లించాలి. జీతాల చెల్లింపులో ఆలస్యం చేయడం లేదా నిరాకరించడం చట్టవిరుద్ధం.\n- అదే చట్టం సెక్షన్ 7 ప్రకారం, మీ అనుమతి లేకుండా లేదా చట్టపరమైన కారణాలు లేకుండా మీ జీతంలో కోతలు (Arbitrary deductions) చేయడం నేరం.\n- మీ రాష్ట్రానికి సంబంధించిన షాప్స్ అండ్ కమర్షియల్ ఎస్టాబ్లిష్మెంట్స్ యాక్ట్ (State Shops and Commercial Establishments Act) ప్రకారం, ఉద్యోగుల సంచిత జీతాలు మరియు బకాయిలను సకాలంలో చెల్లించడం యజమాని చట్టపరమైన బాధ్యత.\n- ది ఇండియన్ కాంట్రాక్ట్ యాక్ట్, 1872 (The Indian Contract Act, 1872) సెక్షన్ 73 ప్రకారం, ఉపాధి ఒప్పందాన్ని ఉల్లంఘించడం వల్ల మీకు జరిగిన నష్టానికి లేదా నష్టపరిహారానికి యజమాని బాధ్యత వహించాలి.\n\n### | ఆచరణాత్మక తదుపరి చర్యలు (Practical Next Steps)\n1. మీ ఉపాధి ఒప్పందం (Employment Agreement), జీతాల స్లిప్‌లు, హాజరు పట్టిక మరియు జీతం రానట్లు తెలిపే బ్యాంక్ స్టేట్‌మెంట్‌లను ఆధారాలుగా సేకరించండి.\n2. మీ యజమానికి 15 రోజుల గడువు ఇస్తూ, బకాయి పడిన జీతాన్ని వెంటనే చెల్లించాలని కోరుతూ ఒక వ్రాతపూర్వక డిమాండ్ నోటీసు (Written Demand Notice) పంపండి.\n3. మీ యజమాని నుండి స్పందన లేకపోతే, లేబర్ కమీషనర్ (Labour Commissioner) వద్ద లేదా పేమెంట్ ఆఫ్ వేజెస్ యాక్ట్ కింద నియమించబడిన అధికారిక అథారిటీ (Designated Authority) వద్ద ఫిర్యాదును దాఖలు చేయండి.\n\n### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం\n1. మీ కంపెనీ లేదా సంస్థ ఏ రాష్ట్రంలో ఉంది మరియు అక్కడ ఎంత మంది ఉద్యోగులు పనిచేస్తున్నారు?\n2. మీకు రావాల్సిన బకాయి జీతం మొత్తం సుమారుగా ఎంత?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73"
+      ]
+    },
+    {
+      "test_id": "ML_07_Bengali",
+      "test_name": "Test 7 — Bengali",
+      "input_prompt": "আমার নিয়োগকর্তা গত দুই মাস ধরে আমাকে বেতন দেননি। আমি কী করতে পারি?",
+      "detected_target_lang": "bn",
+      "status": "PASS",
+      "latency_sec": 5.5,
+      "evaluation_notes": "Rich Bengali script detected (1188 characters).",
+      "raw_response": "আপনার এই কঠিন পরিস্থিতিতে আমি আন্তরিকভাবে দুঃখিত এবং আপনার পাশে আছি।\n\n### | আপনার বর্তমান পরিস্থিতি (Your Situation)\nআপনি একজন চাকরিজীবী এবং আপনার নিয়োগকর্তা গত দুই মাস ধরে আপনার বকেয়া বেতন আটকে রেখেছেন। এই আর্থিক অনিশ্চয়তা এবং বিলম্বের কারণে আপনার দৈনন্দিন জীবনে తీవ్ర সংকট তৈরি হয়েছে।\n\n### | আপনার আইনি অবস্থান (Your Legal Position)\n* পেমেন্ট অফ ওয়েজেস অ্যাক্ট, ১৯৩৬ (The Payment of Wages Act, 1936)-এর ধারা ৫ অনুযায়ী, নির্দিষ্ট মজুরি মেয়াদ শেষ হওয়ার পরবর্তী ৭ দিনের মধ্যে (বা ১০০০-এর বেশি কর্মী থাকলে ১০ দিনের মধ্যে) কর্মচারীর বেতন পরিশোধ করা বাধ্যতামূলক।\n* একই আইনের ধারা ১৫ অনুযায়ী, বেতন প্রদানে বিলম্ব বা অননুমোদিত কাটার বিরুদ্ধে সংশ্লিষ্ট কতৃপক্ষের নিকট ক্ষতিপূরণসহ আবেদন করার আইনি অধিকার আপনার রয়েছে।\n* আপনার নিযুক্ত রাজ্য বা অঞ্চলের দোকান ও বাণিজ্যিক প্রতিষ্ঠান আইন (Shops and Commercial Establishments Act) অনুযায়ী নির্ধারিত সময়ের মধ্যে সম্পূর্ণ বকেয়া পাওনা পরিশোধ করা নিয়োগকর্তার আইনি দায়িত্ব।\n\n### | ব্যবহারিক পরবর্তী পদক্ষেপ (Practical Next Steps)\n1. সমস্ত প্রয়োজনীয় প্রমাণ সংগ্রহ করুন যেমন নিয়োগপত্র (Appointment Letter), বিগত মাসের বেতন স্লিপ (Payslip), ব্যাঙ্ক স্টেটমেন্ট এবং নিয়োগকর্তার সাথে বেতন সংক্রান্ত যোগাযোগের সমস্ত রেকর্ড।\n2. নিয়োগকর্তাকে একটি লিখিত দাবি নোটিশ (Demand Notice) পাঠান এবং ১৫ দিনের মধ্যে বকেয়া বেতন পরিশোধ করার সময়সীমা নির্ধারণ করুন।\n3. নির্দিষ্ট সময়ের মধ্যে সমাধান না হলে, স্থানীয় লেবার কমিশনার (Labour Commissioner) বা সংশ্লিষ্ট শ্রম দপ্তরে পেমেন্ট অফ ওয়েজেস অ্যাক্ট, ১৯৩৬-এর ধারা ১৫ অনুযায়ী অভিযোগ দায়ের করুন।\n\n### ℹ️ আপনার কাছ থেকে প্রয়োজনীয় তথ্য\n১. আপনি কোন রাজ্যে কাজ করেন এবং আপনার মাসিক বেতনের পরিমাণ কত?\n২. আপনার কাছে কি নিয়োগপত্র বা কোনো চুক্তিপত্র রয়েছে যেখানে বেতন প্রদানের সুনির্দিষ্ট শর্ত উল্লেখ আছে?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "The Payment of Wages Act, 1936 Section 7",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73"
+      ]
+    },
+    {
+      "test_id": "ML_08_Hinglish",
+      "test_name": "Test 8 — Hinglish",
+      "input_prompt": "Meri company ne do mahine se salary nahi di hai. Main kya kar sakta hoon?",
+      "detected_target_lang": "hinglish",
+      "status": "PASS",
+      "latency_sec": 6.47,
+      "evaluation_notes": "Conversational Hinglish verified (14 markers).",
+      "raw_response": "Main aapki pareshani samajh sakta hoon aur aapki is mushkil samay mein poori madad karoonga.\n\n### | Your Situation (Aapki Situation)\nAapki company ne aapko pichle do mahine se salary nahi di hai, jisse aapko financial aur mental pareshani ka samna karna pad raha hai. Yeh mamla employment dispute aur unpaid wages ke antargat aata hai.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- The Payment of Wages Act, 1936 ke Section 5 ke anusar, wages (salary) ka bhugtaan wage period khatam hone ke 7 din ke andar (ya agar 1,000 se zyada karmchari hain toh 10 din ke andar) ho jana chahiye. Bina kisi kanooni aadhar ke salary rokna ya deduction karna Payment of Wages Act, 1936 ke Section 7 ke tahat galat hai.\n- Aap State Shops and Commercial Establishments Act aur Payment of Wages Act, 1936 ke Section 15 ke antargat delayed ya withheld salary ke liye Labour Commissioner ke paas application daal sakte hain, jisme penalty ki maang bhi ki ja sakti hai.\n\n### | Practical Next Steps (Agla Kadam)\n1. Apni employment contract, appointment letter, payslips aur pichle kuch mahino ke bank statements ki copies ikattha karein.\n2. Company ko ek likhit demand notice bhejiye jisme 15 din ke andar apni baaki salary ka poora bhugtaan karne ko kahein.\n3. Agar company 15 din mein salary nahi deti hai, toh apne kshetra ke Labour Commissioner ke paas formal shikayat ya claim darj karein.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aapke paas koi appointment letter ya email hai jisme aapka salary structure likha ho, aur aapki company kis state (shahar) mein sthit hai?",
+      "citations": [
+        "The Payment of Wages Act, 1936 Section 5 & Section 15",
+        "State Shops and Commercial Establishments Acts Settlement of Dues and Service Conditions Provision",
+        "The Indian Contract Act, 1872 Section 73",
+        "The Payment of Wages Act, 1936 Section 7"
+      ]
+    },
+    {
+      "test_id": "ML_09_Language_Switching",
+      "test_name": "Test 9 — Multi-turn Language Switching",
+      "turn1": {
+        "input": "My landlord has not returned my security deposit.",
+        "expected": "en",
+        "status": "PASS",
+        "response": "Hello, I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate your tenant dispute safely and fairly.\n\n### | Your Situation\nYou are a tenant in India whose tenancy has ended, and your landlord has failed to return your security deposit. You are now seeking guidance on how to recover your rightful funds under Indian law.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (and relevant state tenancy acts), the security deposit for residential premises is typically capped, and landlords are legally obligated to refund the security deposit to the tenant upon the handover of vacant possession, minus any valid deductions agreed upon in the tenancy agreement.\n- Under Section 108(m) and (o) of the Transfer of Property Act, 1882, a tenant is only required to return the property subject to reasonable wear and tear. A landlord cannot make arbitrary deductions for normal usage or routine painting unless explicitly authorized by the written tenancy agreement.\n- Please note that while the law strongly supports your right to recover a wrongfully withheld deposit, outcomes in formal proceedings can never be guaranteed 100 percent.\n\n### | Practical Next Steps\n1. Gather evidence, including your written tenancy agreement, rent receipts, bank statements proving deposit payment, and photographs or videos of the property's condition at the time of vacating.\n2. Send a formal written demand notice to your landlord requesting the full return of your security deposit within 15 days of receipt of the notice.\n3. If the landlord fails to comply, approach the appropriate Rent Authority or consumer/civil forum established under your state laws for dispute resolution.\n\n### ℹ️ Information I still need from you\nWhat is the exact amount of the security deposit being withheld, and do you have a written tenancy agreement stating the terms of its refund?"
+      },
+      "turn2": {
+        "input": "Ab mujhe legal notice bhejna hai.",
+        "expected": "hinglish",
+        "status": "PASS",
+        "response": "Main aapki puri sahayta karunga ek formal legal notice draft karne mein, jisse aap apne landlord ko bhej sakein.\n\n### | Your Situation (Aapki Situation)\nAapke landlord ne aapka security deposit wapas nahi kiya hai aur ab aap unhe ek formal legal notice bhejkar apna paisa recover karna chahte hain.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- Model Tenancy Act aur Transfer of Property Act, 1882 ke antargat, tenancy khatam hone aur property wapas dene ke baad landlord ki yeh kanooni zimmedari hai ki woh aapka security deposit bina kisi galat kate hue wapas kare.\n- Normal use (reasonable wear and tear) ke liye landlord security deposit se paise nahi kaat sakta jab tak agreement mein koi khaas shart na ho.\n- Halanki kanoon aapke paksh mein hai, par kisi bhi court ya authority mein 100% jeet ki guarantee nahi di ja sakti.\n\n### | Practical Next Steps (Agla Kadam)\n1. Gather evidence: Apne tenancy agreement, deposit payment ki raseed (receipts), bank statements aur property ki photos ya videos ikattha karein.\n2. Send a formal written demand notice: Neeche diye gaye format ka istemal karke 15 din ka samay dete hue ek written demand notice landlord ko bhejein.\n3. Appropriate forum: Agar 15 din mein jawab na mile, toh aap apne rajya ke Rent Authority ya consumer forum mein shikaayat darj kar sakte hain.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aap mujhe landlord ka naam aur kitna security deposit amount pending hai, yeh bata sakte hain taaki main notice mein usse theek se bhar sakun?\n\n***\n\n**LEGAL NOTICE DRAFT (KANOONI NOTICE)**\n\nTo,  \n[Landlord ka Naam]  \n[Landlord ka Pata / Address]  \n\nDate: [Aaj ki Tareekh]  \n\n**Subject: Legal Notice for non-refund of security deposit amounting to ₹[Amount]**  \n\nDear Sir/Madam,  \n\n1. Yeh ki main, [Aapka Naam], aapke property jo ki [Property ka Pata] par sthit hai, wahan [Shuruat ki Tareekh] se [Ant ki Tareekh] tak ek kirayedaar (tenant) ke roop mein raha/rahi hoon.  \n2. Yeh ki hamare beech hue tenancy agreement ke anusaar, maine aapko security deposit ke roop mein ₹[Amount] jama karwaya tha, jise property khaali karte samay wapas kiya jana tha.  \n3. Yeh ki maine samay par bina kisi baki kiraye ke property ko poori tarah se khaali kar diya hai aur possession aapko saump diya hai, aur property mein sirf reasonable wear and tear hi hua hai.  \n4. Yeh ki aapne abhi tak mera security deposit ₹[Amount] wapas nahi kiya hai, jo ki kanoon ke khilaf hai aur breach of contract hai.  \n\nIsliye, is notice ke madhyam se aapko yeh nirdesh diya jata hai ki aap is notice ke praapt hone ke **15 din** ke bheetar poora security deposit amount ₹[Amount] mere diye gaye bank khate mein ya nakad (cash) wapas karein.  \n\nAgar aap is nirdesh ka paalan karne mein asafal rehte hain, toh mujhe majboor hokar sambhandhit Rent Authority ya kanooni manch ke samne aapke khilaf kanooni karyawahi karni padegi, jiska poora kharcha aur zimmedari aapki hogi.  \n\nSincerely,  \n\n[Aapka Naam]  \n[Aapka Pata]  \n[Aapka Phone Number]"
+      },
+      "turn3": {
+        "input": "મારે હવે આગળ શું કરવું જોઈએ?",
+        "expected": "gu",
+        "status": "PASS",
+        "response": "નમસ્તે! તમારા ડિપોઝિટના રકમની પુનઃપ્રાપ્તિ માટે આગળ વધવું એ ખૂબ જ યોગ્ય પગલું છે.\n\n### | તમારી પરિસ્થિતિ (Your Situation)\nતમે તમારા મકાનમાલિક દ્વારા સિક્યોરિટી ડિપોઝિટ પરત ન કરવાના મામલે કાનૂની નોટિસ મોકલવા માંગો છો અને તે માટેના આગલા વ્યવહારુ પગલાં વિશે જાણવા ઈચ્છો છો.\n\n### | તમારો કાનૂની પક્ષ (Your Legal Position)\n- મોડેલ ટેનન્સી એક્ટ અને ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, 1882 હેઠળ મકાનમાલિક ભાડું સમાપ્ત થયા પછી ગેરકાયદેસર રીતે ડિપોઝિટ રોકી શકે નહીં.\n- મકાનમાલિક સામાન્ય ઘસારા (reasonable wear and tear) સિવાયના વ્યાજબી કારણ વગર ડિપોઝિટ કાપી શકતા નથી.\n- કાનૂની પ્રક્રિયામાં 100% જીતની ખાતરી આપી શકાતી નથી, પરંતુ કાયદો મજબૂતાઈથી ભાડૂતોના અધિકારોનું રક્ષણ કરે છે.\n\n### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n1. ભાડા કરાર (tenancy agreement), ડિપોઝિટ ચૂકવ્યાની રસીદ અને મકાન ખાલી કરતી વખતની સ્થિતિ દર્શાવતા ફોટા અને વીડિયો એકત્રિત કરો.\n2. મકાનમાલિકને 15 દિવસની મુદત આપીને લેખિત ડિમાન્ડ નોટિસ મોકલો, જેનું ડ્રાફ્ટ આપણે અગાઉ તૈયાર કર્યું છે.\n3. જો 15 દિવસમાં મકાનમાલિક જવાબ ન આપે અથવા રકમ પરત ન કરે, તો તમે સંબંધિત ભાડા સત્તાધિકારી (Rent Authority) અથવા ગ્રાહક મંચ (Consumer Forum) નો સંપર્ક કરી શકો છો.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\nશું તમે મકાનમાલિકને કાનૂની નોટિસ મોકલી દીધી છે અને જો હા, તો શું તમને તે તરફથી કોઈ પ્રતિસાદ મળ્યો છે?"
+      },
+      "status": "PASS",
+      "evaluation_notes": "Turn 1: Fluent English verified.; Turn 2: Conversational Hinglish verified (25 markers).; Turn 3: Rich Gujarati script detected (850 characters). Consistent terminology.. Context preserved across all turns."
+    },
+    {
+      "test_id": "ML_10_Document_Generation_Gujarati",
+      "test_name": "Test 10 — Legal Document Generation (Gujarati)",
+      "input_prompt": "મારા મકાનમાલિકને ₹25,000 સિક્યોરિટી ડિપોઝિટ પરત આપવા માટે એક ઔપચારિક પત્ર તૈયાર કરો.",
+      "detected_target_lang": "gu",
+      "status": "PASS",
+      "evaluation_notes": "Generated complete formal notice letter in Gujarati (1203 chars). ₹25,000 amount preserved. Placeholders included: True.",
+      "raw_response": "નમસ્તે, હું લોપાયલોટ એઆઈ (LawPilot AI) છું, તમારી કાનૂની સહાયક.\n\nતમારા મકાનમાલિક પાસેથી ડિપોઝિટ પરત મેળવવા માટેનો ઔપચારિક કાનૂની નોટિસનો ડ્રાફ્ટ નીચે મુજબ છે:\n\n---\n\n**કાનૂની માંગણી નોટિસ (LEGAL DEMAND NOTICE)**\n\nતારીખ: [આજની તારીખ દાખલ કરો]\n\nપ્રતિ,  \n[મકાનમાલિકનું નામ]  \n[મકાનમાલિકનું સરનામું]  \n\n**વિષય: ₹25,000/- સિક્યોરિટી ડિપોઝિટ પરત કરવા બાબત.**\n\nશ્રીમાન/શ્રીમતી,\n\nહું નીચે સહી કરનાર [તમારું નામ], જેઓ અગાઉ આપની માલિકીની મિલકત [મિલકતનું સરનામું] પર ભાડે રહેતા હતા, આ નોટિસ નીચે મુજબ રજૂ કરું છું:\n\n1. એ કે, મેં આપની ઉપરોક્ત મિલકતમાં ભાડે રહેતી વખતે સિક્યોરિટી ડિપોઝિટ તરીકે કુલ ₹25,000/- (પચીસ હજાર રૂપિયા પૂરા) જમા કરાવ્યા હતા.\n\n2. એ કે, મેં [ખાલી કર્યાની તારીખ] ના રોજ મિલકતનો કબજો આપને યોગ્ય અને સારી સ્થિતિમાં સોંપી દીધો છે. મોડેલ ટેનન્સી એક્ટ, 2021 (Model Tenancy Act, 2021) ની જોગવાઈઓ અને આપણા ભાડા કરાર અનુસાર, મિલકત ખાલી કરતી વખતે સિક્યોરિટી ડિપોઝિટની રકમ તરત જ પરત કરવાની હોય છે, જેમાં માત્ર વાજબી ઘસારો (reasonable wear and tear) બાદ કરી શકાય છે.\n\n3. એ કે, મિલકત ખાલી કર્યાને ઘણો સમય વીતી ગયો હોવા છતાં, આપના દ્વારા મારી ₹25,000/- ની સિક્યોરિટી ડિપોઝિટ હજુ સુધી પરત કરવામાં આવી નથી, જે ગેરવ્યાજબી અને કાયદાકીય જોગવાઈઓ વિરુદ્ધ છે.\n\nઆથી, આ નોટિસ મળ્યાના **15 દિવસ** ની અંદર મારી ₹25,000/- ની રકમ પૂરેપૂરી પરત કરવા અથવા મારા બેંક ખાતામાં જમા કરાવવા વિનંતી છે. જો આપ આ મુદતની અંદર રકમ પરત કરવામાં નિષ્ફળ જશો, તો મારી પાસે સંબંધિત કાનૂની મંચ અથવા રેન્ટ ઓથોરિટી સમક્ષ કાયદેસરની કાર્યવાહી શરૂ કરવાનો અધિકાર સુરક્ષિત રહેશે, જેનો ખર્ચ અને જોખમ સંપૂર્ણપણે આપનું રહેશે.\n\nઆપનો વિશ્વાસુ,  \n\n[તમારું નામ]  \n[તમારો સંપર્ક નંબર]  \n[તમારું સરનામું]  \n\n---\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\nકૃપા કરીને મને જણાવો કે મિલકત ખાલી કર્યાની તારીખ કઈ હતી અને શું તમારી પાસે ડિપોઝિટ ચૂકવ્યાની કોઈ રસીદ કે બેંક સ્ટેટમેન્ટ છે?"
+    }
+  ]
+}

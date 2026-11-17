@@ -73,11 +73,20 @@ class ConversationCaseMemory:
 
         # 2. Extract Category (with domain switch detection)
         detected_category = None
-        if any(w in lower for w in ["landlord", "tenant", "deposit", "rent", "flat", "evict", "painting", "makandari", "kiraya", "makaan malik"]):
+        if any(w in lower for w in [
+            "landlord", "tenant", "deposit", "rent", "flat", "evict", "painting", "makandari", "kiraya", "makaan malik",
+            "સિક્યોરિટી", "ડિપોઝિટ", "મકાનમાલિક", "ભાડું", "किराया", "डिपॉज़िट", "വാടക", "ഡെപ്പോസിറ്റ്", "வாடகை", "வைப்புத்தொகை", "అద్దె", "డిపాజిట్", "ভাড়া"
+        ]):
             detected_category = "tenant"
-        elif any(w in lower for w in ["phone", "laptop", "product", "defective", "order", "seller", "refund", "flipkart", "amazon", "e-commerce", "interior design", "service"]):
+        elif any(w in lower for w in [
+            "phone", "laptop", "product", "defective", "order", "seller", "refund", "flipkart", "amazon", "e-commerce", "interior design", "service",
+            "ખામીયુક્ત", "રિફંડ", "વેચનાર", "ખરીદ્યો", "ફોન", "दोषपूर्ण", "विक्रेता", "റീഫണ്ട്", "குறைபாடு", "ரீபண்ட்", "లోపం", "రీఫండ్", "ত্রুটি", "ফেরত"
+        ]):
             detected_category = "consumer"
-        elif any(w in lower for w in ["salary", "employer", "company", "boss", "wages", "resigned", "relieving", "fnf", "settlement"]):
+        elif any(w in lower for w in [
+            "salary", "employer", "company", "boss", "wages", "resigned", "relieving", "fnf", "settlement",
+            "પગાર", "નિયોક્તા", "કંપની", "वेतन", "नियोक्ता", "तनख्वाह", "തൊഴിലുടമ", "ശമ്പളം", "சம்பளம்", "நிறுவனம்", "జీతం", "యజమాని", "বেতন", "নিয়োগকর্তা"
+        ]):
             detected_category = "employment"
 
         # If user switches domain mid-conversation, clear prior domain facts
@@ -244,6 +253,8 @@ class ConversationCaseMemory:
             if ef["category"] == "employment":
                 if language_code == "hi":
                     return "आपकी मासिक सैलरी कितनी तय थी और कुल कितना वेतन बकाया है?"
+                elif language_code == "gu":
+                    return "તમારો માસિક પગાર કેટલો નક્કી થયેલ હતો અને કુલ કેટલું વેતન બાકી છે?"
                 elif language_code == "hinglish":
                     return "Aapki monthly salary kitni thi aur total kitna salary amount pending hai?"
                 else:
@@ -251,6 +262,8 @@ class ConversationCaseMemory:
             elif ef["category"] == "consumer":
                 if language_code == "hi":
                     return "आपने उस उत्पाद के लिए कुल कितनी राशि का भुगतान किया था?"
+                elif language_code == "gu":
+                    return "તમે તે ખામીયુક્ત ઉત્પાદન માટે કુલ કેટલી રકમ ચૂકવી હતી?"
                 elif language_code == "hinglish":
                     return "Aapne defective product ke liye total kitna payment kiya tha?"
                 else:
@@ -258,6 +271,8 @@ class ConversationCaseMemory:
             else:
                 if language_code == "hi":
                     return "कृपया बताएं कि कुल कितनी सुरक्षा राशि (रुपयों में) विवादित है?"
+                elif language_code == "gu":
+                    return "કૃપા કરીને જણાવો કે કુલ કેટલી સિક્યોરિટી ડિપોઝિટ (રૂપિયામાં) બાકી છે?"
                 elif language_code == "hinglish":
                     return "Dispute me total kitna deposit amount (₹ me) involved hai?"
                 else:
@@ -267,12 +282,25 @@ class ConversationCaseMemory:
         if not ef["city"] and not ef["state"]:
             if language_code == "hi":
                 return "यह संपत्ति या घटना किस शहर या राज्य से संबंधित है?"
+            elif language_code == "gu":
+                return "આ મિલકત અથવા કંપની કયા શહેર કે રાજ્યમાં આવેલી છે?"
             elif language_code == "hinglish":
                 return "Ye rented flat ya company kis city/state me located hai?"
             else:
                 return "Which city or state is the property or company located in? (Tenancy and shops laws vary by state)."
 
         # Priority 3: Evidence Check
+        if not ef["available_evidence"]:
+            if language_code == "hi":
+                return "क्या आपके पास कोई रेंट एग्रीमेंट, बैंक ट्रांसफर रसीद, या ईमेल/व्हाट्सएप चैट रिकॉर्ड है?"
+            elif language_code == "gu":
+                return "શું તમારી પાસે ભાડા કરાર, બેંક ટ્રાન્સફર રસીદ અથવા ઇમેઇલ/ચેટ રેકોર્ડ ઉપલબ્ધ છે?"
+            elif language_code == "hinglish":
+                return "Kya aapke paas written agreement, bank transfer proof ya chat record available hai?"
+            else:
+                return "Do you possess written evidence such as agreements, payment receipts, or chat logs?"
+
+        return None
         if not ef["available_evidence"]:
             if language_code == "hi":
                 return "क्या आपके पास इस संबंध में कोई लिखित प्रमाण जैसे बैंक ट्रांसफर रसीद, ईमेल या व्हाट्सऐप चैट मौजूद है?"

@@ -30,23 +30,23 @@ def generate_conversation_title(message: str, category: Optional[CaseCategoryEnu
     if any(k in lower for k in ["evict", "eviction", "threat to evict", "nikal raha hai", "khali karne"]):
         return "Eviction Dispute"
     
-    if any(k in lower for k in ["deposit", "security deposit", "25,000", "25000", "advance", "dharohar", "डिपॉज़िट"]):
+    if any(k in lower for k in ["deposit", "security deposit", "25,000", "25000", "advance", "dharohar", "डिपॉज़िट", "ડિપોઝિટ", "સિક્યોરિટી", "ഡെപ്പോസിറ്റ്", "வைப்புத்தொகை", "డిపాజిట్", "আমানত"]):
         if any(d in lower for d in ["deduct", "painting", "maintenance", "damage", "katoti", "kaat"]):
             return "Deposit Deduction Dispute"
         return "Security Deposit Dispute"
 
-    if any(k in lower for k in ["rent agreement", "rental agreement", "agreement", "lease", "kirayanama", "किराया"]):
+    if any(k in lower for k in ["rent agreement", "rental agreement", "agreement", "lease", "kirayanama", "किराया", "ભાડું", "വാടക", "வாடகை", "అద్దె", "ভাড়া"]):
         if any(h in lower for h in ["hike", "increase", "badha"]):
             return "Rent Increase Dispute"
         return "Rental Agreement Issue"
 
-    if any(k in lower for k in ["landlord", "tenant", "makan malik", "kirayedar", "flat", "pg", "room"]):
+    if any(k in lower for k in ["landlord", "tenant", "makan malik", "kirayedar", "flat", "pg", "room", "મકાનમાલિક", "ഭാടകക്കാരൻ", "வீட்டு உரிமையாளர்", "ఇంటి యజమాని", "বাড়িওয়ালা"]):
         if any(r in lower for r in ["repair", "damage", "seepage", "water", "electricity"]):
             return "Tenancy Property Issue"
         return "Tenant Landlord Dispute"
 
     # 3. Employment & Wage Disputes
-    if any(k in lower for k in ["salary", "unpaid", "wages", "pay", "vetan", "tankhwah", "tankha", "वेतन", "ശമ്പളം"]):
+    if any(k in lower for k in ["salary", "unpaid", "wages", "pay", "vetan", "tankhwah", "tankha", "वेतन", "ശമ്പളം", "પગાર", "சம்பளம்", "జీతం", "বেতন", "ಸಂಬಳ"]):
         if any(d in lower for d in ["deduct", "cut", "katoti"]):
             return "Salary Deduction Dispute"
         return "Unpaid Salary Issue"
@@ -60,16 +60,16 @@ def generate_conversation_title(message: str, category: Optional[CaseCategoryEnu
     if any(k in lower for k in ["terminate", "termination", "fired", "layoff", "laid off", "job loss", "resign"]):
         return "Employment Termination Issue"
 
-    if any(k in lower for k in ["employer", "company", "boss", "hr", "workplace"]):
+    if any(k in lower for k in ["employer", "company", "boss", "hr", "workplace", "નિયોક્તા", "തൊഴിലുടമ", "நிறுவனம்", "యజమాని", "নিয়োগকর্তা"]):
         return "Employment Dispute"
 
     # 4. Consumer Protection & E-Commerce
-    if any(k in lower for k in ["defective", "damaged", "broken", "faulty", "kharab", "soap bar"]):
-        if any(r in lower for r in ["phone", "mobile", "laptop", "product", "item", "device"]):
+    if any(k in lower for k in ["defective", "damaged", "broken", "faulty", "kharab", "soap bar", "ખામીયુક્ત", "ખરાબ", "दोषपूर्ण", "വ്യാജമായ", "குறைபாடுள்ள", "లోపభూయిష్ట", "ত্রুটিযুক্ত"]):
+        if any(r in lower for r in ["phone", "mobile", "laptop", "product", "item", "device", "ફોન"]):
             return "Defective Product Refund"
         return "Defective Goods Complaint"
 
-    if any(k in lower for k in ["refund", "money back", "return", "wapas", "paise wapas", "റീഫണ്ട്"]):
+    if any(k in lower for k in ["refund", "money back", "return", "wapas", "paise wapas", "റീഫണ്ട്", "રિફંડ", "ரீபண்ட்", "రీఫండ్", "ফেরত"]):
         return "Consumer Refund Issue"
 
     if any(k in lower for k in ["amazon", "flipkart", "meesho", "myntra", "courier", "e-commerce", "online order"]):

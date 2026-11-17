@@ -7,6 +7,16 @@ class LanguageEnum(str, Enum):
     ENGLISH = "en"
     HINDI = "hi"
     HINGLISH = "hinglish"
+    GUJARATI = "gu"
+    MALAYALAM = "ml"
+    TAMIL = "ta"
+    TELUGU = "te"
+    BENGALI = "bn"
+    KANNADA = "kn"
+    MARATHI = "mr"
+    PUNJABI = "pa"
+    ODIA = "or"
+    AUTO = "auto"
 
 class CaseCategoryEnum(str, Enum):
     TENANT = "tenant"
@@ -48,7 +58,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     message: str
     conversation_history: List[Dict[str, str]] = []
-    language: LanguageEnum = LanguageEnum.ENGLISH
+    language: Optional[LanguageEnum] = LanguageEnum.AUTO
     session_id: Optional[str] = "default_session"
     state_jurisdiction: Optional[str] = None
 

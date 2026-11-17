@@ -3,90 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LawPilot AI — Your AI Assistant for Everyday Legal Problems in India</title>
+    <title>LawPilot AI — India Legal Assistant</title>
     <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%200%22%20100%22%20100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 </head>
 <body>
 
-    <!-- Minimal Header -->
-    <header class="app-header">
-        <div class="header-brand">
-            <span class="brand-logo-icon">⚖️</span>
-            <div>
-                <span class="brand-name">LawPilot AI</span>
-                <span class="brand-tagline">Your AI assistant for everyday legal problems in India</span>
+    <div class="app-layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-badge-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                        <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                        <path d="M7 21h10"/>
+                        <path d="M12 3v18"/>
+                        <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">LawPilot AI</span>
+                    <span class="brand-sub">India Legal Assistant</span>
+                </div>
+            </div>
+
+            <!-- New Chat Button -->
+            <button class="new-chat-btn" id="newChatBtn">
+                <span class="plus-icon">+</span>
+                <span>New Chat</span>
+            </button>
+
+            <!-- Chat History / Topics Section -->
+            <div class="sidebar-section">
+                <div class="section-label">Today</div>
+                <div class="chat-history-list" id="historyList">
+                    <div class="history-item active" onclick="loadPrompt('My landlord in Jaipur is refusing to return my ₹25,000 security deposit. I vacated the flat 20 days ago. What can I do?')">
+                        <span class="history-icon">💬</span>
+                        <span class="history-text">Security deposit dispute</span>
+                    </div>
+                    <div class="history-item" onclick="loadPrompt('My employer in Bangalore has not paid my salary for two months. What legal steps can I take?')">
+                        <span class="history-icon">💬</span>
+                        <span class="history-text">Unpaid salary issue</span>
+                    </div>
+                    <div class="history-item" onclick="loadPrompt('I purchased a defective phone online and the seller is refusing to refund or replace it.')">
+                        <span class="history-icon">💬</span>
+                        <span class="history-text">Defective product refund</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <button class="footer-link" id="settingsBtn">
+                    <span class="footer-icon">⚙️</span>
+                    <span>Settings</span>
+                </button>
+                <button class="footer-link" id="aboutBtn">
+                    <span class="footer-icon">ℹ️</span>
+                    <span>About LawPilot AI</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-bar">
+                <button class="mobile-toggle-btn" id="sidebarToggleBtn" title="Toggle Sidebar">
+                    ☰
+                </button>
+                <div class="top-bar-spacer"></div>
+                <div class="top-bar-right">
+                    <div class="grounded-pill">
+                        <span class="grounded-dot"></span>
+                        <span>Grounded in Official Sources</span>
+                    </div>
+                    <div class="language-dropdown-wrapper">
+                        <select id="languageSelect" class="language-select">
+                            <option value="en" selected>English ▾</option>
+                            <option value="hi">हिंदी (Hindi) ▾</option>
+                            <option value="hinglish">Hinglish ▾</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Viewport -->
+            <main class="chat-viewport" id="chatViewport">
+                <!-- Welcome Box (Visible before first message) -->
+                <div class="welcome-container" id="welcomeScreen">
+                    <div class="welcome-icon-box">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                            <path d="M7 21h10"/>
+                            <path d="M12 3v18"/>
+                            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                        </svg>
+                    </div>
+                    <h1 class="welcome-heading">How can I help you today?</h1>
+                    <p class="welcome-desc">
+                        Describe your legal problem in plain English, Hindi, or Hinglish.
+                        LawPilot AI analyzes your facts, clarifies your rights under Indian law, and generates formal notices.
+                    </p>
+
+                    <div class="prompts-grid">
+                        <button class="prompt-card" onclick="useExamplePrompt('My landlord in Jaipur is refusing to return my ₹25,000 security deposit. I vacated the flat 20 days ago. What can I do?')">
+                            <span class="prompt-icon">🏠</span>
+                            <span class="prompt-text">My landlord in Jaipur is refusing to return my ₹25,000 security deposit.</span>
+                        </button>
+                        <button class="prompt-card" onclick="useExamplePrompt('I purchased a defective phone online and the seller is refusing a refund.')">
+                            <span class="prompt-icon">🛒</span>
+                            <span class="prompt-text">I bought a defective product and the seller is refusing a refund.</span>
+                        </button>
+                        <button class="prompt-card" onclick="useExamplePrompt('My employer in Bangalore has not paid my salary for two months.')">
+                            <span class="prompt-icon">💼</span>
+                            <span class="prompt-text">My company has not paid my salary for two months.</span>
+                        </button>
+                        <button class="prompt-card" onclick="useExamplePrompt('Help me understand a legal notice I received from my landlord.')">
+                            <span class="prompt-icon">📑</span>
+                            <span class="prompt-text">Help me understand a legal notice I received.</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Messages Stream -->
+                <div class="messages-stream" id="messagesStream"></div>
+            </main>
+
+            <!-- Floating Bottom Input Area -->
+            <footer class="bottom-input-area">
+                <div class="floating-input-card">
+                    <!-- Hidden file picker -->
+                    <input type="file" id="fileAttachment" style="display: none;" accept=".pdf,.docx,.txt,.png,.jpg,.jpeg">
+                    
+                    <button class="tool-btn" id="attachBtn" title="Attach rent agreement, invoice, payslip, or notice">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                        </svg>
+                    </button>
+
+                    <textarea id="chatInput" rows="1" placeholder="Describe your legal problem in English, Hindi, or any language..." autofocus></textarea>
+
+                    <button class="tool-btn" id="voiceBtn" title="Speak via microphone">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" x2="12" y1="19" y2="22"/>
+                        </svg>
+                    </button>
+
+                    <button class="send-circle-btn" id="sendBtn" title="Send message">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div class="legal-disclaimer-text">
+                    LawPilot AI provides legal information grounded in Indian statutes. It does not constitute formal legal representation.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Document Generation Modal -->
+    <div class="modal-overlay" id="docModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalDocTitle">📄 Formal Legal Document Draft</h3>
+                <button class="modal-close-btn" onclick="closeDocModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <pre class="modal-doc-pre" id="modalDocContent"></pre>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action-btn primary" id="modalDownloadPdf">⬇️ Download PDF</button>
+                <button class="modal-action-btn secondary" id="modalDownloadDocx">⬇️ Download Word (DOCX)</button>
+                <button class="modal-action-btn tertiary" id="modalCopyBtn">📋 Copy Text</button>
             </div>
         </div>
-        <div class="header-status">
-            <span class="status-indicator">
-                <span class="status-dot"></span>
-                <span id="groundingStatusText">Grounded in Official Statutes</span>
-            </span>
-            <button class="btn-icon" id="newChatBtn" title="New Conversation">🔄 Reset</button>
-        </div>
-    </header>
+    </div>
 
-    <!-- Main Chat Workspace -->
-    <main class="chat-viewport" id="chatViewport">
-        
-        <!-- Welcome Screen (Shown initially, hidden after first message) -->
-        <div class="welcome-container" id="welcomeScreen">
-            <div class="welcome-badge">⚖️ India Legal Assistant</div>
-            <h1 class="welcome-heading">How can I help you today?</h1>
-            <p class="welcome-desc">
-                Describe your legal challenge in simple English, Hindi, or Hinglish.
-                LawPilot AI helps you understand your rights, organize your evidence, and generate legal notices.
-            </p>
-
-            <div class="example-prompts-grid">
-                <button class="prompt-chip" onclick="useExamplePrompt('My landlord is refusing to return my security deposit.')">
-                    <span class="chip-icon">🏠</span>
-                    <span class="chip-text">My landlord is refusing to return my security deposit.</span>
-                </button>
-                <button class="prompt-chip" onclick="useExamplePrompt('I purchased a defective product and the seller is refusing a refund.')">
-                    <span class="chip-icon">🛒</span>
-                    <span class="chip-text">I purchased a defective product and the seller is refusing a refund.</span>
-                </button>
-                <button class="prompt-chip" onclick="useExamplePrompt('My company has not paid my salary for two months.')">
-                    <span class="chip-icon">💼</span>
-                    <span class="chip-text">My company has not paid my salary for two months.</span>
-                </button>
-                <button class="prompt-chip" onclick="useExamplePrompt('Help me understand a legal notice I received.')">
-                    <span class="chip-icon">📑</span>
-                    <span class="chip-text">Help me understand a legal notice I received.</span>
-                </button>
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">⚙️ LawPilot AI Settings</h3>
+                <button class="modal-close-btn" onclick="closeSettingsModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Active AI Engine:</strong> Google Gemini 1.5/3.8 Flash (Interactions API)</p>
+                <p><strong>Statutory Knowledge Base:</strong> 100% Grounded in India Code & Central Gazette</p>
+                <p><strong>Supported Domains:</strong> Tenant-Landlord Disputes, Consumer Protection, Employment Issues</p>
+                <p><strong>Safety Boundaries:</strong> Automatic Escalation for Physical Violence (112) & Medical Emergencies (108)</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action-btn primary" onclick="closeSettingsModal()">Close</button>
             </div>
         </div>
-
-        <!-- Conversation Stream -->
-        <div class="messages-stream" id="messagesStream"></div>
-
-    </main>
-
-    <!-- Floating Chat Input Bar -->
-    <footer class="input-container">
-        <div class="input-card">
-            <!-- Hidden File Input -->
-            <input type="file" id="fileAttachment" style="display: none;" accept=".pdf,.docx,.txt,.md">
-            
-            <button class="input-action-btn" id="attachBtn" title="Attach rental agreement, payslip or notice (PDF/DOCX/TXT)">
-                📎
-            </button>
-            <button class="input-action-btn" id="voiceBtn" title="Speak in English or Hindi">
-                🎤
-            </button>
-            
-            <textarea id="chatInput" rows="1" placeholder="Describe your legal issue in plain English, Hindi, or Hinglish..." autofocus></textarea>
-            
-            <button class="send-btn" id="sendBtn" title="Send message">
-                ➔
-            </button>
-        </div>
-        <div class="input-disclaimer">
-            LawPilot AI provides general legal information grounded in Indian statutes. It is not a substitute for advice from a qualified advocate.
-        </div>
-    </footer>
+    </div>
 
     <!-- Scripts -->
     <script src="/static/js/speech.js"></script>

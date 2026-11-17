@@ -2,13 +2,30 @@ import os
 from pydantic import BaseModel
 from typing import Optional
 
+def load_env_file():
+    """Simple zero-dependency .env file loader."""
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    env_path = os.path.join(root_dir, ".env")
+    if os.path.exists(env_path):
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    k = k.strip()
+                    v = v.strip().strip("'\"")
+                    if k:
+                        os.environ[k] = v
+
+load_env_file()
+
 class Settings(BaseModel):
     app_name: str = "LawPilot AI"
     tagline: str = "Navigate Legal Challenges. Know Your Rights. Take Action."
     app_version: str = "1.0.0"
     
     # LLM Settings
-    llm_provider: str = os.getenv("LLM_PROVIDER", "demo").lower()
+    llm_provider: str = os.getenv("LLM_PROVIDER", os.getenv("ACTIVE_PROVIDER", "demo")).lower()
     gemini_api_key: Optional[str] = os.getenv("GEMINI_API_KEY", "")
     openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY", "")
     anthropic_api_key: Optional[str] = os.getenv("ANTHROPIC_API_KEY", "")

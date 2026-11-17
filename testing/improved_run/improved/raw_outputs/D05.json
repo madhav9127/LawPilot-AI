@@ -1,0 +1,58 @@
+{
+  "test_id": "D05",
+  "category": "Category D — Employment Disputes",
+  "name": "Employer refusing relieving letter",
+  "expected": "Explains employee's right to service documentation and remedies before Labour Commissioner or civil court.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I served my full notice period, but HR refuses to issue my relieving letter and experience certificate.",
+  "raw_response": "Hello! I understand how stressful it is when your former employer withholds your relieving letter and experience certificate after you have fulfilled your notice period.\n\n### | Your Situation\nYou have successfully completed your mandatory notice period with your employer, but the HR department is refusing to issue your relieving letter and experience certificate. This withholding creates severe obstacles for your future employment and career progression.\n\n### | Your Legal Position\n* Under the respective State Shops and Commercial Establishments Act governing commercial establishments and private companies, employers are legally required to clear all final dues and issue necessary employment separation documents upon resignation or termination.\n* According to Section 5 of the Payment of Wages Act, 1936, earned wages and final settlements must be paid within the statutory timeline (before the expiry of the 7th or 10th day depending on establishment size). Withholding essential employment documents without legal justification constitutes an unfair labour practice.\n* Under Section 73 of the Indian Contract Act, 1872, any breach of an employment agreement that causes direct loss or damage to the employee entitles the affected party to seek compensation for resulting professional and financial losses.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, resignation letter, email acceptance of resignation, final day acknowledgment, and any written or recorded communication with HR regarding the delayed documents.\n2. Send written demand notice granting 15 days: Issue a formal legal demand notice to the HR head and Managing Director outlining your statutory rights under the relevant State Shops and Commercial Establishments Act, demanding the issuance of the relieving letter and experience certificate within 15 days.\n3. Appropriate forum: If the employer fails to comply within 15 days, file a formal complaint before the local Labour Commissioner or approach the designated Labour Court/Authority for settlement of dues and service conditions.\n\n### ℹ️ Information I still need from you\n1. Which state is your employer's office located in, and was your employment governed by a written employment contract?\n2. Do you have any pending formal clearance dues, or have you already received your full and final (F&F) financial settlement?",
+  "tokens": 20,
+  "latency": 3.19,
+  "citations": [
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

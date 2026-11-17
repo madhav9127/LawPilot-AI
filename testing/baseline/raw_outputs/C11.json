@@ -1,0 +1,58 @@
+{
+  "test_id": "C11",
+  "category": "Category C — Consumer Protection",
+  "name": "How to approach National Consumer Helpline",
+  "expected": "Provides exact helpline number 1915, SMS 8800001915, and web portal consumerhelpline.gov.in with procedure.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "How do I approach the National Consumer Helpline?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, ready to guide you through consumer rights, tenant disputes, and employment issues. \n\nHow can I assist you with your consumer rights or legal inquiry today?",
+  "tokens": 5,
+  "latency": 2.0,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

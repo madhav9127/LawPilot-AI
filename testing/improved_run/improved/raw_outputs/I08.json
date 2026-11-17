@@ -1,0 +1,58 @@
+{
+  "test_id": "I08",
+  "category": "Category I — Document Generation",
+  "name": "Generate English legal notice",
+  "expected": "Drafts structured legal notice with XYZ Tech, ₹1,20,000, Payment of Wages Act references, and 15-day deadline.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Draft a formal legal notice to employer XYZ Tech for ₹1,20,000 unpaid dues and relieving letter.",
+  "raw_response": "Hello! I understand how stressful it is to deal with unpaid salary and missing relieving letters, and I am here to help you draft a formal notice to your employer.\n\n### | Your Situation\nYou are a former employee of XYZ Tech seeking recovery of ₹1,20,000 in unpaid dues along with your relieving letter. Despite fulfilling your employment obligations, the company has delayed these statutory settlements, causing financial and professional distress.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, earned wages must be paid before the expiry of the 7th day after the last day of the wage period.\n- Under the applicable State Shops and Commercial Establishments Act, employers are mandated to clear all earned salary and provide final service documents upon termination or resignation.\n- Under Section 73 of the Indian Contract Act, 1872, you are entitled to compensation for financial loss or damage caused by the employer's breach of the employment contract.\n\n### | Practical Next Steps\n1. Gather evidence, including your employment contract, offer letter, salary slips, resignation email, and any written follow-up communications with XYZ Tech regarding your dues.\n2. Send written demand notice granting 15 days to the employer for clearing the ₹1,20,000 and issuing the relieving letter.\n3. Appropriate forum such as the Labour Commissioner under the Payment of Wages Act or the relevant State Shops and Commercial Establishments authority if the employer fails to comply within 15 days.\n\n### ℹ️ Information I still need from you\n1. What was your exact last working day and the specific months for which your salary of ₹1,20,000 is pending?\n2. What is the official address and email ID of XYZ Tech, as well as the name of the HR representative or director to whom this notice should be addressed?\n\n***\n\n**FORMAL LEGAL DEMAND NOTICE**\n\n**Date:** [Insert Date, e.g., October 24, 2023]  \n**To:**  \nThe Management / Human Resources Department,  \nXYZ Tech,  \n[Insert Company Address]  \nEmail: [Insert Company Email Address]  \n\n**Subject: Demand for immediate payment of unpaid dues amounting to ₹1,20,000 and issuance of Relieving Letter**\n\nDear Sir/Madam,\n\nI, [Insert Your Full Name], residing at [Insert Your Residential Address], was formerly employed with XYZ Tech in the capacity of [Insert Your Job Title] from [Insert Joining Date] to [Insert Last Working Date]. \n\nDuring the course of my employment, I discharged my duties diligently and to the utmost satisfaction of the management. However, upon my separation from the company, my full and final settlement (FnF) amounting to ₹1,20,000 (Rupees One Lakh Twenty Thousand Only) towards unpaid salary and dues for the period of [Insert Months] has been wrongfully withheld, along with my official relieving letter and experience certificate.\n\nThis unwarranted delay and withholding of statutory dues is in direct violation of Section 5 of the Payment of Wages Act, 1936, and the provisions governing service conditions under the applicable State Shops and Commercial Establishments Act. Furthermore, the withholding of my relieving letter is causing severe prejudice to my professional career and future employment prospects, constituting a breach of the employment terms under Section 73 of the Indian Contract Act, 1872.\n\nThrough this notice, I call upon you to clear the entire outstanding amount of ₹1,20,000 and issue my official relieving letter and service certificates within **15 (fifteen) days** from the receipt of this notice. \n\nPlease remit the aforementioned amount directly to my bank account on record:  \n- **Bank Name:** [Insert Bank Name]  \n- **Account Number:** [Insert Bank Account Number]  \n- **IFSC Code:** [Insert IFSC Code]  \n\nIn the event you fail to clear the dues and issue the relieving letter within the stipulated 15-day period, I shall be constrained to initiate appropriate legal proceedings against XYZ Tech and its directors before the Labour Commissioner, the designated Authority under the Payment of Wages Act, and other competent judicial forums, seeking full recovery along with statutory interest, compensation for financial distress, and legal costs.\n\nThis notice is issued without prejudice to my other legal rights and remedies available under law.\n\nYours faithfully,  \n\n[Your Signature]  \n[Your Full Name]  \n[Your Contact Number]  \n[Your Email Address]",
+  "tokens": 40,
+  "latency": 9.61,
+  "citations": [
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

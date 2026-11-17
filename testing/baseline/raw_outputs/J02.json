@@ -1,0 +1,58 @@
+{
+  "test_id": "J02",
+  "category": "Category J — Voice Input",
+  "name": "Hindi voice simulated transcription",
+  "expected": "Understands Devanagari Hindi transcription; extracts ₹25,000 and responds in Hindi.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "मेरे मकान मालिक ने पच्चीस हजार का सिक्योरिटी डिपॉजिट नहीं लौटाया।",
+  "raw_response": "नमस्ते, आपकी इस समस्या के समाधान में मदद करने के लिए मैं यहाँ हूँ।\n\n### | आपकी स्थिति (Your Situation)\nआपने अपने मकान मालिक द्वारा 25,000 रुपये का सिक्योरिटी डिपॉजिट न लौटाए जाने की बात बताई है। यह विवाद आपके और आपके मकान मालिक के बीच खाली किए गए परिसर के बकाया पैसों के भुगतान को लेकर है।\n\n### | आपकी कानूनी स्थिति (Your Legal Position)\n- मॉडल टेनेंसी एक्ट, 2021 (Model Tenancy Act, 2021) की धारा 11 और 13 के अनुसार, मकान मालिक को परिसर का कब्जा वापस लेते समय सिक्योरिटी डिपॉजिट राशि का पूरा रिफंड (वापसी) करना अनिवार्य है, बशर्ते समझौते के अनुसार कोई वैध कटौती (valid deduction) न हो।\n- संपत्ति अंतर अधिनियम, 1882 (The Transfer of Property Act, 1882) की धारा 108(m) और (o) के तहत, पट्टाधारी (किरायेदार) सामान्य टूट-फूट (reasonable wear and tear) के अलावा संपत्ति को वैसी ही अच्छी स्थिति में लौटाने के लिए बाध्य है जैसी उसने ली थी; मकान मालिक बिना किसी स्पष्ट अनुबंध के सामान्य इस्तेमाल और रंग-रोगन के नाम पर मनमाने ढंग से पैसे नहीं काट सकता है।\n- ध्यान रखें कि किसी भी अदालत में जीत की कोई सौ प्रतिशत गारंटी नहीं होती है, यह पूरी तरह से आपके द्वारा प्रस्तुत किए गए साक्ष्यों और दस्तावेजों पर निर्भर करता है।\n\n### | व्यावहारिक अगले कदम (Practical Next Steps)\n1. किराया रसीदें, सिक्योरिटी डिपॉजिट देने का बैंक प्रमाण या रसीद, और मकान मालिक के साथ हुई बातचीत के संदेशों (WhatsApp/SMS) को साक्ष्य के रूप में इकट्ठा करें।\n2. मकान मालिक को लिखित मांग नोटिस (Demand Notice) भेजें जिसमें पूरा पैसा लौटने के लिए स्पष्ट रूप से 15 दिन का समय दें।\n3. यदि 15 दिन में समाधान न हो, तो आप अपने स्थानीय किराया प्राधिकरण (Rent Authority) या उपभोक्ता फोरम (Consumer Commission) के समक्ष उचित कानूनी कार्रवाई के लिए संपर्क कर सकते हैं।\n\n### ℹ️ आपसे आवश्यक जानकारी\n1. क्या आपके और आपके मकान मालिक के बीच कोई लिखित किराया समझौता (Rent Agreement) हुआ था?\n2. क्या आपने मकान मालिक को परिसर खाली करते समय कोई लिखित नोटिस दिया था और क्या आपके पास डिपॉजिट भुगतान का कोई रसीद या बैंक प्रमाण है?",
+  "tokens": 22,
+  "latency": 4.46,
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

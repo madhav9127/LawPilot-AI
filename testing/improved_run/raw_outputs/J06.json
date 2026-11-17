@@ -1,0 +1,58 @@
+{
+  "test_id": "J06",
+  "category": "Category J — Voice Input",
+  "name": "Long voice input containing several facts",
+  "expected": "Extracts multiple facts: Flat 304 Koramangala, ₹50,000 deposit, ₹30,000 painting deduction, UPI proof, vacated Sept 30.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I rented flat 304 in Koramangala Bangalore on 1st January 2024 with a security deposit of fifty thousand rupees paid through UPI and vacated on 30th September but the owner says he will deduct thirty thousand for painting.",
+  "raw_response": "Hello! I am LawPilot AI, your ethical Indian legal assistant, and I am here to help you navigate your tenant dispute regarding your security deposit deduction.\n\n### | Your Situation\nYou rented flat 304 in Koramangala, Bangalore, starting January 1, 2024, paid a security deposit of ₹50,000 via UPI, and vacated the premises on September 30, 2024. The landlord is now unfairly attempting to deduct ₹30,000 from your security deposit for painting charges.\n\n### | Your Legal Position\n- Under the Transfer of Property Act, 1882 Section 108(m) and (o), a tenant is bound to restore the property in as good a condition as it was when received, subject only to \"reasonable wear and tear.\" Normal degradation of paint over months of habitation constitutes reasonable wear and tear, and a landlord cannot make arbitrary deductions for standard repainting without an explicit contractual basis.\n- Under the principles of the Model Tenancy Act, 2021 Section 11 and Section 13, security deposits must be refunded upon taking over vacant possession, minus only valid, mutually agreed deductions or damages beyond normal usage.\n- Deducting ₹30,000 for standard painting without proof of deliberate damage or structural alteration violates the terms of fair tenancy and unjustifiably withholds your lawful funds.\n\n### | Practical Next Steps\n1. Gather evidence, including the written lease agreement, the UPI payment receipt for the ₹50,000 deposit, photographs or videos taken at the time of vacating, and all written chat or email communications with the landlord regarding the painting deduction.\n2. Send a written demand notice to the landlord demanding the full refund of your ₹50,000 security deposit, granting a clear deadline of 15 days for compliance.\n3. If the landlord fails to refund the amount within 15 days, approach the appropriate Rent Authority or Consumer Commission / Civil Court in Bangalore to recover your dues.\n\n### ℹ️ Information I still need from you\n1. Do you have a written and signed rental agreement, and does it contain a specific clause about mandatory painting charges upon vacating?\n2. Did you take any move-out photographs or videos of the flat's condition when you handed over the keys on September 30?",
+  "tokens": 22,
+  "latency": 3.32,
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

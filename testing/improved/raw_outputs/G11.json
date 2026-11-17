@@ -1,0 +1,28 @@
+{
+  "test_id": "G11",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Legal advice when facts are insufficient",
+  "expected": "Asks necessary clarifying facts (relationship, transaction nature, evidence, amounts) before advising.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Someone owes me money. What section applies?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant. \n\nWhile I can certainly help you understand how Indian law addresses recovery of money, please note that my primary expertise covers three everyday domains: Tenant & Landlord Disputes, Consumer Protection, and Employment Issues (such as unpaid salary or wages under Section 5 of the Payment of Wages Act, 1936). \n\nIf the money owed to you relates to an unpaid employment salary, a consumer dispute regarding a refund, or a tenancy security deposit issue, I can guide you through the exact legal steps and provisions under Indian law.\n\n### ℹ️ Information I still need from you\n1. What is the background of this money owed (is it unpaid salary from an employer, a refund from a consumer transaction, or a landlord-tenant matter like a security deposit)?\n2. What is the approximate amount owed and your current location (state/city) in India?",
+  "tokens": 10,
+  "latency": 7.11,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

@@ -391,28 +391,15 @@ class DeterministicDemoProvider(BaseLLMProvider):
             return ChatMessage(role="assistant", content=content, citations=[])
 
         # -------------------------------------------------------------
-        # 0C. MATH & OFF-TOPIC CASUAL QUERIES
+        # 0C. DOMAIN GUARDRAIL & OUT-OF-SCOPE REDIRECTION
         # -------------------------------------------------------------
-        if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2"]):
-            content = (
-                "2 + 2 is **4**.\n\n"
-                "I am LawPilot AI, a legal assistant dedicated to everyday Indian legal issues (tenancy disputes, consumer protection, and employment matters). "
-                "If you have a legal question or need help drafting a notice or complaint, please let me know!"
-            )
-            logger.info(f"ReqID={req_id} | ResponseType=Math | Retrieval=False")
-            return ChatMessage(role="assistant", content=content, citations=[])
-
-        # -------------------------------------------------------------
-        # 0D. JOKES & HUMOR
-        # -------------------------------------------------------------
-        if "tell me a joke" in lower_msg or lower_msg == "joke":
-            content = (
-                "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand! 😄\n\n"
-                "On a serious note, I am LawPilot AI, designed to assist you with everyday legal problems in India—such as landlord disputes, consumer refunds, and unpaid salary. "
-                "How can I help you with your legal rights today?"
-            )
-            logger.info(f"ReqID={req_id} | ResponseType=Joke | Retrieval=False")
-            return ChatMessage(role="assistant", content=content, citations=[])
+        from app.core.domain_guardrail import DomainGuardrail
+        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
+            message, conversation_history, lang_str=detected_lang_str
+        )
+        if is_oos and oos_reply:
+            logger.info(f"ReqID={req_id} | ResponseType=DomainRedirect | Retrieval=False")
+            return ChatMessage(role="assistant", content=oos_reply, citations=[])
 
         # -------------------------------------------------------------
         # 0E. STATUTORY PROVISION EXPLANATION: SECTION 13 MTA
@@ -1278,18 +1265,11 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "You can also attach rent agreements or invoices, or generate formal legal demand notices directly in the chat."
             )
 
-        if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2"]):
+        if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2", "tell me a joke", "joke"]):
             return (
-                "2 + 2 is **4**.\n\n"
-                "I am LawPilot AI, dedicated to assisting you with Indian legal matters (tenancy, consumer rights, and employment wages). "
-                "How can I help you with your legal situation today?"
-            )
-
-        if "tell me a joke" in lower_msg or lower_msg == "joke":
-            return (
-                "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand!\n\n"
-                "On a serious note, I am LawPilot AI, ready to assist you with everyday legal problems in India. "
-                "What legal challenge can I help you evaluate today?"
+                "I am LawPilot AI, an assistant specialising in everyday legal problems in India. "
+                "I can help you understand your legal rights, organise your case, identify possible options and prepare legal documents. "
+                "I cannot assist with general topics outside my legal-assistance scope. Is there a legal issue I can help you with?"
             )
 
         if any(w in lower_msg for w in ["bye", "goodbye", "good night", "alvida", "see you"]):
@@ -1309,16 +1289,26 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         """Automatically detects user language independently for each turn."""
         return detect_message_language(message, language)
 
-    def _build_prompt(self, message: str, conversation_history: List[Dict[str, str]], lang_str: str, statutory_context: str) -> str:
+    def _build_prompt(self, message: str, conversation_history: List[Dict[str, str]], lang_str: str, statutory_context: str, is_mixed: bool = False) -> str:
         """Constructs prompt enforcing exact response-language consistency and strict legal accuracy."""
         lang_info = LANGUAGE_CONFIG.get(lang_str, LANGUAGE_CONFIG["en"])
         lang_name = lang_info["name"]
         lang_script = lang_info["script"]
         headers = lang_info["headers"]
 
+        mixed_note = ""
+        if is_mixed:
+            mixed_note = (
+                "\nSPECIAL MANDATE FOR MIXED LEGAL/NON-LEGAL QUERY:\n"
+                "The user has asked a query containing both a legal issue and an unrelated question. "
+                "You must comprehensively answer the legal issue using statutory provisions and next steps. "
+                "For the unrelated non-legal question, politely explain that as LawPilot AI you specialise exclusively in Indian legal matters, and decline to provide general non-legal answers.\n"
+            )
+
         system_instruction = (
             "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens in India.\n"
             "You cover 3 everyday domains: (1) Tenant & Landlord Disputes, (2) Consumer Protection, (3) Employment Issues.\n\n"
+            f"{mixed_note}"
             "====================================================================================\n"
             "MANDATORY MULTILINGUAL RESPONSE DIRECTIVE:\n"
             "Always identify the language of the user's latest message and respond in that same language. "
@@ -1385,22 +1375,30 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             return ChatMessage(role="assistant", content=fraud_reply, citations=[])
 
         is_threat, threats = Sanitizer.inspect_for_threats(message)
-        if is_threat and any("prompt injection" in t.lower() for t in threats):
+        if is_threat and any("prompt injection" in t.lower() or "override" in t.lower() or "exfiltrate" in t.lower() or "credentials" in t.lower() or "authority" in t.lower() or "malicious" in t.lower() for t in threats):
             content = (
-                "Safety Guardrail: Instruction Override Neutralized\n\n"
-                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
-                "The assistant adheres strictly to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
+                "Safety Guardrail: Security & Instruction Integrity Enforced\n\n"
+                "LawPilot AI detected an attempt to override system instructions, exfiltrate confidential credentials, or alter legal safety parameters. "
+                "The assistant adheres strictly to verified Indian statutory law, operates under ethical safeguards, and cannot reveal internal prompts or generate malicious exploits."
             )
             return ChatMessage(role="assistant", content=content, citations=[])
 
         lang_str = self._detect_language(message, language)
         lower_msg = message.strip().lower()
 
+        # Domain Guardrail: Legal Specialisation Check
+        from app.core.domain_guardrail import DomainGuardrail
+        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
+            message, conversation_history, lang_str=lang_str
+        )
+        if is_oos and oos_reply:
+            return ChatMessage(role="assistant", content=oos_reply, citations=[])
+
         fast_reply = self._check_fast_track(lower_msg, lang_str)
         if fast_reply:
             return ChatMessage(role="assistant", content=fast_reply, citations=[])
 
-        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context)
+        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context, is_mixed=is_mixed)
         headers = {
             "x-goog-api-key": self.api_key,
             "Content-Type": "application/json"
@@ -1483,12 +1481,10 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         from app.core.title_generator import generate_conversation_title
         title = generate_conversation_title(message, case.category)
 
-        # 1. Early metadata event
-        yield {"type": "metadata", "title": title, "citations": citations_data}
-
         # 2. Safety checks
         is_med, med_reply = EscalationDetector.check_medical_emergency(message)
         if is_med:
+            yield {"type": "metadata", "title": title, "citations": []}
             for chunk in re.split(r'(\s+)', med_reply):
                 if chunk:
                     yield {"type": "token", "content": chunk}
@@ -1497,6 +1493,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
 
         is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
         if is_fraud:
+            yield {"type": "metadata", "title": title, "citations": []}
             for chunk in re.split(r'(\s+)', fraud_reply):
                 if chunk:
                     yield {"type": "token", "content": chunk}
@@ -1504,11 +1501,12 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             return
 
         is_threat, threats = Sanitizer.inspect_for_threats(message)
-        if is_threat and any("prompt injection" in t.lower() for t in threats):
+        if is_threat and any("prompt injection" in t.lower() or "override" in t.lower() or "exfiltrate" in t.lower() or "credentials" in t.lower() or "authority" in t.lower() or "malicious" in t.lower() for t in threats):
+            yield {"type": "metadata", "title": title, "citations": []}
             content = (
-                "Safety Guardrail: Instruction Override Neutralized\n\n"
-                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
-                "The assistant adheres strictly to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
+                "Safety Guardrail: Security & Instruction Integrity Enforced\n\n"
+                "LawPilot AI detected an attempt to override system instructions, exfiltrate confidential credentials, or alter legal safety parameters. "
+                "The assistant adheres strictly to verified Indian statutory law, operates under ethical safeguards, and cannot reveal internal prompts or generate malicious exploits."
             )
             for chunk in re.split(r'(\s+)', content):
                 if chunk:
@@ -1520,7 +1518,23 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         lang_str = self._detect_language(message, language)
         lower_msg = message.strip().lower()
 
-        # 4. Fast-track conversational responses (<5ms)
+        # 4. Domain Guardrail: Legal Specialisation Check
+        from app.core.domain_guardrail import DomainGuardrail
+        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
+            message, conversation_history, lang_str=lang_str
+        )
+        if is_oos and oos_reply:
+            yield {"type": "metadata", "title": title, "citations": []}
+            for chunk in re.split(r'(\s+)', oos_reply):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": title, "citations": [], "content": oos_reply}
+            return
+
+        # 5. Metadata event for in-scope requests
+        yield {"type": "metadata", "title": title, "citations": citations_data}
+
+        # 6. Fast-track conversational responses (<5ms)
         fast_reply = self._check_fast_track(lower_msg, lang_str)
         if fast_reply:
             for chunk in re.split(r'(\s+)', fast_reply):
@@ -1529,9 +1543,9 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             yield {"type": "done", "title": title, "citations": citations_data, "content": fast_reply}
             return
 
-        # 5. Genuine Google Gemini SSE Streaming
+        # 6. Genuine Google Gemini SSE Streaming
         statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
-        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context)
+        full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context, is_mixed=is_mixed)
 
         stream_models = ["gemini-flash-lite-latest", "gemini-3.8-flash"]
         full_output = ""

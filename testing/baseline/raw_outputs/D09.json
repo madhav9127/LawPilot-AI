@@ -1,0 +1,58 @@
+{
+  "test_id": "D09",
+  "category": "Category D — Employment Disputes",
+  "name": "Salary paid partially",
+  "expected": "Explains that financial difficulties do not permit unilateral wage reductions without consent or legal layoff procedure.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "My agreed salary is ₹45,000, but employer paid only ₹20,000 for the last two months citing business slowdown.",
+  "raw_response": "Hello! I am LawPilot AI, your Indian legal assistant. I understand how stressful it is to face sudden wage cuts, and I am here to help you understand your legal rights and options under Indian employment law.\n\n### | Your Situation\nYou are an employee whose agreed monthly salary of ₹45,000 has been arbitrarily reduced to ₹20,000 by your employer for the last two months due to business slowdown. This constitutes a severe unilateral wage deduction and delay under Indian labor laws.\n\n### | Your Legal Position\n* Under Section 5 of the Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day (or 10th day if more than 1,000 persons are employed) after the wage period, and any delay is unlawful.\n* Under Section 7 of the Payment of Wages Act, 1936, deductions from wages can only be made in accordance with strictly enumerated statutory provisions (such as authorized tax deductions or court orders). A unilateral cut citing business slowdown is not a permissible deduction and is entirely illegal.\n* Under Section 15 of the Payment of Wages Act, 1936, you have the right to file an application before the designated Labour Authority for recovery of delayed or unlawfully deducted wages, along with compensation which may extend up to ten times the delayed amount.\n* Under Section 73 of the Indian Contract Act, 1872, an employer's failure to pay the full agreed remuneration constitutes a breach of the employment contract, entitling you to claim compensation for the financial loss suffered.\n\n### | Practical Next Steps\n1. Gather evidence including your employment agreement, salary slips showing the agreed ₹45,000 amount, bank statements reflecting the reduced payments of ₹20,000, and any written communications or emails from your employer regarding the business slowdown and wage cuts.\n2. Send a formal written demand notice to your employer requesting full payment of your pending salary arrears within 15 days, stating clearly that arbitrary deductions violate the Payment of Wages Act.\n3. If the employer fails to settle your dues within 15 days, approach the jurisdictional Labour Commissioner or file a claim under Section 15 of the Payment of Wages Act before the appropriate Labour Authority.\n\n### ℹ️ Information I still need from you\n1. What is the city and state where your office or workplace is located?\n2. Do you have a signed employment contract or written offer letter stating your agreed salary of ₹45,000 per month?",
+  "tokens": 24,
+  "latency": 3.37,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

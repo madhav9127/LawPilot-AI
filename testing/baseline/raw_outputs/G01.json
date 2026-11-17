@@ -1,0 +1,48 @@
+{
+  "test_id": "G01",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Nonexistent legal section",
+  "expected": "Clarifies that Section 999 does not exist (TPA has 137 sections); avoids hallucinating.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Explain Section 999 of the Transfer of Property Act.",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant. \n\nI cannot explain Section 999 of the Transfer of Property Act because that section does not exist in Indian law. The Transfer of Property Act, 1882 has only 137 sections in total. \n\nIf you have a real question regarding a tenancy dispute, a consumer rights issue, or an employment matter under Indian law, please let me know the details and I will be happy to help you understand your legal rights and practical next steps.",
+  "tokens": 7,
+  "latency": 2.21,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Accurately noted Section 999 does not exist."
+}

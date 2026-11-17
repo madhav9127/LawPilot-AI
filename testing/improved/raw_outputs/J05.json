@@ -1,0 +1,28 @@
+{
+  "test_id": "J05",
+  "category": "Category J — Voice Input",
+  "name": "Marathi voice simulated transcription",
+  "expected": "Understands Marathi transcription; extracts ₹20,000 and responds in Marathi with 0 mojibake.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "माझ्या घरमालकाने माझे वीस हजार रुपये डिपॉझिट परत केले नाही.",
+  "raw_response": "तुमची आर्थिक अडचण आणि मानसिक ताण मी समजू शकतो, त्यामुळे हे प्रकरण लवकरात लवकर सोडवण्यासाठी मी आपल्याला मदत करेन.\n\n### | तुमची परिस्थिती (Your Situation)\nतुम्ही आणि तुमच्या घरमालकामध्ये (Landlord) डिपॉझिटच्या रकमेवरून वाद झाला असून, त्यांनी तुमचे वीस हजार रुपये (₹20,000) डिपॉझिट अद्याप परत केले नाही आहेत. घर खाली केल्यानंतर ही रक्कम अडकवून ठेवल्यामुळे तुम्हाला आर्थिक नुकसान आणि मनस्ताप सहन करावा लागत आहे.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n* मालकाने घर खाली करताना किंवा भाडे करार संपल्यानंतर सुरक्षा अनामत रक्कम (Security Deposit) परत करणे बंधनकारक असते, ज्यामध्ये केवळ घरगुती वापरामुळे झालेली सामान्य झीज (Reasonable wear and tear) वजा केली जाऊ शकते.\n* घरमालक विनाकारण किंवा कोणतीही कायदेशीर कारण नसताना तुमची डिपॉझिट रक्कम रोखून धरू शकत नाही, कारण हे भाडे कराराच्या नियमांचे आणि मालक-भाडेकरू कायद्यांचे उल्लंघन ठरू शकते.\n* तुम्हाला भारतीय कायद्यानुसार कायदेशीर मदत मिळवण्याचा अधिकार असून, 'द लीगल सर्व्हिसेस ऑथॉरिटीज कायद्याची १९८७ (The Legal Services Authorities Act, 1987) मधील कलम १२' नुसार पात्र नागरिकांना मोफत कायदेशीर सेवा (Free Legal Aid) मिळण्याचा अधिकार आहे.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. भाडे करार (Rent Agreement), डिपॉझिट दिल्याची पावती, बँक ट्रान्सफर्स आणि घरमालकासोबत झालेला संवाद यांचे पुरावे गोळा करा.\n2. घरमालकाला १५ दिवसांच्या आत डिपॉझिटचे वीस हजार रुपये परत करण्यासाठी लेखी मागणी नोटीस (Written Demand Notice) पाठवा.\n3. जर घरमालकाने नोटीशीला उत्तर दिले नाही, तर तुम्ही संबंधित प्रांताच्या rent authority कडे किंवा जिल्हा ग्राहक तक्रार आयोगाकडे (District Consumer Disputes Redressal Commission) किंवा मोफत कायदेशीर मदतीसाठी जिल्हा कायदेशीर सेवा प्राधिकरणाकडे (DLSA) दाद मागू शकता.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\n१. तुमचा घरमालकासोबत झालेला भाडे करार (Rent Agreement) संपला आहे का आणि तुम्ही घर कोणत्या तारखेला पूर्णपणे खाली केले?\n२. तुम्ही डिपॉझिटची रक्कम कशी दिली होती (रोख स्वरूपात की ऑनलाईन बँक ट्रान्सफरद्वारे) आणि तुमच्याकडे त्याची कोणती पावती किंवा पुरावा आहे का?",
+  "tokens": 24,
+  "latency": 3.78,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

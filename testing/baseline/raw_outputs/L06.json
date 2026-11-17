@@ -1,0 +1,14 @@
+{
+  "test_id": "L06",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "System status technical endpoint verification",
+  "expected": "Returns valid JSON with AI engine, grounded sources, capabilities, and safety without exposing keys.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "raw_response": "{\"status\": \"online\", \"app_name\": \"LawPilot AI\", \"version\": \"1.0.0\", \"ai_engine\": {\"provider\": \"Google Gemini (Interactions & Streaming API)\", \"model\": \"gemini-flash-lite-latest / gemini-3.8-flash\", \"connection_status\": \"Connected & Operational\", \"streaming_enabled\": true}, \"knowledge_and_grounding\": {\"rag_enabled\": true, \"retrieval_available\": true, \"total_statutory_provisions\": 17, \"retrieval_mode\": \"Statutory Keyword & Vector Pre-Retrieval\", \"source_categories\": [\"Tenancy & Rent Control (Transfer of Property Act 1882, Model Tenancy Act 2021, State Rent Control Acts)\", \"Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020)\", \"Employment & Wages (Payment of Wages Act 1936, Industrial Disputes Act 1947, Contract Act 1872)\", \"Procedural & Evidentiary (Specific Relief Act 1963, e-Daakhil, NCH 1915)\"], \"grounding_disclaimer\": \"Statutory analysis is grounded in verified Indian statutes and official government gazette databases. This system provides legal guidance; it does not claim exhaustive statutory coverage and does not substitute for an enrolled advocate.\"}, \"capabilities\": {\"multilingual_support\": \"English, Hindi (\\u0939\\u093f\\u0902\\u0926\\u0940), Hinglish, Malayalam (\\u0d2e\\u0d32\\u0d2f\\u0d3e\\u0d33\\u0d02)\", \"voice_input\": \"Web Speech Recognition with Real-Time Audio Track\", \"conversation_memory\": \"Multi-turn session memory with isolated context window and persistent history\", \"document_generation\": \"Active (Instant PDF & Word DOCX generation for legal demand notices)\"}, \"safety\": {\"legal_uncertainty_handling\": \"Explicit statutory ambiguity caveats, jurisdictional variance notices, and advisory disclaimers\", \"human_lawyer_escalation\": \"Automated escalation warnings for high-stakes litigation, threats, and emergency services (112, 108, 1915)\", \"anti_hallucination_safeguards\": \"Pre-generation statute cross-referencing to eliminate fabricated section numbers and phantom case laws\"}}",
+  "latency": 0.01,
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "System status endpoint verified without secret exposure."
+}

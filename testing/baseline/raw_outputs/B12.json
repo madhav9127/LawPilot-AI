@@ -1,0 +1,58 @@
+{
+  "test_id": "B12",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Unsure which local tenancy law applies",
+  "expected": "Identifies Maharashtra Rent Control Act, 1999 alongside general Transfer of Property Act principles.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I rented a flat in Pune, Maharashtra. Which tenancy law applies to my deposit dispute?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am glad to help you understand your tenancy rights in Pune.\n\n### | Your Situation\nYou have a deposit dispute regarding a rented residential flat located in Pune, Maharashtra. The core issue involves the determination of the applicable state tenancy laws and rules governing security deposit refunds.\n\n### | Your Legal Position\n* According to the Maharashtra Rent Control Act, 1999 and the guiding principles of the Model Tenancy Act, 2021, security deposits are subject to fair regulation and must be refunded upon the tenant vacating the premises, after accounting for any valid deductions mutually agreed upon in the tenancy agreement.\n* Under Section 108(m) and (o) of the Transfer of Property Act, 1882, a tenant is bound to restore the property in as good a condition as it was at the time of taking possession, subject to reasonable wear and tear. Reasonable wear and tear refers to the normal and natural deterioration of a property over time due to everyday use, and the landlord cannot make arbitrary deductions for this normal usage.\n* While security deposit limits and refund timelines are increasingly streamlined under modern regulatory frameworks (such as the two-month rent cap recommended by the Model Tenancy Act, 2021), the specific terms of your registered or unregistered written leave and license agreement will primarily govern the exact deposit amount and deduction clauses.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your signed leave and license agreement, payment receipts of the security deposit, move-in and move-out photographs of the flat, and any written communication or chat logs with your landlord regarding the deposit.\n2. Send written demand notice granting 15 days: Issue a formal written notice to your landlord clearly detailing the refund amount due, attaching proof of handover of possession, and granting 15 days to settle the amount.\n3. Appropriate forum: If the landlord fails to respond or refund the amount within 15 days, you may approach the appropriate Competent Authority or Rent Authority established under the relevant Maharashtra rental laws, or file a consumer complaint if unfair trade practices are involved.\n\n### ℹ️ Information I still need from you\n1. What is the exact security deposit amount in dispute, and when did you officially hand over the keys and vacate the flat?\n2. Do you have a written leave and license agreement, and what does it specifically state regarding security deposit deductions?",
+  "tokens": 23,
+  "latency": 3.11,
+  "citations": [
+    {
+      "act_name": "Maharashtra Rent Control Act, 1999",
+      "section": "Section 15 & Section 29",
+      "title": "Relief against forfeiture and prohibition against cutting off essential supplies",
+      "description": "No landlord shall without just or sufficient cause cut off or withhold any essential supply or service (water, electricity, lifts) enjoyed by the tenant. Violation is punishable with imprisonment or fine.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2513",
+      "commencement_date": "2000-03-31",
+      "jurisdiction": "State: Maharashtra",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

@@ -1,0 +1,28 @@
+{
+  "test_id": "L01",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Empty message submission",
+  "expected": "Handles empty/whitespace input cleanly without crashing.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "   ",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant. How can I help you today with your tenant and landlord dispute, consumer protection issue, or employment matter?",
+  "tokens": 4,
+  "latency": 1.18,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

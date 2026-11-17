@@ -1,0 +1,58 @@
+{
+  "test_id": "C09",
+  "category": "Category C — Consumer Protection",
+  "name": "Product damaged during courier transit",
+  "expected": "Explains seller's ultimate responsibility to deliver undamaged goods under E-Commerce Rules 2020.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "The courier delivered a broken TV screen. The seller blames the courier, courier blames the seller.",
+  "raw_response": "Aapki pareshani ko samajh kar mujhe dukh hua, hum iska kanooni hal nikalne mein aapki madad karenge.\n\n### | Your Situation (Aapki Situation)\nAapne ek naya TV kharida jo courier ke zariye deliver hua lekin screen tooti hui nikli. Ab seller aur courier company dono apni zimmedari se hat rahe hain aur ek dusre par dosh laga rahe hain.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- The Consumer Protection Act, 2019 Section 2(7) ke tahat aap ek consumer hain kyunki aapne paise dekar saman kharida hai, chahe woh online shopping se ho.\n- The Consumer Protection Act, 2019 Section 2(47) ke mutabiq, agar saman kharab ya toot-foot ke sath deliver ho aur seller ya e-commerce platform use wapas lene ya refund karne se mana kare, toh ise 'Unfair Trade Practice' (anuchit vyaparik vyavahar) maana jata hai.\n- Consumer Protection (E-Commerce) Rules, 2020 Rule 4 aur Rule 6 ke anusar, e-commerce company ki zimmedari hai ki woh grievance redressal mechanism chalaye aur nuksan ki bharpai kare. Seller aur courier aapas mein lad sakte hain, lekin consumer ke taur par aapka contract seller ke sath hai, isliye refund ya replacement ki mukhya zimmedari seller ki hi hai.\n\n### | Practical Next Steps (Agla Kadam)\n1. Gather evidence: TV ki unboxing ka video (agar ho), tooti hui screen ki saaf tasveerein, delivery box ki photo, order invoice, aur seller ya courier ke sath ki gayi chat ya email ka record sambhal kar rakhein.\n2. Send written demand notice granting 15 days: Seller aur e-commerce platform ko ek written formal complaint ya demand notice bhejiye jisme 15 din ke andar poora refund ya naya TV dene ki maang kariye.\n3. Appropriate forum: Agar 15 din mein samadhan nahi hota hai, toh aap District Consumer Disputes Redressal Commission mein e-Daakhil portal (e-daakhil.nic.in) ke zariye online shiqayat darj kar sakte hain.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aapne yeh TV kisi e-commerce website (jaise Amazon, Flipkart) se kharida tha ya kisi local dukan se, aur iska bill kitne amount ka hai?",
+  "tokens": 25,
+  "latency": 3.73,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

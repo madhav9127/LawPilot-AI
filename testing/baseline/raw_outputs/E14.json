@@ -1,0 +1,58 @@
+{
+  "test_id": "E14",
+  "category": "Category E — Multilingual Testing",
+  "name": "Hindi prompt requesting English response",
+  "expected": "Follows explicit user preference and responds in English explaining tenancy rights.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "मेरे मकान मालिक ने मेरा 25000 का डिपॉजिट नहीं लौटाया। Please explain my legal rights in English.",
+  "raw_response": "I understand how stressful it is to have your hard-earned security deposit withheld by your landlord.\n\n### | Your Situation\nYou are a tenant located in India whose landlord is wrongfully withholding your security deposit of ₹25,000 after the termination of your tenancy. The core issue is the landlord's refusal to refund this deposit despite you vacating the premises.\n\n### | Your Legal Position\n- Model Tenancy Act, 2021 (Guidelines & State Enactments) Section 11 & Section 13: This provision caps security deposits for residential premises and mandates the refund of the security deposit to the tenant at the time of taking over vacant possession of the premises, subject only to valid deductions agreed under the tenancy agreement.\n- The Transfer of Property Act, 1882 Section 108(m) & (o): The tenant is bound to restore the property in as good condition as received, subject only to reasonable wear and tear. Landlords cannot make arbitrary deductions for normal usage or routine painting without an explicit contractual basis.\n- Note that court outcomes depend on specific evidence, and a 100 percent win cannot be guaranteed.\n\n### | Practical Next Steps\n1. Gather evidence including your written tenancy agreement, rent payment receipts, the security deposit payment proof, photographs or videos of the property condition at the time of vacating, and all written communication with your landlord.\n2. Send a formal written demand notice to your landlord detailing the withheld amount of ₹25,000 and granting a clear window of 15 days for full repayment.\n3. If the landlord fails to comply within 15 days, approach the appropriate Rent Authority or Consumer Commission depending on your state's specific tenancy rules.\n\n### ℹ️ Information I still need from you\n1. Do you have a written and signed tenancy agreement, and what city or state is this property located in?\n2. Did the landlord provide any written reasons or itemized bills for withholding the ₹25,000 deposit?",
+  "tokens": 19,
+  "latency": 4.73,
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Multilingual response verified."
+}

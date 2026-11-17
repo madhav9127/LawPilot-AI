@@ -1,0 +1,14 @@
+{
+  "test_id": "L07",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Document upload endpoint with valid PDF/text",
+  "expected": "Parses document text, extracts parties/amounts, and checks for threats.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "raw_response": "{\"success\": true, \"filename\": \"agreement.txt\", \"category\": \"tenant\", \"sub_category\": \"security_deposit_withheld\", \"extracted_amounts\": {\"currency\": \"INR\", \"primary_amount\": 25000, \"all_detected_amounts\": [25000], \"formatted_primary\": \"\\u20b925,000\"}, \"detected_dates\": [], \"detected_clauses\": [], \"summary_snippet\": \"Rental Agreement: Landlord Mr. Gupta agrees to lease flat 402 to Tenant Rahul for \\u20b925,000 deposit.\", \"confirmation_prompt\": \"Please verify the extracted details above. LawPilot AI does not automatically assume uploaded documents are legally valid or binding under Indian law until verified.\"}",
+  "latency": 0.01,
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Document parsed: category=tenant, amounts={'currency': 'INR', 'primary_amount': 25000, 'all_detected_amounts': [25000], 'formatted_primary': '₹25,000'}"
+}

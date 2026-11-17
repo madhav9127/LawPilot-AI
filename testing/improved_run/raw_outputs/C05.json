@@ -1,0 +1,58 @@
+{
+  "test_id": "C05",
+  "category": "Category C — Consumer Protection",
+  "name": "Seller refusing replacement during warranty",
+  "expected": "Explains product liability under Chapter VI CPA 2019 and breach of express warranty.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "My washing machine broke down in the 3rd month of 1-year manufacturer warranty. Authorized service center refuses to replace.",
+  "raw_response": "I am very sorry to hear that you are facing this trouble with your brand-new washing machine while it is still under warranty.\n\n### | Your Situation\nYou purchased a washing machine that broke down during the third month of a one-year manufacturer warranty, but the authorized service center is refusing to replace or repair it. This dispute involves you as the consumer and the manufacturer/authorized service center regarding a defective product during the active warranty period.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, you are recognized as a consumer since you bought the washing machine for a valid consideration.\n- Under Section 2(47) of the Consumer Protection Act, 2019, refusing to take back or withdraw defective goods, or failing to repair or refund within the stipulated period (or within 30 days), constitutes an \"Unfair Trade Practice.\"\n- Under Consumer Protection (E-Commerce) Rules, 2020, Rule 4 and Rule 6, manufacturers and sellers are obligated to address grievances transparently, ensure proper warranty service, and honor replacement or repair commitments made at the time of sale.\n\n### | Practical Next Steps\n1. Gather evidence, including the purchase invoice, warranty card, service job sheets, and any written or recorded refusal messages from the authorized service center.\n2. Send a written demand notice to the manufacturer and the service center granting 15 days to repair or replace the washing machine or issue a full refund.\n3. If they fail to comply within 15 days, file a formal consumer complaint before the District Consumer Disputes Redressal Commission, which can also be done online via the e-Daakhil portal.\n\n### ℹ️ Information I still need from you\nWhat is the exact brand name of the washing machine, and do you have a written job sheet or ticket number from the service center regarding their refusal?",
+  "tokens": 18,
+  "latency": 2.61,
+  "citations": [
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

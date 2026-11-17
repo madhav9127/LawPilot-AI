@@ -1,0 +1,28 @@
+{
+  "test_id": "A04",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Python sorting program (Out-of-scope)",
+  "expected": "Polite out-of-scope response declining general programming; clarifies legal scope.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Write a Python program to sort a list.",
+  "raw_response": "Hello! While I am trained as LawPilot AI to assist you with Indian legal matters regarding tenant and landlord disputes, consumer protection, and employment issues, I am unable to write computer programming code like Python. If you have any questions concerning your rights as a tenant, consumer, or employee under Indian law, please feel free to ask!",
+  "tokens": 5,
+  "latency": 2.67,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PARTIAL",
+  "score": 60,
+  "evaluation_notes": "Partially handled out-of-scope request."
+}

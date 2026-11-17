@@ -1,0 +1,58 @@
+{
+  "test_id": "C02",
+  "category": "Category C — Consumer Protection",
+  "name": "Refund approved but not received for 15 days",
+  "expected": "Explains RBI and e-commerce return turnaround timelines; suggests lodging grievance with Grievance Officer and NCH.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "The shopping app approved my refund of ₹4,500 on the 1st of this month, but it has been 15 days and money is not credited.",
+  "raw_response": "Main samajh sakta hoon ki refund na milna pareshani ki baat hai, lekin hum iska samadhan zaroor nikalenge.\n\n### | Your Situation (Aapki Situation)\nAapne ek shopping app se kharidari ki thi jahan unhone is mahine ki 1st tarikh ko ₹4,500 ka refund approve kar diya tha, lekin 15 din beet jane ke baad bhi aapke bank account mein paise nahi aaye hain. Yeh mamla e-commerce transaction aur refund delay se juda hua hai.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- The Consumer Protection Act, 2019 Section 2(47) ke mutabiq, kisi saman ya seva mein kami (deficiency) ya refund na dena unfair trade practice maana jata hai agar wada kiye gaye ya tay samay (ya 3 din) ke andar paise wapas na kiye jayein.\n- Consumer Protection (E-Commerce) Rules, 2020 Rule 4 aur Rule 6 ke tahat, har e-commerce platform ki zimmedari hai ki woh ek Grievance Officer rakhein jo shikayat par 48 ghante mein jawab de aur 1 mahine ke andar samasya ka hal nikale.\n- The Consumer Protection Act, 2019 Section 2(7) ke tahat aap ek consumer hain kyunki aapne online platform par consideration (paisa) dekar saman kharida tha.\n\n### | Practical Next Steps (Agla Kadam)\n1. Gather evidence: App ke refund approval ka screenshot, order confirmation, aur bank statement sambhal kar rakhein jisme ₹4,500 ka credit na aana dikhe.\n2. Send written demand notice granting 15 days: Shopping app ke Grievance Officer ko ek written email ya notice bhejiye jisme saaf likhiye ki 15 din guzar jane ke baad bhi refund nahi aaya hai aur agle 15 din mein paise credit kiye jayein.\n3. Appropriate forum: Agar company refund nahi karti hai, toh aap National Consumer Helpline (NCH) par ya e-Daakhil portal ke zariye District Consumer Disputes Redressal Commission mein shikayat darj kar sakte hain.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aapne is mamle mein shopping app ke customer support ya Grievance Officer ko pehle koi written complaint bheji hai, aur kya aapke paas refund approval ka koi email ya screenshot hai?",
+  "tokens": 24,
+  "latency": 8.21,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

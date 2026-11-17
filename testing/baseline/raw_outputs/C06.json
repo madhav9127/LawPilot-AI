@@ -1,0 +1,58 @@
+{
+  "test_id": "C06",
+  "category": "Category C — Consumer Protection",
+  "name": "E-commerce platform not responding",
+  "expected": "Advises escalating to designated Grievance Officer under E-Commerce Rules 2020 and filing on National Consumer Helpline (1915).",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Customer care executive hung up on me and my emails bounce back. How do I get my money back?",
+  "raw_response": "Hello! I understand how frustrating and stressful it is to face unresponsive customer care when you are trying to get your hard-earned money back.\n\n### | Your Situation\nYou are a consumer located in India who is unable to reach the company for a refund because customer care hung up on you and your support emails are bouncing back. You are seeking a legal pathway to recover your money from this uncooperative business entity.\n\n### | Your Legal Position\n- Under Section 2(47) of the Consumer Protection Act, 2019, arbitrary refusal to provide a refund or blocking communication channels after taking payment can be classified as an Unfair Trade Practice.\n- You have the statutory right to seek a complete refund of your money along with compensation for mental agony and deficiency in service under Section 35 of the Consumer Protection Act, 2019 by filing a complaint before the appropriate Consumer Disputes Redressal Commission.\n\n### | Practical Next Steps\n1. Gather evidence: Collect all payment receipts, transaction reference numbers, screenshots of bounced emails, and any chat logs or call records with customer support.\n2. Send written demand notice granting 15 days: Dispatch a formal legal demand notice to the company's registered office address via registered post or email, clearly outlining the grievance, demanding your full refund within 15 days, and stating that failure to do so will lead to consumer court action.\n3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner: If the company fails to respond or refund your money within the 15-day notice period, file a formal consumer complaint before the District Consumer Disputes Redressal Commission having jurisdiction over your area.\n\n### ℹ️ Information I still need from you\n1. What was the exact amount of money you paid and what product or service was this for?\n2. What is the name of the company and do you have their official registered address or email address?",
+  "tokens": 20,
+  "latency": 4.51,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

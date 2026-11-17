@@ -1,0 +1,42 @@
+{
+  "test_id": "H04",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "Correcting previously provided amount",
+  "expected": "Updates memory accurately to ₹25,000; discards old ₹20,000 figure.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": [
+    "My landlord owes me ₹20,000 deposit.",
+    "Correction: I checked my bank records, the deposit was actually ₹25,000.",
+    "What amount should be in the notice?"
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "My landlord owes me ₹20,000 deposit.",
+      "response": "Hello, I understand how frustrating it is when your hard-earned security deposit is being withheld unfairly.\n\n### | Your Situation\nYou are a tenant in India seeking the return of your security deposit amounting to ₹20,000 from your landlord after vacating the property. The core issue is the landlord's refusal or delay in refunding this security amount without a valid justification.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (and applicable state tenancy laws), the security deposit for residential premises is generally capped, and landlords are legally required to refund the security deposit to the tenant upon taking over vacant possession of the premises.\n- Permissible deductions from the deposit can only be made for actual damages beyond reasonable wear and tear, or unpaid rent/utility bills, as agreed under the terms of your tenancy agreement.\n- Pursuant to Section 108(m) and (o) of The Transfer of Property Act, 1882, a tenant is bound to restore the property in as good a condition as it was at the start, subject strictly to reasonable wear and tear. A landlord cannot make arbitrary deductions for standard maintenance or normal usage without explicit contractual backing.\n\n### | Practical Next Steps\n1. Gather evidence including your written tenancy agreement, rent payment receipts, the security deposit payment proof (bank transfer or receipt), and clear photographs or videos of the property's condition at the time of vacating.\n2. Send a formal written demand notice to your landlord detailing the withheld amount of ₹20,000 and granting them 15 days to clear the payment.\n3. If the landlord fails to respond or refund the amount within 15 days, approach the local Rent Authority or file a consumer complaint if applicable.\n\n### Information I still need from you\n1. Do you have a written tenancy agreement, and did you sign a move-out inspection report when handing back the keys?\n2. What specific reason or excuse has your landlord given for not returning your ₹20,000 deposit?",
+      "tokens": 20,
+      "latency": 2.88
+    },
+    {
+      "turn": 2,
+      "prompt": "Correction: I checked my bank records, the deposit was actually ₹25,000.",
+      "response": "I can help you with this. Here's a clear overview based on Indian law and typical tenancy principles.\n\n### | Your Situation\nYou have vacated the property and your landlord is not returning the ₹25,000 security deposit (held for an extended period) in your city. This is a tenancy-related dispute about return of the deposit.\n\n### | Your Legal Position\n* A security deposit is meant to cover unpaid rent or actual damages, not routine wear and tear.\n* **The Model Tenancy Act, 2021 (Section 11)** – provides that a security deposit should be returned after adjusting lawful dues. Its applicability may depend on state adoption.\n* **General principles under the Transfer of Property Act, 1882 (Section 108)** – the tenant must return the property in a reasonable condition, subject to normal wear and tear.\n\n### | Practical Next Steps\n1. **Gather evidence** – rental agreement (if any), payment records (UPI/bank), handover photos, and WhatsApp/emails with the landlord.\n2. **Send a written demand** – request return of the ₹25,000 with a reasonable time (e.g., 7–15 days).\n3. **If unresolved** – you may consider a complaint before the local Rent Authority or a civil suit for recovery of money.\n\n### ℹ️ Information I still need from you\nWhich city or state is the property or company located in? (Tenancy and shops laws vary by state).",
+      "tokens": 447,
+      "latency": 2.33
+    },
+    {
+      "turn": 3,
+      "prompt": "What amount should be in the notice?",
+      "response": "Hello, I understand you want to be precise about the exact financial claim you present to your landlord.\n\n### | Your Situation\nYou are preparing a formal demand notice to your landlord for the return of your security deposit, and you need to know the correct total amount to state in the document.\n\n### | Your Legal Position\n* Under Indian contract and tenancy principles, your demand notice should explicitly state the principal security deposit amount of ₹25,000.\n* You may also include any documented out-of-pocket expenses directly resulting from the landlord's unlawful withholding of your funds, provided you have valid receipts for them.\n* While you can demand the base deposit amount of ₹25,",
+      "tokens": 8,
+      "latency": 5.98
+    }
+  ],
+  "raw_response": "Hello, I understand you want to be precise about the exact financial claim you present to your landlord.\n\n### | Your Situation\nYou are preparing a formal demand notice to your landlord for the return of your security deposit, and you need to know the correct total amount to state in the document.\n\n### | Your Legal Position\n* Under Indian contract and tenancy principles, your demand notice should explicitly state the principal security deposit amount of ₹25,000.\n* You may also include any documented out-of-pocket expenses directly resulting from the landlord's unlawful withholding of your funds, provided you have valid receipts for them.\n* While you can demand the base deposit amount of ₹25,",
+  "latency": 11.190000000000001,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

@@ -1,0 +1,34 @@
+{
+  "test_id": "H09",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "List facts without assumptions",
+  "expected": "Strictly lists provided facts (Flat 102, Whitefield, Nov 1st, ₹35,000 deposit, ₹18,000 rent) with 0 fabricated details.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": [
+    "I vacated flat 102 in Whitefield on Nov 1st. Deposit ₹35,000. Rent was ₹18,000.",
+    "List only the explicit facts I told you without adding any assumptions."
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "I vacated flat 102 in Whitefield on Nov 1st. Deposit ₹35,000. Rent was ₹18,000.",
+      "response": "Hello and welcome to LawPilot AI, your trusted legal assistant for everyday Indian law matters.\n\n### | Your Situation\nYou recently vacated flat 102 in Whitefield on November 1st, having paid a security deposit of ₹35,000 against a monthly rent of ₹18,000, and you are now dealing with the return of your funds. The key issue involves ensuring your full security deposit is correctly refunded without arbitrary deductions.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (Guidelines & State Enactments) Section 11 & Section 13, the security deposit for residential premises is typically capped at a maximum of two months' rent, and the landlord is required to refund this amount upon taking over vacant possession after making only valid deductions agreed under the tenancy agreement.\n- Under The Transfer of Property Act, 1882 Section 108(m) & (o), a tenant is bound to restore the property in as good a condition as received, subject only to reasonable wear and tear, meaning the landlord cannot make arbitrary deductions for normal usage painting or natural aging without an explicit contractual basis.\n\n### | Practical Next Steps\n1. Gather evidence, including the original written tenancy agreement, bank transfer or receipt proof of the ₹35,000 security deposit, photographs or videos of the flat taken at the time of vacating, and copies of any WhatsApp chats or emails exchanged with the landlord.\n2. Send a written demand notice to your landlord clearly detailing the full refund claim of ₹35,000 and granting a clear 15-day window to settle the payment.\n3. Approach the appropriate forum, such as the local Rent Authority or Consumer Commission, if the landlord fails to refund the deposit within the stipulated notice period.\n\n### Information I still need from you\n1. Did your landlord provide a written itemized list of deductions or damage claims when you handed over the keys?\n2. Do you have a formal written rent agreement that specifies the terms for security deposit refund and deductions?",
+      "tokens": 19,
+      "latency": 2.79
+    },
+    {
+      "turn": 2,
+      "prompt": "List only the explicit facts I told you without adding any assumptions.",
+      "response": "Hello! Based on our conversation so far, here are the explicit facts you have provided:\n\n- You vacated flat 102 in Whitefield on November 1st.\n- You paid a security deposit of ₹35,000.\n- Your monthly rent was ₹18,000.",
+      "tokens": 5,
+      "latency": 1.93
+    }
+  ],
+  "raw_response": "Hello! Based on our conversation so far, here are the explicit facts you have provided:\n\n- You vacated flat 102 in Whitefield on November 1st.\n- You paid a security deposit of ₹35,000.\n- Your monthly rent was ₹18,000.",
+  "latency": 4.72,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

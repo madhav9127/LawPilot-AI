@@ -1,0 +1,58 @@
+{
+  "test_id": "I05",
+  "category": "Category I — Document Generation",
+  "name": "Generate Gujarati complaint draft",
+  "expected": "Generates complete Gujarati complaint draft with ₹15,000 and placeholders.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "મારા ખામીયુક્ત ફોન માટે ₹15,000 રિફંડ મેળવવા ગ્રાહક ફોરમ માટે ફરિયાદ પત્ર તૈયાર કરો.",
+  "raw_response": "હું તમારા મકાનમાલિકને ₹25,000 સિક્યોરિટી ડિપોઝિટ પરત આપવા માટે એક ઔપચારિક પત્ર તૈયાર કરી આપું છું:\n\n### સિક્યોરિટી ડિપોઝિટ પરત મેળવવા માટેનું ઔપચારિક લેખિત માંગ પત્ર (Formal Demand Notice)\n(રજિસ્ટર્ડ પોસ્ટ / સ્પીડ પોસ્ટ / ઈમેઈલ દ્વારા મોકલવા માટે)\n\n**તારીખ:** [તારીખ દાખલ કરો]\n\n**પ્રેષક (ભાડૂઆત):**\n[તમારું પૂરું નામ]\n[તમારું વર્તમાન સરનામું]\nમોબાઇલ: [તમારો ફોન નંબર] | ઈમેઈલ: [તમારું ઈમેઈલ]\n\n**પ્રતિ (મકાનમાલિક):**\n[મકાનમાલિકનું નામ]\n[મકાનમાલિકનું સરનામું]\n\n**વિષય:** ભાડાના મકાનની ₹25,000 ની સિક્યોરિટી ડિપોઝિટ તાત્કાલિક પરત કરવા બાબતે કાનૂની માંગ નોટિસ.\n\nમહોદય / મહોદયા,\n\n૧. હું આપના રહેણાંક મકાન [મકાનનું સરનામું દાખલ કરો] માં કાયદેસરના ભાડૂઆત તરીકે રહેતો હતો. મેં ભાડાની શરૂઆતમાં ₹25,000 ની રિફંડેબલ સિક્યોરિટી ડિપોઝિટ ચૂકવી હતી.\n\n૨. ભાડૂઆત તરીકેના સમગ્ર સમયગાળા દરમિયાન મેં તમામ માસિક ભાડું નિયમિત ચૂકવ્યું છે અને કોઈ બાકી રકમ નથી.\n\n૩. મેં મકાન ખાલી કરીને તેનો શાંતિપૂર્ણ કબજો આપને સોંપી દીધો છે. મકાનને સામાન્ય ઘસારા (reasonable wear and tear) સિવાય કોઈ નુકસાન થયું નથી (ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ ની કલમ ૧૦૮).\n\n૪. વારંવારની વિનંતી છતાં આપે ₹25,000 ની સિક્યોરિટી ડિપોઝિટ પરત કરી નથી, જે સંપૂર્ણપણે ગેરકાયદેસર છે.\n\n૫. **માંગણી:** આ પત્ર મળ્યાના ૧૫ દિવસની અંદર ₹25,000 ની સંપૂર્ણ રકમ મારા બેંક ખાતામાં [બેંક એકાઉન્ટ વિગતો] જમા કરશો. અન્યથા મારે સક્ષમ રેન્ટ ઓથોરિટી / દીવાની અદાલતમાં કાનૂની કાર્યવાહી કરવાની ફરજ પડશે.\n\nઆપનો વિશ્વાસુ,\n\n[તમારું નામ / સહી]\n(ભાડૂઆત)",
+  "tokens": 425,
+  "latency": 2.0,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

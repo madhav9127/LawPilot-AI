@@ -1,0 +1,28 @@
+{
+  "test_id": "G11",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Legal advice when facts are insufficient",
+  "expected": "Asks necessary clarifying facts (relationship, transaction nature, evidence, amounts) before advising.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Someone owes me money. What section applies?",
+  "raw_response": "Hello, I understand how stressful it can be when someone owes you money and you are unsure of the legal steps to take.\n\n### | Your Situation\nYou are seeking legal guidance regarding the recovery of money owed to you by an individual or entity in India. The key issue involves recovering an unspecified amount of money, and you need to know the applicable legal provisions to initiate recovery.\n\n### | Your Legal Position\n* Recovery of money is primarily governed by civil law, and you can file a civil suit for recovery under Order 37 of the Code of Civil Procedure, 1908 (CPC), if the claim is based on a written contract, promissory note, or bill of exchange (summary suit).\n* For general financial dues and breaches of contract, a civil suit for recovery can be instituted under Section 9 of the CPC read with the provisions of the Limitation Act, 1963, keeping in mind the standard limitation period of 3 years from the date the debt became due.\n* If the transaction involves a bounced cheque, Section 138 of the Negotiable Instruments Act, 1881, applies, making it a criminal offense punishable with imprisonment and/or a fine up to twice the cheque amount.\n* Under Section 12 of the Legal Services Authorities Act, 1987, if you meet the eligibility criteria (such as belonging to specified marginalized groups or having an annual income below the statutory threshold set by the State/District Legal Services Authority), you may be entitled to free legal aid to pursue your case.\n\n### | Practical Next Steps\n1. Gather evidence: Collect all relevant documents such as promissory notes, written agreements, bank transaction statements, invoices, emails, and chat messages acknowledging the debt.\n2. Send written demand notice granting 15 days: Issue a formal legal demand notice to the debtor through an advocate or by yourself, clearly stating the principal amount, interest, and a final 15-day deadline to clear the dues.\n3. Appropriate forum: Depending on the nature of the transaction, approach the appropriate Civil Court for a money suit, file a criminal complaint under Section 138 of the Negotiable Instruments Act if a cheque bounced, or approach the District Legal Services Authority (DLSA) if you qualify for free legal aid.\n\n### ℹ️ Information I still need from you\n1. What is the exact amount of money owed to you, and what is the nature of the transaction (e.g., loan, unpaid salary, business contract, or bounced cheque)?\n2. Do you have any written documents, agreements, or messages proving that the other person owes you this money?",
+  "tokens": 26,
+  "latency": 3.71,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

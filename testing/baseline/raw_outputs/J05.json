@@ -1,0 +1,28 @@
+{
+  "test_id": "J05",
+  "category": "Category J — Voice Input",
+  "name": "Marathi voice simulated transcription",
+  "expected": "Understands Marathi transcription; extracts ₹20,000 and responds in Marathi with 0 mojibake.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "माझ्या घरमालकाने माझे वीस हजार रुपये डिपॉझिट परत केले नाही.",
+  "raw_response": "तुमच्या मालकाने डिपॉझिटचे पैसे परत न केल्यामुळे तुम्हाला होत असलेला त्रास मला पूर्णपणे समजतो.\n\n### | तुमची परिस्थिती (Your Situation)\nतुमच्या घरमालकाने (Landlord) तुमचे २०,००० रुपयांचे सिक्युरिटी डिपॉझिट (Security Deposit) परत केलेले नाही. हा वाद घरमालक आणि भाडेकरू (Tenant) यांच्यातील असून, नियमांनुसार हे पैसे तुम्हाला परत मिळणे आवश्यक आहे.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n- भारतीय भाडे नियंत्रण कायदे आणि सर्वोच्च न्यायालयाच्या नियमांनुसार, घरमालक भाडेकरार संपल्यानंतर किंवा घर खाली केल्यावर वाजवी कपात करून (उदा. थकीत वीज बिल किंवा घराचे मोठे नुकसान असल्यास) बाकीचे डिपॉझिट परत करण्यास कायदेशीररित्या बांधील आहेत.\n- घरामध्ये सामान्य झीज (Reasonable Wear and Tear) झाली असेल, तर त्यासाठी घरमालक डिपॉझिटमधून पैसे कापू शकत नाही.\n- जर घरमालकाने विनाकारण तुमचे पैसे रोखून ठेवले असतील, तर तो 'अनफेअर ट्रेड प्रॅक्टिस' किंवा कायदेशीर फसवणुकीचा भाग ठरू शकतो. तसेच, तुम्ही महाराष्ट्र राज्य विधी सेवा प्राधिकरण (NALSA/DLSA) अंतर्गत कायदेशीर मदतीसाठी पात्र असू शकता.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. भाडेपावती (Rent Receipts), घरमालकाशी झालेले संभाषण, आणि डिपॉझिट दिल्याचे पुरावे गोळा करा.\n2. घरमालकाला १५ दिवसांचा अवधी देऊन कायदेशीर नोटीस (Demand Notice) पाठवा आणि तुमचे वीस हजार रुपये परत मागितल्याचे लिखित स्वरूपात कळवा.\n3. जर घरमालकाने नोटीसला प्रतिसाद दिला नाही, तर तुम्ही संबंधित प्रांताच्या रेंट ऑथॉरिटीकडे (Rent Authority) किंवा स्थानिक दिवाणी न्यायालयात (Civil Court) दाद मागू शकता.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\n१. तुम्ही घर कोणत्या तारखेला किंवा महिन्यात खाली केले आहे?\n२. तुमच्याकडे घरमालकाने डिपॉझिट घेतल्याची कोणती पावती किंवा बँक ट्रान्सफरचा पुरावा आहे का?",
+  "tokens": 21,
+  "latency": 3.72,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

@@ -1,0 +1,28 @@
+{
+  "test_id": "L04",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Endpoint latency test",
+  "expected": "Fast conversational response under 1.5s.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Hi, who are you?",
+  "raw_response": "I am **LawPilot AI**, an intelligent legal assistant for ordinary citizens in India. I help you understand your legal standing, verify statutory rights, and draft formal notices for tenancy disputes, consumer complaints, and employment matters.",
+  "tokens": 69,
+  "latency": 0.04,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

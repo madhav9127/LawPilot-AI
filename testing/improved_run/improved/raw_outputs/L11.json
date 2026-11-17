@@ -1,0 +1,58 @@
+{
+  "test_id": "L11",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Unicode integrity verification (Zero Mojibake)",
+  "expected": "Valid Devanagari Marathi with zero mojibake (à¤...).",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "मी ऑनलाइन एक दोषपूर्ण मोबाईल फोन खरेदी केला आहे आणि विक्रेता मला पैसे परत करण्यास नकार देत आहे.",
+  "raw_response": "तुमच्या या समस्येबद्दल मला मनापासून वाईट वाटले आहे आणि मी तुम्हाला नक्कीच मदत करीन.\n\n### | तुमची परिस्थिती (Your Situation)\nतुम्ही एका ऑनलाइन प्लॅटफॉर्मवरून नवीन मोबाईल फोन खरेदी केला आहे, परंतु तो दोषपूर्ण (डिफेक्टिव्ह) निघाला असून विक्रेता तुम्हाला त्याचे पैसे परत करण्यास स्पष्ट नकार देत आहे. या व्यवहारात तुम्हाला आर्थिक नुकसान सहन करावे लागत असून तुमचे ग्राहक म्हणून अधिकार डावलले जात आहेत.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n- **ग्राहक संरक्षण कायदा, २०१५ (Consumer Protection Act, 2019) कलम २(७):** तुम्ही ई-कॉमर्स प्लॅटफॉर्मवरून मोबदला देऊन वस्तू खरेदी केल्यामुळे तुम्ही 'ग्राहक' या संख्येत येता.\n- **ग्राहक संरक्षण कायदा, २०१९ कलम २(४७) (अफेअर ट्रेड प्रॅक्टिस):** दोषपूर्ण वस्तू परत घेण्यास किंवा त्याचे पैसे विहित मुदतीत (किंवा मुदत न दिलेली असल्यास ३० दिवसांच्या आत) परत करण्यास नकार देणे हा एक कायदेशीर 'अयोग्य व्यापार पद्धत' (Unfair Trade Practice) मानला जातो.\n- **ई-कॉमर्स नियम, २०२० (E-Commerce Rules, 2020) नियम ४ आणि ६:** प्रत्येक ई-कॉमर्स कंपनी किंवा विक्रेत्याने तक्रार निवारण यंत्रणा (Grievance Redressal Mechanism) चालवणे बंधनकारक असून, तक्रार मिळाल्यापासून ४८ तासांच्या आत पोहोच देणे आणि एका महिन्याच्या आत त्याचे निवारण करणे आवश्यक आहे.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. तुमच्याकडे मोबाईल खरेदीची पावती (Invoice), डिलिव्हरी स्लिप, सदोष फोनचे पुरावे, आणि विक्रेत्यासोबत किंवा ग्राहक सेवेसोबत (Customer Care) झालेल्या चॅटिंग किंवा ईमेलचे स्क्रीनशॉट्स गोळा करा.\n2. विक्रेत्याला आणि ई-कॉमर्स कंपनीला लेखी कायदेशीर मागणी नोटीस पाठवा ज्यामध्ये स्पष्टपणे १५ दिवसांच्या आत पैसे परत करण्याची मागणी करा.\n3. जर त्यांनी १५ दिवसांत पैसे परत केले नाहीत, तर तुम्ही राष्ट्रीय ग्राहक हेल्पलाइन (National Consumer Helpline) वर संपर्क साधू शकता किंवा 'ई-दाखल' (e-Daakhil) पोर्टलद्वारे जिल्हा ग्राहक आयोगाकडे (District Consumer Commission) अधिकृत तक्रार नोंदवू शकता.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\nकृपया मला सांगा की हा मोबाईल फोन तुम्ही नेमक्या कोणत्या ऑनलाइन वेबसाइटवरून किंवा ॲपवरून खरेदी केला आहे, आणि त्याची किंमत किती आहे?",
+  "tokens": 24,
+  "latency": 5.58,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

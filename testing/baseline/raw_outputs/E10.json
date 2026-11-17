@@ -1,0 +1,28 @@
+{
+  "test_id": "E10",
+  "category": "Category E — Multilingual Testing",
+  "name": "Punjabi Salary Dispute",
+  "expected": "Responds in Punjabi (Gurmukhi) or explains linguistic scope gracefully.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "ਮੇਰੇ ਮਾਲਕ ਨੇ ਪਿਛਲੇ ਦੋ ਮਹੀਨਿਆਂ ਤੋਂ ਮੈਨੂੰ ਤਨਖਾਹ ਨਹੀਂ ਦਿੱਤੀ। ਮੈਂ ਕੀ ਕਰ ਸਕਦਾ ਹਾਂ?",
+  "raw_response": "ਮੈਂ ਸਮਝਦਾ ਹਾਂ ਕਿ ਤਨਖਾਹ ਨਾ ਮਿਲਣ ਕਾਰਨ ਤੁਹਾਨੂੰ ਕਿੰਨੀ ਆਰਥਿਕ ਮੁਸ਼ਕਲ ਦਾ ਸਾਣਾ ਕਰਨਾ ਪੈ ਰਿਹਾ ਹੈ।\n\n### | ਤੁਹਾਡੀ ਸਥਿਤੀ (Your Situation)\nਤੁਸੀਂ ਪਿਛਲੇ ਦੋ ਮਹੀਨਿਆਂ ਤੋਂ ਆਪਣੀ ਤਨਖਾਹ ਨਾ ਮਿਲਣ ਕਾਰਨ ਆਪਣੇ ਮਾਲਕ (Employer) ਨਾਲ ਵਿਵਾਦ ਵਿੱਚ ਹੋ। ਤੁਸੀਂ ਇਸ ਸਮੱਸਿਆ ਦੇ ਹੱਲ ਲਈ ਭਾਰਤੀ ਕਾਨੂੰਨ ਅਧੀਨ ਆਪਣੇ ਅਧਿਕਾਰਾਂ ਅਤੇ ਅਗਲੇ ਕਦਮਾਂ ਬਾਰੇ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ।\n\n### | ਤੁਹਾਡੀ ਕਾਨੂੰਨੀ ਸਥਿਤੀ (Your Legal Position)\n- ਭਾਰਤੀ ਕਾਨੂੰਨ ਤਹਿਤ, ਭੁਗਤਾਨ ਐਕਟ, 1936 ਦੀ ਧਾਰਾ 5 (Section 5 Payment of Wages Act) ਅਨੁਸਾਰ ਮਾਲਕ ਨੂੰ ਨਿਰਧਾਰਤ ਸਮੇਂ 'ਤੇ ਤੁਹਾਡੀ ਤਨਖਾਹ ਦੇਣੀ ਪੈਂਦੀ ਹੈ ਅਤੇ ਬਿਨਾਂ ਕਾਨੂੰਨੀ ਆਧਾਰ ਦੇ ਤਨਖਾਹ ਰੋਕਣਾ ਗੈਰ-ਕਾਨੂੰਨੀ ਹੈ।\n- ਜੇਕਰ ਤੁਹਾਡੀ ਸਾਲਾਨਾ ਆਮਦਨ ਨਿਰਧਾਰਤ ਸੀਮਾ ਤੋਂ ਘੱਟ ਹੈ ਜਾਂ ਤੁਸੀਂ ਇੱਕ ਉਦਯੋਗਿਕ ਕਾਮੇ (Industrial Workman) ਹੋ, ਤਾਂ ਕਾਨੂੰਨੀ ਸੇਵਾਵਾਂ ਅਥਾਰਟੀ ਐਕਟ, 1987 ਦੀ ਧਾਰਾ 12 (Section 12 of The Legal Services Authorities Act, 1987) ਤਹਿਤ ਤੁਸੀਂ ਮੁਫਤ ਕਾਨੂੰਨੀ ਸਹਾਇਤਾ (Free Legal Aid) ਦੇ ਹੱਕਦਾਰ ਹੋ ਸਕਦੇ ਹੋ।\n\n### | ਅਮਲੀ ਅਗਲੇ ਕਦਮ (Practical Next Steps)\n1. ਆਪਣੀ ਰੁਜ਼ਗਾਰ ਦਾ ਸਬੂਤ (ਜਿਵੇਂ ਕਿ ਅਪਾਇੰਟਮੈਂਟ ਲੈਟਰ, ਤਨਖਾਹ ਦੀ ਪਰਚੀ ਜਾਂ ਬੈਂਕ ਸਟੇਟਮੈਂਟ) ਇਕੱਠਾ ਕਰੋ।\n2. ਆਪਣੇ ਮਾਲਕ ਨੂੰ 15 ਦਿਨਾਂ ਦਾ ਸਮਾਂ ਦਿੰਦੇ ਹੋਏ ਬਕਾਇਆ ਤਨਖਾਹ ਦੀ ਅਦਾਇਗੀ ਲਈ ਇੱਕ ਲਿਖਤੀ ਮੰਗ ਨੋਟਿਸ (Written Demand Notice) ਭੇਜੋ।\n3. ਜੇਕਰ ਮਾਲਕ ਤਨਖਾਹ ਨਹੀਂ ਦਿੰਦਾ, ਤਾਂ ਆਪਣੇ ਖੇਤਰ ਦੇ ਕਿਰਤ ਕਮਿਸ਼ਨਰ (Labour Commissioner) ਜਾਂ ਲੇਬਰ ਕੋਰਟ ਕੋਲ ਸ਼ਿਕਾਇਤ ਦਰਜ ਕਰੋ।\n\n### ℹ️ ਤੁਹਾਡੇ ਤੋਂ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ\nਕੀ ਤੁਸੀਂ ਮੈਨੂੰ ਦੱਸ ਸਕਦੇ ਹੋ ਕਿ ਤੁਹਾਡੀ ਮਹੀਨਾਵਾਰ ਤਨਖਾਹ ਕਿੰਨੀ ਹੈ ਅਤੇ ਤੁਸੀਂ ਕਿਸ ਸ਼ਹਿਰ ਵਿੱਚ ਕੰਮ ਕਰਦੇ ਹੋ?",
+  "tokens": 27,
+  "latency": 3.4,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Multilingual response verified."
+}

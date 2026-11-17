@@ -1,0 +1,34 @@
+{
+  "test_id": "H06",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "Generate structured case summary",
+  "expected": "Produces clean structured case summary separating parties, issue, amount, deductions, and legal grounds.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": [
+    "I rented a flat in Pune with ₹40,000 deposit. Landlord deducted ₹15,000 for painting.",
+    "Give me a structured summary of my case."
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "I rented a flat in Pune with ₹40,000 deposit. Landlord deducted ₹15,000 for painting.",
+      "response": "Hello, I understand how frustrating it is when a landlord makes unfair deductions from your security deposit.\n\n### | Your Situation\nYou rented a residential flat in Pune and paid a security deposit of ₹40,000, out of which your landlord has unfairly deducted ₹15,000 for painting costs upon vacating. The key issue is whether the landlord can legally deduct painting charges from your security deposit for normal usage of the property.\n\n### | Your Legal Position\n- Under Section 108(m) and (o) of The Transfer of Property Act, 1882, a tenant is bound to restore the property in as good a condition as it was at the start of the tenancy, subject only to reasonable wear and tear. Painting costs for normal usage over time fall under reasonable wear and tear and cannot be arbitrarily deducted by a landlord without an explicit contractual basis.\n- Under Section 11 and Section 13 of the Model Tenancy Act, 2021 (and applicable state tenancy guidelines), security deposits must be refunded upon taking over vacant possession, minus only valid deductions specifically agreed upon in the registered tenancy agreement.\n- Arbitrary withholding of security deposit amounts for routine maintenance like painting without proof of structural damage caused by the tenant's negligence is legally unsustainable.\n\n### | Practical Next Steps\n1. Gather evidence including your original tenancy agreement, payment receipts for the security deposit, photographs or videos of the flat at the time of vacating showing it was in good condition, and any written communication or chat logs with the landlord regarding the painting deduction.\n2. Send a formal written demand notice to the landlord detailing the illegal deduction of ₹15,000, citing the relevant provisions of law, and granting a clear period of 15 days to refund the full amount.\n3. If the landlord fails to comply within 15 days, approach the appropriate Rent Authority or consumer forum/civil court having jurisdiction in Pune to recover your dues.\n\n### ℹ️ Information I still need from you\n1. Did you have a written and signed tenancy agreement, and does it contain a specific clause requiring you to pay for painting upon vacating?\n2. Did you take any move-out photographs or videos of the flat when handing back the keys to prove the condition of the walls?",
+      "tokens": 22,
+      "latency": 6.9
+    },
+    {
+      "turn": 2,
+      "prompt": "Give me a structured summary of my case.",
+      "response": "Hello, I am happy to provide a structured summary of your tenancy dispute regarding the security deposit.\n\n### | Your Situation\nYou rented a flat in Pune, deposited ₹40,000 as security, and your landlord has deducted ₹15,000 for painting upon your departure. The core issue is the unjustified withholding of your security deposit for routine painting costs.\n\n### | Your Legal Position\n- Under Section 108(m) and (o) of The Transfer of Property Act, 1882, a tenant is only required to return the property subject to reasonable wear and tear, and routine painting falls within this category.\n- Under Section 73 of The Indian Contract Act, 1872, compensation for breach of contract applies only to actual loss or damage caused by a breach, not for normal usage of the property.\n- Under applicable state tenancy rules and model guidelines, security deposits cannot be subjected to arbitrary deductions for routine maintenance unless expressly permitted by a signed agreement and backed by proof of actual damage.\n\n### | Practical Next Steps\n1. Gather evidence including your rental agreement, deposit transfer receipts, move-out photographs of the flat, and all WhatsApp or email chats with the landlord regarding the ₹15,000 deduction.\n2. Send a formal written demand notice to the landlord giving them 15 days to refund the withheld ₹15,000.\n3. If the landlord fails to respond or refund the amount within 15 days, approach the appropriate Rent Authority or consumer forum in Pune for recovery.\n\n### ℹ️ Information I still need from you\n1. Do you have a copy of the written rental agreement that mentions any specific terms regarding painting or deposit deductions?\n2. Did you share any written communication with your landlord demanding the full refund before today?",
+      "tokens": 18,
+      "latency": 2.71
+    }
+  ],
+  "raw_response": "Hello, I am happy to provide a structured summary of your tenancy dispute regarding the security deposit.\n\n### | Your Situation\nYou rented a flat in Pune, deposited ₹40,000 as security, and your landlord has deducted ₹15,000 for painting upon your departure. The core issue is the unjustified withholding of your security deposit for routine painting costs.\n\n### | Your Legal Position\n- Under Section 108(m) and (o) of The Transfer of Property Act, 1882, a tenant is only required to return the property subject to reasonable wear and tear, and routine painting falls within this category.\n- Under Section 73 of The Indian Contract Act, 1872, compensation for breach of contract applies only to actual loss or damage caused by a breach, not for normal usage of the property.\n- Under applicable state tenancy rules and model guidelines, security deposits cannot be subjected to arbitrary deductions for routine maintenance unless expressly permitted by a signed agreement and backed by proof of actual damage.\n\n### | Practical Next Steps\n1. Gather evidence including your rental agreement, deposit transfer receipts, move-out photographs of the flat, and all WhatsApp or email chats with the landlord regarding the ₹15,000 deduction.\n2. Send a formal written demand notice to the landlord giving them 15 days to refund the withheld ₹15,000.\n3. If the landlord fails to respond or refund the amount within 15 days, approach the appropriate Rent Authority or consumer forum in Pune for recovery.\n\n### ℹ️ Information I still need from you\n1. Do you have a copy of the written rental agreement that mentions any specific terms regarding painting or deposit deductions?\n2. Did you share any written communication with your landlord demanding the full refund before today?",
+  "latency": 9.61,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "D12",
+  "category": "Category D — Employment Disputes",
+  "name": "Draft formal salary recovery email",
+  "expected": "Drafts structured professional recovery email with ₹80,000 amount, 15-day timeline, and placeholder brackets.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Please draft a formal salary recovery email to my HR for two months of pending salary of ₹80,000.",
+  "raw_response": "Subject: Formal Demand for Immediate Release of Pending Salary for Two Months (Amount: INR 80,000)\n\nDear [HR Manager Name / Human Resources Department],\n\nI am writing to formally request the immediate disbursement of my pending salary amounting to INR 80,000 for the preceding two months ([Month 1] and [Month 2]), which remains unpaid despite the completion of my regular employment duties.\n\nAs per Section 5 of the Payment of Wages Act, 1936, wages earned by an employee must be paid before the expiry of the seventh day after the last day of the wage period in respect of which the wages are payable. The continued withholding of my legitimate remuneration is a direct violation of statutory provisions and our employment agreement.\n\nFurthermore, under Section 7 of the Payment of Wages Act, 1936, employers are strictly restricted from making arbitrary deductions or withholding lawful wages without explicit legal justification. \n\nI kindly request you to process the total pending amount of INR 80,000 to my registered salary bank account within 15 days of receiving this notice. Please treat this matter with utmost urgency to avoid any further administrative or legal escalation before the Labour Commissioner under Section 15 of the Payment of Wages Act, 1936.\n\nSincerely,\n\n[Your Name]  \n[Your Employee ID / Designation]  \n[Your Contact Number]  \n[Your Email Address]",
+  "tokens": 16,
+  "latency": 7.41,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

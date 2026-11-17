@@ -1,0 +1,58 @@
+{
+  "test_id": "I01",
+  "category": "Category I — Document Generation",
+  "name": "Draft security deposit return request",
+  "expected": "Produces complete demand notice with ₹30,000, Jaipur, Mr. Sharma, 15-day notice period, and placeholders.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Draft a formal security deposit refund demand notice to my landlord Mr. Sharma for ₹30,000 in Jaipur.",
+  "raw_response": "Hello, I am here to help you draft a formal legal demand notice to secure the refund of your security deposit from your landlord.\n\n### | Your Situation\nYou are a tenant in Jaipur seeking a refund of your ₹30,000 security deposit from your landlord, Mr. Sharma, upon vacating the residential premises. The key issue is recovering the wrongfully withheld deposit amount without arbitrary deductions.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (and applicable state tenancy guidelines), the security deposit for residential premises is generally capped, and landlords are legally obligated to refund the deposit upon taking over vacant possession of the premises after making only valid deductions agreed upon in the tenancy agreement.\n- Under Section 108(m) and (o) of the Transfer of Property Act, 1882, a tenant is bound to restore the property in as good condition as received, subject only to reasonable wear and tear. A landlord cannot make arbitrary deductions for normal usage or routine wear and tear without explicit contractual grounds.\n\n### | Practical Next Steps\n1. Gather evidence, including your original lease agreement, rent receipts, bank statements proving deposit payment, and photographs or videos showing the condition of the property at the time of vacating.\n2. Send a formal written demand notice to Mr. Sharma granting a clear period of 15 days to settle and refund the entire ₹30,000 security deposit.\n3. If the landlord fails to comply within the stipulated notice period, approach the appropriate Rent Authority or Consumer Commission established under the applicable state laws for dispute resolution.\n\n### Information I still need from you\n1. What was the exact date you vacated the premises and handed over possession to Mr. Sharma?\n2. Did you sign a written tenancy agreement, and does it specify any particular terms regarding deposit deductions?\n\n***\n\n**FORMAL LEGAL DEMAND NOTICE FOR REFUND OF SECURITY DEPOSIT**\n\n**REGISTERED AD / SPEED POST / EMAIL**\n\n**Date:** [Insert Date]\n\n**To:**  \nMr. Sharma  \n[Insert Landlord Address, Jaipur, Rajasthan]  \n\n**Subject:** Demand for immediate refund of security deposit amounting to ₹30,000 in respect of property [Insert Property Address, Jaipur].\n\nDear Sir,\n\nI, [Insert Your Full Name], residing at [Insert Current Address or Contact Address], was a lawful tenant under your tenancy at the residential premises located at [Insert Rented Property Address, Jaipur], from [Insert Start Date] to [Insert Vacating Date]. \n\nAt the commencement of the tenancy, I deposited a sum of ₹30,000 (Rupees Thirty Thousand Only) with you as a security deposit, receipt of which was acknowledged. I successfully vacated and handed over the vacant peaceful possession of the said premises to you on [Insert Vacating Date] in good condition, subject strictly to normal and reasonable wear and tear, as provided under Section 108 of the Transfer of Property Act, 1882.\n\nDespite the peaceful handover of the premises and several oral requests made by me, you have wrongfully withheld my security deposit of ₹30,000 without providing any valid, justifiable, or contractually agreed-upon grounds for deduction. Under the applicable legal framework governing tenancies, including the Model Tenancy Act, 2021, a landlord is bound to refund the security deposit upon taking over vacant possession after making only legally tenable deductions. \n\nThrough this notice, I call upon you to refund the full security deposit amount of ₹30,000 to my bank account (Details: Account Name: [Insert Name], Account Number: [Insert Account Number], IFSC Code: [Insert IFSC Code]) within **15 (fifteen) days** from the receipt of this notice.\n\nPlease note that if you fail to comply with this demand within the stipulated period of 15 days, I shall be constrained to initiate appropriate legal proceedings against you before the competent Rent Authority or Consumer Commission, holding you liable for all resultant costs, interest, and legal consequences.\n\nSincerely,\n\n[Insert Your Signature]  \n[Insert Your Printed Name]  \n[Insert Your Contact Number]  \n[Insert Your Email Address]",
+  "tokens": 37,
+  "latency": 4.63,
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

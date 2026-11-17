@@ -1,0 +1,58 @@
+{
+  "test_id": "C01",
+  "category": "Category C — Consumer Protection",
+  "name": "Defective ₹15,000 smartphone online",
+  "expected": "Cites Consumer Protection Act 2019 Sec 2(47) (Unfair Trade Practice) & E-Commerce Rules 2020; suggests NCH 1915 and e-Daakhil.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I bought a ₹15,000 phone on an e-commerce app. The screen is blank and seller refuses a refund or replacement. What can I do?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate your consumer rights with confidence.\n\n### | Your Situation\nYou recently purchased a smartphone worth ₹15,000 through an e-commerce application, but it arrived with a blank screen and is completely unusable. The seller is currently refusing to provide either a refund or a replacement.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, you are legally recognized as a consumer because you bought goods for a consideration that was paid or promised through an e-commerce platform.\n- Under Section 2(47) of the Consumer Protection Act, 2019, the seller's refusal to take back defective goods or refund the amount paid within the stipulated period (or within 30 days if no period was stipulated) constitutes an unfair trade practice.\n- Under Rule 4 and Rule 6 of the Consumer Protection (E-Commerce) Rules, 2020, the e-commerce entity and seller are obligated to maintain an effective grievance redressal mechanism and resolve complaints within the prescribed timelines.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your order confirmation invoice, screenshots of the product defect, payment receipt, and all chat or email records showing the seller's refusal to refund or replace.\n2. Send a written demand notice granting 15 days: Formally write to the seller and the e-commerce platform's Grievance Officer, detailing the defect and demanding a full refund within 15 days under the Consumer Protection Act, 2019.\n3. Appropriate forum: If they fail to respond within the notice period, you can file a formal complaint online through the government's e-Daakhil portal (e-daakhil.nic.in) before the appropriate District Consumer Disputes Redressal Commission.\n\n### Information I still need from you\n1. What is the name of the e-commerce app and the seller from whom you purchased the phone?\n2. Did you report this issue to the platform's Grievance Officer, and do you have any written response from them?",
+  "tokens": 21,
+  "latency": 2.85,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

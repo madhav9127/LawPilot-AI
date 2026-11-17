@@ -1,0 +1,58 @@
+{
+  "test_id": "I05",
+  "category": "Category I — Document Generation",
+  "name": "Generate Gujarati complaint draft",
+  "expected": "Generates complete Gujarati complaint draft with ₹15,000 and placeholders.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "મારા ખામીયુક્ત ફોન માટે ₹15,000 રિફંડ મેળવવા ગ્રાહક ફોરમ માટે ફરિયાદ પત્ર તૈયાર કરો.",
+  "raw_response": "તમારા ખામીયુક્ત ફોન માટે ન્યાય મેળવવાની આ લડાઈમાં હું તમને મદદ કરવા માટે અહીં છું.\n\n### | તમારી પરિસ્થિતિ (Your Situation)\nતમે [ઓનલાઇન/દુકાનનું નામ] પાસેથી ₹15,000 ની કિંમતે એક મોબાઇલ ફોન ખરીદ્યો હતો, જે હાલમાં ખામીયુક્ત નીકળ્યો છે અને વેચનાર કંપની તમને રિફંડ આપવાનો ઇનકાર કરી રહી છે. ભારતીય કાયદા મુજબ વેપારીની આ ટાળવાની નીતિ અયોગ્ય છે અને ગ્રાહક તરીકે તમને વળતર મેળવવાનો પૂરો અધિકાર છે.\n\n### | તમારો કાનૂની પક્ષ (Your Legal Position)\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 2(7) હેઠળ, તમે એક ગ્રાહક છો કારણ કે તમે કિંમત ચૂકવીને માલ (મોબાઇલ ફોન) ખરીદ્યો છે.\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 2(47) હેઠળ, ખામીયુક્ત સામાન પાછો લેવાનો અથવા નિયત સમયમાં (અથવા જો સમય ન નક્કી કર્યો હોય તો 30 દિવસમાં) રકમ પરત કરવાનો ઇનકાર કરવો એ અયોગ્ય વેપાર પ્રથા (Unfair Trade Practice) ગણાય છે.\n- ગ્રાહક સુરક્ષા અધિનિયમ, 2019 ની કલમ 35 અને 38 મુજબ, તમે જિલ્લા ગ્રાહક વિવાદ નિવારણ આયોગ સમક્ષ (ઓનલાઇન ઇ-દાખલ પોર્ટલ દ્વારા પણ) ફરિયાદ દાખલ કરી શકો છો.\n\n### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n1. ખરીદીની રસીદ (Inovice), ફોનમાં ખામી દર્શાવતો પત્ર અથવા ફોટો, અને કંપની કે દુકાનદાર સાથે થયેલી વાતચીતના પુરાવા એકત્રિત કરો.\n2. કંપની અથવા વેચનારને વિગતવાર લેખિત માંગ નોટિસ મોકલો જેમાં ₹15,000 ના રિફંડની માંગ કરો અને 15 દિવસનો સમય આપો.\n3. જો 15 દિવસમાં સંતોષકારક જવાબ ન મળે, તો સ્થાનિક જિલ્લા ગ્રાહક તકરાર નિવારણ આયોગમાં અથવા 'ઇ-દાખલ' (e-Daakhil) પોર્ટલ દ્વારા કાનૂની ફરિયાદ દાખલ કરો.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\nકૃપા કરીને મને જણાવો કે આ ફોન તમે કઈ તારીખે ખરીદ્યો હતો અને વેચનાર કંપની કે દુકાનનું નામ શું છે?\n\n---\n\n**[કાનૂની માંગણી પત્રનો મુસદ્દો - Legal Notice Draft]**\n\n**તારીખ:** [આજની તારીખ દાખલ કરો]\n\n**પ્રતિ,**\n[વેચનાર કંપનીનું નામ / દુકાનદારનું નામ]\n[સંપૂર્ણ સરનામું]\n\n**વિષય: ખામીયુક્ત મોબાઇલ ફોન માટે ₹15,000 રિફંડ મેળવવા બાબતની કાનૂની નોટિસ.**\n\nમહાશય,\n\nહું નીચે સહી કરનાર [તમારું નામ], રહેવાસી [તમારું સરનામું], આ નોટિસ મારફતે",
+  "tokens": 32,
+  "latency": 5.32,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "I07",
+  "category": "Category I — Document Generation",
+  "name": "Generate Marathi consumer complaint",
+  "expected": "Generates complete formal complaint draft in Marathi with ₹45,000.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "दोषपूर्ण लॅपटॉपसाठी ₹45,000 परतावा मिळवण्यासाठी एक औपचारिक ग्राहक तक्रार पत्र तयार करा.",
+  "raw_response": "तुम्हाला दोषपूर्ण लॅपटॉपच्या परताव्यासाठी कायदेशीर मदत करण्यात मला आनंद होईल.\n\n### | तुमचे औपचारिक ग्राहक तक्रार पत्र (Formal Consumer Complaint Letter)\n\n**प्रति,**  \nग्राहक सेवा अधिकारी / तक्रार निवारण अधिकारी,  \n[कंपनीचे नाव / ई-कॉमर्स प्लॅटफॉर्मचे नाव],  \n[पत्ता]  \n\n**विषय:** दोषपूर्ण लॅपटॉप खरेदीबाबत आणि भारतीय ग्राहक संरक्षण कायदा, २०१९ च्या कलम २(४७) अंतर्गत ₹४५,००० परतावा मिळण्याबाबत.  \n\n**महोदय / महोदया,**  \n\nमी, [तुमचे नाव], [तुमचा पत्ता] येथील रहिवासी असून, मी खालील तपशिलानुसार एक लॅपटॉप खरेदी केला होता:  \n\n- खरेदीची तारीख: [तारीख लिहा]  \n- उत्पादनाचे तपशील (ब्रँड/मॉेल): [लॅपटॉपचे नाव/मॉडेल]  \n- इन्व्हॉइस / पावती क्रमांक: [बिल क्रमांक]  \n- खरेदी किंमत: ₹४५,०००/-  \n\n**तक्रारीचा तपशील:**  \nमी वरील नमूद केलेल्या दुकानातून / ई-कॉमर्स प्लॅटफॉर्मवरून ४५,००० रुपये देऊन हा लॅपटॉप खरेदी केला होता. परंतु, खरेदी केल्यापासून काही दिवसांतच या लॅपटॉपमध्ये [समस्येचे थोडक्यात वर्णन करा, उदा. स्क्रीन बंद पडणे, सुरू न होणे इत्यादी] असा तांत्रिक बिघाड निर्माण झाला आहे. मी यासंदर्भात आपल्या सेवा केंद्राशी (Service Centre) संपर्क साधला होता, परंतु माझ्या समस्येचे योग्य निवारण करण्यात आले नाही.  \n\nभारतीय ग्राहक संरक्षण कायदा, २०१९ च्या कलम २(४७) नुसार, सदोष वस्तू परत घेण्यास किंवा ३० दिवसांच्या आत परतावा देण्यास नकार देणे हा एक 'अयोग्य व्यापार पद्धती' (Unfair Trade Practice) चा भाग मानला जातो.  \n\n**मागणी:**  \nया पत्राच्या माध्यमातून मी आपणास विनंती करतो/करते की, आपण माझ्या लॅपटॉपची पूर्ण पाहणी करून किंवा न करता, या पत्राची प्राप्ती झाल्यापासून १५ दिवसांच्या आत माझ्या ₹४५,०००/- (पंचेचाळीस हजार रुपये) च्या रकमेचा पूर्ण परतावा करावा.  \n\nजर १५ दिवसांच्या आत योग्य कारवाई झाली नाही, तर मला राष्ट्रीय ग्राहक हेल्पलाइन किंवा संबंधित जिल्हा ग्राहक तक्रार निवारण आयोगाकडे (District Consumer Commission) कायदेशीर कारवाईसाठी दाद मागण्यास भाग पाडावे लागेल, ज्याचा संपूर्ण खर्च आणि जबाबदारी आपली असेल.  \n\n**आपला नम्र,**  \n[तुमची सही]  \n[तुमचे नाव]  \n[मोबाईल क्रमांक]  \n[ई-मेल आयडी]  \n\n---\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n१. **पुरावे गोळा करा:** लॅपटॉपचे खरेदी बिल, सेवा केंद्राशी (Service Centre) झालेला पत्रव्यवहार किंवा ई-मेलचे स्क्रीनशॉट सुरक्षित ठेवा.  \n२. **लिखित मागणी नोटीस पाठवा:** वरील पत्र योग्य त्या तपशीलांसह कंपनीच्या अधिकृत पत्त्यावर किंवा ई-मेलवर पाठवा आणि १५ दिवसांची मुदत द्या.  \n३. **योग्य मंच:** १५ दिवसांत उत्तर न मिळाल्यास, तुम्ही भारत सरकारच्या 'ई-दाखल' (e-Daakhil) पोर्टलवरून जिल्हा ग्राहक आयोगाकडे तक्रार दाखल करू शकता.  \n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\n१. तुम्ही हा लॅपटॉप कोणत्या दुकानातून किंवा ऑनलाइन प्लॅटफॉर्मवरून (उदा. ॲमेझॉन, फ्लिपकार्ट इ.) खरेदी केला आहे?  \n२. या समस्येबाबत तुम्ही यापूर्वी कंपनीकडे कोणती लिखित तक्रार केली आहे का?",
+  "tokens": 35,
+  "latency": 4.54,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

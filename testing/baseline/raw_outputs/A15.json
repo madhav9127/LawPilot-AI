@@ -1,0 +1,48 @@
+{
+  "test_id": "A15",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Preparing for court hearing",
+  "expected": "Clarifies legal assistance vs formal representation; asks nature of dispute and outlines document prep within scope.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Can you help me prepare for a court hearing?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I would be glad to help you prepare for your upcoming court hearing.\n\n### | Your Situation\nYou are seeking assistance to prepare for a court hearing regarding an everyday legal dispute in India. To give you the most accurate guidance, I need a few more details about your specific case, such as the forum where your matter is listed and the nature of your dispute.\n\n### | Your Legal Position\nDepending on the forum handling your matter, your rights during proceedings are governed by specific Indian statutes, and under Section 12 of the Legal Services Authorities Act, 1987, eligible persons such as women, industrial workmen, or individuals below specified income thresholds are entitled to free competent legal services and representation through NALSA or the local District Legal Services Authority (DLSA). It is important to attend all scheduled dates of hearing either personally or through an authorized advocate to ensure your case progresses smoothly.\n\n### | Practical Next Steps\n1. Gather all relevant case documents, including past order sheets, notices, affidavits, and supporting evidence, and organize them chronologically in a file.\n2. Review your written statement, complaint, or reply thoroughly so you are well-versed with the facts and dates of your matter.\n3. Arrive at the court or tribunal well before the scheduled time on your hearing date and report to your advocate or the court officer when your matter is called.\n\n### ℹ️ Information I still need from you\n1. Which court, commission, or authority is hearing your case (for example, District Consumer Commission, Labour Court, or Rent Authority)?\n2. What is the current stage of your proceeding (such as the first hearing, evidence stage, or final arguments)?",
+  "tokens": 17,
+  "latency": 3.6,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

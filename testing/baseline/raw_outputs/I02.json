@@ -1,0 +1,58 @@
+{
+  "test_id": "I02",
+  "category": "Category I — Document Generation",
+  "name": "Draft consumer complaint for defective phone",
+  "expected": "Drafts formal consumer complaint format with complainant, opposite party, facts, CPA 2019 grounds, and relief.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Draft a consumer complaint for District Commission regarding a defective Samsung phone bought on Flipkart for ₹18,000.",
+  "raw_response": "I understand how frustrating it is to receive a defective product, and I am here to help you draft your consumer complaint.\n\n### | Your Situation\nYou purchased a defective Samsung phone for ₹18,000 from Flipkart, and the seller or platform has failed to provide a proper refund or replacement. This issue falls under consumer protection laws concerning online purchases in India.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, you are recognized as a consumer since you bought the goods for a valid consideration through an e-commerce platform.\n- Under Section 2(47) of the Consumer Protection Act, 2019, refusing to take back defective goods or refund the consideration within the stipulated or reasonable period constitutes an unfair trade practice.\n- Under Section 35 of the Consumer Protection Act, 2019, you have the statutory right to file a formal complaint before the District Consumer Disputes Redressal Commission for compensation and refund.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your Flipkart tax invoice, unboxing or product defect photos, video proof if any, and chat or email transcripts with customer support.\n2. Send written demand notice granting 15 days: Issue a formal legal notice to the seller and Flipkart demanding a full refund of ₹18,000 plus compensation for mental agony, giving them a 15-day compliance window.\n3. Appropriate forum: If they fail to respond or refuse, file your formal complaint online through the e-Daakhil portal (edakhil.nic.in) before the jurisdictional District Consumer Commission.\n\n### ℹ️ Information I still need from you\nWhat is the exact date of purchase and the name of the third-party seller mentioned on your Flipkart invoice?\n\n***\n\n### Formal Consumer Complaint Draft for District Commission\n\nBEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, [Insert District, e.g., New Delhi]\n\nConsumer Complaint No. ________ of 20[Insert Year]\n\nIN THE MATTER OF:\n\n[Insert Your Full Name]\nSon/Daughter/Wife of [Insert Father's/Spouse's Name]\nResiding at: [Insert Your Complete Residential Address]\nMobile Number: [Insert Phone Number]\nEmail Address: [Insert Email Address]\n... Complainant\n\nVERSUS\n\n1. [Insert Seller Name as per Invoice]\n   Having its office/address at: [Insert Seller Address]\n   ... Opposite Party No. 1 / Seller\n\n2. Flipkart Internet Private Limited\n   Buildings Alyssa, Begonia & Clove Embassy Tech Village,\n   Outer Ring Road, Devarabeesanahalli Village,\n   Bengaluru - 560103, Karnataka\n   ... Opposite Party No. 2 / E-commerce Platform\n\nCOMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019 FOR DEFICIENCY IN SERVICE AND UNFAIR TRADE PRACTICES\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is a 'consumer' as defined under Section 2(7) of the Consumer Protection Act, 2019, having purchased a Samsung smartphone (Model: [Insert Phone Model]) online through the e-commerce platform of Opposite Party No. 2, supplied by Opposite Party No. 1, by paying a valuable consideration of ₹18,000 (Rupees Eighteen Thousand Only) on [Insert Date of Purchase] vide Invoice No. [Insert Invoice Number].\n\n2. That the said mobile phone was delivered to the Complainant on [Insert Delivery Date]. However, upon opening the package and turning on the device, the Complainant discovered that the phone was severely defective, specifically suffering from [Insert Defect, e.g., motherboard failure / screen not turning on / hardware malfunction].\n\n3. That immediately upon discovering the defect, the Complainant lodged a complaint with Opposite Party No. 2's customer support on [Insert Date of First Complaint], registered under Service Ticket/Complaint ID: [Insert Ticket Number]. Despite multiple follow-ups, the Opposite Parties have failed and neglected to replace the defective product or issue a full refund of ₹18,000.\n\n4. That the refusal by the Opposite Parties to take back the defective goods and refund the consideration within 30 days amounts to an 'unfair trade practice' under Section 2(47) of the Consumer Protection Act, 2019, and constitutes a grave deficiency in service.\n\n5. That the cause of action arose on [Insert Date of Purchase] when the defective product was sold, subsequently on [Insert Date of Delivery], and on various dates when the Opposite Parties refused to issue a refund.\n\n6. That this Hon'ble Commission has the territorial and pecuniary jurisdiction to entertain and adjudicate the present complaint as the transaction took place online and the product was delivered within the territorial limits of [Insert City/District].\n\nPRAYER:\n\nIn view of the facts and circumstances mentioned above, the Complainant respectfully prays that this Hon'ble Commission may be pleased to:\nA. Direct the Opposite Parties, jointly and severally, to refund the sum of ₹18,000 (Rupees Eighteen Thousand Only) along with interest at the rate of 12% per annum from the date of purchase till realization;\nB. Award compensation of ₹[Insert Amount, e.g., 5,000] towards mental agony, harassment, and physical inconvenience caused to the Complainant;\nC. Award litigation costs of ₹[Insert Amount, e.g., 2,000] in favor of the Complainant; and\nD. Pass any other order(s) as this Hon'ble Commission may deem fit and proper in the interest of justice.\n\nVERIFICATION:\n\nVerified at [Insert City] on this [Insert Date] day of [Insert Month], 20[Insert Year], that the contents of paragraphs 1 to 6 of the above complaint are true and correct to the best of my knowledge and belief, and no part of it is false and nothing material has been concealed therefrom.\n\n_______________________________\n[Insert Your Signature]\n[Insert Your Name]\nComplainant",
+  "tokens": 53,
+  "latency": 5.89,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

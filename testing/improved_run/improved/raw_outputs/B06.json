@@ -1,0 +1,58 @@
+{
+  "test_id": "B06",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Landlord denies receiving deposit",
+  "expected": "Advises gathering bank statement proving debit to landlord's account; suggests legal demand notice with transaction UTR.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "My landlord claims he never received any security deposit when I moved in, but I paid via net banking.",
+  "raw_response": "Hello! I understand how stressful and unfair it is to have your payment denied when you have proof.\n\n### | Your Situation\nYou recently vacated your rental premises, and your landlord is refusing to refund your security deposit by claiming he never received it, despite you having paid it via net banking. This dispute involves the return of your security deposit and financial documentation located in India.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (and established state tenancy laws), security deposits collected from a tenant must be refunded at the time of vacating the premises, subject only to valid deductions agreed upon in the tenancy agreement.\n- Under Section 108(m) and (o) of the Transfer of Property Act, 1882, a tenant is bound to restore the property in its original condition, subject to reasonable wear and tear, and landlords cannot make arbitrary deductions or withhold deposits without a lawful basis.\n- Your net banking transaction receipt serves as strong prima facie documentary evidence of payment under the Indian Evidence Act, 1872, shifting the burden of proof to the landlord to demonstrate otherwise.\n\n### | Practical Next Steps\n1. Gather evidence, including your net banking transaction receipt showing the transfer to the landlord, bank statement extracts, the signed tenancy agreement, and any written communications or chat messages regarding the deposit.\n2. Send a formal written demand notice to the landlord detailing the net banking transaction reference number, date, and amount, granting 15 days to refund the full security deposit.\n3. Approach the appropriate Rent Authority or civil court if the landlord fails to comply with the demand notice within the stipulated period.\n\n### Information I still need from you\nWhat is the exact amount of the security deposit you paid, and do you have a written copy of your tenancy agreement mentioning this deposit?",
+  "tokens": 17,
+  "latency": 2.73,
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

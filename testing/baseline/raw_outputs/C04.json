@@ -1,0 +1,58 @@
+{
+  "test_id": "C04",
+  "category": "Category C — Consumer Protection",
+  "name": "Paid interior design service never started",
+  "expected": "Identifies total deficiency in service; explains recovery of consideration plus compensation before District Consumer Commission.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I paid ₹50,000 advance to an interior design firm. It has been 3 months and work has not started, and they refuse to return money.",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, here to help you navigate consumer, employment, and tenancy issues.\n\n### | Your Situation\nYou paid an advance of ₹50,000 to an interior design firm in India three months ago, but they have failed to start any work and are currently refusing to refund your money. This constitutes a serious deficiency in service and retention of funds without delivering the agreed consideration.\n\n### | Your Legal Position\n* According to Section 2(7) of the Consumer Protection Act, 2019, you qualify as a \"consumer\" because you hired services for a consideration that was paid.\n* Under Section 2(47) of the Consumer Protection Act, 2019, refusing to refund consideration for services that were never provided constitutes an unfair trade practice.\n* You have the statutory right under the Consumer Protection Act, 2019 to seek a complete refund of your advance amount along with compensation for mental agony and deficiency in service.\n\n### | Practical Next Steps\n1. Gather evidence, including the receipt or bank transfer proof of the ₹50,000 payment, the written quotation or service agreement, and copies of any chat messages or call logs with the interior design firm.\n2. Send a written formal demand notice to the interior design firm granting them 15 days to process your full refund of ₹50,000.\n3. If they fail to respond or refuse payment after 15 days, file a formal consumer complaint before the appropriate District Consumer Disputes Redressal Commission, which can also be done online via the e-Daakhil portal.\n\n### ℹ️ Information I still need from you\n1. Do you have a written contract, agreement, or invoice signed or shared by the interior design firm detailing the scope of work and timelines?\n2. What is the official name and registered address of the interior design firm, and did you make the payment via bank transfer, UPI, or cash?",
+  "tokens": 19,
+  "latency": 2.76,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

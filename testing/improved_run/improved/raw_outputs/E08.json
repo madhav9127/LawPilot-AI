@@ -1,0 +1,58 @@
+{
+  "test_id": "E08",
+  "category": "Category E — Multilingual Testing",
+  "name": "Telugu Unpaid Wages",
+  "expected": "Fluent Telugu response in Telugu script.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "నా యజమాని గత రెండు నెలలుగా నాకు జీతం చెల్లించలేదు. నేను ఏమి చేయాలి?",
+  "raw_response": "భారతీయ కార్మిక మరియు వేతన చట్టాల ఆధారంగా మీ పరిస్థితికి స్పష్టమైన చట్టపరమైన విశ్లేషణ:\n\n### | మీ పరిస్థితి (Your Situation)\nyour workplace లోని మీ కంపెనీ గత రెండు నెలలుగా మీరు సంపాదించిన జీతాన్ని నిలిపివేసింది. పనిచేసిన తర్వాత వేతనం నిలిపివేయడం చట్టవిరుద్ధం.\n\n### | మీ చట్టపరమైన స్థితి (Your Legal Position)\n* **వేతనాల చెల్లింపు చట్టం, 1936 (సెక్షన్ 5)**: వేతన కాలం ముగిసిన 7 నుండి 10 రోజులలోపు జీతం చెల్లించాల్సిన చట్టపరమైన బాధ్యత యజమానిపై ఉంది.\n* **వేతనాల చెల్లింపు చట్టం, 1936 (సెక్షన్ 15)**: ఆలస్యమైన జీతాన్ని పరిహారంతో పాటు రికవరీ చేయడానికి లేబర్ కమిషనర్‌కు ఫిర్యాదు చేసే హక్కు ఉద్యోగికి ఉంది.\n* **భారత కాంట్రాక్ట్ చట్టం, 1872 (సెక్షన్ 73)**: ఉపాధి నిబంధనల ఉల్లంఘనకు పరిహారం పొందే హక్కు ఉంది.\n\n### | ఆచరణాత్మక తదుపరి చర్యలు (Practical Next Steps)\n1. **ఆధారాలు సేకరించండి** – అపాయింట్‌మెంట్ లెటర్, పాత పే స్లిప్పులు, బ్యాంక్ స్టేట్‌మెంట్లు మరియు ఈమెయిల్ రికార్డులు.\n2. **రాతపూర్వక డిమాండ్ నోటీసు పంపండి** – బకాయిలను 15 రోజుల్లోగా చెల్లించాలని యాజమాన్యానికి డిమాండ్ నోటీసు పంపండి.\n3. **లేబర్ కమిషనర్‌ను ఆశ్రయించండి** – సమస్య పరిష్కారం కాకపోతే స్థానిక లేబర్ కమిషనర్‌కు అధికారికంగా ఫిర్యాదు చేయండి.\n\n### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం\nWhat was your agreed monthly salary and the total unpaid salary amount?",
+  "tokens": 329,
+  "latency": 2.7,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Multilingual response verified."
+}

@@ -1,0 +1,48 @@
+{
+  "test_id": "A09",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Received a notice",
+  "expected": "Recognizes possible legal issue; invites user to explain or paste details of the notice.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I received a notice but don't understand it.",
+  "raw_response": "Hello, I understand how stressful receiving an unexpected legal notice can be, but I am here to help you understand it clearly and calmly.\n\n### | Your Situation\nYou have received a legal notice regarding a dispute but are unsure about its contents, implications, or the next steps you should take. The situation involves understanding official legal communication sent to you by another party.\n\n### | Your Legal Position\n- Under Indian law, receiving a notice means the sender has formally stated their grievance and is offering you an opportunity to respond or resolve the issue before approaching a formal judicial forum.\n- Depending on the nature of the notice (whether related to tenancy, consumer rights, or employment), statutory provisions such as the Transfer of Property Act, 1882, the Consumer Protection Act, 2019, or state-specific Shops and Commercial Establishments Acts may apply.\n- You have the legal right to review the claims made, consult with a legal advisor or authority, and submit a reasoned written reply within the stipulated time mentioned in the notice (often 15 to 30 days).\n\n### | Practical Next Steps\n1. Gather all documents related to the notice, including the envelope it arrived in, the postal receipt, and any underlying agreements, bills, or past correspondence.\n2. Send a preliminary written response or interim reply if necessary, or consult a qualified legal professional to draft a proper reply granting sufficient time to investigate the claims.\n3. Approach the appropriate legal forum, such as the District Legal Services Authority (DLSA) under Section 12 of the Legal Services Authorities Act, 1987 for free legal aid and mediation if you meet the eligibility criteria.\n\n### ℹ️ Information I still need from you\n1. What is the subject matter of the notice you received (for example, is it related to rent, a consumer complaint, or employment)?\n2. What is the deadline given in the notice to respond, and what specific relief or action is the sender demanding from you?",
+  "tokens": 19,
+  "latency": 2.64,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

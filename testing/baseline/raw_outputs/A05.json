@@ -1,0 +1,28 @@
+{
+  "test_id": "A05",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Tell me a joke (Out-of-scope)",
+  "expected": "Polite out-of-scope response stating entertainment requests are outside legal scope.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Tell me a joke.",
+  "raw_response": "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand!\n\nOn a serious note, I am LawPilot AI, ready to assist you with everyday legal problems in India. What legal challenge can I help you evaluate today?",
+  "tokens": 87,
+  "latency": 0.06,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Successfully redirected out-of-scope request and explained legal assistance scope."
+}

@@ -1,0 +1,28 @@
+{
+  "test_id": "A07",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Quantum physics (Out-of-scope)",
+  "expected": "Polite out-of-scope response declining academic science requests.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Explain quantum physics.",
+  "raw_response": "Hello! While I am trained as LawPilot AI to help you navigate everyday Indian legal issues relating to tenants, consumers, and employment, quantum physics falls outside my legal expertise. If you have any questions about tenancy agreements, consumer rights, or workplace issues under Indian law, I would be more than happy to help you with those.",
+  "tokens": 5,
+  "latency": 2.02,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Successfully redirected out-of-scope request and explained legal assistance scope."
+}

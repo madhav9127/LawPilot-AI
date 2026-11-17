@@ -1,0 +1,42 @@
+{
+  "test_id": "H05",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "Correcting previously provided date",
+  "expected": "Calculates delay based on updated 15th October date.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": [
+    "I vacated the apartment on 1st October.",
+    "Wait, sorry, I vacated on 15th October, not 1st.",
+    "How many days has the landlord delayed?"
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "I vacated the apartment on 1st October.",
+      "response": "Hello, I am LawPilot AI, your expert and ethical Indian legal assistant. How can I help you with your tenant, consumer, or employment matter today?",
+      "tokens": 4,
+      "latency": 2.54
+    },
+    {
+      "turn": 2,
+      "prompt": "Wait, sorry, I vacated on 15th October, not 1st.",
+      "response": "I understand that getting dates right is important for your records, and I have noted that you vacated the apartment on 15th October.\n\n### | Your Situation\nYou are a tenant who vacated a rental apartment on 15th October, but you are currently dealing with a dispute regarding your tenancy or security deposit. The exact location, landlord details, and deposit amount need to be confirmed to fully address your claim.\n\n### | Your Legal Position\n- Under Indian tenancy laws, a landlord must return the security deposit after adjusting any legitimate, documented arrears of rent or utility bills, or proven damage beyond reasonable wear and tear.\n- Reasonable wear and tear refers to the natural and gradual deterioration of a property that occurs through normal, everyday use over time, for which a tenant cannot be held financially liable.\n- If a security deposit is withheld without a valid legal or contractual justification, it amounts to wrongful retention of funds.\n\n### | Practical Next Steps\n1. Gather evidence, including your lease agreement, receipts of rent payments, photographic or video proof of the apartment's condition at the time of vacating on 15th October, and written communications with your landlord.\n2. Send a formal written demand notice to your landlord granting 15 days to refund the withheld amount.\n3. If the landlord fails to comply, approach the appropriate local Rent Authority or Consumer Commission depending on your state tenancy laws and agreement terms.\n\n### ℹ️ Information I still need from you\nWhat is the total security deposit amount your landlord is withholding, and in which city or state is the apartment located?",
+      "tokens": 17,
+      "latency": 7.11
+    },
+    {
+      "turn": 3,
+      "prompt": "How many days has the landlord delayed?",
+      "response": "I understand how frustrating it is to wait for your money and track these timelines.\n\n### | Your Situation\nYou vacated your rental apartment on 15th October and are currently seeking to calculate the exact duration of the delay by your landlord in returning your security deposit. The total delay depends on the date you handed over vacant possession and the date your demand or statutory timeline expired.\n\n### | Your Legal Position\n- Under the Transfer of Property Act and standard tenancy principles, a security deposit should be refunded promptly upon the handover of vacant possession of the premises, subject to any lawful deductions.\n- Model Tenancy Act principles emphasize the timely refund of security deposits upon taking over vacant possession after making agreed deductions.\n- A delay is formally measured from the date you handed over vacant possession and settled dues up to the current date or the date the landlord officially refuses payment.\n\n### | Practical Next Steps\n1. Gather evidence, including the exact date-stamped receipt or acknowledgement of handing over the keys on 15th October, along with any previous demand messages sent to the landlord.\n2. Send a formal written demand notice granting 15 days for the immediate refund of the security deposit.\n3. If the delay continues without valid justification, approach the appropriate local Rent Authority or Consumer Commission to file a formal complaint.\n\n### ℹ️ Information I still need from you\nWhat is today's date, or on what specific date did you officially hand over the keys and vacant possession to your landlord?",
+      "tokens": 17,
+      "latency": 4.91
+    }
+  ],
+  "raw_response": "I understand how frustrating it is to wait for your money and track these timelines.\n\n### | Your Situation\nYou vacated your rental apartment on 15th October and are currently seeking to calculate the exact duration of the delay by your landlord in returning your security deposit. The total delay depends on the date you handed over vacant possession and the date your demand or statutory timeline expired.\n\n### | Your Legal Position\n- Under the Transfer of Property Act and standard tenancy principles, a security deposit should be refunded promptly upon the handover of vacant possession of the premises, subject to any lawful deductions.\n- Model Tenancy Act principles emphasize the timely refund of security deposits upon taking over vacant possession after making agreed deductions.\n- A delay is formally measured from the date you handed over vacant possession and settled dues up to the current date or the date the landlord officially refuses payment.\n\n### | Practical Next Steps\n1. Gather evidence, including the exact date-stamped receipt or acknowledgement of handing over the keys on 15th October, along with any previous demand messages sent to the landlord.\n2. Send a formal written demand notice granting 15 days for the immediate refund of the security deposit.\n3. If the delay continues without valid justification, approach the appropriate local Rent Authority or Consumer Commission to file a formal complaint.\n\n### ℹ️ Information I still need from you\nWhat is today's date, or on what specific date did you officially hand over the keys and vacant possession to your landlord?",
+  "latency": 14.56,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

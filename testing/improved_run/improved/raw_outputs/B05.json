@@ -1,0 +1,58 @@
+{
+  "test_id": "B05",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Threat of eviction tomorrow despite rent paid",
+  "expected": "Escalates urgent protection against extra-judicial eviction; advises Police 112 for illegal lockout and Rent Authority.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "My rent is fully paid, but my landlord has threatened to throw my belongings on the street tomorrow. Help!",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate this distressing situation safely and lawfully.\n\n### | Your Situation\nYou are a tenant whose rent is fully paid, but your landlord has threatened to illegally evict you and throw your belongings onto the street tomorrow. This sudden action bypasses all due process of law required for residential tenancies in India.\n\n### | Your Legal Position\n- Under the Transfer of Property Act, 1882 Section 106, a tenant is entitled to proper statutory notice before any tenancy can be terminated, and a landlord cannot take the law into their own hands.\n- Under the Delhi Rent Control Act, 1958 Section 14 and Section 45, a landlord is strictly prohibited from evicting a tenant without following established legal grounds and due process through the Rent Controller, and cannot forcefully withhold essential amenities or forcefully eject a tenant.\n- Landlords cannot use self-help measures like throwing belongings onto the street, as such forced dispossession without a court or tribunal order violates the settled constitutional right to peaceful possession and due process of law.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your rent receipts, bank statements proving rent is fully paid, your written lease agreement if any, and any text messages, call logs, or audio/video recordings of the landlord's threat.\n2. Send written demand notice granting 15 days: Immediately send a formal written notice (via WhatsApp, email, and speed post) to your landlord recording their threat, asserting that rent is fully paid, warning against any illegal dispossession, and granting 15 days to retract the threat or face legal action.\n3. Appropriate forum: Approach the local jurisdictional Civil Court or Rent Authority/Controller for an immediate injunction against illegal eviction, and simultaneously lodge a complaint at the local police station regarding the threat of criminal intimidation and forceful eviction.\n\n### ℹ️ Information I still need from you\n1. Which city or state is this property located in, and do you have a formal, written rent agreement?\n2. Has the landlord cut off any essential services like water or electricity, or locked you out of the premises already?",
+  "tokens": 21,
+  "latency": 8.59,
+  "citations": [
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

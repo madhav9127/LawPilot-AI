@@ -1,0 +1,58 @@
+{
+  "test_id": "I07",
+  "category": "Category I — Document Generation",
+  "name": "Generate Marathi consumer complaint",
+  "expected": "Generates complete formal complaint draft in Marathi with ₹45,000.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "दोषपूर्ण लॅपटॉपसाठी ₹45,000 परतावा मिळवण्यासाठी एक औपचारिक ग्राहक तक्रार पत्र तयार करा.",
+  "raw_response": "तुमच्या लॅपटॉपच्या समस्येबद्दल मला मनापासून वाईट वाटले आहे आणि न्याय मिळवण्यासाठी मी नक्कीच मदत करेन.\n\n### | तुमची परिस्थिती (Your Situation)\nतुम्ही एका दुकानातून किंवा ऑनलाइन माध्यमातून ₹45,000 किमतीचा लॅपटॉप खरेदी केला आहे, जो सदोष (दोषपूर्ण) निघाला असून, विक्रेता किंवा कंपनी तो परत घेण्यास किंवा परतावा देण्यास नकार देत आहे. या प्रकरणात तुम्ही ग्राहक संरक्षण कायद्यानुसार योग्य मंचावर दाद मागू शकता.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n- ग्राहक संरक्षण कायदा, २०१५ च्या कलम २(७) नुसार, तुम्ही सेवा किंवा वस्तू मोबदला देऊन खरेदी केल्यामुळे 'ग्राहक' (Consumer) आहात.\n- ग्राहक संरक्षण कायदा, २०१९ च्या कलम २(४७) अंतर्गत, सदोष वस्तू परत घेण्यास किंवा ठरलेल्या मुदतीत (किंवा मुदत न ठरवल्यास ३० दिवसांच्या आत) पैसे परत करण्यास नकार देणे हा एक 'अन्यायकारक व्यापार पद्धती' (Unfair Trade Practice) म्हणून मोडतो.\n- ग्राहक संरक्षण कायदा, २०१९ च्या कलम ३५ आणि ३८ नुसार, तुम्ही जिल्हा ग्राहक तक्रार आयोगाकडे (District Commission) किंवा ई-दाखल पोर्टलद्वारे ऑनलाइन तक्रार दाखल करू शकता.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. लॅपटॉपची खरेदी पावती, वॉरंटी कार्ड, दुरुस्तीच्या नोंदी आणि विक्रेत्यासोबत झालेल्या संभाषणाचे पुरावे गोळा करा.\n2. विक्रेता किंवा कंपनीला लेखी कायदेशीर मागणी नोटीस पाठवा ज्यामध्ये १५ दिवसांच्या आत ₹45,000 परतावा देण्याची मागणी करा.\n3. १५ दिवसांत योग्य तोडगा न निघाल्यास, जिल्हा ग्राहक आयोगाकडे किंवा ऑनलाइन 'ई-दाखल' (e-Daakhil) पोर्टलवर अधिकृत तक्रार दाखल करा.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\nकृपया मला सांगा की हा लॅपटॉप तुम्ही ऑनलाइन खरेदी केला होता का ऑफलाइन, आणि तुम्ही तो कोणत्या कंपनीकडून/विक्रेत्याकडून घेतला आहे?\n\n---\n\n**औपचारिक ग्राहक तक्रार पत्र / नोटीसचा मसुदा:**\n\nप्रति,  \n[विक्रेत्याचे किंवा कंपनीचे नाव],  \n[पत्ता],  \n[शहर, पिनकोड].  \n\n**विषय: दोषपूर्ण लॅपटॉपच्या बदल्यात ₹45,000 परतावा मिळण्याबाबतची कायदेशीर नोटीस.**\n\nमहोदय/महोदया,  \n\nमी [तुमचे नाव], [तुमचा पत्ता] येथील रहिवासी असून, मी आपल्याकडून [खरेदीची तारीख] रोजी एक लॅपटॉप [₹45,000] किंमत देऊन खरेदी केला होता, ज्याची पावती क्रमांक [पावती क्रमांक टाका] असा आहे.  \n\nखरेदी केल्यानंतर काही दिवसांतच या लॅपटॉपमध्ये [समस्येचे थोडक्यात वर्णन जसे की स्क्रीन बिघाड किंवा चालू न होणे] हा गंभीर दोष निर्माण झाला आहे. मी याबद्दल आपल्या सेवा केंद्राशी संपर्क साधला, परंतु आपण सदोष वस्तू परत घेण्यास किंवा ग्राहक संरक्षण कायदा, २०१९ च्या तरतुदींनुसार मला ₹45,000 चा परतावा देण्यास नकार दिला आहे, जो एक अन्यायकारक व्यापार प्रकार आहे.  \n\nया पत्राद्वारे आपणास कळवण्यात येते की, हे पत्र मिळाल्यापासून १५ दिवसांच्या आत माझ्या लॅपटॉपची संपूर्ण रक्कम ₹45,000 परतावा करावी. अन्यथा, मी माझ्या हक्कांचे रक्षण करण्यासाठी संबंधित जिल्हा ग्राहक तक्रार आयोगाकडे कायदेशीर कारवाई करण्यास आणि नुकसानभरपाईसाठी दावा दाखल करण्यास बाध्य राहीन, ज्याचा संपूर्ण खर्च आणि जबाबदारी आपली असेल.  \n\nआपला/आपली नम्र,  \n[तुमची सही]  \n[तुमचे नाव]  \n[तुमचा फोन नंबर]  \n[तुमचा पत्ता]",
+  "tokens": 36,
+  "latency": 4.43,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PARTIAL",
+  "score": 60,
+  "evaluation_notes": "Document structure partial."
+}

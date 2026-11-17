@@ -1,0 +1,58 @@
+{
+  "test_id": "G07",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Repealed or outdated legal provision",
+  "expected": "Explains that CPA 1986 has been repealed and replaced by Consumer Protection Act, 2019.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Can I file a consumer complaint under the Consumer Protection Act, 1986 today?",
+  "raw_response": "I understand your concern about using the correct law for your consumer grievance today.\n\n### | Your Situation\nYou are inquiring whether you can file a consumer complaint under the older Consumer Protection Act, 1986. The key issue is whether the 1986 Act is still active or if a newer law applies for filing consumer disputes in India.\n\n### | Your Legal Position\n- The Consumer Protection Act, 1986 has been completely repealed and replaced by the Consumer Protection Act, 2019, which is the governing statute today.\n- Under Section 2(7) of the Consumer Protection Act, 2019, a consumer is defined as any person who buys goods or avails services for consideration, covering both offline and online transactions.\n- Under Section 2(47) of the Consumer Protection Act, 2019, refusing to take back defective goods or refund money within the stipulated period (or within 30 days) constitutes an unfair trade practice.\n- Under Section 35 and Section 38 of the Consumer Protection Act, 2019, complaints regarding goods or services can now be filed before the appropriate District Consumer Disputes Redressal Commission, including digitally through the e-Daakhil portal.\n\n### | Practical Next Steps\n1. Gather evidence, including bills, receipts, warranty cards, product photographs, and written communication or emails exchanged with the seller or service provider.\n2. Send a written demand notice to the opposite party outlining your grievance and granting 15 days for a resolution or refund before initiating legal proceedings.\n3. Appropriate forum: File your formal consumer complaint online via the e-Daakhil portal or through the National Consumer Helpline (NCH) portal (https://consumerhelpline.gov.in) for pre-litigation conciliation, or directly before the jurisdictional District Consumer Commission.\n\n### ℹ️ Information I still need from you\n1. What specific product or service did you purchase, and what is the total value of the transaction?\n2. What is the nature of the defect or deficiency in service, and has the seller refused your refund request?",
+  "tokens": 22,
+  "latency": 5.43,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Correctly identified CPA 1986 as repealed."
+}

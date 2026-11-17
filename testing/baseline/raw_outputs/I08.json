@@ -1,0 +1,58 @@
+{
+  "test_id": "I08",
+  "category": "Category I — Document Generation",
+  "name": "Generate English legal notice",
+  "expected": "Drafts structured legal notice with XYZ Tech, ₹1,20,000, Payment of Wages Act references, and 15-day deadline.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Draft a formal legal notice to employer XYZ Tech for ₹1,20,000 unpaid dues and relieving letter.",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant. Below is the formal legal demand notice drafted for your situation with employer XYZ Tech.\n\nLEGAL DEMAND NOTICE\n\nTo,\nThe Director / Human Resources Manager,\nXYZ Tech,\n[Insert Company Address]\n\nDate: [Insert Date]\n\nSubject: Legal demand for immediate payment of unpaid dues amounting to ₹1,20,000 and issuance of relieving and experience letters.\n\nDear Sir/Madam,\n\nUnder instructions from and on behalf of my client, [Insert Your Name], residing at [Insert Your Address], I serve upon you this formal legal demand notice under the relevant provisions of Indian law, including the Payment of Wages Act, 1936 and the applicable State Shops and Commercial Establishments Act, on the following facts and grounds:\n\n1. That my client was employed with your esteemed establishment, XYZ Tech, starting from [Insert Joining Date] and served diligently until [Insert Last Working Date/Resignation Date] in the capacity of [Insert Designation].\n2. That my client has successfully completed all handover formalities and fulfilled all employment obligations as required by the company policies upon separation.\n3. That despite the completion of service, your establishment has illegally withheld my client's earned wages and dues amounting to ₹1,20,000 (Rupees One Lakh Twenty Thousand Only) for the period covering [Insert Wage Period/Months].\n4. That furthermore, XYZ Tech has wrongfully delayed and failed to issue the mandatory Relieving Letter and Experience Letter, causing severe prejudice to my client's career prospects and future employment opportunities.\n\nLEGAL GROUNDS:\n1. Under Section 5 of the Payment of Wages Act, 1936, wages earned by an employee must be paid within the stipulated statutory timelines upon termination or resignation. Delayed or withheld payment without lawful justification constitutes a direct statutory violation.\n2. Under the relevant State Shops and Commercial Establishments Act governing commercial establishments, an employer is legally mandated to settle all final dues and issue necessary employment service documents upon the cessation of employment.\n3. Under Section 73 of the Indian Contract Act, 1872, breach of employment terms regarding remuneration and final settlement entitles the aggrieved employee to claim compensation for financial loss and mental distress caused by the breach.\n\nDEMAND:\nI, therefore, call upon you through this notice to clear the entire outstanding unpaid dues of ₹1,20,000 along with the formal Relieving Letter and Experience Letter within 15 (fifteen) days from the receipt of this notice. \n\nPlease note that if you fail to comply with this demand within the stipulated period of 15 days, my client shall be constrained to initiate appropriate legal proceedings before the competent Labour Commissioner, Labour Court under Section 33C(2) of the Industrial Disputes Act, 1947, or file a recovery suit under Section 15 of the Payment of Wages Act, 1936, holding your establishment entirely liable for all resulting costs, legal expenses, and statutory interest.\n\nA copy of this notice is retained in my office for record and further legal action.\n\nSincerely,\n\n[Insert Advocate Name or Your Name]\n[Insert Contact Information / Address]",
+  "tokens": 29,
+  "latency": 3.72,
+  "citations": [
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

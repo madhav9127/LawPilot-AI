@@ -1,0 +1,58 @@
+{
+  "test_id": "G04",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Does every defect guarantee full refund",
+  "expected": "Explains that CPA provides for repair, replacement, or refund depending on nature and severity of defect.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Does every minor scratch on a product guarantee a 100% full money back refund under CPA 2019?",
+  "raw_response": "I can help you with this. Here's an analysis based on the Consumer Protection Act, 2019.\n\n### | Your Situation\nYou purchased a product that turned out defective, and the seller or e-commerce platform is refusing a refund or replacement.\n\n### | Your Legal Position\n* **Consumer Protection Act, 2019 (Section 2(47)):** Refusing to withdraw defective goods or refund consideration within the agreed period (or within 30 days) constitutes an explicit **Unfair Trade Practice**.\n* **Consumer Protection Act, 2019 (Section 35 & 84):** Gives consumers the right to file a complaint before the District Consumer Commission and claim product liability damages.\n* **E-Commerce Rules, 2020:** Mandates platforms to acknowledge grievances within 48 hours and resolve returns within 30 days.\n\n### | Practical Next Steps\n1. **Gather evidence** – tax invoice, unboxing videos/photos of defect, and customer care rejection tickets.\n2. **National Consumer Helpline (NCH)** – call **1915** or lodge a grievance at https://consumerhelpline.gov.in/.\n3. **If unresolved** – file an e-complaint before the District Consumer Commission online via **e-Daakhil**.\n\n### ℹ️ Information I still need from you\nWhich city or state is the property or company located in? (Tenancy and shops laws vary by state).",
+  "tokens": 387,
+  "latency": 1.76,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

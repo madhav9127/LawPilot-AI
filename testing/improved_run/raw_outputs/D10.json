@@ -1,0 +1,58 @@
+{
+  "test_id": "D10",
+  "category": "Category D — Employment Disputes",
+  "name": "Unsure which labour law applies",
+  "expected": "Explains applicability of UP Shops & Commercial Establishments Act and Contract Act 1872 for IT professionals.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I work in an IT company in Noida. Do labour laws apply to software engineers?",
+  "raw_response": "Hello! As LawPilot AI, I am here to help you understand your legal rights regarding your employment in Noida.\n\n### | Your Situation\nYou are a software engineer working in an IT company located in Noida, Uttar Pradesh, and you want to know if labour laws apply to your profession. This involves clarifying the statutory definitions and protections governing IT and commercial employees in your state.\n\n### | Your Legal Position\n- Under the Uttar Pradesh Shops and Commercial Establishments Act, commercial and IT establishments are regulated, providing statutory protections regarding service conditions, leave, and timely clearance of dues.\n- Under Section 5 of the Payment of Wages Act, 1936, your earned wages must be paid before the expiry of the 7th day after the last day of the wage period (or 10th day if the establishment employs more than 1,000 persons).\n- Under Section 15 of the Payment of Wages Act, 1936, you have the right to approach the designated Authority to claim delayed or unlawfully deducted wages, which may include compensation.\n- Whether a software engineer qualifies strictly as a \"workman\" under Section 2(s) of the Industrial Disputes Act, 1947 depends on whether your primary duties are technical, clerical, or manual rather than managerial or supervisory.\n\n### | Practical Next Steps\n1. Gather evidence, including your employment contract, offer letter, company handbook, and recent salary slips.\n2. Send a written demand notice to your employer granting 15 days to rectify any wage delays or employment grievances.\n3. Approach the appropriate forum, such as the Labour Commissioner or the designated Authority under the Payment of Wages Act, if the employer fails to resolve the issue.\n\n### Information I still need from you\n1. Does your current role involve managing a team with hiring and firing authority, or are you primarily doing individual technical development work?\n2. Are you currently facing a specific employment issue, such as unpaid salary, wrongful termination, or unauthorized wage deductions?",
+  "tokens": 19,
+  "latency": 4.45,
+  "citations": [
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

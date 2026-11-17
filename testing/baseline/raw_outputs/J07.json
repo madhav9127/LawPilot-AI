@@ -1,0 +1,58 @@
+{
+  "test_id": "J07",
+  "category": "Category J — Voice Input",
+  "name": "Voice with mixed English and Indian language",
+  "expected": "Understands mixed Hinglish speech; extracts deposit refusal and ₹10,000 extra painting deduction.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Mera landlord deposit return nahi kar raha hai and he is asking for ten thousand rupees extra painting charges.",
+  "raw_response": "Main samajh sakta hoon ki landlord dwara deposit rokna aur extra painting charges maangna aapke liye pareshani ki baat hai.\n\n### | Your Situation (Aapki Situation)\nAapke landlord ne aapka security deposit return nahi kiya hai aur bina kisi solid adhaar ke 10,000 rupees extra painting charges ke taur par maang rahe hain, jabki aapne property khali kar di hai. Yeh vivad tenancy deposit aur maintenance charges ko lekar hai.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- Model Tenancy Act, 2021 (Guidelines & State Enactments) Section 11 & Section 13 ke mutabiq, security deposit sirf agreed deductions ke baad property khali karte waqt turant refund hona chahiye.\n- The Transfer of Property Act, 1882 Section 108(m) aur (o) ke tahat, tenant ki yeh zimmedari hai ki woh property ko waisi hi acchi haalat mein wapas kare jaisi use possession milte waqt thi, lekin isme \"Reasonable wear and tear\" (normal use ki wajah se ghisi-piti haalat) puri tarah shamil hai. Landlord normal usage ki painting ya normal tod-fod ke liye apni marzi se arbitrary deductions nahi kar sakta jab tak agreement mein iska saaf zikr na ho.\n\n### | Practical Next Steps (Agla Kadam)\n1. Gather evidence: Apne tenancy agreement, deposit payment ki receipt, aur flat ki exit ke waqt ki photos ya videos ikattha karein.\n2. Send written demand notice granting 15 days: Landlord ko ek written legal notice bhejein jisme 15 din ka samay dekar apna poora security deposit bina kisi extra painting charge ke wapas maangein.\n3. Appropriate forum: Agar landlord 15 din ke andar paise wapas nahi karta hai, toh aap apne ilaqe ke relevant Rent Authority ya Consumer Forum/Civil Court mein shikayat darj kar sakte hain.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKya aapke paas written tenancy agreement hai, aur total kitna security deposit amount landlord ke paas jama hai?",
+  "tokens": 22,
+  "latency": 2.97,
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

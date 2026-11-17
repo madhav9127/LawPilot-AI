@@ -1,0 +1,58 @@
+{
+  "test_id": "B03",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "No written agreement but UPI evidence",
+  "expected": "Confirms oral tenancies with electronic banking records constitute valid proof of tenancy and financial consideration.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I don't have a written rental agreement, but I have all monthly rent and deposit UPI transaction receipts. Can I claim my deposit?",
+  "raw_response": "Hello! I am LawPilot AI, your Indian legal assistant, and I am here to help you understand your rights regarding your security deposit.\n\n### | Your Situation\nYou are a residential tenant who paid a security deposit and monthly rent via UPI transactions but never executed a formal written rental agreement. You are now seeking to understand if you can successfully claim your security deposit back from your landlord without a written contract.\n\n### | Your Legal Position\n- Absence of a written agreement does not extinguish your right to claim your deposit; your UPI payment history serves as strong evidentiary proof of tenancy and financial transactions.\n- Under Section 106 of the Transfer of Property Act, 1882, an oral lease without a written contract is legally deemed a month-to-month tenancy, which still carries standard landlord-tenant obligations.\n- Under the principles of the Model Tenancy Act, 2021 (and general contract law governing security deposits), a landlord holds the security deposit in a fiduciary capacity and must refund it upon the vacating of premises, subject only to valid deductions for arrears or material damages beyond reasonable wear and tear.\n- Under Section 108(m) and (o) of the Transfer of Property Act, 1882, you are only required to restore the property subject to reasonable wear and tear, meaning the landlord cannot arbitrarily withhold your deposit for normal aging or usage.\n\n### | Practical Next Steps\n1. Gather evidence: Collect and organize all your UPI transaction screenshots showing monthly rent payments and the initial security deposit transfer, along with any WhatsApp chats or call logs with the landlord.\n2. Send written demand notice granting 15 days: Issue a formal written demand notice (via WhatsApp, email, and registered post if address is known) detailing your UPI payment proofs, stating the exact deposit amount, and requesting a full refund within 15 days.\n3. Appropriate forum: If the landlord fails to respond or refuses payment, you may approach the local civil court or District Legal Services Authority (DLSA) for mediation and recovery of dues based on your financial proofs.\n\n### ℹ️ Information I still need from you\n1. What is the total security deposit amount that you paid to your landlord?\n2. Did you already vacate the property, and if so, when did you hand over possession?",
+  "tokens": 22,
+  "latency": 3.34,
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

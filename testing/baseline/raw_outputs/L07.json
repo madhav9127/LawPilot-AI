@@ -1,0 +1,14 @@
+{
+  "test_id": "L07",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Document upload endpoint with valid PDF/text",
+  "expected": "Parses document text, extracts parties/amounts, and checks for threats.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "raw_response": "{\"detail\":\"Not Found\"}",
+  "latency": 0.01,
+  "status": "FAIL",
+  "score": 0,
+  "evaluation_notes": "Upload error 404"
+}

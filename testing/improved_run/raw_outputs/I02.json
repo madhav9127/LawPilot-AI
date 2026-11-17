@@ -1,0 +1,58 @@
+{
+  "test_id": "I02",
+  "category": "Category I — Document Generation",
+  "name": "Draft consumer complaint for defective phone",
+  "expected": "Drafts formal consumer complaint format with complainant, opposite party, facts, CPA 2019 grounds, and relief.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Draft a consumer complaint for District Commission regarding a defective Samsung phone bought on Flipkart for ₹18,000.",
+  "raw_response": "I am sorry to hear about the trouble you are facing with your defective phone and the delay in resolution.\n\n### | Your Situation\nYou purchased a Samsung phone for ₹18,000 from Flipkart, but received a defective product, and the seller or platform is failing to provide a proper refund or replacement. This issue falls under consumer protection laws in India for online retail purchases.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, you are recognized as a consumer since you bought the goods for a consideration paid, including online transactions via e-commerce platforms.\n- Under Section 2(47) of the Consumer Protection Act, 2019, refusing to take back defective goods or refund the amount within the stipulated period (or within 30 days) constitutes an unfair trade practice.\n- Under Section 35 and Section 38 of the Consumer Protection Act, 2019, you have the right to file a formal complaint before the District Consumer Disputes Redressal Commission, either physically or online through the e-Daakhil portal.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your Flipkart tax invoice, order confirmation details, payment receipt, unboxing video if any, and screenshots of all service logs or chat transcripts with customer support.\n2. Send written demand notice granting 15 days: Issue a formal legal notice to the seller and Flipkart, giving them 15 days to refund the amount of ₹18,000 along with compensation for mental agony, or face legal proceedings.\n3. Appropriate forum: If they fail to respond, file a formal consumer complaint before the jurisdictional District Consumer Disputes Redressal Commission or register your grievance online via the National Consumer Helpline (NCH) portal (consumerhelpline.gov.in / toll-free 1915).\n\n### ℹ️ Information I still need from you\n1. What is the name of the seller mentioned on your Flipkart invoice, and what specific defect does the phone have?\n2. Have you already raised a return or replacement request with Flipkart, and if so, what was their official response?\n\n***\n\n### FORMAL CONSUMER COMPLAINT / LEGAL DEMAND NOTICE\n\nTo,\n1. The Customer Care / Grievance Officer,\n   Flipkart Internet Private Limited,\n   [Insert Flipkart Registered Office Address]\n\n2. The Managing Director / Proprietor,\n   [Insert Seller Name as per Invoice],\n   [Insert Seller Address]\n\n**Subject: Legal demand notice for refund of ₹18,000 along with compensation for selling a defective Samsung phone (Order ID: [Insert Order ID]).**\n\nDear Sir/Madam,\n\nI, [Insert Your Full Name], residing at [Insert Your Residential Address], am writing this notice to bring to your immediate attention an unfair trade practice and deficiency in service committed by your company.\n\n1. That on [Insert Date of Purchase], I purchased a Samsung mobile phone (Model: [Insert Model Name]) from your e-commerce platform Flipkart (sold by [Insert Seller Name]), bearing Order ID [Insert Order ID], for a total consideration of ₹18,000 (Rupees Eighteen Thousand Only), which was duly paid by me via [Insert Payment Method, e.g., UPI/Credit Card]. A copy of the tax invoice is attached herewith as Annexure-A.\n\n2. That upon delivery on [Insert Date of Delivery], the said mobile phone was found to be severely defective, specifically suffering from [Describe the defect clearly, e.g., motherboard failure / non-functional display / battery not charging]. \n\n3. That I immediately raised a return and refund request through your platform on [Insert Date] and followed up multiple times with your customer support representatives. However, my legitimate request was arbitrarily rejected / ignored, which constitutes an unfair trade practice under Section 2(47) of the Consumer Protection Act, 2019, and a clear deficiency in service.\n\n4. That by refusing to take back the defective product and refund my hard-earned money of ₹18,000, you have caused me immense mental agony, financial loss, and harassment.\n\n**DEMAND:**\nThrough this notice, I call upon you to refund the full purchase amount of ₹18,000 along with ₹5,000 towards compensation for mental agony and legal expenses, totaling ₹23,000, within **15 days** from the receipt of this notice. \n\nPlease note that if you fail to comply with this demand within the stipulated period of 15 days, I shall be constrained to initiate formal legal proceedings by filing a consumer complaint before the District Consumer Disputes Redressal Commission under Section 35 of the Consumer Protection Act, 2019, and report the matter to the National Consumer Helpline (NCH), which will attract additional costs and legal consequences for your establishment.\n\nSincerely,\n\n[Your Signature]\n[Your Full Name]\n[Your Contact Number]\n[Your Email Address]\n\n**Enclosures:**\n1. Copy of Flipkart Tax Invoice / Order Details (Annexure-A)\n2. Screenshots of customer support chats / ticket logs (Annexure-B)",
+  "tokens": 45,
+  "latency": 4.75,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

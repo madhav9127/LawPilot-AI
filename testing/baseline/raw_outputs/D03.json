@@ -1,0 +1,58 @@
+{
+  "test_id": "D03",
+  "category": "Category D — Employment Disputes",
+  "name": "Final settlement delayed by 60 days",
+  "expected": "Explains statutory mandate under Shops & Establishments Act to clear dues within prescribed days of exit.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I completed my notice period 60 days ago, but company has not processed my Full & Final (FnF) settlement.",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate your employment settlement issue safely and correctly.\n\n### | Your Situation\nYou have successfully completed your mandatory notice period 60 days ago, but your former employer has withheld your Full and Final (FnF) settlement, causing financial distress. The key issue involves the unreasonable and unlawful delay in clearing your earned wages and final dues by the company.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, earned wages must be paid before the expiry of the 7th day (or 10th day depending on the workforce size) after the wage period, meaning delayed settlements beyond a reasonable period violate statutory norms.\n- State-specific Shops and Commercial Establishments Acts mandate that upon resignation or termination, all earned salary, notice pay, and final settlement dues must be cleared within a statutory timeline (typically between 3 to 15 days depending on the state).\n- Under Section 7 of the Payment of Wages Act, 1936, any arbitrary or unauthorized withholding of wages is unlawful, as deductions can only be made for specifically permitted reasons after formal inquiry.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the statutory right to file a formal claim before the designated Labour Authority for delayed wages, seeking recovery along with compensation.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, resignation acceptance email, final relieving letter, official acknowledgment of notice period completion, and any written correspondence regarding the salary delay.\n2. Send written demand notice granting 15 days: Dispatch a formal legal demand letter to the HR head and Director of the company demanding the immediate clearance of your Full and Final settlement within 15 days, stating that legal action will follow.\n3. Appropriate forum: If the company fails to pay within 15 days, file a formal wage claim application before the local Labour Commissioner or the Authority appointed under Section 15 of the Payment of Wages Act / State Shops and Establishments Act.\n\n### ℹ️ Information I still need from you\nWhat is the total amount of your pending Full and Final settlement, and in which state is your company's registered office located?",
+  "tokens": 22,
+  "latency": 3.52,
+  "citations": [
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

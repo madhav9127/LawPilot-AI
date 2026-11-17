@@ -1,0 +1,48 @@
+{
+  "test_id": "C07",
+  "category": "Category C — Consumer Protection",
+  "name": "Unfair hidden charges added to bill",
+  "expected": "Explains CCPA guidelines prohibiting mandatory service charges and misleading dark patterns.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "A restaurant added mandatory service charge and convenience fees despite government guidelines against it.",
+  "raw_response": "I am sorry to hear that you were forced to pay these extra charges at the restaurant.\n\n### | Your Situation\nYou visited a restaurant in India where a mandatory service charge and convenience fees were added to your bill despite official government guidelines prohibiting this practice. The restaurant is refusing to waive these unauthorized charges.\n\n### | Your Legal Position\n* Unfair Trade Practice: Under Section 2(47) of the Consumer Protection Act, 2019, levying a mandatory service charge without the explicit, informed consent of the consumer amounts to an unfair trade practice, as it misleads consumers and imposes unwarranted costs.\n* Central Consumer Protection Authority (CCPA) Guidelines: The CCPA guidelines explicitly state that hotels and restaurants cannot add service charges automatically or by default to the food bill, and collecting such charges is a violation of consumer rights.\n* Right to Redressal: Under Section 2(9) of the Consumer Protection Act, 2019, you have the right to be protected against unfair trade practices and seek redressal against restrictive or unfair trade practices.\n\n### | Practical Next Steps\n1. Gather evidence: Keep the original itemized restaurant bill clearly showing the mandatory service charge and convenience fees, along with any payment receipts.\n2. Send written demand notice granting 15 days: Request the restaurant management in writing to refund the unlawfully collected service charge and convenience fees within 15 days, citing the CCPA guidelines and Consumer Protection Act, 2019.\n3. Appropriate forum: If the restaurant fails to refund the amount, you can file a formal consumer complaint online through the National Consumer Helpline (NCH) portal or before the District Consumer Disputes Redressal Commission.\n\n### ℹ️ Information I still need from you\n1. What is the total amount of the service charge and convenience fees that the restaurant charged you?\n2. Did you pay the amount under protest, and do you have the name and location of the restaurant?",
+  "tokens": 18,
+  "latency": 2.87,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

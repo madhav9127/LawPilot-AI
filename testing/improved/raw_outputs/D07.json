@@ -1,0 +1,58 @@
+{
+  "test_id": "D07",
+  "category": "Category D — Employment Disputes",
+  "name": "Employer ignoring written salary requests",
+  "expected": "Recommends issuing formal legal demand notice granting 15 days before approaching Labour Authority.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I sent three reminder emails for my salary to HR and management. They have not responded for 3 weeks.",
+  "raw_response": "Hello! I am LawPilot AI, your Indian legal assistant, and I am here to help you navigate this difficult situation with your employer.\n\n### | Your Situation\nYou are an employee who has not received a response from your HR and management regarding your unpaid salary despite sending three reminder emails over the past three weeks. Your primary issue is the delayed payment of your earned wages by your employer.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day after the last day of the wage period (or the 10th day if more than 1,000 persons are employed), making any unexplained delay unlawful.\n- Section 7 of the Payment of Wages Act, 1936 strictly regulates permissible deductions, meaning your employer cannot arbitrarily withhold your salary without a legally authorized reason.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the right to approach the designated Labour Authority to claim delayed or withheld wages, along with compensation up to ten times the delayed amount.\n- Depending on your state of employment, your employer is also bound by the local State Shops and Commercial Establishments Act regarding timely salary clearance and final settlement of dues.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, appointment letter, salary slips for previous months, bank statements, and copies of all three reminder emails sent to HR and management.\n2. Send written demand notice granting 15 days: Issue a formal legal demand letter to your employer explicitly stating the pending wage amount and demanding full clearance within 15 days, warning of legal action under the Payment of Wages Act.\n3. Appropriate forum: If the employer fails to respond or settle your dues within the notice period, file a formal wage claim application before the Labour Commissioner or the designated Authority under the Payment of Wages Act.\n\n### ℹ️ Information I still need from you\n1. What is the exact amount of unpaid salary owed to you, and for how many months?\n2. In which state and city is your office located, and what is your approximate salary amount?",
+  "tokens": 20,
+  "latency": 3.87,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

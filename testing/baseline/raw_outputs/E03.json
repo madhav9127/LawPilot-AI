@@ -1,0 +1,58 @@
+{
+  "test_id": "E03",
+  "category": "Category E — Multilingual Testing",
+  "name": "Hinglish Conversational",
+  "expected": "Natural conversational Hinglish response in Roman script.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Meri company ne do mahine se salary nahi di hai. Main kya kar sakta hoon?",
+  "raw_response": "Aapki yeh pareshani sunkar mujhe bohot dukh hua, aur main aapki is mushkil sthiti mein poori tarah se madad karne ke liye yahan hoon.\n\n### | Your Situation (Aapki Situation)\nAapki company ne pichle do mahine se aapko aapki salary nahi di hai. Aap is samasya ke samadhan ke liye kanooni raaste aur apne adhikaaron ki jaankari chahte hain.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- The Payment of Wages Act, 1936 Section 5 ke anusar, wages (vetan) ko wage period khatam hone ke baad 7th day ke andar dena anivarya hota hai (agar company mein 1,000 se kam karmchari hain). Vetan dene mein deri ya bina kisi anumati ke koti katoti (unauthorized deduction) karna kanooni apradh hai.\n- The Payment of Wages Act, 1936 Section 15 ke tehat, aap delay ya deductions ke khilaf Labour Commissioner ya designated Authority ke paas application daal sakte hain, jismein kate ya delay hue paise ke saath-saath 10 guna tak ka compensation (muavza) maangne ka adhikaar shamil hai.\n- State Shops and Commercial Establishments Act ke antargat bhi yeh niyam hai ki kisi bhi commercial establishment mein kaam karne wale karmchari ko samay par salary aur final settlement milna chahiye.\n\n### | Practical Next Steps (Agla Kadam)\n1. Gather evidence: Apne employment agreement, appointment letter, salary slips, bank statements, aur company ke saath hui email ya chat ki baat-cheet ke sabhi saboot ikatthe kar lijiye.\n2. Send written demand notice granting 15 days: Company ko ek formal written demand notice bhejiye jismein pichle do mahine ki pending salary 15 din ke andar chukane ki maang karein aur payment na hone par kanooni karyawahi ki chetawani dein.\n3. Appropriate forum: Agar 15 din ke andar company payment nahi karti hai, toh apne kshetra ke Labour Commissioner ke paas The Payment of Wages Act Section 15 ke tehat formal complaint darj karein.\n\n### ℹ️ Information I still need from you (Zaroori Jankari)\nKripya mujhe batayein ki aapki company kis city ya state mein sthit hai aur aapka pichle do mahine ka kul pending salary amount kitna hai?",
+  "tokens": 26,
+  "latency": 6.83,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Natural conversational Hinglish."
+}

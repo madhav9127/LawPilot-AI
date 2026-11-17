@@ -1,0 +1,34 @@
+{
+  "test_id": "H07",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "Identify missing information",
+  "expected": "Identifies missing parameters: monthly salary amount, months unpaid, appointment letter, company location.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": [
+    "My boss hasn't paid me.",
+    "What information do you still need from me?"
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "My boss hasn't paid me.",
+      "response": "I understand how stressful and difficult it is to not receive your hard-earned salary on time.\n\n### | Your Situation\nYou are an employee whose employer has failed to pay your due wages for work completed. You are facing financial distress due to this delayed payment of salary in India.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day after the last day of the wage period (or 10th day if more than 1,000 persons are employed).\n- Under Section 7 of the Payment of Wages Act, 1936, employers cannot make arbitrary or unauthorized deductions from your salary; any withholding outside permitted deductions is illegal.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the right to file an application before the designated Labour Authority for delayed wages, which can include compensation up to ten times the amount delayed.\n- State-specific Shops and Commercial Establishments Acts also govern commercial employees and mandate the timely settlement of dues upon service termination or regular pay cycles.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, appointment letter, salary slips, bank statements, official emails, or written messages regarding the non-payment.\n2. Send written demand notice granting 15 days: Issue a formal written legal demand notice to your employer demanding full payment of your pending wages within 15 days.\n3. Appropriate forum: If the employer fails to pay within 15 days, approach the designated Labour Commissioner or file a claim under Section 15 of the Payment of Wages Act.\n\n### ℹ️ Information I still need from you\n1. How many months of salary are currently pending, and what is the total unpaid amount?\n2. What is the location (city and state) of your workplace, and do you have a written employment contract?",
+      "tokens": 18,
+      "latency": 2.46
+    },
+    {
+      "turn": 2,
+      "prompt": "What information do you still need from me?",
+      "response": "I am happy to help you move forward with resolving your unpaid salary issue.\n\n### | Your Situation\nYou are an employee inquiring about the specific details required to proceed with a legal demand or claim for unpaid wages against your employer in India.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, timely wage payment is a statutory obligation of your employer.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the legal right to initiate proceedings for recovery of unpaid wages by providing accurate particulars of your employment and dues.\n\n### | Practical Next Steps\n1. Gather evidence: Keep your employment records, bank statements, and correspondence ready to support your claim.\n2. Send written demand notice granting 15 days: Prepare a formal notice once all necessary details are confirmed.\n3. Appropriate forum: Approach the Labour Commissioner or file an application under the Payment of Wages Act with complete factual information.\n\n### ℹ️ Information I still need from you\n1. How many months of salary are currently pending, and what is the total unpaid amount?\n2. What is the city and state of your workplace, and do you have a written employment contract or appointment letter?",
+      "tokens": 12,
+      "latency": 1.95
+    }
+  ],
+  "raw_response": "I am happy to help you move forward with resolving your unpaid salary issue.\n\n### | Your Situation\nYou are an employee inquiring about the specific details required to proceed with a legal demand or claim for unpaid wages against your employer in India.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, timely wage payment is a statutory obligation of your employer.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the legal right to initiate proceedings for recovery of unpaid wages by providing accurate particulars of your employment and dues.\n\n### | Practical Next Steps\n1. Gather evidence: Keep your employment records, bank statements, and correspondence ready to support your claim.\n2. Send written demand notice granting 15 days: Prepare a formal notice once all necessary details are confirmed.\n3. Appropriate forum: Approach the Labour Commissioner or file an application under the Payment of Wages Act with complete factual information.\n\n### ℹ️ Information I still need from you\n1. How many months of salary are currently pending, and what is the total unpaid amount?\n2. What is the city and state of your workplace, and do you have a written employment contract or appointment letter?",
+  "latency": 4.41,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

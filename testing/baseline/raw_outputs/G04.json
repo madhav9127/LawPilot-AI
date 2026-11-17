@@ -1,0 +1,58 @@
+{
+  "test_id": "G04",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Does every defect guarantee full refund",
+  "expected": "Explains that CPA provides for repair, replacement, or refund depending on nature and severity of defect.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Does every minor scratch on a product guarantee a 100% full money back refund under CPA 2019?",
+  "raw_response": "Hello! I understand your concern, and I am here to help you navigate how the Consumer Protection Act, 2019 applies to minor damages or scratches on a product.\n\n### | Your Situation\nYou are asking whether a minor scratch on a purchased product entitles a consumer to an absolute 100% full refund under the Consumer Protection Act, 2019. The issue involves determining the legal standard of product deficiency or unfair trade practices regarding minor cosmetic flaws.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, a consumer is defined as any person who buys goods or hires services for consideration, granting them the right to seek redressal for substandard goods.\n- Under Section 2(47) of the Consumer Protection Act, 2019, an unfair trade practice includes refusing to take back or withdraw defective goods or refund money within the stipulated period (or 30 days). However, the law applies to \"defects\" that substantially impair the value, utility, or quality of the product.\n- Minor scratches or cosmetic blemishes that do not affect the core functionality or performance of the product do not automatically guarantee a 100% refund. Consumer commissions typically evaluate whether the defect substantially diminishes the value or usability of the goods, or if repair/replacement is the appropriate remedy rather than a full refund.\n\n### | Practical Next Steps\n1. Gather evidence, including clear photographs of the scratch, the original purchase invoice, and any communication logs or warranty cards.\n2. Send a written demand notice granting 15 days to the seller or manufacturer detailing the grievance and requesting a suitable resolution such as a partial discount, repair, or replacement.\n3. Appropriate forum e.g., if the seller refuses a fair resolution, you may approach the District Consumer Commission via the e-Daakhil portal.\n\n### ℹ️ Information I still need from you\n1. What specific product did you purchase, and was it bought online or from a physical retail store?\n2. Did you report the scratch to the seller within their standard return or replacement window?",
+  "tokens": 20,
+  "latency": 6.69,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

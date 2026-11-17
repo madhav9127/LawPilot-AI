@@ -1,0 +1,28 @@
+{
+  "test_id": "A02",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "What can you help me with?",
+  "expected": "Explains supported legal domains (Tenancy, Consumer, Employment) and capabilities.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "What can you help me with?",
+  "raw_response": "LawPilot AI assists ordinary citizens across three core civil legal domains in India:\n\n1. Tenant & Landlord Disputes: Security deposit non-refunds, arbitrary painting/repair deductions, unlawful eviction threats, and rent agreements.\n2. Consumer Protection: Defective or damaged products, uncredited refunds, e-commerce fraud, and deficiency of services under CPA 2019.\n3. Employment & Wages: Unpaid salary dues, delayed FnF settlements, illegal deductions, and withheld relieving letters under the Payment of Wages Act.\n\nYou can also attach rent agreements or invoices, or generate formal legal demand notices directly in the chat.",
+  "tokens": 175,
+  "latency": 0.11,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

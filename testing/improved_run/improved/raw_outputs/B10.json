@@ -1,0 +1,58 @@
+{
+  "test_id": "B10",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Landlord ignoring calls and WhatsApp",
+  "expected": "Recommends formal written demand notice via Registered Post AD / Speed Post with tracking.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "My landlord has blocked my phone number and is not replying to WhatsApp messages regarding my deposit.",
+  "raw_response": "Hello! I am LawPilot AI, your legal assistant for tenant, consumer, and employment matters in India, and I am here to help guide you through this stressful situation with your landlord.\n\n### | Your Situation\nYou are a tenant whose landlord has blocked your phone number and is ignoring WhatsApp messages regarding the refund of your security deposit after vacating the property. The key issue is the recovery of your security deposit and establishing formal communication.\n\n### | Your Legal Position\n- Under Model Tenancy Act, 2021 (Guidelines & State Enactments) Section 11 & Section 13, a landlord is required to refund the security deposit to the tenant at the time of taking over vacant possession of the premises, after making only valid deductions agreed under the tenancy agreement.\n- Under The Transfer of Property Act, 1882 Section 108(m) & (o), a tenant is bound to restore the property subject only to reasonable wear and tear, and a landlord cannot make arbitrary deductions for normal usage.\n- Under The Specific Relief Act, 1963 Section 6, forceful dispossession or withholding of property/deposits without due legal process is actionable.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your rent receipts, tenancy agreement, move-in/move-out photographs, and screenshots of your call logs and WhatsApp messages showing the landlord is unresponsive.\n2. Send written demand notice granting 15 days: Dispatch a formal legal demand notice via Speed Post and registered email to your landlord's last known address, demanding the full refund of your security deposit within 15 days.\n3. Appropriate forum: If the landlord fails to respond or refund the amount within 15 days, you can approach the local Rent Authority or Consumer Commission depending on your state's specific tenancy regulations.\n\n### ℹ️ Information I still need from you\n1. How much security deposit amount is currently being withheld by your landlord, and what city or state is this property located in?\n2. Do you have a written tenancy agreement or rent receipts proving the deposit payment?",
+  "tokens": 20,
+  "latency": 7.78,
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

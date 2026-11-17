@@ -1,0 +1,58 @@
+{
+  "test_id": "J03",
+  "category": "Category J — Voice Input",
+  "name": "Gujarati voice simulated transcription",
+  "expected": "Understands Gujarati voice transcription; identifies 2 months unpaid salary in Gujarati.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "મારો પગાર બે મહિનાથી કંપનીએ આપ્યો નથી.",
+  "raw_response": "તમારો આ મુશ્કેલ સમયમાં સાથ આપવા માટે લોપાઇલટ એઆઈ અહીં હાજર છે.\n\n### | તમારી પરિસ્થિતિ (Your Situation)\nકંપનીએ તમારા બે મહિનાનો પગાર સમયસર ચૂકવ્યો નથી, જેના કારણે તમને આર્થિક મુશ્કેલીનો સામનો કરવો પડી રહ્યો છે. આ વિવાદ તમારા અને તમારી રોજગાર આપતી કંપની વચ્ચેનો છે.\n\n### | તમારો કાનૂની પક્ષ (Your Legal Position)\n- ધ પેમેન્ટ ઓફ વેજીસ એક્ટ, 1936 (The Payment of Wages Act, 1936) ની કલમ 5 હેઠળ, વેતન ચૂકવવાની મુદત પૂરી થયા પછીના 7મા દિવસની અંદર કર્મચારીને પગાર મળવો ફરજિયાત છે.\n- ધ પેમેન્ટ ઓફ વેજીસ એક્ટ, 1936 ની કલમ 15 મુજબ, કોઈપણ ગેરવાજબી વિલંબ અથવા પગાર કાપ સામે લેબર ઓથોરિટી સમક્ષ અરજી કરવાનો અને વળતર મેળવવાનો તમને કાનૂની અધિકાર છે.\n- રાજ્યના શops એન્ડ કોમર્શિયલ એબ્લિશમેન્ટ્સ એક્ટ (Shops and Commercial Establishments Act) ની જોગવાઈઓ હેઠળ પ્રાઈવેટ અને કોમર્શિયલ કર્મચારીઓના બાકી પગાર અને નોકરીની શરતોનું રક્ષણ કરવામાં આવે છે.\n\n### | વ્યવહારુ આગલા પગલાં (Practical Next Steps)\n1. તમારી રોજગારીનો પુરાવો (જેવા કે અપాయిન્ટમેન્ટ લેટર, બેંક સ્ટેટમેન્ટ અને હાજરીનો રેકોર્ડ) એકત્રિત કરો.\n2. કંપનીને લેખિતમાં માંગણી નોટીસ (Demand Notice) મોકલો અને પગાર ચૂકવવા માટે 15 દિવસનો સમય આપો.\n3. જો કંપની ચુકવણી ન કરે, તો સક્ષમ લેબર કમિશનર (Labour Commissioner) અથવા વેતન પ્રાધિકરણ (Payment of Wages Authority) સમક્ષ કેસ દાખલ કરો.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\nકૃપા કરીને મને જણાવો કે તમારી કંપની કયા રાજ્યમાં આવેલી છે અને તમારો કુલ બાકી પગાર કેટલો છે?",
+  "tokens": 24,
+  "latency": 5.91,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

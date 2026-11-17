@@ -1,0 +1,17 @@
+{
+  "test_id": "L12",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Duplicate message prevention check",
+  "expected": "Returns single discrete response without duplications.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "My salary is pending for two months.",
+  "raw_response": "",
+  "tokens": 0,
+  "latency": 30.24,
+  "citations": [],
+  "status": "FAIL",
+  "score": 20,
+  "evaluation_notes": "Empty or inadequate response."
+}

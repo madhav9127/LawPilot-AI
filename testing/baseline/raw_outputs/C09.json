@@ -1,0 +1,58 @@
+{
+  "test_id": "C09",
+  "category": "Category C — Consumer Protection",
+  "name": "Product damaged during courier transit",
+  "expected": "Explains seller's ultimate responsibility to deliver undamaged goods under E-Commerce Rules 2020.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "The courier delivered a broken TV screen. The seller blames the courier, courier blames the seller.",
+  "raw_response": "Main samajh sakta hoon ki yeh aapke liye ek pareshan karne wali sthiti hai, lekin aapki madad karne ke liye LawPilot AI yahan maujood hai.\n\n### | Your Situation (Aapki Situation)\nAapne ek naya TV khrida tha jo courier ke zariye deliver hua lekin uska screen toot gaya hai, aur ab seller aur courier company dono ek doosre par ilzaam laga rahe hain. Is mamle mein aapko nuksan hua hai aur koi bhi zimmedari lene se mana kar raha hai.\n\n### | Your Legal Position (Aapke Kanooni Adhikar)\n- Consumer Protection Act, 2019 ke Section 2(7) ke tahat, aap ek consumer hain kyunki aapne consideration (paisa) dekar goods purchase kiye hain.\n- Consumer Protection Act, 2019 ke Section 2(47) ke tahat, agar kharab ya toota hua samaan wapas lene ya refund dene se mana kiya jata hai, toh ise Unfair Trade Practice (anuchit vyaparik vyavhaar) mana jata hai. Samaan ko sahi salamat aapke ghar tak pahunchane ki zimmedari seller aur unke delivery partner ki hoti hai, isliye aapas ki ladai mein aapka nuksan nahi hona chahiye.\n- Consumer Protection (E-Commerce) Rules, 2020 ke Rule 4 aur Rule 6 ke mutabi",
+  "tokens": 15,
+  "latency": 4.46,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

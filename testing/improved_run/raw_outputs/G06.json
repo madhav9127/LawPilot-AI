@@ -1,0 +1,58 @@
+{
+  "test_id": "G06",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Court procedure without jurisdiction/state",
+  "expected": "Notes jurisdictional dependence (state rent control act vs civil court); asks location/state.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Tell me the exact court procedure and forms to file an eviction case immediately.",
+  "raw_response": "Hello, I am LawPilot AI, here to help you understand your legal rights and options under Indian law.\n\n### | Your Situation\nYou are seeking information on the exact court procedure and forms required to file an immediate eviction case against a tenant in India. The key issue involves initiating legal proceedings for the recovery of possession of immovable property.\n\n### | Your Legal Position\n- Under the Transfer of Property Act, 1882 Section 106, a lease for residential or commercial purposes (in the absence of a contract to the contrary) is terminable by giving a 15 days' prior written notice ending with the month of tenancy.\n- Under the Specific Relief Act, 1963 Section 6, landlords must follow due process of law to recover possession and cannot use illegal self-help methods like forcible dispossession or cutting off essential supplies (such as electricity or water), which may attract legal penalties under state-specific rent control legislations like Maharashtra Rent Control Act, 1999 Section 29.\n- Eviction suits must be filed before the competent Civil Court or Rent Control Tribunal having territorial jurisdiction over the property, depending on the applicable state rent control act and the monthly rent amount.\n\n### | Practical Next Steps\n1. Gather evidence including the registered or unregistered lease/leave and license agreement, rent receipts, bank statements showing payment history, and a copy of the formal termination notice served under Section 106 of the Transfer of Property Act, 1882 along with postal tracking proof.\n2. Send a formal written demand notice to the tenant through an advocate, explicitly terminating the tenancy and granting 15 days to vacate and hand over peaceful possession of the premises.\n3. Approach the appropriate forum, which is the local Civil Court or designated Rent Authority/Tribunal, by filing a formal plaint for eviction and recovery of arrears of rent along with the required court fee stamps and verification affidavits.\n\n### ℹ️ Information I still need from you\n1. In which state and city is the property located, and what is the current monthly rent amount?\n2. Do you have a written lease or leave and license agreement, and has a formal notice to quit already been served to the tenant?",
+  "tokens": 20,
+  "latency": 2.67,
+  "citations": [
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Maharashtra Rent Control Act, 1999",
+      "section": "Section 15 & Section 29",
+      "title": "Relief against forfeiture and prohibition against cutting off essential supplies",
+      "description": "No landlord shall without just or sufficient cause cut off or withhold any essential supply or service (water, electricity, lifts) enjoyed by the tenant. Violation is punishable with imprisonment or fine.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2513",
+      "commencement_date": "2000-03-31",
+      "jurisdiction": "State: Maharashtra",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

@@ -1,0 +1,34 @@
+{
+  "test_id": "H07",
+  "category": "Category H — Case Building and Conversation Memory",
+  "name": "Identify missing information",
+  "expected": "Identifies missing parameters: monthly salary amount, months unpaid, appointment letter, company location.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": [
+    "My boss hasn't paid me.",
+    "What information do you still need from me?"
+  ],
+  "turns": [
+    {
+      "turn": 1,
+      "prompt": "My boss hasn't paid me.",
+      "response": "Hello, I am LawPilot AI, your expert and ethical Indian legal assistant. I understand how stressful it is when your boss does not pay your hard-earned wages, and I am here to help guide you through your rights and the legal steps available under Indian law.\n\n### | Your Situation\nYou are an employee seeking assistance because your employer or boss has failed to pay your wages for work performed. You need guidance on how to recover your unpaid salary and what legal protections apply to your situation under Indian employment law.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day after the last day of the wage period (or the 10th day if more than 1,000 persons are employed), making delayed payment unlawful.\n- Under Section 7 of the Payment of Wages Act, 1936, deductions from your wages can only be made for explicitly authorized items like provident fund, income tax, or proved willful damage after a formal inquiry, meaning arbitrary salary withholding is illegal.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the statutory right to file an application before the designated Labour Authority to claim delayed or withheld wages, along with potential compensation up to ten times the delayed amount.\n- Under the applicable State Shops and Commercial Establishments Act governing your commercial or private workplace, your employer is legally obligated to clear all earned salary and final dues within the mandated statutory timeline upon termination, resignation, or ongoing employment.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your employment contract, appointment letter, salary slips, bank statements showing past payments, attendance records, and any written or digital communication (emails, chat messages) demanding your unpaid salary.\n2. Send written demand notice granting 15 days: Issue a formal written demand notice to your employer stating the exact amount due, the wage periods involved, and a clear 15-day deadline to clear your dues before initiating formal legal proceedings.\n3. Appropriate forum: If the employer fails to pay within the notice period, approach the designated Labour Commissioner or file an application under Section 15 of the Payment of Wages Act before the Labour Authority having jurisdiction over your workplace.\n\n### Information I still need from you\nWhat is your approximate total unpaid amount and how many months of salary are pending? What is the city or state where your office or workplace is located?",
+      "tokens": 23,
+      "latency": 3.71
+    },
+    {
+      "turn": 2,
+      "prompt": "What information do you still need from me?",
+      "response": "Hello, I am glad to help you gather all the necessary details to move forward with your unpaid wage claim.\n\n### | Your Situation\nYou are seeking clarification on what specific information is required to help you recover your unpaid salary from your employer. We need a few key details regarding your employment location, the exact amount owed, and the duration of the unpaid period to prepare a formal legal notice.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, employers are legally mandated to disburse wages within the prescribed statutory timelines without arbitrary delays.\n- Under Section 15 of the Payment of Wages Act, 1936, having precise details of your unpaid wages and workplace location is essential for filing an accurate claim before the designated Labour Authority.\n\n### | Practical Next Steps\n1. Gather evidence: Keep your employment contract, appointment letter, and any written records of your employment ready.\n2. Send written demand notice granting 15 days: Prepare to issue a formal demand notice once we have your complete employment details.\n3. Appropriate forum: Identify the local Labour Commissioner or Authority once your workplace location is confirmed.\n\n### Information I still need from you\nWhat is your approximate total unpaid amount and how many months of salary are pending? What is the city or state where your office or workplace is located?",
+      "tokens": 14,
+      "latency": 2.61
+    }
+  ],
+  "raw_response": "Hello, I am glad to help you gather all the necessary details to move forward with your unpaid wage claim.\n\n### | Your Situation\nYou are seeking clarification on what specific information is required to help you recover your unpaid salary from your employer. We need a few key details regarding your employment location, the exact amount owed, and the duration of the unpaid period to prepare a formal legal notice.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, employers are legally mandated to disburse wages within the prescribed statutory timelines without arbitrary delays.\n- Under Section 15 of the Payment of Wages Act, 1936, having precise details of your unpaid wages and workplace location is essential for filing an accurate claim before the designated Labour Authority.\n\n### | Practical Next Steps\n1. Gather evidence: Keep your employment contract, appointment letter, and any written records of your employment ready.\n2. Send written demand notice granting 15 days: Prepare to issue a formal demand notice once we have your complete employment details.\n3. Appropriate forum: Identify the local Labour Commissioner or Authority once your workplace location is confirmed.\n\n### Information I still need from you\nWhat is your approximate total unpaid amount and how many months of salary are pending? What is the city or state where your office or workplace is located?",
+  "latency": 6.32,
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

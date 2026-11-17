@@ -1,0 +1,58 @@
+{
+  "test_id": "C12",
+  "category": "Category C — Consumer Protection",
+  "name": "How to prepare a consumer complaint",
+  "expected": "Outlines structure of consumer complaint, facts, reliefs sought, index of documents, and e-Daakhil filing process.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "How do I prepare a consumer complaint for the District Commission?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate your consumer rights with confidence.\n\n### | Your Situation\nYou want to know the step-by-step process for filing a consumer complaint before the District Consumer Disputes Redressal Commission in India. You are seeking clear guidance on how to properly initiate this legal remedy for a consumer dispute.\n\n### | Your Legal Position\n- Under Section 35 of the Consumer Protection Act, 2019, you have the statutory right to file a complaint in relation to any goods sold, delivered, or agreed to be sold, or any services provided or agreed to be provided, before the appropriate District Commission having territorial and pecuniary jurisdiction.\n- According to Section 2(7) of the Consumer Protection Act, 2019, you qualify as a consumer if you bought goods or hired services for a consideration that you paid, promised to pay, or partly paid and partly promised.\n- As per Section 2(47) of the Consumer Protection Act, 2019, if a seller or service provider adopts unfair trade practices such as refusing to refund money for defective goods or deficient services, you have a solid legal basis to claim compensation.\n- You can file your complaint physically at the District Commission office or conveniently online through the official e-Daakhil portal (edakhil.nic.in).\n\n### | Practical Next Steps\n1. Gather evidence: Collect all relevant documents including your purchase invoice or bill, warranty cards, payment receipts, email exchanges, text messages, and a copy of the written demand notice sent to the opposite party.\n2. Send written demand notice granting 15 days: Issue a formal legal notice to the defaulting seller or service provider detailing your grievance, the loss suffered, and demanding a full refund or rectification within 15 days before approaching the forum.\n3. Appropriate forum: File your formal consumer complaint before the District Consumer Disputes Redressal Commission having jurisdiction over the area where the opposite party resides or carries on business, or where the cause of action arose, either in person or online via the e-Daakhil portal.\n\n### Information I still need from you\nWhat specific product or service is this consumer dispute regarding, and what is the total financial amount involved in your claim?",
+  "tokens": 23,
+  "latency": 3.33,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

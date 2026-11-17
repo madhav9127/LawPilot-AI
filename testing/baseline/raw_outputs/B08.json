@@ -1,0 +1,58 @@
+{
+  "test_id": "B08",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Dispute over pre-existing property damage",
+  "expected": "Discusses pre-existing handover evidence, move-in checklists, and burden of proof on landlord.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Landlord is deducting ₹8,000 for bathroom tiles that were already cracked before I moved in.",
+  "raw_response": "I am sorry to hear about this unfair deduction from your security deposit by your landlord.\n\n### | Your Situation\nYou are a tenant in India whose landlord is attempting to make an arbitrary deduction of ₹8,000 from your security deposit for bathroom tiles that were already cracked prior to the commencement of your tenancy. This dispute involves the unjustified withholding of security deposit funds by the property owner at the time of vacating the premises.\n\n### | Your Legal Position\n- Under Section 108(m) of the Transfer of Property Act, 1882, a lessee is only bound to restore the property in as good condition as it was at the time of possession, subject to reasonable wear and tear. You cannot be held financially liable for pre-existing damages or structural defects that existed before you moved in.\n- Under Section 11 and Section 13 of the Model Tenancy Act, 2021 (and corresponding state rent enactments), a security deposit must be refunded upon taking over vacant possession after making only valid, mutually agreed deductions. Arbitrary deductions for pre-existing damage are unlawful.\n- A landlord cannot withhold security deposit amounts without a clear, documented contractual basis or proof that the damage was caused directly by the tenant's negligence during the tenancy.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your initial move-in photographs, video walkthroughs, inspection checklists, or WhatsApp/email communications with the landlord where the cracked bathroom tiles were documented before or at the start of your tenancy.\n2. Send a written demand notice: Issue a formal written demand notice to your landlord requesting the full refund of the withheld security deposit amount of ₹8,000 within a strict period of 15 days, attaching your supporting evidence.\n3. Appropriate forum: If the landlord fails to refund the amount within 15 days, you may approach the local Rent Authority or Consumer Commission having jurisdiction over the property location to file a formal complaint for recovery of the wrongfully withheld deposit.\n\n### ℹ️ Information I still need from you\n1. Do you have any written documentation, move-in photographs, or chat messages proving the bathroom tiles were already cracked before you moved in?\n2. Did you sign a written tenancy agreement, and does it contain any specific clauses regarding security deposit deductions or pre-existing property conditions?",
+  "tokens": 22,
+  "latency": 3.7,
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

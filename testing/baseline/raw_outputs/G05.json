@@ -1,0 +1,38 @@
+{
+  "test_id": "G05",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Is Model Tenancy Act automatically in force everywhere",
+  "expected": "Explains that Model Tenancy Act is a model framework and requires individual state enactment/adoption.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Does the Model Tenancy Act, 2021 automatically apply to all rental agreements across India right now?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am glad to answer your question regarding tenancy laws in India.\n\n### | Your Situation\nYou are seeking legal clarity on whether the Model Tenancy Act, 2021 automatically applies to all rental properties and agreements across India at present. This is a crucial question for understanding landlord and tenant rights regarding ongoing and future leases.\n\n### | Your Legal Position\n* The Model Tenancy Act, 2021 is a model law formulated by the Union Ministry of Housing and Urban Affairs to serve as a blueprint for states and union territories.\n* Because \"Land\" and real estate fall under the State List (List II of the Seventh Schedule) of the Constitution of India, the central Model Tenancy Act does not automatically apply nationwide.\n* It only comes into force in a specific state if the respective state legislature formally adopts and enacts it through its own legislative process or amends its existing state rent control acts accordingly.\n* Until a state adopts the Model Tenancy Act, 2021, existing state-specific rent control legislations and the relevant provisions of the Transfer of Property Act, 1882 (such as Section 106 regarding lease termination) continue to govern landlord-tenant relationships in that region.\n\n### | Practical Next Steps\n1. Gather and review your current written rent agreement or lease deed to identify which state laws and jurisdiction clauses apply to your tenancy.\n2. Send a written formal communication or notice if you need to address tenancy terms, ensuring you adhere to the notice periods prescribed under your existing state law or lease agreement.\n3. Approach the appropriate local Rent Authority, Civil Court, or Rent Control Tribunal as established by your respective state's specific rental laws for dispute resolution.\n\n### ℹ️ Information I still need from you\nWhich specific state or union territory is the rental property located in, and do you currently have a registered written rental agreement in place?",
+  "tokens": 18,
+  "latency": 3.11,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Accurate statutory and legal reasoning."
+}

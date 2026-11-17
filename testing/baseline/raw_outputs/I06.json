@@ -1,0 +1,58 @@
+{
+  "test_id": "I06",
+  "category": "Category I — Document Generation",
+  "name": "Generate Hindi salary recovery notice",
+  "expected": "Generates formal demand notice in Hindi with ₹50,000 and 15 days deadline.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "कंपनी से ₹50,000 बकाया वेतन मांगने के लिए एक औपचारिक मांग पत्र (Demand Notice) तैयार करें।",
+  "raw_response": "नमस्कार, मी लॉपायलट एआय (LawPilot AI) आहे, तुमचा कायदेशीर सहाय्यक. तुमच्या कंपनीकडून ५०,००० रुपये बकाया वेतन (Pending Salary) वसूल करण्यासाठी कायदेशीर नोटीस खालीलप्रमाणे तयार केली आहे.\n\n### | तुमची परिस्थिती (Your Situation)\nकर्मचाऱ्याने कंपनीकडून ५०,००० रुपयांचे बकाया वेतन मिळवण्यासाठी कायदेशीर मागणी नोटीस (Demand Notice) तयार करण्याची विनंती केली आहे, ज्यामध्ये पेमेंट ऑफ वेजेस ॲक्टनुसार वेळेवर वेतन मिळण्याचा अधिकार आहे.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n- पेमेंट ऑफ वेजेस ॲक्ट, १९३६ (The Payment of Wages Act, 1936) च्या कलम ५ नुसार, वेतन कालावधी संपल्यानंतर ७ दिवसांच्या आत वेतन देणे बंधनकारक आहे.\n- पेमेंट ऑफ वेजेस ॲक्ट, १९३६ चे कलम ७ केवळ प्राधिकृत कपातींना परवानगी देते; कोणतीही अनधिकृत किंवा विनाकारण केलेली कपात बेकायदेशीर ठरते.\n- पेमेंट ऑफ वेजेस ॲक्ट, १९३६ चे कलम १५ नुसार, वेतनात विलंब झाल्यास किंवा बेकायदेशीर कपात केल्यास वेतनासाठी आणि विलंबासाठी योग्य प्राधिकाऱ्याकडे दावा करून नुकसानभरपाई मागण्याचा अधिकार आहे.\n- राज्य दुकाने आणि आस्थापना कायदा (State Shops and Commercial Establishments Act) अंतर्गत, नोकरी संपल्यावर किंवा राजीनामा दिल्यानंतर अंतिम वेतन (Full and Final Settlement) ठрित मुदतीत देणे कायद्याने बंधनकारक आहे.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. तुमचा कामाचा कालावधी, पगार स्लिप (Salary Slip), अपॉइंटमेंट लेटर आणि बँकेचे विवरणपत्र यांसقट सर्व पुरावे गोळा करा.\n2. कंपनीला खालीलप्रमाणे लिखित मागणी नोटीस पाठवून १५ दिवसांच्या आत ५०,००० रुपयांचे बकाया वेतन देण्याची विनंती करा.\n3. १५ दिवसांत उत्तर न मिळाल्यास, संबंधित कामगार आयुक्तांकडे (Labour Commissioner) किंवा पेमेंट ऑफ वेजेस ॲक्ट अंतर्गत प्राधिकाऱ्याकडे अर्ज दाखल करा.\n\n---\n\n### औपचारिक कायदेशीर मागणी नोटीस (Formal Legal Demand Notice)\n\n**दिनांक:** [आजची तारीख टाका]  \n**प्रति,**  \n[कंपनीचे नाव / मालकाचे नाव]  \n[कंपनीचा पूर्ण पत्ता]  \n\n**विषय: ५०,००० रुपये बकाया वेतन (Pending Salary) तात्काळ अदा करण्याबाबत कायदेशीर नोटीस.**\n\nमहोदय / महोदया,\n\nमी, खाली सही करणारा/करणारी [तुमचे नाव], आपल्या [कंपनीचे नाव] या आस्थापनेत [तुमचे पद/Designation] म्हणून [नोकरीत रुजू झाल्याची तारीख] पासून कार्यरत होतो/हते. \n\nमी तुम्हाला खालील मुद्द्यांच्या आधारे ही नोटीस देत आहे:\n\n१. मी [वेतन कालावधी, उदा. जानेवारी २०२४] महिन्यासाठी काम केले असून, माझे ५०,००० रुपये इतके बकाया वेतन कंपनीकडे अद्याप प्रलंबित आहे. \n\n२. पेमेंट ऑफ वेजेस ॲक्ट, १९३६ च्या कलम ५ आणि लागू राज्य दुकाने आणि आस्थापना कायद्यानुसार, माझेearned wages (कमावलेले वेतन) वेळेवर देणे कंपनीची कायदेशीर जबाबदारी आहे. कोणतेही कारण नसताना माझे वेतन रोखून ठेवणे किंवा विनाकारण कपात करणे हा कायद्याचा भंग आहे.\n\n३. या पत्रान्वये मी आपल्याला कळवू इच्छितो की, हे पत्र मिळाल्यापासून **१५ (पंधरा) दिवसांच्या आत** माझे बकाया ५०,००० रुपये माझ्या बँक खात्यात जमा करण्यात यावेत. \n\n४. जर आपण दिलेल्या मुदतीत ही रक्कम अदा केली नाही, तर मला माझ्या कायदेशीर अधिकारांनुसार कामगार आयुक्त (Labour Commissioner) कार्यालयाकडे किंवा संबंधित न्यायालयात कायदेशीर कारवाई करण्याचा अधिकार राहील, ज्याचा संपूर्ण खर्च आणि परिणाम कंपनीची असेल.\n\n**माझे बँक तपशील खालीलप्रमाणे आहेत:**  \nबँकेचे नाव: [बँकेचे नाव]  \nखाते क्रमांक: [बँक खाते क्रमांक]  \nआयएफएससी कोड (IFSC Code): [IFSC कोड]  \n\nआपला/आपली नम्र,  \n[तुमची सही]  \n[तुमचे नाव]  \n[तुमचा पत्ता]  \n[मोबाईल नंबर]  \n\n---\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\n१. तुमचे वेतन कोणत्या महिन्याचे बाकी आहे आणि कंपनीने ते देण्यास नकार देण्याचे कोणते कारण दिले आहे का?\n२. तुम्ही अजूनही त्याच कंपनीत काम करत आहात की नोकरी सोडली आहे?",
+  "tokens": 41,
+  "latency": 5.23,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
+}

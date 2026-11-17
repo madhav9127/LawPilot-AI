@@ -1,0 +1,48 @@
+{
+  "test_id": "C08",
+  "category": "Category C — Consumer Protection",
+  "name": "Defective product without invoice",
+  "expected": "Explains digital payment trail, warranty card, or box packaging as secondary evidence, noting limitations without invoice.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "I bought a heater from a local shop that malfunctioned. I lost the bill. Can I still file a complaint?",
+  "raw_response": "Hello! I understand how frustrating it is when a new product malfunctions, and I am here to help you understand your options even without a receipt.\n\n### | Your Situation\nYou purchased a room heater from a local retail shop in India that has now malfunctioned. Although you have lost the original purchase bill, you are seeking guidance on whether you can still file a consumer complaint.\n\n### | Your Legal Position\n* Under the Consumer Protection Act, 2019, you have the right to seek redressal against unfair trade practices and defective goods.\n* While a formal tax invoice or bill is the primary documentary proof of purchase, the lack of a bill does not entirely bar you from seeking a remedy if you can establish the transaction through alternative evidence.\n* Alternative proof of purchase can include digital transaction records such as UPI payment screenshots, bank or credit card statements showing the exact amount paid to the merchant, warranty cards stamped by the dealer, or text message receipts.\n* Section 2(47) of the Consumer Protection Act, 2019 defines unfair trade practices, which includes selling goods that do not comply with prescribed standards.\n\n### | Practical Next Steps\n1. Gather alternative evidence: Collect your bank statement, UPI transaction history, credit card alert, or any warranty card associated with the heater purchase.\n2. Send a written demand notice granting 15 days: Approach the local shopkeeper with your evidence, explain the defect, and give them a written notice demanding a replacement or refund within 15 days.\n3. Appropriate forum: If the shopkeeper refuses, you can register a pre-litigation grievance on the National Consumer Helpline (NCH) portal (consumerhelpline.gov.in) or dial toll-free 1915, and if unresolved, file a formal complaint before the District Consumer Disputes Redressal Commission under Section 35 of the Consumer Protection Act, 2019.\n\n### ℹ️ Information I still need from you\n1. Do you have any digital proof of payment, such as a UPI transaction record or bank statement showing the payment to the shop?\n2. Did the shop provide a stamped warranty card or any communication acknowledging the purchase?",
+  "tokens": 21,
+  "latency": 7.43,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

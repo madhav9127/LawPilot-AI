@@ -1,0 +1,58 @@
+{
+  "test_id": "B11",
+  "category": "Category B — Tenant and Landlord Disputes",
+  "name": "Tenant has no rent receipts but bank statements",
+  "expected": "Explains that verified bank statements with beneficiary account details serve as admissible evidence under Indian Evidence Act.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "The landlord never gave rent receipts, but I transferred rent to his bank account every month.",
+  "raw_response": "Hello, I understand how stressful it can be when a landlord does not provide rent receipts, but keeping digital records is a strong way to protect yourself.\n\n### | Your Situation\nYou have been paying your monthly rent regularly through bank transfers to your landlord, but the landlord has failed to issue formal rent receipts for these payments. This documentation gap creates uncertainty regarding proof of rent payment and security deposit management under your tenancy.\n\n### | Your Legal Position\n- **Proof of Payment via Bank Transfer:** Under the Indian Evidence Act, digital bank statements showing regular monthly transfers to the landlord serve as valid financial records and primary evidence of rent payment, even in the absence of physical rent receipts.\n- **Section 108(m) and (o) of the Transfer of Property Act, 1882:** You are bound to maintain the property subject only to reasonable wear and tear, and the landlord cannot make arbitrary deductions from your security deposit without proper contractual justification.\n- **Model Tenancy Act, 2021 (Guidelines & State Enactments) Section 11 & Section 13:** Security deposits are subject to statutory limits, and landlords are obligated to refund the deposit upon vacating, minus any valid, mutually agreed-upon deductions.\n\n### | Practical Next Steps\n1. Gather evidence: Download and save all your bank account statements clearly showing the monthly rent transfers made to the landlord's account.\n2. Send written demand notice granting 15 days: Issue a formal written communication or demand notice to your landlord requesting the issuance of pending rent receipts for all completed payments and a clear accounting of the security deposit.\n3. Appropriate forum e.g. Rent Authority: If the landlord refuses or attempts unfair deductions, you may approach the local Rent Authority or Rent Controller for dispute resolution.\n\n### Information I still need from you\nWhat is the monthly rent amount, and how long have you been renting this property?",
+  "tokens": 18,
+  "latency": 2.83,
+  "citations": [
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

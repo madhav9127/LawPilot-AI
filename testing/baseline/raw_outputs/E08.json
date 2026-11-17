@@ -1,0 +1,58 @@
+{
+  "test_id": "E08",
+  "category": "Category E — Multilingual Testing",
+  "name": "Telugu Unpaid Wages",
+  "expected": "Fluent Telugu response in Telugu script.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "నా యజమాని గత రెండు నెలలుగా నాకు జీతం చెల్లించలేదు. నేను ఏమి చేయాలి?",
+  "raw_response": "మీ యజమాని జీతం చెల్లించకపోవడం వల్ల మీరు ఎదుర్కొంటున్న ఈ కష్ట సమయంలో మీకు సహాయం చేయడానికి నేను ఇక్కడ ఉన్నాను.\n\n### | మీ పరిస్థితి (Your Situation)\nమీ యజమాని గత రెండు నెలలుగా మీ జీతం చెల్లించకపోవడంతో మీరు ఆర్థిక ఇబ్బందులను ఎదుర్కొంటున్నారు. ఈ సమస్యను పరిష్కరించుకోవడానికి భారతీయ చట్టాల ప్రకారం మీకు తగిన రక్షణ ఉంది.\n\n### | మీ చట్టపరమైన స్థితి (Your Legal Position)\n- ది పేమెంట్ ఆఫ్ వేజెస్ యాక్ట్, 1936 (The Payment of Wages Act, 1936) సెక్షన్ 5 ప్రకారం, వేతన కాలం ముగిసిన తర్వాత 7 వ తేదీ లోపు యజమాని మీకు జీతం చెల్లించాలి.\n- ఇదే చట్టం సెక్షన్ 7 ప్రకారం, అనుమతి లేని లేదా मनमानी కోతలు (arbitrary deductions) చేయడం చట్టవిరుద్ధం.\n- అలాగే, మీ రాష్ట్రానికి సంబంధించిన షాప్స్ అండ్ కమర్షియల్ ఎస్టాబ్లిష్మెంట్స్ యాక్ట్ (Shops and Commercial Establishments Act) ప్రకారం ఉద్యోగులకు సకాలంలో జీతాలు చెల్లించడం యజమాని బాధ్యత.\n- ది పేమెంట్ ఆఫ్ వేజెస్ యాక్ట్, 1936 సెక్షన్ 15 కింద, జీతాలు చెల్లించడంలో ఆలస్యం జరిగితే నిర్ణీత అథారిటీని ఆశ్రయించి, నష్టపరిహారంతో పాటు మీ వేతనాన్ని పొందవచ్చు.\n\n### | ఆచరణాత్మక తదుపరి చర్యలు (Practical Next Steps)\n1. అపాయింట్‌మెంట్ లెటర్, పే స్లిప్స్, బ్యాంక్ స్టేట్‌మెంట్స్ మరియు మీ ఉద్యోగానికి సంబంధించిన అన్ని ఆధారాలను సేకరించండి.\n2. మీ యజమానికి 15 రోజుల గడువు ఇస్తూ పెండింగ్ జీతం చెల్లించాలని కోరుతూ వ్రాతపూర్వక డిమాండ్ నోటీసు పంపండి.\n3. గడువులోగా స్పందించకపోతే, మీ ప్రాంతంలోని లేబర్ కమిషనర్ (Labour Commissioner) లేదా లేబర్ కోర్టును ఆశ్రయించి ఫిర్యాదు చేయండి.\n\n### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం\n1. మీరు పనిచేస్తున్న కంపెనీ లేదా సంస్థ ఏ రాష్ట్రంలో ఉంది?\n2. మీ నెలవారీ జీతం ఎంత మరియు మీ యజమానికి ఈ సమస్య గురించి మీరు ఇంతకుముందు లిఖితపూర్వకంగా తెలియజేశారా?",
+  "tokens": 23,
+  "latency": 3.18,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Multilingual response verified."
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "L13",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Streaming token event structure",
+  "expected": "Streams data: {'type': 'token'} events ending with {'type': 'done'}.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Tell me my rights under Section 5 Payment of Wages Act.",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant ready to help you with your employment, consumer, or tenancy concerns.\n\n### | Your Situation\nYou are seeking information regarding your statutory rights concerning wage timelines and employer obligations under Indian labor law. Specifically, you want to understand the legal protections provided for the timely receipt of your earned remuneration.\n\n### | Your Legal Position\n* Under Section 5 of The Payment of Wages Act, 1936, wages must be paid before the expiry of the seventh day after the last day of the wage period in establishments where fewer than one thousand employees are employed.\n* If an establishment employs one thousand or more persons, Section 5 mandates that wages must be paid before the expiry of the tenth day after the wage period.\n* Under Section 7 of the Act, employers can only make deductions from your wages that are expressly authorized by law, such as provident fund contributions or taxes, meaning arbitrary pay cuts are unlawful.\n* Section 15 of The Payment of Wages Act, 1936 provides you with the right to approach the designated Labour Authority to file a claim for delayed or wrongfully deducted wages, with potential compensation up to ten times the delayed amount.\n\n### | Practical Next Steps\n1. Gather evidence of your employment, including your appointment letter, salary slips, bank statements showing payment history, and any written communication regarding wage delays.\n2. Send a formal written demand notice to your employer demanding the release of your delayed wages and granting them 15 days to comply.\n3. If the employer fails to clear the dues within 15 days, approach the designated Labour Commissioner or Authority under Section 15 of The Payment of Wages Act, 1936 to file a formal claim.\n\n### ℹ️ Information I still need from you\n1. How many days or months of wages are currently pending from your employer?\n2. Approximately how many employees work at your company or establishment?",
+  "tokens": 19,
+  "latency": 2.84,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

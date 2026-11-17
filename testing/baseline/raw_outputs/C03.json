@@ -1,0 +1,58 @@
+{
+  "test_id": "C03",
+  "category": "Category C — Consumer Protection",
+  "name": "Wrong laptop model worth ₹60,000 delivered",
+  "expected": "Cites deficiency in service and delivery of non-conforming goods; explains statutory rights under Consumer Protection Act 2019.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I ordered an i7 laptop for ₹60,000 but received an inferior i3 model. Platform customer care says return window is closed.",
+  "raw_response": "Hello, I understand how frustrating it is to receive an inferior product and face resistance when trying to return it.\n\n### | Your Situation\nYou purchased an i7 laptop for ₹60,000 online, but the e-commerce platform delivered an inferior i3 model and is refusing a return because the return window is allegedly closed.\n\n### | Your Legal Position\n- Under Section 2(7) of the Consumer Protection Act, 2019, you are recognized as a consumer since you bought goods for a valid consideration through an online platform.\n- Delivering a lower specification product than what was ordered and paid for constitutes a deficiency in service and an unfair trade practice under Section 2(47) of the Consumer Protection Act, 2019, which specifically prohibits refusing to refund or take back defective or incorrectly supplied goods.\n- Under Rule 4 and Rule 6 of the Consumer Protection (E-Commerce) Rules, 2020, e-commerce entities are mandated to address grievances through their designated Grievance Officer within the prescribed timelines.\n\n### | Practical Next Steps\n1. Gather evidence including your online order confirmation, payment receipt, invoice, screenshots of the product description, photographs of the received i3 laptop box and system specifications, and written chat or email logs with customer care.\n2. Send a formal written demand notice to the e-commerce platform's Grievance Officer, clearly detailing the wrong delivery and demanding a full refund or replacement, granting them a period of 15 days to comply.\n3. If the platform fails to resolve the issue within 15 days, you may file a formal consumer complaint before the District Consumer Disputes Redressal Commission, which can also be done online through the e-Daakhil portal under Section 35 and Section 38 of the Consumer Protection Act, 2019.\n\n### ℹ️ Information I still need from you\n1. What is the exact name of the e-commerce platform you purchased the laptop from?\n2. Do you have screenshots of the product page showing the i7 specification at the time of purchase?",
+  "tokens": 20,
+  "latency": 3.06,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

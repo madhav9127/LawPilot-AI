@@ -249,6 +249,7 @@ def download_docx(req: DocumentGenerationRequest):
     )
 
 @app.post("/api/upload")
+@app.post("/api/document/upload")
 def upload_document(file: UploadFile = File(...)):
     """Parses and sanitizes user-uploaded documents (Rental agreement, invoice, pay slip)."""
     # Size and extension verification

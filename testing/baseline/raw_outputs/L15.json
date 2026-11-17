@@ -1,0 +1,58 @@
+{
+  "test_id": "L15",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Citation verification in response",
+  "expected": "Includes verified citations: Payment of Wages Act 1936 Sec 5 / 15.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "My employer in Bangalore has not paid my salary.",
+  "raw_response": "Hello! I understand how stressful it is when your hard-earned salary is delayed, and I am here to help you navigate your rights under Indian law.\n\n### | Your Situation\nYou are an employee working in Bangalore whose employer has failed to pay your due salary. This non-payment of wages causes immediate financial hardship and breaches basic employment terms.\n\n### | Your Legal Position\n- Under Section 5 of the Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day after the last day of the wage period (or the 10th day if more than 1,000 persons are employed).\n- Under Section 7 of the Payment of Wages Act, 1936, any arbitrary or unauthorized deduction or delayed payment without statutory authorization is illegal.\n- Under Section 15 of the Payment of Wages Act, 1936, you have the right to approach the designated Labour Authority to claim delayed or unpaid wages, along with compensation up to ten times the delayed amount.\n- Under the Karnataka Shops and Commercial Establishments Act, private and commercial establishments in Bangalore are mandated to clear all earned wages and final settlement dues upon the completion of a pay period or termination/resignation.\n\n### | Practical Next Steps\n1. Gather evidence including your employment agreement, appointment letter, salary slips for previous months, bank statements, and any written communication or emails demanding your unpaid salary.\n2. Send a formal written demand notice to your employer stating the exact unpaid amount and granting 15 days to clear the dues before legal action is initiated.\n3. If the employer fails to pay within 15 days, approach the Office of the Labour Commissioner or the designated Labour Officer in Bangalore to file a formal wage claim application under Section 15 of the Payment of Wages Act.\n\n### ℹ️ Information I still need from you\n1. How many months of salary are currently unpaid, and what is the total amount due?\n2. Do you have a written employment contract or appointment letter detailing your salary terms?",
+  "tokens": 20,
+  "latency": 3.21,
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

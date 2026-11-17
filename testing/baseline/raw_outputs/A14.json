@@ -1,0 +1,58 @@
+{
+  "test_id": "A14",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Stressed over landlord eviction threat",
+  "expected": "Empathetic response recognizing tenancy eviction context; clarifies legal rights against arbitrary eviction.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "I am feeling stressed because my landlord is threatening eviction.",
+  "raw_response": "Hello, I understand how stressful and overwhelming it is to face threats of eviction from your home.\n\n### | Your Situation\nYou are currently facing pressure and threats of eviction from your landlord regarding your rented accommodation. The key issue is whether this threatened eviction complies with the due process of law and protects your tenancy rights.\n\n### | Your Legal Position\n- Under the Transfer of Property Act, 1882 Section 106, a month-to-month tenancy requires a proper 15 days' written notice to terminate, expiring with the end of the tenancy month, unless governed by specific state rent control legislation.\n- Under the Specific Relief Act, 1963 Section 6, if any person is dispossessed of immovable property without their consent otherwise than in due course of law, they can recover possession through a suit, regardless of any other title set up against them. This means a landlord cannot forcefully evict you or resort to self-help without a court order or legal process.\n- State rent control legislations (such as the Maharashtra Rent Control Act, 1999 Section 29 or Delhi Rent Control Act, 1958 Section 45) strictly prohibit landlords from cutting off essential services like water or electricity, and unauthorized eviction attempts are legally punishable.\n\n### | Practical Next Steps\n1. Gather evidence, including your written rental agreement, rent receipts, payment history, text messages, or audio/video recordings of threats or harassment by the landlord.\n2. Send a written demand notice to the landlord through an advocate or personally, pointing out your lawful rights and demanding an end to illegal threats, granting 15 days to rectify the situation.\n3. Approach the appropriate forum, such as the local Rent Authority, Civil Court, or police station, if there is an immediate threat of forced dispossession or if essential amenities are cut off.\n\n### ℹ️ Information I still need from you\n1. In which city and state is your rented property located, and do you have a registered or written rent agreement in place?\n2. Has the landlord served you any written notice yet, or are they only making verbal threats?",
+  "tokens": 20,
+  "latency": 3.64,
+  "citations": [
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Maharashtra Rent Control Act, 1999",
+      "section": "Section 15 & Section 29",
+      "title": "Relief against forfeiture and prohibition against cutting off essential supplies",
+      "description": "No landlord shall without just or sufficient cause cut off or withhold any essential supply or service (water, electricity, lifts) enjoyed by the tenant. Violation is punishable with imprisonment or fine.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2513",
+      "commencement_date": "2000-03-31",
+      "jurisdiction": "State: Maharashtra",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

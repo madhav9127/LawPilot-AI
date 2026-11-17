@@ -1,0 +1,58 @@
+{
+  "test_id": "J08",
+  "category": "Category J — Voice Input",
+  "name": "Incomplete or noisy voice input handling",
+  "expected": "Politely asks user to clarify or re-state the issue without generating hallucinated legal conclusions.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "...deposit... landlord... Jaipur... refusing...",
+  "raw_response": "Hello! I understand how stressful it can be when a landlord refuses to return your hard-earned security deposit.\n\n### | Your Situation\nYou are a tenant located in Jaipur whose landlord is wrongfully refusing to return your security deposit. The key issue is the unjustified withholding of these funds without legal or contractual basis.\n\n### | Your Legal Position\n- Under the Model Tenancy Act, 2021 (and applicable state enactments), the security deposit for residential premises is typically capped, and landlords are legally required to refund it at the time of taking over vacant possession after making only valid, mutually agreed deductions.\n- According to Section 108(m) and (o) of The Transfer of Property Act, 1882, a tenant is only required to return the property subject to \"reasonable wear and tear\" arising from normal usage, meaning landlords cannot make arbitrary deductions for standard aging or routine maintenance like painting without explicit contractual terms.\n- Landlords cannot resort to self-help or forcefully withhold deposits without following due process of law.\n\n### | Practical Next Steps\n1. Gather evidence: Collect your signed tenancy agreement, rent payment receipts, the original security deposit payment proof, move-in/move-out photographs, and all written chat or email communications with your landlord.\n2. Send a written demand notice: Issue a formal legal demand notice to your landlord setting out the facts, demanding the full return of your security deposit, and granting a clear window of 15 days for compliance.\n3. Appropriate forum: If the landlord fails to respond or refund the amount within 15 days, you can approach the local Rent Authority or file a consumer complaint for deficiency of service, or initiate civil recovery proceedings.\n\n### Information I still need from you\n1. What was the exact amount of the security deposit paid, and how long did your tenancy last in Jaipur?\n2. Do you have a written and signed tenancy agreement, and what specific reason has the landlord given for refusing the refund?",
+  "tokens": 19,
+  "latency": 2.81,
+  "citations": [
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

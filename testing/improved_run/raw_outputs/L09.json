@@ -1,0 +1,14 @@
+{
+  "test_id": "L09",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Reset session memory endpoint",
+  "expected": "Successfully resets conversation state for session ID.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "raw_response": "{\"status\":\"ok\",\"session_id\":\"test_reset\"}",
+  "latency": 0.01,
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Session reset completed."
+}

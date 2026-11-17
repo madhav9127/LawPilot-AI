@@ -1,0 +1,48 @@
+{
+  "test_id": "A15",
+  "category": "Category A — General Conversational and Domain Tests",
+  "name": "Preparing for court hearing",
+  "expected": "Clarifies legal assistance vs formal representation; asks nature of dispute and outlines document prep within scope.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "prompt": "Can you help me prepare for a court hearing?",
+  "raw_response": "Hello, I would be glad to help you prepare for your upcoming court hearing and guide you through the process.\n\n### | Your Situation\nYou are seeking preparation assistance for an upcoming court hearing regarding an everyday legal dispute. We need to identify the specific case type and forum to help you prepare effectively.\n\n### | Your Legal Position\n- Under Indian procedural law, you have the right to represent yourself in person or be represented by a qualified advocate.\n- You can seek free legal aid services under Section 12 of The Legal Services Authorities Act, 1987 if you meet the eligibility criteria, such as belonging to covered categories or having an annual income below statutory thresholds.\n- Proper preparation involves organizing all original documents, relevant notices, and written submissions well in advance of the hearing date.\n\n### | Practical Next Steps\n1. Gather evidence: Collect and organize all relevant documents, notices, agreements, receipts, and previous hearing orders in chronological order.\n2. Send written demand notice granting 15 days: Ensure that any mandatory pre-litigation notices or communication attempts with the opposing party are fully documented and ready to present.\n3. Appropriate forum: Confirm the exact court, tribunal, or commission (such as the Consumer Commission, Labour Court, or Rent Authority) where your hearing is scheduled and note the courtroom number and timing.\n\n### ℹ️ Information I still need from you\n1. Which domain does your case belong to (Tenancy, Consumer Protection, or Employment) and which forum is hearing your matter?\n2. What is the specific stage of your case and the exact date of your upcoming hearing?",
+  "tokens": 16,
+  "latency": 7.85,
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Industrial Disputes Act, 1947",
+      "section": "Section 33C(2)",
+      "title": "Recovery of money due from an employer",
+      "description": "Where any workman is entitled to receive from the employer any money or any benefit which is capable of being computed in terms of money, the workman may apply to the Labour Court for recovery.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/11043",
+      "commencement_date": "1947-04-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 90,
+  "evaluation_notes": "Substantive legal response provided."
+}

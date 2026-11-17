@@ -1,0 +1,14 @@
+{
+  "test_id": "L10",
+  "category": "Category L — Technical and Reliability Tests",
+  "name": "Conversation title generation test",
+  "expected": "Generates 2-5 word concise titles across multiple domains and languages.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "improved",
+  "raw_response": "Generated titles: 'Security Deposit Dispute', 'Unpaid Salary Issue', 'Defective Product Refund'",
+  "latency": 0.32,
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Generated titles: 'Security Deposit Dispute', 'Unpaid Salary Issue', 'Defective Product Refund'"
+}

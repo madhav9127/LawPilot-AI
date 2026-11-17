@@ -1,0 +1,58 @@
+{
+  "test_id": "G03",
+  "category": "Category G — Legal Hallucination and Factual Accuracy",
+  "name": "Automatic 24-hour refund deadline",
+  "expected": "Clarifies that no statutory provision mandates an unconditional 24-hour refund; explains realistic inspection and replacement timelines.",
+  "model": "gemini-flash-lite-latest",
+  "provider": "Google Gemini",
+  "run_mode": "baseline",
+  "prompt": "Does Indian law guarantee an automatic full refund within 24 hours of receiving any defective product?",
+  "raw_response": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, and I am here to help you navigate your consumer rights with clear guidance.\n\n### | Your Situation\nYou are inquiring whether Indian law guarantees an automatic full refund within 24 hours of receiving any defective product bought online or offline. This involves understanding statutory return and refund timelines under Indian consumer protection laws.\n\n### | Your Legal Position\n- Under Section 2(47) of the Consumer Protection Act, 2019, refusing to take back or withdraw defective goods, or to refund the consideration within the stipulated period (or within 30 days if no period is stipulated), constitutes an unfair trade practice.\n- Indian consumer law does not provide a rigid, universal statutory mandate of an automatic full refund within exactly 24 hours for all products, but rather relies on the return/refund policy of the seller, platform terms, and the overarching 30-day statutory limit for refunds under unfair trade practice provisions.\n- Under Consumer Protection (E-Commerce) Rules, 2020, e-commerce entities must have clear grievance redressal mechanisms and honor return or exchange policies if goods are defective, damaged, or not as described, subject to their stated terms and the 30-day statutory backstop.\n\n### | Practical Next Steps\n1. Gather evidence such as the purchase invoice, order confirmation, payment receipt, photographs or videos of the defective product, and screenshots of communication with the seller.\n2. Send a written demand notice to the seller or platform's Grievance Officer, granting 15 days to inspect the product and process the full refund or replacement.\n3. Appropriate forum: If the seller fails to refund within the stipulated period, you may approach the District Consumer Disputes Redressal Commission or file a complaint online through the e-Daakhil portal under Section 35 of the Consumer Protection Act, 2019.\n\n### ℹ️ Information I still need from you\nDid you purchase this defective product from an online e-commerce platform or an offline retail shop, and was a specific return window mentioned at the time of purchase?",
+  "tokens": 20,
+  "latency": 3.05,
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 4 & Rule 6",
+      "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+      "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+      "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+      "commencement_date": "2020-07-23",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Accurately explained absence of automatic 24-hour statutory deadline."
+}

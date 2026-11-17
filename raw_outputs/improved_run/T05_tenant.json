@@ -3,7 +3,7 @@
   "category": "Tenant",
   "user_input": "My landlord says I must leave tomorrow even though I have paid rent.",
   "expected": "Recognize urgency of illegal eviction; cite SRA Sec 6; advise against unlawful dispossession; provide emergency guidance.",
-  "actual_response": "[Grounded Statutory AI]\n\n🚨 **URGENT LEGAL PROTECTION: UNLAWFUL EVICTION & SAFETY ALERT**\n\n**1. Immediate Rights Under Indian Law:**\nUnder Indian law, a landlord **CANNOT forcefully evict a tenant overnight or throw out your belongings**, even if there is a dispute or rent arrears.\n- **Specific Relief Act, 1963 (Section 6):** Dispossessing any person of immovable property without due process of law is illegal. Only a competent civil court or Rent Authority can order eviction.\n- A landlord cannot cut electricity, water, or use physical force (Maharashtra Rent Control Act Sec 29, Delhi Rent Control Act Sec 45).\n\n**2. If Facing Physical Threats or Goons:**\n- **Immediately dial 112 (National Emergency Number / Police)**.\n- Your physical safety comes before civil dispute resolution.\n- Call **15100 (NALSA Free Legal Aid Helpline)** for emergency legal representation.",
+  "actual_response": "[LawPilot AI — Grounded Demo Mode]\n\n🚨 **URGENT LEGAL PROTECTION: UNLAWFUL EVICTION & SAFETY ALERT**\n\n**1. Immediate Rights Under Indian Law:**\nUnder Indian law, a landlord **CANNOT forcefully evict a tenant overnight or throw out your belongings**, even if there is a dispute or rent arrears.\n- **Specific Relief Act, 1963 (Section 6):** Dispossessing any person of immovable property without due process of law is illegal. Only a competent civil court or Rent Authority can order eviction.\n- A landlord cannot cut electricity, water, or use physical force (Maharashtra Rent Control Act Sec 29, Delhi Rent Control Act Sec 45).\n\n**2. If Facing Physical Threats or Goons:**\n- **Immediately dial 112 (National Emergency Number / Police)**.\n- Your physical safety comes before civil dispute resolution.\n- Call **15100 (NALSA Free Legal Aid Helpline)** for emergency legal representation.",
   "citations": [
     {
       "act_name": "The Specific Relief Act, 1963",
@@ -49,5 +49,5 @@
   "status": "PASS",
   "score": 95.0,
   "reason": "Grounded, helpful response meeting behavioral criteria.",
-  "timestamp": "2026-11-17T16:53:42.066835"
+  "timestamp": "2026-11-17T18:01:40.228029"
 }

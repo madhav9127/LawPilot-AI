@@ -75,7 +75,8 @@ def chat_endpoint(request: ChatRequest):
         message=request.message,
         conversation_history=request.conversation_history,
         language=request.language,
-        state_jurisdiction=request.state_jurisdiction
+        state_jurisdiction=request.state_jurisdiction,
+        session_id=request.session_id or "default_session"
     )
     return response
 
@@ -168,6 +169,8 @@ def upload_document(file: UploadFile = File(...)):
 @app.post("/api/session/reset")
 def reset_session(session_id: Optional[str] = "default_session"):
     """Resets conversation state for privacy protection."""
+    from app.core.llm_provider import reset_memory
     if session_id in SESSION_STORE:
         del SESSION_STORE[session_id]
-    return {"status": "success", "message": "Session context cleared securely."}
+    reset_memory(session_id)
+    return {"status": "success", "message": f"Session context cleared securely for {session_id}."}

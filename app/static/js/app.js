@@ -5,6 +5,7 @@
 let conversationHistory = [];
 let isSending = false;
 let voiceAssistant = null;
+let currentSessionId = 'session_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
 
 document.addEventListener('DOMContentLoaded', () => {
     initChat();
@@ -44,7 +45,8 @@ function resetChat() {
     document.getElementById('messagesStream').innerHTML = '';
     document.getElementById('welcomeScreen').style.display = 'flex';
     document.getElementById('chatInput').value = '';
-    fetch('/api/session/reset', { method: 'POST' }).catch(() => {});
+    fetch('/api/session/reset?session_id=' + encodeURIComponent(currentSessionId), { method: 'POST' }).catch(() => {});
+    currentSessionId = 'session_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
 }
 
 function useExamplePrompt(text) {
@@ -78,7 +80,8 @@ async function handleSend() {
             body: JSON.stringify({
                 message: message,
                 conversation_history: conversationHistory,
-                language: 'en'
+                language: 'en',
+                session_id: currentSessionId
             })
         });
 

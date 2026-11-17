@@ -3,10 +3,10 @@
   "category": "Memory",
   "user_input": "Correction, the deposit was ₹35,000, not ₹30,000. Now summarize my case.",
   "expected": "Update deposit amount to ₹35,000 and reflect in summary.",
-  "actual_response": "### 📋 Your Case Summary\n\n**1. Facts Explicitly Provided by You:**\n- **Dispute Type:** Security deposit withholding\n- **Parties Involved:** Tenant vs Landlord\n- **Disputed Amount:** ₹35,000\n- **Location:** Jaipur\n- **Incident / Vacate Date:** 1 november\n- **Agreement Status:** Written agreement exists\n- **Available Evidence:** Invoice / Payslips, Bank / UPI transaction records, WhatsApp / SMS communications, Photos / Video evidence\n\n**2. Inferred Legal Context:**\n- Tenancy relationship governed by general civil/tenancy law (Transfer of Property Act, 1882).\n\n**3. Information Still Needed:**\n- All primary case parameters have been recorded.",
+  "actual_response": "### 📋 Your Case Summary\n\n**1. Facts Explicitly Provided by You:**\n- **Dispute Type:** Tenancy dispute\n- **Parties Involved:** Tenant vs Landlord\n- **Disputed Amount:** ₹35,000\n- **Location:** Jaipur\n- **Incident / Vacate Date:** 1 november\n- **Agreement Status:** Written agreement exists\n- **Available Evidence:** Photos / Video evidence\n\n**2. Inferred Legal Context:**\n- Tenancy relationship governed by general civil/tenancy law (Transfer of Property Act, 1882).\n\n**3. Information Still Needed:**\n- All primary case parameters have been recorded.",
   "citations": [],
   "status": "PASS",
   "score": 95.0,
   "reason": "Grounded, helpful response meeting behavioral criteria.",
-  "timestamp": "2026-11-17T16:53:42.131484"
+  "timestamp": "2026-11-17T18:01:40.307586"
 }

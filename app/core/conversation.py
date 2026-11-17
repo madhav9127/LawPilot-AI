@@ -15,8 +15,10 @@ class ConversationCaseMemory:
     def __init__(self, session_id: str = "default"):
         self.session_id = session_id
         self.turns: List[Dict[str, str]] = []
-        
-        # Explicitly provided facts
+        self.reset_facts()
+
+    def reset_facts(self):
+        """Resets all tracked case facts."""
         self.explicit_facts = {
             "dispute_type": None,
             "category": None,
@@ -35,11 +37,7 @@ class ConversationCaseMemory:
             "actions_taken": [],
             "desired_outcome": None
         }
-
-        # Inferred facts
         self.inferred_facts = {}
-
-        # Unknown / Missing facts
         self.unknown_facts = [
             "Exact financial amount in dispute",
             "Location (City / State)",
@@ -51,6 +49,14 @@ class ConversationCaseMemory:
     def update_from_message(self, text: str):
         """Extracts and updates facts from a user turn, respecting corrections."""
         lower = text.lower().strip()
+
+        # Ignore smalltalk / greetings / math from corrupting case memory
+        if any(re.match(p, lower) for p in [
+            r"^(hi|hello|hey|namaste|pranam|good\s*(morning|afternoon|evening))\b",
+            r"^(what\s+is\s+|tell\s+me\s+a\s+joke|who\s+are\s+you|how\s+are\s+you)\b",
+            r"^\d+\s*[\+\-\*\/]\s*\d+"
+        ]):
+            return
 
         # 1. Check for Corrections
         correction_match = re.search(
@@ -65,8 +71,20 @@ class ConversationCaseMemory:
                 self.unknown_facts.remove("Exact financial amount in dispute")
             return
 
-        # 2. Extract Category
+        # 2. Extract Category (with domain switch detection)
+        detected_category = None
         if any(w in lower for w in ["landlord", "tenant", "deposit", "rent", "flat", "evict", "painting", "makandari", "kiraya", "makaan malik"]):
+            detected_category = "tenant"
+        elif any(w in lower for w in ["phone", "laptop", "product", "defective", "order", "seller", "refund", "flipkart", "amazon", "e-commerce", "interior design", "service"]):
+            detected_category = "consumer"
+        elif any(w in lower for w in ["salary", "employer", "company", "boss", "wages", "resigned", "relieving", "fnf", "settlement"]):
+            detected_category = "employment"
+
+        # If user switches domain mid-conversation, clear prior domain facts
+        if detected_category and self.explicit_facts["category"] and detected_category != self.explicit_facts["category"]:
+            self.reset_facts()
+
+        if detected_category == "tenant":
             self.explicit_facts["category"] = "tenant"
             self.explicit_facts["user_role"] = "Tenant"
             self.explicit_facts["counterparty_role"] = "Landlord"
@@ -78,8 +96,10 @@ class ConversationCaseMemory:
                 self.explicit_facts["dispute_type"] = "Unlawful eviction threat"
             elif "repair" in lower or "leak" in lower:
                 self.explicit_facts["dispute_type"] = "Property repair & damages dispute"
+            else:
+                self.explicit_facts["dispute_type"] = "Tenancy dispute"
 
-        elif any(w in lower for w in ["phone", "laptop", "product", "defective", "order", "seller", "refund", "flipkart", "amazon", "e-commerce", "interior design", "service"]):
+        elif detected_category == "consumer":
             self.explicit_facts["category"] = "consumer"
             self.explicit_facts["user_role"] = "Consumer / Buyer"
             self.explicit_facts["counterparty_role"] = "Seller / Service Provider"
@@ -91,8 +111,10 @@ class ConversationCaseMemory:
                 self.explicit_facts["dispute_type"] = "Wrong product delivered"
             elif "service" in lower:
                 self.explicit_facts["dispute_type"] = "Deficiency in service"
+            else:
+                self.explicit_facts["dispute_type"] = "Consumer dispute"
 
-        elif any(w in lower for w in ["salary", "employer", "company", "boss", "wages", "resigned", "relieving", "fnf", "settlement"]):
+        elif detected_category == "employment":
             self.explicit_facts["category"] = "employment"
             self.explicit_facts["user_role"] = "Employee"
             self.explicit_facts["counterparty_role"] = "Employer / Management"
@@ -102,6 +124,8 @@ class ConversationCaseMemory:
                 self.explicit_facts["dispute_type"] = "Unexplained salary deduction"
             elif "relieving" in lower or "settlement" in lower:
                 self.explicit_facts["dispute_type"] = "Withheld final settlement & relieving letter"
+            else:
+                self.explicit_facts["dispute_type"] = "Employment and wage dispute"
 
         # 3. Extract Financial Amounts (if not already extracted via correction)
         if not self.explicit_facts["amount"]:
@@ -217,12 +241,27 @@ class ConversationCaseMemory:
 
         # Priority 1: Missing Amount
         if not ef["amount"]:
-            if language_code == "hi":
-                return "मैं आपकी मदद कर सकता हूँ। सबसे पहले, कृपया बताएं कि कुल कितनी राशि (रुपयों में) विवादित है?"
-            elif language_code == "hinglish":
-                return "Main aapki madad kar sakta hoon. Pehle ye batayein ki dispute me total kitna amount (₹ me) involved hai?"
+            if ef["category"] == "employment":
+                if language_code == "hi":
+                    return "आपकी मासिक सैलरी कितनी तय थी और कुल कितना वेतन बकाया है?"
+                elif language_code == "hinglish":
+                    return "Aapki monthly salary kitni thi aur total kitna salary amount pending hai?"
+                else:
+                    return "What was your agreed monthly salary and the total unpaid salary amount?"
+            elif ef["category"] == "consumer":
+                if language_code == "hi":
+                    return "आपने उस उत्पाद के लिए कुल कितनी राशि का भुगतान किया था?"
+                elif language_code == "hinglish":
+                    return "Aapne defective product ke liye total kitna payment kiya tha?"
+                else:
+                    return "What was the total purchase price paid for the defective product?"
             else:
-                return "I can help you understand your options. First, what is the exact amount of money (in ₹) involved in this dispute?"
+                if language_code == "hi":
+                    return "कृपया बताएं कि कुल कितनी सुरक्षा राशि (रुपयों में) विवादित है?"
+                elif language_code == "hinglish":
+                    return "Dispute me total kitna deposit amount (₹ me) involved hai?"
+                else:
+                    return "What is the exact amount of money (in ₹) involved in this dispute?"
 
         # Priority 2: Missing Location
         if not ef["city"] and not ef["state"]:

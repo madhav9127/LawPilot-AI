@@ -3,7 +3,7 @@
   "category": "Retrieval",
   "user_input": "Has the Consumer Protection Act 1986 been replaced by a current law?",
   "expected": "Affirm that CPA 1986 was repealed and replaced by CPA 2019.",
-  "actual_response": "[Grounded Statutory AI]\n\n### 📜 Legislative Update: Consumer Protection Act, 2019\n\n- **The Consumer Protection Act, 1986 has been completely repealed and replaced by the Consumer Protection Act, 2019**, which commenced on **20 July 2020**.\n- **Key Changes:**\n  - Explicit inclusion of online and e-commerce transactions under Section 2(7).\n  - Creation of the Central Consumer Protection Authority (CCPA).\n  - Introduction of online filing through **e-Daakhil** without requiring physical advocate presence.\n  - Statutory rules for E-Commerce entities (Consumer Protection E-Commerce Rules, 2020).\n\nAll consumer claims today must be filed under the **Consumer Protection Act, 2019**.",
+  "actual_response": "[LawPilot AI — Grounded Demo Mode]\n\n### 📜 Legislative Update: Consumer Protection Act, 2019\n\n- **The Consumer Protection Act, 1986 has been completely repealed and replaced by the Consumer Protection Act, 2019**, which commenced on **20 July 2020**.\n- **Key Changes:**\n  - Explicit inclusion of online and e-commerce transactions under Section 2(7).\n  - Creation of the Central Consumer Protection Authority (CCPA).\n  - Introduction of online filing through **e-Daakhil** without requiring physical advocate presence.\n  - Statutory rules for E-Commerce entities (Consumer Protection E-Commerce Rules, 2020).\n\nAll consumer claims today must be filed under the **Consumer Protection Act, 2019**.",
   "citations": [
     {
       "act_name": "The Consumer Protection Act, 2019",
@@ -49,5 +49,5 @@
   "status": "PASS",
   "score": 95.0,
   "reason": "Grounded, helpful response meeting behavioral criteria.",
-  "timestamp": "2026-11-17T16:53:42.147669"
+  "timestamp": "2026-11-17T18:01:40.328975"
 }

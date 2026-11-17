@@ -6,12 +6,13 @@ Clean, ChatGPT-like interface built with Streamlit.
 import streamlit as st
 import os
 import sys
+import uuid
 
 # Ensure root path is imported
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from app.models.schemas import LanguageEnum, CaseCategoryEnum, DocumentTypeEnum, DocumentGenerationRequest
-from app.core.llm_provider import LLMProviderFactory
+from app.core.llm_provider import LLMProviderFactory, reset_memory
 from app.core.document_generator import DocumentGenerator
 
 st.set_page_config(
@@ -87,23 +88,45 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Initialize Session Messages
+# Initialize Session Messages and Unique Session ID
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+if "session_id" not in st.session_state:
+    st.session_state.session_id = f"st_{uuid.uuid4().hex[:8]}"
+
+# Helper to process user message and generate assistant response
+def process_and_reply(user_msg: str):
+    st.session_state.messages.append({"role": "user", "content": user_msg})
+    provider = LLMProviderFactory.get_provider()
+    resp = provider.generate_response(
+        message=user_msg,
+        conversation_history=st.session_state.messages[:-1],
+        language=LanguageEnum.ENGLISH,
+        session_id=st.session_state.session_id
+    )
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": resp.content,
+        "citations": resp.citations
+    })
 
 # Sidebar for simple options & reset
 with st.sidebar:
     st.markdown("### ⚙️ Session Options")
     if st.button("🔄 Start New Conversation", use_container_width=True):
+        reset_memory(st.session_state.session_id)
         st.session_state.messages = []
+        st.session_state.session_id = f"st_{uuid.uuid4().hex[:8]}"
         st.rerun()
 
     st.markdown("---")
+    st.markdown(f"**Session ID:** `{st.session_state.session_id}`")
     st.markdown("**Core Supported Domains:**")
     st.markdown("- 🏠 Tenant & Landlord Disputes\n- 🛒 Consumer Protection\n- 💼 Employment Issues")
     st.markdown("---")
     st.markdown("**Emergency Helplines:**")
-    st.markdown("- **Police Emergency:** 112\n- **NALSA Free Legal Aid:** 15100\n- **Consumer Helpline:** 1915")
+    st.markdown("- **Police Emergency:** 112\n- **NALSA Free Legal Aid:** 15100\n- **Consumer Helpline:** 1915\n- **Medical Emergency:** 108")
 
 # Initial Welcome Screen (Disappears once chat has messages)
 if len(st.session_state.messages) == 0:
@@ -120,17 +143,17 @@ if len(st.session_state.messages) == 0:
     c1, c2 = st.columns(2)
     with c1:
         if st.button("🏠 My landlord is refusing to return my security deposit.", use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": "My landlord is refusing to return my security deposit."})
+            process_and_reply("My landlord is refusing to return my security deposit.")
             st.rerun()
         if st.button("💼 My company has not paid my salary for two months.", use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": "My company has not paid my salary for two months."})
+            process_and_reply("My company has not paid my salary for two months.")
             st.rerun()
     with c2:
         if st.button("🛒 I purchased a defective product and the seller is refusing a refund.", use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": "I purchased a defective product and the seller is refusing a refund."})
+            process_and_reply("I purchased a defective product and the seller is refusing a refund.")
             st.rerun()
         if st.button("📑 Help me understand a legal notice I received.", use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": "Help me understand a legal notice I received."})
+            process_and_reply("Help me understand a legal notice I received.")
             st.rerun()
 
 # Display Chat Messages
@@ -138,40 +161,27 @@ for i, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
         
+        # Display citations if present
+        if msg.get("citations"):
+            st.markdown("---")
+            st.markdown("**Verified Statutory Citations:**")
+            for c in msg["citations"]:
+                st.markdown(f"- [{c.act_name} — {c.section}]({c.official_url}): *{c.title}*")
+
         # In-chat actions for assistant messages
         if msg["role"] == "assistant":
             col_act1, col_act2 = st.columns([1, 1])
             with col_act1:
                 if st.button("📄 Draft Legal Notice", key=f"btn_draft_{i}"):
-                    st.session_state.messages.append({"role": "user", "content": "Draft a formal legal notice based on our conversation."})
+                    process_and_reply("Draft a formal legal notice based on our conversation.")
                     st.rerun()
             with col_act2:
                 if st.button("📊 Show Case Summary", key=f"btn_sum_{i}"):
-                    st.session_state.messages.append({"role": "user", "content": "Summarize my case and tell me what information is missing."})
+                    process_and_reply("Summarize my case and tell me what information is missing.")
                     st.rerun()
 
 # Chat Input
 user_input = st.chat_input("Describe your legal issue in English, Hindi, or Hinglish...")
 if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    with st.chat_message("user"):
-        st.markdown(user_input)
-
-    # Generate Grounded AI Response
-    provider = LLMProviderFactory.get_provider()
-    resp = provider.generate_response(
-        message=user_input,
-        conversation_history=st.session_state.messages,
-        language=LanguageEnum.ENGLISH
-    )
-
-    with st.chat_message("assistant"):
-        st.markdown(resp.content)
-        if resp.citations:
-            st.markdown("---")
-            st.markdown("**Verified Statutory Citations:**")
-            for c in resp.citations:
-                st.markdown(f"- [{c.act_name} — {c.section}]({c.official_url}): *{c.title}*")
-
-    st.session_state.messages.append({"role": "assistant", "content": resp.content})
+    process_and_reply(user_input)
     st.rerun()

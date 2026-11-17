@@ -80,6 +80,39 @@ def chat_endpoint(request: ChatRequest):
     )
     return response
 
+@app.post("/api/chat/stream")
+def chat_stream_endpoint(request: ChatRequest):
+    """Streams legal conversation analysis using Server-Sent Events (SSE)."""
+    provider = LLMProviderFactory.get_provider()
+    response = provider.generate_response(
+        message=request.message,
+        conversation_history=request.conversation_history,
+        language=request.language,
+        state_jurisdiction=request.state_jurisdiction,
+        session_id=request.session_id or "default_session"
+    )
+
+    def event_stream():
+        # Stream response words for instant visual feedback
+        words = response.content.split(" ")
+        for i, word in enumerate(words):
+            chunk = word if i == len(words) - 1 else word + " "
+            yield f"data: {json.dumps({'type': 'token', 'content': chunk})}\n\n"
+        
+        citations_data = [c.dict() for c in response.citations]
+        yield f"data: {json.dumps({'type': 'done', 'citations': citations_data, 'verification_status': response.verification_status.value if response.verification_status else None})}\n\n"
+
+    return StreamingResponse(event_stream(), media_type="text/event-stream")
+
+@app.post("/api/session/reset")
+def reset_session(session_id: str):
+    """Resets conversation state for the given session ID."""
+    from app.core.llm_provider import reset_memory
+    reset_memory(session_id)
+    if session_id in SESSION_STORE:
+        del SESSION_STORE[session_id]
+    return {"status": "ok", "session_id": session_id}
+
 @app.post("/api/case/extract", response_model=CaseData)
 def extract_case_endpoint(request: ChatRequest):
     """Extracts structured case facts from user text."""

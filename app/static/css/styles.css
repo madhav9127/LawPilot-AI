@@ -154,10 +154,10 @@ body {
     font-size: 0.84rem;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: background 0.15s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+    position: relative;
+    user-select: none;
 }
 
 .history-item:hover {
@@ -166,9 +166,14 @@ body {
 }
 
 .history-item.active {
-    background-color: #f1f5f9;
+    background-color: #eff6ff;
     color: var(--primary);
+    border-color: #bfdbfe;
     font-weight: 600;
+}
+
+.history-item.active .history-icon {
+    color: var(--primary);
 }
 
 .history-icon {
@@ -177,8 +182,38 @@ body {
 }
 
 .history-text {
+    flex: 1;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.history-delete-btn {
+    opacity: 0;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: opacity 0.15s, color 0.15s;
+}
+
+.history-item:hover .history-delete-btn {
+    opacity: 1;
+}
+
+.history-delete-btn:hover {
+    color: #ef4444;
+    background: #fee2e2;
+}
+
+.empty-history-hint {
+    padding: 12px 10px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
 }
 
 .sidebar-footer {
@@ -404,6 +439,36 @@ body {
     line-height: 1.5;
     max-width: 78%;
     word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.msg-error-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.86rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.retry-btn {
+    background: #dc2626;
+    color: #ffffff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.retry-btn:hover {
+    background: #b91c1c;
 }
 
 .msg-timestamp {
@@ -804,9 +869,15 @@ body {
     flex-shrink: 0;
 }
 
-.send-circle-btn:hover {
+.send-circle-btn:hover:not(:disabled) {
     background: var(--primary-hover);
     transform: scale(1.04);
+}
+
+.send-circle-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
 .legal-disclaimer-text {

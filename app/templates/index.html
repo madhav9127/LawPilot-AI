@@ -34,22 +34,11 @@
                 <span>New Chat</span>
             </button>
 
-            <!-- Chat History / Topics Section -->
+            <!-- Chat History / Conversations Section -->
             <div class="sidebar-section">
-                <div class="section-label">Today</div>
+                <div class="section-label">Conversations</div>
                 <div class="chat-history-list" id="historyList">
-                    <div class="history-item active" onclick="loadPrompt('My landlord in Jaipur is refusing to return my ₹25,000 security deposit. I vacated the flat 20 days ago. What can I do?')">
-                        <span class="history-icon">💬</span>
-                        <span class="history-text">Security deposit dispute</span>
-                    </div>
-                    <div class="history-item" onclick="loadPrompt('My employer in Bangalore has not paid my salary for two months. What legal steps can I take?')">
-                        <span class="history-icon">💬</span>
-                        <span class="history-text">Unpaid salary issue</span>
-                    </div>
-                    <div class="history-item" onclick="loadPrompt('I purchased a defective phone online and the seller is refusing to refund or replace it.')">
-                        <span class="history-icon">💬</span>
-                        <span class="history-text">Defective product refund</span>
-                    </div>
+                    <!-- Populated dynamically from localStorage state -->
                 </div>
             </div>
 

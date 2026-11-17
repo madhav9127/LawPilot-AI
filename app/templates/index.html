@@ -242,16 +242,13 @@
         <div class="modal-card">
             <div class="modal-header">
                 <h3 class="modal-title">LawPilot AI Settings</h3>
-                <button class="modal-close-btn" onclick="closeSettingsModal()">✕</button>
+                <button class="modal-close-btn" id="closeSettingsBtn" onclick="closeSettingsModal()" aria-label="Close Settings">✕</button>
             </div>
             <div class="modal-body">
                 <p><strong>Active AI Engine:</strong> Google Gemini 1.5/3.8 Flash (Interactions API)</p>
                 <p><strong>Statutory Knowledge Base:</strong> 100% Grounded in India Code & Central Gazette</p>
                 <p><strong>Supported Domains:</strong> Tenant-Landlord Disputes, Consumer Protection, Employment Issues</p>
                 <p><strong>Safety Boundaries:</strong> Automatic Escalation for Physical Violence (112) & Medical Emergencies (108)</p>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-action-btn primary" onclick="closeSettingsModal()">Close</button>
             </div>
         </div>
     </div>

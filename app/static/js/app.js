@@ -1003,14 +1003,54 @@ function closeDocModal() {
     if (docModal) docModal.style.display = 'none';
 }
 
+function openSettingsModal() {
+    const settingsModal = document.getElementById('settingsModal');
+    if (settingsModal) settingsModal.style.display = 'flex';
+}
+
+function closeSettingsModal() {
+    const settingsModal = document.getElementById('settingsModal');
+    if (settingsModal) settingsModal.style.display = 'none';
+}
+
 function initModals() {
     const settingsBtn = document.getElementById('settingsBtn');
     if (settingsBtn) {
-        settingsBtn.addEventListener('click', () => {
-            const settingsModal = document.getElementById('settingsModal');
-            if (settingsModal) settingsModal.style.display = 'flex';
+        settingsBtn.addEventListener('click', openSettingsModal);
+    }
+
+    const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+    if (closeSettingsBtn) {
+        closeSettingsBtn.addEventListener('click', closeSettingsModal);
+    }
+
+    // Backdrop click on Settings Modal
+    const settingsModal = document.getElementById('settingsModal');
+    if (settingsModal) {
+        settingsModal.addEventListener('click', (e) => {
+            if (e.target === settingsModal) {
+                closeSettingsModal();
+            }
         });
     }
+
+    // Backdrop click on Document Modal
+    const docModal = document.getElementById('docModal');
+    if (docModal) {
+        docModal.addEventListener('click', (e) => {
+            if (e.target === docModal) {
+                closeDocModal();
+            }
+        });
+    }
+
+    // Global Escape key listener to close modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeSettingsModal();
+            closeDocModal();
+        }
+    });
 
     const aboutBtn = document.getElementById('aboutBtn');
     if (aboutBtn) {

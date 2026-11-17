@@ -505,22 +505,56 @@ class DeterministicDemoProvider(BaseLLMProvider):
             days_held = "20 days" if "20 days" in user_msg.lower() else "an extended period"
             loc = city_str if ef["city"] else ("Jaipur" if "jaipur" in user_msg.lower() else "your city")
             
-            return (
-                f"I can help you with this. Here's a clear overview based on Indian law and typical tenancy principles.\n\n"
-                f"### | Your Situation\n"
-                f"You have vacated the property and your landlord is not returning the {amt_str} security deposit (held for {days_held}) in {loc}. "
-                f"This is a tenancy-related dispute about return of the deposit.\n\n"
-                f"### | Your Legal Position\n"
-                f"* A security deposit is meant to cover unpaid rent or actual damages, not routine wear and tear.\n"
-                f"* **The Model Tenancy Act, 2021 (Section 11)** – provides that a security deposit should be returned after adjusting lawful dues. Its applicability may depend on state adoption.\n"
-                f"* **General principles under the Transfer of Property Act, 1882 (Section 108)** – the tenant must return the property in a reasonable condition, subject to normal wear and tear.\n\n"
-                f"### | Practical Next Steps\n"
-                f"1. **Gather evidence** – rental agreement (if any), payment records (UPI/bank), handover photos, and WhatsApp/emails with the landlord.\n"
-                f"2. **Send a written demand** – request return of the {amt_str} with a reasonable time (e.g., 7–15 days).\n"
-                f"3. **If unresolved** – you may consider a complaint before the local Rent Authority or a civil suit for recovery of money.\n\n"
-                f"### ℹ️ Information I still need from you\n"
-                f"{fu_question}"
-            )
+            lang_val = language.value if hasattr(language, "value") else str(language).lower()
+            if lang_val in ["hi", "hindi"]:
+                return (
+                    f"मैं आपकी इसमें पूरी सहायता कर सकता हूँ। भारतीय कानून और किरायेदारी नियमों के आधार पर आपका विवरण इस प्रकार है:\n\n"
+                    f"### | आपकी स्थिति (Your Situation)\n"
+                    f"आपने संपत्ति खाली कर दी है और आपका मकान मालिक {loc} में आपका {amt_str} का सिक्योरिटी डिपॉज़िट ({days_held} से) वापस नहीं कर रहा है। यह डिपॉज़िट वापसी से जुड़ा एक किरायेदारी विवाद है।\n\n"
+                    f"### | आपकी कानूनी स्थिति (Your Legal Position)\n"
+                    f"* एक सिक्योरिटी डिपॉज़िट केवल बकाया किराये या वास्तविक नुकसान की भरपाई के लिए होता है, सामान्य टूट-फूट के लिए नहीं।\n"
+                    f"* **मॉडल टेनेंसी एक्ट, 2021 (धारा 11)** – प्रावधान करता है कि वैध कटौती के बाद सिक्योरिटी डिपॉज़िट तुरंत लौटाया जाना चाहिए।\n"
+                    f"* **संपत्ति अंतरण अधिनियम, 1882 (धारा 108)** – किरायेदार सामान्य टूट-फूट (routine wear and tear) को छोड़कर संपत्ति को उचित स्थिति में सौंपने के लिए जिम्मेदार है।\n\n"
+                    f"### | व्यावहारिक अगले कदम (Practical Next Steps)\n"
+                    f"1. **साक्ष्य एकत्रित करें** – रेंट एग्रीमेंट, बैंक/UPI ट्रांसफर रसीदें, खाली करते समय की तस्वीरें और मकान मालिक के साथ चैट संभाल कर रखें।\n"
+                    f"2. **लिखित मांग पत्र (Demand Notice) भेजें** – मकान मालिक को 7 से 15 दिनों का समय देकर {amt_str} की राशि वापस करने की औपचारिक मांग करें।\n"
+                    f"3. **समाधान न होने पर** – स्थानीय रेंट अथॉरिटी में शिकायत दर्ज करें या पैसे की वसूली के लिए दीवानी अदालत का रुख करें।\n\n"
+                    f"### ℹ️ आपसे आवश्यक जानकारी\n"
+                    f"क्या आपके पास लिखित रेंट एग्रीमेंट है और क्या मकान मालिक ने डिपॉज़िट रोकने का कोई औपचारिक कारण बताया है?"
+                )
+            elif lang_val in ["hinglish"]:
+                return (
+                    f"Main isme aapki poori madad kar sakta hoon. Indian law aur tenancy principles ke mutabik clear overview ye hai:\n\n"
+                    f"### | Your Situation (Aapki Situation)\n"
+                    f"Aapne flat khali kar diya hai aur {loc} me aapka landlord {amt_str} ka security deposit ({days_held} se) return nahi kar raha hai. Ye tenancy deposit dispute ka mamla hai.\n\n"
+                    f"### | Your Legal Position (Aapke Kanooni Adhikar)\n"
+                    f"* Security deposit sirf unpaid rent ya actual damages ke liye deduct ho sakta hai, normal wear-and-tear ke liye bilkul nahi.\n"
+                    f"* **Model Tenancy Act, 2021 (Section 11)** – Provides that lawful dues ke baad landlord ko poora security deposit return karna hota hai.\n"
+                    f"* **Transfer of Property Act, 1882 (Section 108)** – Tenant property ko reasonable condition me hand-over karta hai, routine wear-and-tear deductible nahi hai.\n\n"
+                    f"### | Practical Next Steps (Agla Kadam)\n"
+                    f"1. **Evidence collect karein** – Rental agreement, UPI/bank transfer records, flat handover photos, aur landlord ke saath WhatsApp/email chat save karein.\n"
+                    f"2. **Formal Written Demand Notice bhejein** – Landlord ko 7-15 days ka formal time dekar {amt_str} refund ki written demand karein.\n"
+                    f"3. **Agar refund na mile** – Local Rent Authority me complaint lodge karein ya money recovery ka legal step lein.\n\n"
+                    f"### ℹ️ Information I still need from you (Zaroori Jankari)\n"
+                    f"Kya aapke paas written rental agreement hai aur landlord ne deposit rokne ka koi specific reason diya hai?"
+                )
+            else:
+                return (
+                    f"I can help you with this. Here's a clear overview based on Indian law and typical tenancy principles.\n\n"
+                    f"### | Your Situation\n"
+                    f"You have vacated the property and your landlord is not returning the {amt_str} security deposit (held for {days_held}) in {loc}. "
+                    f"This is a tenancy-related dispute about return of the deposit.\n\n"
+                    f"### | Your Legal Position\n"
+                    f"* A security deposit is meant to cover unpaid rent or actual damages, not routine wear and tear.\n"
+                    f"* **The Model Tenancy Act, 2021 (Section 11)** – provides that a security deposit should be returned after adjusting lawful dues. Its applicability may depend on state adoption.\n"
+                    f"* **General principles under the Transfer of Property Act, 1882 (Section 108)** – the tenant must return the property in a reasonable condition, subject to normal wear and tear.\n\n"
+                    f"### | Practical Next Steps\n"
+                    f"1. **Gather evidence** – rental agreement (if any), payment records (UPI/bank), handover photos, and WhatsApp/emails with the landlord.\n"
+                    f"2. **Send a written demand** – request return of the {amt_str} with a reasonable time (e.g., 7–15 days).\n"
+                    f"3. **If unresolved** – you may consider a complaint before the local Rent Authority or a civil suit for recovery of money.\n\n"
+                    f"### ℹ️ Information I still need from you\n"
+                    f"{fu_question}"
+                )
 
         # -------------------------------------------------------------
         # DOMAIN 2: EMPLOYMENT & UNPAID SALARY
@@ -631,22 +665,49 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             )
             return ChatMessage(role="assistant", content=content, citations=[])
 
+        # Determine language directive
+        lang_str = language.value if hasattr(language, "value") else str(language).lower()
+        if lang_str in ["hi", "hindi"]:
+            lang_rule = (
+                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: You MUST reply entirely in pure, clear, empathetic HINDI (हिंदी - Devanagari script).\n"
+                "Use Hindi section headers:\n"
+                "'### | आपकी स्थिति (Your Situation)'\n"
+                "'### | आपकी कानूनी स्थिति (Your Legal Position)'\n"
+                "'### | व्यावहारिक अगले कदम (Practical Next Steps)'\n"
+                "'### ℹ️ आपसे आवश्यक जानकारी (Information I still need from you)'\n"
+                "Explain the legal position and steps in simple Hindi that an ordinary Indian citizen can easily understand.\n"
+                "Do NOT reply in English."
+            )
+        elif lang_str in ["hinglish"]:
+            lang_rule = (
+                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: You MUST reply in conversational HINGLISH (Roman Hindi + English legal terms, as spoken commonly across India).\n"
+                "Use headers:\n"
+                "'### | Your Situation (Aapki Situation)'\n"
+                "'### | Your Legal Position (Aapke Kanooni Adhikar)'\n"
+                "'### | Practical Next Steps (Agla Kadam)'\n"
+                "'### ℹ️ Information I still need from you (Zaroori Jankari)'\n"
+                "Explain the points in conversational Hinglish (e.g. 'Aapki situation me landlord bina valid notice ya deduction ke deposit nahi rok sakta. Model Tenancy Act ke mutabik lawful dues ke baad poora deposit return karna hota hai...').\n"
+                "Do NOT write in pure English or pure Devanagari script."
+            )
+        else:
+            lang_rule = (
+                "CRITICAL MANDATORY LANGUAGE REQUIREMENT: Reply in plain, clear, professional ENGLISH.\n"
+                "Use headers: '### | Your Situation', '### | Your Legal Position', '### | Practical Next Steps', '### ℹ️ Information I still need from you'."
+            )
+
         system_instruction = (
             "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens in India.\n"
             "You cover 3 everyday domains: (1) Tenant & Landlord Disputes, (2) Consumer Protection, (3) Employment Issues.\n\n"
+            f"{lang_rule}\n\n"
             "MANDATORY FORMAT RULES:\n"
             "For legal questions or disputes, format your answer strictly using this clean layout:\n"
-            "1. A friendly, empathetic 1-sentence opening.\n"
-            "2. ### | Your Situation\n"
-            "   (Brief 2-sentence summary of the facts: parties, amount, location, key issue)\n"
-            "3. ### | Your Legal Position\n"
-            "   (Bullet points explaining statutory rights under Indian law using the verified statutes below. In tenancy, explain reasonable wear and tear. In employment, explain Section 5 Payment of Wages Act. In consumer, explain Section 2(47) CPA 2019. Never invent fake sections or judgments.)\n"
-            "4. ### | Practical Next Steps\n"
-            "   (Numbered 1, 2, 3: 1. Gather evidence, 2. Send written demand notice granting 15 days, 3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner)\n"
-            "5. ### ℹ️ Information I still need from you\n"
-            "   (Ask 1 or 2 targeted missing questions naturally)\n\n"
+            "1. A friendly, empathetic 1-sentence opening in the chosen language.\n"
+            "2. Situation section (Brief 2-sentence summary of the facts: parties, amount, location, key issue)\n"
+            "3. Legal Position section (Bullet points explaining statutory rights under Indian law using the verified statutes below. In tenancy, explain reasonable wear and tear. In employment, explain Section 5 Payment of Wages Act. In consumer, explain Section 2(47) CPA 2019. Never invent fake sections or judgments.)\n"
+            "4. Practical Next Steps section (Numbered 1, 2, 3: 1. Gather evidence, 2. Send written demand notice granting 15 days, 3. Appropriate forum e.g. Rent Authority, Consumer Commission, Labour Commissioner)\n"
+            "5. Information I still need from you section (Ask 1 or 2 targeted missing questions naturally)\n\n"
             "FOR CASUAL REMARKS, GREETINGS ('Hi', 'Hello'), CLOSINGS ('Bye', 'Thank you'), MATH ('2+2'), OR JOKES:\n"
-            "Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI.\n\n"
+            "Do NOT output the legal dispute headers. Respond naturally, politely, and warmly as LawPilot AI in the chosen language.\n\n"
             "ETHICAL BOUNDARIES:\n"
             "- Never guarantee a 100% court win.\n"
             "- Refuse requests to invent non-existent sections.\n"

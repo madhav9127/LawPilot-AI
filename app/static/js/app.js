@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpeech();
     initFileUpload();
     initModals();
+    initLanguageSelector();
 });
 
 function initChat() {
@@ -198,21 +199,21 @@ function copyAssistantText(btn) {
     }
 }
 
-// Format markdown according to the reference image design
+// Format markdown according to the reference image design (Supports English, Hindi, Hinglish)
 function formatLegalMarkdown(text) {
     let html = escapeHtml(text);
 
-    // Section headers: "### | Your Situation", "### | Your Legal Position", "### | Practical Next Steps"
+    // Section headers: "### | Your Situation", "### | आपकी स्थिति", etc.
     html = html.replace(/###\s*\|\s*([^\n]+)/g, '<div class="section-header-bar">$1</div>');
     html = html.replace(/###\s*([^\n]+)/g, '<div class="section-header-bar">$1</div>');
 
-    // Callout box for Information I still need from you
-    html = html.replace(/ℹ️\s*Information\s*I\s*still\s*need\s*from\s*you\s*([\s\S]*?)(?=(?:<div class="section-header-bar"|$))/gi, (match, body) => {
+    // Callout box for Information I still need from you (supports English, Hindi, Hinglish)
+    html = html.replace(/(?:ℹ️\s*)?(?:Information\s*I\s*still\s*need\s*from\s*you|आपसे\s*आवश्यक\s*जानकारी|Zaroori\s*Jankari)\s*([\s\S]*?)(?=(?:<div class="section-header-bar"|$))/gi, (match, body) => {
         return `
             <div class="info-callout-card">
                 <div class="info-callout-title">
                     <span>ℹ️</span>
-                    <span>Information I still need from you</span>
+                    <span>Information I still need from you / आवश्यक जानकारी</span>
                 </div>
                 <div class="info-callout-body">${body.trim()}</div>
             </div>
@@ -424,18 +425,51 @@ function initFileUpload() {
     }
 }
 
-/* --- ChatGPT-Style Responsive Voice Speech Recognition --- */
+/* --- Language Selector Controller --- */
+function initLanguageSelector() {
+    const langSelect = document.getElementById('languageSelect');
+    const chatInput = document.getElementById('chatInput');
+    const toast = document.getElementById('langSwitchToast');
+
+    if (!langSelect) return;
+
+    langSelect.addEventListener('change', () => {
+        const val = langSelect.value;
+        let toastMsg = "";
+
+        if (val === 'hi') {
+            chatInput.placeholder = "अपनी कानूनी समस्या यहाँ लिखें (जैसे: मकान मालिक डिपॉज़िट नहीं दे रहा)...";
+            toastMsg = "🇮🇳 भाषा: हिंदी (Hindi) — LawPilot AI हिंदी में उत्तर देगा";
+        } else if (val === 'hinglish') {
+            chatInput.placeholder = "Apni legal problem yahan likhein (e.g. landlord deposit nahi de raha)...";
+            toastMsg = "🇮🇳 Language: Hinglish — LawPilot AI Hinglish me reply karega";
+        } else {
+            chatInput.placeholder = "Describe your legal problem in plain English...";
+            toastMsg = "🌐 Language: English — LawPilot AI will respond in English";
+        }
+
+        if (toast) {
+            toast.innerText = toastMsg;
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                if (toast) toast.style.display = 'none';
+            }, 3000);
+        }
+    });
+}
+
+/* --- ChatGPT Voice Mode Inside-The-Bar (Matching User Reference Image 3) --- */
 function initSpeech() {
     const voiceBtn = document.getElementById('voiceBtn');
     const chatInput = document.getElementById('chatInput');
-    const inputCard = document.getElementById('floatingInputCard');
-    const voiceBanner = document.getElementById('voiceListeningBanner');
-    const voiceDoneBtn = document.getElementById('voiceDoneBtn');
-    const voiceLangHint = document.getElementById('voiceLangHint');
+    const attachBtn = document.getElementById('attachBtn');
+    const voiceTrack = document.getElementById('chatgptVoiceTrack');
+    const stopBtn = document.getElementById('chatgptStopBtn');
+    const sendBtn = document.getElementById('sendBtn');
+    const waveformBars = document.getElementById('waveformBars');
     const errorToast = document.getElementById('voiceErrorToast');
-    const eqBarsContainer = document.getElementById('voiceEqBars');
 
-    if (!voiceBtn || !chatInput) return;
+    if (!voiceBtn || !chatInput || !voiceTrack || !stopBtn) return;
 
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
         voiceBtn.title = 'Speech recognition not supported in this browser';
@@ -448,9 +482,9 @@ function initSpeech() {
     let isListening = false;
     let startingText = '';
     let committedTranscript = '';
-    let originalPlaceholder = chatInput.placeholder || "Describe your legal problem in English, Hindi, or any language...";
+    let currentInterim = '';
 
-    // Audio Visualizer State
+    // Web Audio Visualizer State
     let audioStream = null;
     let audioCtx = null;
     let analyserNode = null;
@@ -475,33 +509,24 @@ function initSpeech() {
             isListening = true;
             startingText = chatInput.value ? (chatInput.value.trim() + ' ') : '';
             committedTranscript = '';
-            
-            // UI Animations (ChatGPT-style)
-            voiceBtn.classList.add('listening');
-            voiceBtn.title = 'Click to finish speaking';
-            if (inputCard) inputCard.classList.add('listening');
-            if (voiceBanner) voiceBanner.style.display = 'flex';
+            currentInterim = '';
+
+            // Switch UI into ChatGPT Voice Waveform Mode (Image 3)
+            attachBtn.style.display = 'none';
+            chatInput.style.display = 'none';
+            voiceBtn.style.display = 'none';
+
+            voiceTrack.style.display = 'flex';
+            stopBtn.style.display = 'flex';
+
             if (errorToast) errorToast.style.display = 'none';
 
-            // Placeholder feedback
-            chatInput.placeholder = "Listening... Speak your legal problem now (English / हिंदी / Hinglish)...";
-
-            // Language hint update
-            if (voiceLangHint) {
-                const lang = getSelectedLang();
-                if (lang === 'hi-IN') {
-                    voiceLangHint.innerText = 'हिंदी या हिंग्लिश में बोलें';
-                } else {
-                    voiceLangHint.innerText = 'Speak in Indian English or Hindi';
-                }
-            }
-
-            // Start reactive sound wave
+            // Start Audio Wave Visualizer
             startAudioWave();
         };
 
         rec.onresult = (event) => {
-            let interimTranscript = '';
+            let interim = '';
             let newFinal = '';
 
             for (let i = event.resultIndex; i < event.results.length; ++i) {
@@ -509,37 +534,27 @@ function initSpeech() {
                 if (event.results[i].isFinal) {
                     newFinal += text + ' ';
                 } else {
-                    interimTranscript += text;
+                    interim += text;
                 }
             }
 
             if (newFinal) {
                 committedTranscript += newFinal;
             }
-
-            // Live real-time streaming into the textarea!
-            const liveTotal = (startingText + committedTranscript + interimTranscript).trim();
-            chatInput.value = liveTotal;
-
-            // Auto-resize input box to fit dictated content
-            chatInput.style.height = 'auto';
-            chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
+            currentInterim = interim;
         };
 
         rec.onerror = (event) => {
             console.warn("Speech recognition error:", event.error);
             if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
-                showVoiceError("⚠️ Microphone access denied. Please click the lock icon in your browser address bar to allow microphone.");
-            } else if (event.error === 'network') {
-                showVoiceError("⚠️ Voice recognition network glitch. You can type directly in the input box.");
+                showVoiceError("⚠️ Microphone access denied. Click the lock/camera icon in your address bar to allow microphone.");
             }
-            stopListening();
+            stopListening(false);
         };
 
         rec.onend = () => {
             if (isListening) {
-                // If stopped unexpectedly by engine, stop gracefully
-                stopListening();
+                stopListening(false);
             }
         };
 
@@ -556,8 +571,8 @@ function initSpeech() {
     }
 
     async function startAudioWave() {
-        if (eqBarsContainer) {
-            eqBarsContainer.classList.add('animated');
+        if (waveformBars) {
+            waveformBars.classList.add('idle');
         }
 
         try {
@@ -567,12 +582,13 @@ function initSpeech() {
                 if (AudioContext) {
                     audioCtx = new AudioContext();
                     analyserNode = audioCtx.createAnalyser();
-                    analyserNode.fftSize = 32;
+                    analyserNode.fftSize = 64;
                     const source = audioCtx.createMediaStreamSource(audioStream);
                     source.connect(analyserNode);
 
                     const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
-                    const bars = eqBarsContainer ? eqBarsContainer.querySelectorAll('.eq-bar') : [];
+                    const bars = waveformBars ? waveformBars.querySelectorAll('.wave-bar') : [];
+                    const mid = bars.length / 2;
 
                     function animateBars() {
                         if (!isListening) return;
@@ -585,9 +601,17 @@ function initSpeech() {
                         const avg = sum / dataArray.length;
 
                         bars.forEach((bar, index) => {
-                            const freqVal = dataArray[index * 2] || avg;
-                            const scale = Math.max(0.25, Math.min(2.2, freqVal / 38));
+                            // Centered Gaussian bell curve weighting
+                            const distFromCenter = Math.abs(index - mid);
+                            const bellWeight = Math.max(0.25, 1 - (distFromCenter / mid) * 0.75);
+                            const freqVal = (dataArray[index] || avg) * bellWeight;
+                            const scale = Math.max(0.6, Math.min(3.8, freqVal / 22));
                             bar.style.transform = `scaleY(${scale})`;
+                            if (scale > 1.4) {
+                                bar.style.backgroundColor = '#3b82f6';
+                            } else {
+                                bar.style.backgroundColor = '#64748b';
+                            }
                         });
 
                         visualizerAnimationId = requestAnimationFrame(animateBars);
@@ -596,8 +620,7 @@ function initSpeech() {
                 }
             }
         } catch (e) {
-            // If microphone stream for Web Audio isn't accessible, CSS keyframes animate smoothly
-            console.log("Using CSS wave animation for voice equalizer");
+            console.log("Audio visualizer running in CSS mode");
         }
     }
 
@@ -614,13 +637,17 @@ function initSpeech() {
             audioCtx.close();
             audioCtx = null;
         }
-        if (eqBarsContainer) {
-            const bars = eqBarsContainer.querySelectorAll('.eq-bar');
-            bars.forEach(bar => { bar.style.transform = ''; });
+        if (waveformBars) {
+            const bars = waveformBars.querySelectorAll('.wave-bar');
+            bars.forEach(bar => {
+                bar.style.transform = '';
+                bar.style.backgroundColor = '';
+            });
+            waveformBars.classList.remove('idle');
         }
     }
 
-    function stopListening() {
+    function stopListening(autoSend = false) {
         isListening = false;
         if (recognition) {
             try {
@@ -631,14 +658,27 @@ function initSpeech() {
 
         stopAudioWave();
 
-        // UI Reset
-        voiceBtn.classList.remove('listening');
-        voiceBtn.title = 'Speak via microphone';
-        if (inputCard) inputCard.classList.remove('listening');
-        if (voiceBanner) voiceBanner.style.display = 'none';
+        // Restore normal ChatGPT input bar UI
+        voiceTrack.style.display = 'none';
+        stopBtn.style.display = 'none';
 
-        chatInput.placeholder = originalPlaceholder;
-        chatInput.focus();
+        attachBtn.style.display = 'flex';
+        chatInput.style.display = 'block';
+        voiceBtn.style.display = 'flex';
+
+        // Commit transcription
+        const finalRecordedText = (startingText + committedTranscript + currentInterim).trim();
+        if (finalRecordedText) {
+            chatInput.value = finalRecordedText;
+            chatInput.style.height = 'auto';
+            chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
+        }
+
+        if (autoSend && chatInput.value.trim()) {
+            handleSend();
+        } else {
+            chatInput.focus();
+        }
     }
 
     function startListening() {
@@ -648,36 +688,27 @@ function initSpeech() {
             recognition.start();
         } catch (e) {
             console.error("Could not start speech recognition:", e);
-            stopListening();
+            stopListening(false);
         }
     }
 
-    // Toggle button handler
+    // Click Mic -> Start ChatGPT Waveform Mode
     voiceBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (isListening) {
-            stopListening();
-        } else {
-            startListening();
-        }
+        startListening();
     });
 
-    // Done button on voice banner
-    if (voiceDoneBtn) {
-        voiceDoneBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            stopListening();
-        });
-    }
+    // Click White Circular Stop Button [ ■ ] -> Stop recording & show text
+    stopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        stopListening(false);
+    });
 
-    // When language changes in top dropdown, update recognition language if active
-    const langSelect = document.getElementById('languageSelect');
-    if (langSelect) {
-        langSelect.addEventListener('change', () => {
-            if (isListening) {
-                stopListening();
-                setTimeout(() => startListening(), 200);
-            }
-        });
-    }
+    // Send button click while listening: Stop and Send immediately
+    sendBtn.addEventListener('click', (e) => {
+        if (isListening) {
+            e.preventDefault();
+            stopListening(true);
+        }
+    });
 }

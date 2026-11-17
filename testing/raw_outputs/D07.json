@@ -1,0 +1,19 @@
+{
+  "test_id": "D07",
+  "category": "Employment Disputes",
+  "prompt": "HR has stopped replying to all my emails and calls regarding my pending ₹65,000 salary dues.",
+  "language": "en",
+  "expected": "Formal 15-day legal demand notice to management; escalation to local Labour Officer / Commissioner.",
+  "status": "FAIL",
+  "reason": "HTTP status code 500",
+  "elapsed_sec": 35.005,
+  "timestamp": "2026-11-17T22:41:38.838185",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Error: timed out",
+    "_status_code": 500,
+    "_elapsed_sec": 35.005,
+    "_session_id": "eval_ca501ea0",
+    "citations": []
+  }
+}

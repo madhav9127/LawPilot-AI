@@ -1,0 +1,21 @@
+{
+  "test_id": "I03",
+  "category": "Document Generation",
+  "prompt": "Draft an unpaid salary email to HR demanding two months of pending wages.",
+  "language": "en",
+  "expected": "Generates professional demand notice citing Payment of Wages Act 1936 Section 5; specifies pending amount and 15 days.",
+  "status": "PASS",
+  "reason": "Formal legal document text generated with statutory citations.",
+  "elapsed_sec": 0.005,
+  "timestamp": "2026-11-17T22:43:01.708144",
+  "raw_response": {
+    "title": "Formal Demand for Unpaid Wages and Dues",
+    "doc_type": "unpaid_salary_demand",
+    "content_text": "FORMAL NOTICE AND DEMAND FOR DISBURSEMENT OF OUTSTANDING WAGES & STATUTORY DUES\n\nDate: 17 November 2026\n\nTO:\nThe Management / Human Resources,\nTechVentures Pvt Ltd\nAddress not provided (Draft template)\n\nFROM:\nAmit Patel\nAddress not provided (Draft template)\n\nSUBJECT: Formal demand for clearance of earned salary and full and final settlement amounting to ₹1,20,000.\n\nSir / Madam,\n\n1. That I was employed with TechVentures Pvt Ltd and diligently performed my official duties in accordance with company policy and terms of employment.\n\n2. STATEMENT OF FACTS:\nWorked as Software Engineer. Salary for August and September (₹1,20,000) unpaid despite emails.\n\n3. That despite having rendered bona fide service, my earned remuneration / settlement dues totaling ₹1,20,000 have remained unpaid beyond the mandatory statutory timelines provided under the Payment of Wages Act, 1936 and applicable Shops and Commercial Establishments legislation.\n\n4. That withholding an employee's legitimately earned remuneration is unlawful and constitutes a direct breach of contract under Section 73 of the Indian Contract Act, 1872.\n\n5. DEMAND: You are hereby called upon to remit the entire outstanding sum of ₹1,20,000 to my bank account and issue my Experience and Relieving Letter within 15 days of receipt of this notice. In the event of failure, I shall lodge a formal complaint before the Labour Commissioner / Authority under Section 15 of the Payment of Wages Act and pursue appropriate civil proceedings at your sole cost and consequence.\n\nYours faithfully,\n\nAmit Patel\n(Employee)\n\n--------------------------------------------------\nDISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+    "disclaimer": "CONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+    "pdf_available": true,
+    "docx_available": true,
+    "_status_code": 200,
+    "_elapsed_sec": 0.005
+  }
+}

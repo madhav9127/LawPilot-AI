@@ -1,0 +1,19 @@
+{
+  "test_id": "D04",
+  "category": "Employment Disputes",
+  "prompt": "My company never issued a written appointment letter, but I have 6 months of bank salary credits and official Slack/email access. Am I legally protected?",
+  "language": "en",
+  "expected": "Bank credits, email domain, and work proof establish employer-employee relationship even without formal letter.",
+  "status": "FAIL",
+  "reason": "HTTP status code 500",
+  "elapsed_sec": 35.002,
+  "timestamp": "2026-11-17T22:40:09.663657",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Error: timed out",
+    "_status_code": 500,
+    "_elapsed_sec": 35.002,
+    "_session_id": "eval_62a7247f",
+    "citations": []
+  }
+}

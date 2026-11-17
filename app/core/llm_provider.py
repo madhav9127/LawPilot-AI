@@ -731,7 +731,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         }
 
         # Model cascade: try interactions with gemini-3.8-flash (quick check), then gemini-flash-lite-latest, then generateContent
-        models_to_try = [("gemini-3.8-flash", 4), ("gemini-flash-lite-latest", 20)]
+        models_to_try = [("gemini-3.8-flash", 4), ("gemini-flash-lite-latest", 5)]
 
         for model_name, t_sec in models_to_try:
             payload = {
@@ -771,7 +771,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "contents": [{"parts": [{"text": full_prompt}]}]
             }
             logger.info(f"ReqID={req_id} | Attempting generateContent fallback with gemini-flash-lite-latest")
-            resp_gen = requests.post(gen_url, json=gen_payload, timeout=20)
+            resp_gen = requests.post(gen_url, json=gen_payload, timeout=5)
             if resp_gen.status_code == 200:
                 gen_data = resp_gen.json()
                 text_out = gen_data["candidates"][0]["content"]["parts"][0]["text"]

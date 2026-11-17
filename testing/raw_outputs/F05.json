@@ -1,0 +1,68 @@
+{
+  "test_id": "F05",
+  "category": "Case Memory",
+  "prompt": "I have all rent payment receipts via Google Pay and handover photos.",
+  "language": "en",
+  "expected": "Notes evidence: Google Pay receipts, handover photos.",
+  "status": "PASS",
+  "reason": "Step 5 captured successfully.",
+  "elapsed_sec": 0.022,
+  "timestamp": "2026-11-17T22:43:01.296884",
+  "raw_response": {
+    "role": "assistant",
+    "content": "I can help you with this. Here's a clear overview based on Indian law and typical tenancy principles.\n\n### | Your Situation\nYou have vacated the property and your landlord is not returning the ₹35,000 security deposit (held for an extended period) in your city. This is a tenancy-related dispute about return of the deposit.\n\n### | Your Legal Position\n* A security deposit is meant to cover unpaid rent or actual damages, not routine wear and tear.\n* **The Model Tenancy Act, 2021 (Section 11)** – provides that a security deposit should be returned after adjusting lawful dues. Its applicability may depend on state adoption.\n* **General principles under the Transfer of Property Act, 1882 (Section 108)** – the tenant must return the property in a reasonable condition, subject to normal wear and tear.\n\n### | Practical Next Steps\n1. **Gather evidence** – rental agreement (if any), payment records (UPI/bank), handover photos, and WhatsApp/emails with the landlord.\n2. **Send a written demand** – request return of the ₹35,000 with a reasonable time (e.g., 7–15 days).\n3. **If unresolved** – you may consider a complaint before the local Rent Authority or a civil suit for recovery of money.\n\n### ℹ️ Information I still need from you\nWhich city or state is the property or company located in? (Tenancy and shops laws vary by state).",
+    "timestamp": "2026-11-17T22:43:01.293780",
+    "citations": [
+      {
+        "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+        "section": "Section 11 & Section 13",
+        "title": "Cap on Security Deposit and Condition for Deductions",
+        "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+        "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+        "commencement_date": "2021-06-02",
+        "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Transfer of Property Act, 1882",
+        "section": "Section 108(m) & (o)",
+        "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+        "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+        "commencement_date": "1882-07-01",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "Delhi Rent Control Act, 1958",
+        "section": "Section 14 & Section 45",
+        "title": "Protection of tenant against eviction and restoration of essential amenities",
+        "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+        "commencement_date": "1959-02-09",
+        "jurisdiction": "State: Delhi (NCT)",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Transfer of Property Act, 1882",
+        "section": "Section 106",
+        "title": "Duration of certain leases in absence of written contract or local usage",
+        "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+        "commencement_date": "1882-07-01",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [
+      "Which city or state is the property or company located in? (Tenancy and shops laws vary by state)."
+    ],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.022,
+    "_session_id": "mem_sess_3e77347c"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "test_id": "I02",
+  "category": "Document Generation",
+  "prompt": "Draft a defective product consumer complaint for a faulty smartphone.",
+  "language": "en",
+  "expected": "Generates draft consumer complaint under Consumer Protection Act 2019 Section 35; includes prayer for refund and compensation.",
+  "status": "FAIL",
+  "reason": "Document generation failed (status 500)",
+  "elapsed_sec": 0.004,
+  "timestamp": "2026-11-17T22:43:01.701545",
+  "raw_response": {
+    "title": "Error",
+    "content_text": "Error: HTTP Error 422: Unprocessable Content",
+    "_status_code": 500,
+    "_elapsed_sec": 0.004
+  }
+}

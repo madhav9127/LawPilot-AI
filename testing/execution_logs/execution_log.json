@@ -1,0 +1,362 @@
+{
+  "timestamp": "2026-11-17T22:43:02.096668",
+  "target": "http://127.0.0.1:8000",
+  "tests_run": 71,
+  "log": [
+    {
+      "id": "A01",
+      "elapsed": 7.194,
+      "status": "PASS"
+    },
+    {
+      "id": "A02",
+      "elapsed": 5.778,
+      "status": "PASS"
+    },
+    {
+      "id": "A03",
+      "elapsed": 11.985,
+      "status": "PASS"
+    },
+    {
+      "id": "A04",
+      "elapsed": 12.007,
+      "status": "PASS"
+    },
+    {
+      "id": "A05",
+      "elapsed": 12.707,
+      "status": "PASS"
+    },
+    {
+      "id": "A06",
+      "elapsed": 1652.941,
+      "status": "FAIL"
+    },
+    {
+      "id": "A07",
+      "elapsed": 0.666,
+      "status": "PASS"
+    },
+    {
+      "id": "B01",
+      "elapsed": 0.314,
+      "status": "PASS"
+    },
+    {
+      "id": "B02",
+      "elapsed": 0.03,
+      "status": "PASS"
+    },
+    {
+      "id": "B03",
+      "elapsed": 0.016,
+      "status": "PASS"
+    },
+    {
+      "id": "B04",
+      "elapsed": 0.013,
+      "status": "PASS"
+    },
+    {
+      "id": "B05",
+      "elapsed": 0.013,
+      "status": "PASS"
+    },
+    {
+      "id": "B06",
+      "elapsed": 0.014,
+      "status": "PASS"
+    },
+    {
+      "id": "B07",
+      "elapsed": 0.015,
+      "status": "PASS"
+    },
+    {
+      "id": "B08",
+      "elapsed": 0.014,
+      "status": "PASS"
+    },
+    {
+      "id": "C01",
+      "elapsed": 0.013,
+      "status": "PASS"
+    },
+    {
+      "id": "C02",
+      "elapsed": 0.014,
+      "status": "PASS"
+    },
+    {
+      "id": "C03",
+      "elapsed": 0.016,
+      "status": "PASS"
+    },
+    {
+      "id": "C04",
+      "elapsed": 0.013,
+      "status": "PASS"
+    },
+    {
+      "id": "C05",
+      "elapsed": 0.023,
+      "status": "PASS"
+    },
+    {
+      "id": "C06",
+      "elapsed": 0.015,
+      "status": "PASS"
+    },
+    {
+      "id": "C07",
+      "elapsed": 0.014,
+      "status": "PASS"
+    },
+    {
+      "id": "D01",
+      "elapsed": 0.017,
+      "status": "PASS"
+    },
+    {
+      "id": "D02",
+      "elapsed": 0.015,
+      "status": "PASS"
+    },
+    {
+      "id": "D03",
+      "elapsed": 0.036,
+      "status": "PASS"
+    },
+    {
+      "id": "D04",
+      "elapsed": 35.002,
+      "status": "FAIL"
+    },
+    {
+      "id": "D05",
+      "elapsed": 35.014,
+      "status": "FAIL"
+    },
+    {
+      "id": "D06",
+      "elapsed": 19.149,
+      "status": "PASS"
+    },
+    {
+      "id": "D07",
+      "elapsed": 35.005,
+      "status": "FAIL"
+    },
+    {
+      "id": "E01",
+      "elapsed": 79.732,
+      "status": "FAIL"
+    },
+    {
+      "id": "E02",
+      "elapsed": 0.924,
+      "status": "FAIL"
+    },
+    {
+      "id": "E03",
+      "elapsed": 1.55,
+      "status": "PASS"
+    },
+    {
+      "id": "E04",
+      "elapsed": 0.036,
+      "status": "PASS"
+    },
+    {
+      "id": "E05",
+      "elapsed": 0.026,
+      "status": "PASS"
+    },
+    {
+      "id": "E06",
+      "elapsed": 0.019,
+      "status": "PASS"
+    },
+    {
+      "id": "F01",
+      "elapsed": 0.033,
+      "status": "PASS"
+    },
+    {
+      "id": "F02",
+      "elapsed": 0.02,
+      "status": "PASS"
+    },
+    {
+      "id": "F03",
+      "elapsed": 0.026,
+      "status": "PASS"
+    },
+    {
+      "id": "F04",
+      "elapsed": 0.046,
+      "status": "PASS"
+    },
+    {
+      "id": "F05",
+      "elapsed": 0.022,
+      "status": "PASS"
+    },
+    {
+      "id": "F06",
+      "elapsed": 0.021,
+      "status": "PASS"
+    },
+    {
+      "id": "F07",
+      "elapsed": 0.022,
+      "status": "PASS"
+    },
+    {
+      "id": "F08",
+      "elapsed": 0.018,
+      "status": "PARTIAL"
+    },
+    {
+      "id": "G01",
+      "elapsed": 0.019,
+      "status": "PARTIAL"
+    },
+    {
+      "id": "G02",
+      "elapsed": 0.029,
+      "status": "PARTIAL"
+    },
+    {
+      "id": "G03",
+      "elapsed": 0.03,
+      "status": "PASS"
+    },
+    {
+      "id": "G04",
+      "elapsed": 0.022,
+      "status": "PASS"
+    },
+    {
+      "id": "G05",
+      "elapsed": 0.02,
+      "status": "PASS"
+    },
+    {
+      "id": "G06",
+      "elapsed": 0.017,
+      "status": "PASS"
+    },
+    {
+      "id": "G07",
+      "elapsed": 0.026,
+      "status": "FAIL"
+    },
+    {
+      "id": "G08",
+      "elapsed": 0.029,
+      "status": "PASS"
+    },
+    {
+      "id": "H01",
+      "elapsed": 0.006,
+      "status": "PASS"
+    },
+    {
+      "id": "H02",
+      "elapsed": 0.006,
+      "status": "PASS"
+    },
+    {
+      "id": "H03",
+      "elapsed": 0.018,
+      "status": "PASS"
+    },
+    {
+      "id": "H04",
+      "elapsed": 0.051,
+      "status": "PASS"
+    },
+    {
+      "id": "H05",
+      "elapsed": 0.023,
+      "status": "PASS"
+    },
+    {
+      "id": "I01",
+      "elapsed": 0.005,
+      "status": "PASS"
+    },
+    {
+      "id": "I02",
+      "elapsed": 0.004,
+      "status": "FAIL"
+    },
+    {
+      "id": "I03",
+      "elapsed": 0.005,
+      "status": "PASS"
+    },
+    {
+      "id": "I04",
+      "elapsed": 0.004,
+      "status": "PASS"
+    },
+    {
+      "id": "I05",
+      "elapsed": 0.005,
+      "status": "PASS"
+    },
+    {
+      "id": "J01",
+      "elapsed": 0.035,
+      "status": "PASS"
+    },
+    {
+      "id": "J02",
+      "elapsed": 0.023,
+      "status": "PASS"
+    },
+    {
+      "id": "J03",
+      "elapsed": 0.019,
+      "status": "PASS"
+    },
+    {
+      "id": "J04",
+      "elapsed": 0.024,
+      "status": "PASS"
+    },
+    {
+      "id": "J05",
+      "elapsed": 0.036,
+      "status": "PASS"
+    },
+    {
+      "id": "J06",
+      "elapsed": 0.022,
+      "status": "PASS"
+    },
+    {
+      "id": "J07",
+      "elapsed": 0.021,
+      "status": "PASS"
+    },
+    {
+      "id": "J08",
+      "elapsed": 0.005,
+      "status": "PASS"
+    },
+    {
+      "id": "J09",
+      "elapsed": 0.019,
+      "status": "PASS"
+    },
+    {
+      "id": "J10",
+      "elapsed": 3.2,
+      "status": "PASS"
+    }
+  ]
+}

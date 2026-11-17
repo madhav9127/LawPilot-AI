@@ -1,0 +1,19 @@
+{
+  "test_id": "E01",
+  "category": "Multilingual",
+  "prompt": "My employer in Bangalore has not paid my salary for two months.",
+  "language": "en",
+  "expected": "Recognizes Bangalore employment issue; responds in fluent, professional English.",
+  "status": "FAIL",
+  "reason": "HTTP status code 500",
+  "elapsed_sec": 79.732,
+  "timestamp": "2026-11-17T22:42:58.574032",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Error: timed out",
+    "_status_code": 500,
+    "_elapsed_sec": 79.732,
+    "_session_id": "eval_68e3b47b",
+    "citations": []
+  }
+}

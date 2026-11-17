@@ -1,0 +1,19 @@
+{
+  "test_id": "D05",
+  "category": "Employment Disputes",
+  "prompt": "My former boss is refusing to issue my relieving letter and experience certificate because I joined a competitor.",
+  "language": "en",
+  "expected": "Section 27 Indian Contract Act (agreements in restraint of trade void); employer cannot unlawfully withhold relieving letter.",
+  "status": "FAIL",
+  "reason": "HTTP status code 500",
+  "elapsed_sec": 35.014,
+  "timestamp": "2026-11-17T22:40:44.680405",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Error: timed out",
+    "_status_code": 500,
+    "_elapsed_sec": 35.014,
+    "_session_id": "eval_54ff8a4c",
+    "citations": []
+  }
+}

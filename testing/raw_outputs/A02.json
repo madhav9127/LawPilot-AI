@@ -1,0 +1,36 @@
+{
+  "test_id": "A02",
+  "category": "Basic Conversational",
+  "prompt": "What is your name?",
+  "language": "en",
+  "expected": "Identifies as LawPilot AI, an Indian legal assistant. Must not return landlord text.",
+  "status": "PASS",
+  "reason": "Generated structured grounded response.",
+  "elapsed_sec": 5.778,
+  "timestamp": "2026-11-17T22:11:22.992103",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Hello! I am LawPilot AI, your expert and ethical Indian legal assistant, designed to help ordinary citizens navigate everyday legal matters in India such as tenant and landlord disputes, consumer protection, and employment issues. How can I help you today?",
+    "timestamp": "2026-11-17T22:11:22.986906",
+    "citations": [
+      {
+        "act_name": "The Legal Services Authorities Act, 1987",
+        "section": "Section 12",
+        "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+        "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+        "official_url": "https://nalsa.gov.in/",
+        "commencement_date": "1995-11-09",
+        "jurisdiction": "Central / All India",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 5.778,
+    "_session_id": "eval_bd2dab45"
+  }
+}

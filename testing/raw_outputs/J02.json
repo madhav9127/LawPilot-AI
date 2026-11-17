@@ -1,0 +1,38 @@
+{
+  "test_id": "J02",
+  "category": "Technical Reliability",
+  "prompt": "मेरे मकान मालिक ने ₹25,000 का सिक्योरिटी डिपॉजिट नहीं लौटाया।",
+  "language": "hi",
+  "expected": "Simulates transcript captured from browser Web Speech API hi-IN.",
+  "status": "PASS",
+  "reason": "Generated structured grounded response.",
+  "elapsed_sec": 0.023,
+  "timestamp": "2026-11-17T22:43:01.781996",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n### | Your Situation\nYou have shared a civil dispute or inquiry. LawPilot AI specializes in three everyday civil legal domains:\n1. 🏠 **Tenant & Landlord Disputes**\n2. 🛒 **Consumer Protection & Refunds**\n3. 💼 **Employment & Wage Issues**\n\n### | Practical Next Steps\n1. Share specific details regarding the parties, location, and disputed amount.\n2. Identify available written documents, receipts, or communication records.\n\n### ℹ️ Information I still need from you\nCould you share more details about which of these domains your issue relates to?",
+    "timestamp": "2026-11-17T22:43:01.778736",
+    "citations": [
+      {
+        "act_name": "The Legal Services Authorities Act, 1987",
+        "section": "Section 12",
+        "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+        "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+        "official_url": "https://nalsa.gov.in/",
+        "commencement_date": "1995-11-09",
+        "jurisdiction": "Central / All India",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [
+      "यह संपत्ति या घटना किस शहर या राज्य से संबंधित है?"
+    ],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.023,
+    "_session_id": "eval_3e5bd4aa"
+  }
+}

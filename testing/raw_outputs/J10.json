@@ -1,0 +1,48 @@
+{
+  "test_id": "J10",
+  "category": "Technical Reliability",
+  "prompt": "Repeated response detection sequence.",
+  "language": "en",
+  "expected": "Sequential execution of ('Hi', '2+2', 'unpaid salary', 'deposit', 'defective phone', 'joke') produces 6 distinctly different outputs.",
+  "status": "PASS",
+  "reason": "All 6 sequential prompts produced completely distinct, context-relevant responses.",
+  "elapsed_sec": 3.2,
+  "timestamp": "2026-11-17T22:43:02.083155",
+  "raw_response": {
+    "sequence_prompts": [
+      [
+        "Hi",
+        "en"
+      ],
+      [
+        "What is 2 + 2?",
+        "en"
+      ],
+      [
+        "My employer has not paid my salary.",
+        "en"
+      ],
+      [
+        "My landlord has not returned my deposit.",
+        "en"
+      ],
+      [
+        "I bought a defective phone.",
+        "en"
+      ],
+      [
+        "Tell me a joke.",
+        "en"
+      ]
+    ],
+    "outputs": [
+      "Hello! I am **LawPilot AI**, your conversational legal assistant for everyday civil legal challenges in India.\n\nI specialize in helping you understand your rights, evaluate evidence, and draft formal legal notices across three core areas:\n1. 🏠 **Rental & Tenancy Issues** (rental agreements, notice periods, repair obligations)\n2. 🛒 **Consumer Protection** (defective goods, refund delays, e-commerce complaints)\n3. 💼 **Employment & Wages** (unpaid salary, relieving letters, full & final settlement)\n\nHow can I assist you today? Please feel free to explain your situation in plain English, Hindi, or Hinglish.",
+      "2 + 2 is **4**.\n\nI am LawPilot AI, a legal assistant dedicated to everyday Indian legal issues (tenancy disputes, consumer protection, and employment matters). If you have a legal question or need help drafting a notice or complaint, please let me know!",
+      "I can help you with this. Here's a clear legal assessment based on Indian labour and wage laws.\n\n### | Your Situation\nYour employer in your workplace has withheld your earned salary for two months. Under Indian law, withholding earned wages for service already rendered is unlawful.\n\n### | Your Legal Position\n* **Payment of Wages Act, 1936 (Section 5):** Employers are legally required to disburse earned wages within 7 to 10 days of the wage period.\n* **Payment of Wages Act, 1936 (Section 15):** Grants employees the right to file claims for delayed or wrongfully withheld wages before the statutory Authority, along with compensation.\n* **Indian Contract Act, 1872 (Section 73):** Breach of employment terms entitles the employee to full compensation for dues owed.\n\n### | Practical Next Steps\n1. **Gather evidence** – appointment letter, previous salary slips, bank statements proving salary credits, and email/WhatsApp threads with HR.\n2. **Send a written demand** – issue a formal 15-day demand notice to HR and management demanding immediate clearance of all dues.\n3. **If unresolved** – file a formal claim before the local Labour Commissioner or under the state Shops & Commercial Establishments Act.\n\n### ℹ️ Information I still need from you\nWhat was your agreed monthly salary and the total unpaid salary amount?",
+      "I can help you with this. Here's a clear overview based on Indian law and typical tenancy principles.\n\n### | Your Situation\nYou have vacated the property and your landlord is not returning the the disputed amount security deposit (held for an extended period) in your city. This is a tenancy-related dispute about return of the deposit.\n\n### | Your Legal Position\n* A security deposit is meant to cover unpaid rent or actual damages, not routine wear and tear.\n* **The Model Tenancy Act, 2021 (Section 11)** – provides that a security deposit should be returned after adjusting lawful dues. Its applicability may depend on state adoption.\n* **General principles under the Transfer of Property Act, 1882 (Section 108)** – the tenant must return the property in a reasonable condition, subject to normal wear and tear.\n\n### | Practical Next Steps\n1. **Gather evidence** – rental agreement (if any), payment records (UPI/bank), handover photos, and WhatsApp/emails with the landlord.\n2. **Send a written demand** – request return of the the disputed amount with a reasonable time (e.g., 7–15 days).\n3. **If unresolved** – you may consider a complaint before the local Rent Authority or a civil suit for recovery of money.\n\n### ℹ️ Information I still need from you\nWhat is the exact amount of money (in ₹) involved in this dispute?",
+      "I can help you with this. Here's an analysis based on the Consumer Protection Act, 2019.\n\n### | Your Situation\nYou purchased a product that turned out defective, and the seller or e-commerce platform is refusing a refund or replacement.\n\n### | Your Legal Position\n* **Consumer Protection Act, 2019 (Section 2(47)):** Refusing to withdraw defective goods or refund consideration within the agreed period (or within 30 days) constitutes an explicit **Unfair Trade Practice**.\n* **Consumer Protection Act, 2019 (Section 35 & 84):** Gives consumers the right to file a complaint before the District Consumer Commission and claim product liability damages.\n* **E-Commerce Rules, 2020:** Mandates platforms to acknowledge grievances within 48 hours and resolve returns within 30 days.\n\n### | Practical Next Steps\n1. **Gather evidence** – tax invoice, unboxing videos/photos of defect, and customer care rejection tickets.\n2. **National Consumer Helpline (NCH)** – call **1915** or lodge a grievance at https://consumerhelpline.gov.in/.\n3. **If unresolved** – file an e-complaint before the District Consumer Commission online via **e-Daakhil**.\n\n### ℹ️ Information I still need from you\nWhat was the total purchase price paid for the defective product?",
+      "Why don't lawyers go to the beach? Because cats keep trying to bury them in the sand! 😄\n\nOn a serious note, I am LawPilot AI, designed to assist you with everyday legal problems in India—such as landlord disputes, consumer refunds, and unpaid salary. How can I help you with your legal rights today?"
+    ],
+    "_elapsed_sec": 3.2
+  }
+}

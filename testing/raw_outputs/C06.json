@@ -1,0 +1,68 @@
+{
+  "test_id": "C06",
+  "category": "Consumer Protection",
+  "prompt": "An airline charged me a ₹1,500 'processing convenience fee' without showing it before final payment.",
+  "language": "en",
+  "expected": "Dark patterns / hidden fees; unfair trade practice under CPA 2019 guidelines on prevention of dark patterns.",
+  "status": "PASS",
+  "reason": "Generated structured grounded response.",
+  "elapsed_sec": 0.015,
+  "timestamp": "2026-11-17T22:39:34.566807",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n### | Your Situation\nYou have shared a civil dispute or inquiry. LawPilot AI specializes in three everyday civil legal domains:\n1. 🏠 **Tenant & Landlord Disputes**\n2. 🛒 **Consumer Protection & Refunds**\n3. 💼 **Employment & Wage Issues**\n\n### | Practical Next Steps\n1. Share specific details regarding the parties, location, and disputed amount.\n2. Identify available written documents, receipts, or communication records.\n\n### ℹ️ Information I still need from you\nCould you share more details about which of these domains your issue relates to?",
+    "timestamp": "2026-11-17T22:39:34.562517",
+    "citations": [
+      {
+        "act_name": "The Legal Services Authorities Act, 1987",
+        "section": "Section 12",
+        "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+        "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+        "official_url": "https://nalsa.gov.in/",
+        "commencement_date": "1995-11-09",
+        "jurisdiction": "Central / All India",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "Consumer Protection (E-Commerce) Rules, 2020",
+        "section": "Rule 4 & Rule 6",
+        "title": "Duties of E-Commerce Entities & Grievance Redressal Mechanism",
+        "description": "Every e-commerce entity shall establish an adequate grievance redressal mechanism and appoint a Grievance Officer whose details are displayed on its platform. The officer must acknowledge receipt within 48 hours and redress the complaint within one month.",
+        "official_url": "https://consumeraffairs.nic.in/sites/default/files/E-commerce%20Rules.pdf",
+        "commencement_date": "2020-07-23",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Payment of Wages Act, 1936",
+        "section": "Section 7",
+        "title": "Deductions which may be made from wages",
+        "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+        "commencement_date": "1937-03-28",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "State Shops and Commercial Establishments Acts",
+        "section": "Settlement of Dues and Service Conditions Provision",
+        "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+        "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+        "official_url": "https://shramsuvidha.gov.in/",
+        "commencement_date": "State Specific",
+        "jurisdiction": "State Specific",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [
+      "Which city or state is the property or company located in? (Tenancy and shops laws vary by state)."
+    ],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.015,
+    "_session_id": "eval_b718ff6f"
+  }
+}

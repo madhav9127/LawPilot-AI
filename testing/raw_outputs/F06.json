@@ -1,0 +1,25 @@
+{
+  "test_id": "F06",
+  "category": "Case Memory",
+  "prompt": "Summarize my case so far.",
+  "language": "en",
+  "expected": "Accurately synthesizes ₹35k deposit, ₹10k returned, ₹25k pending, 1 Nov 2024, UPI & photo evidence.",
+  "status": "PASS",
+  "reason": "Synthesized multi-turn facts accurately in summary.",
+  "elapsed_sec": 0.021,
+  "timestamp": "2026-11-17T22:43:01.319609",
+  "raw_response": {
+    "role": "assistant",
+    "content": "### 📋 Your Case Summary\n\n**1. Facts Explicitly Provided by You:**\n- **Dispute Type:** Tenancy dispute\n- **Parties Involved:** Tenant vs Landlord\n- **Disputed Amount:** ₹35,000\n- **Incident / Vacate Date:** 1st november 2024\n- **Available Evidence:** Bank / UPI transaction records, Photos / Video evidence\n\n**2. Inferred Legal Context:**\n- Tenancy relationship governed by general civil/tenancy law (Transfer of Property Act, 1882).\n\n**3. Information Still Needed:**\n- Location (City / State)\n- Written agreement status",
+    "timestamp": "2026-11-17T22:43:01.316628",
+    "citations": [],
+    "verification_status": null,
+    "missing_info": [],
+    "follow_up_questions": [],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.021,
+    "_session_id": "mem_sess_3e77347c"
+  }
+}

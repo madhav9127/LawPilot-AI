@@ -1,0 +1,21 @@
+{
+  "test_id": "I05",
+  "category": "Document Generation",
+  "prompt": "Generate a document after fact correction in conversation.",
+  "language": "en",
+  "expected": "Generates document reflecting updated ₹40,000 deposit and ₹30,000 balance.",
+  "status": "PASS",
+  "reason": "Draft reflected corrected figures.",
+  "elapsed_sec": 0.005,
+  "timestamp": "2026-11-17T22:43:01.720824",
+  "raw_response": {
+    "title": "Formal Demand for Security Deposit Refund",
+    "doc_type": "security_deposit_demand",
+    "content_text": "FORMAL WRITTEN DEMAND FOR REFUND OF SECURITY DEPOSIT\n(Sent via Registered Post A.D. / Speed Post / Email)\n\nDate: 17 November 2026\n\nFROM:\nRamesh Kumar\nAddress not provided (Draft template)\n\nTO:\nSuresh Sharma\nAddress not provided (Draft template)\n\nSUBJECT: Formal Demand for immediate refund of Security Deposit amount of ₹30,000 in respect of tenancy at the subject premises.\n\nSir / Madam,\n\n1. That I was inducted as a lawful tenant into the residential premises under your ownership/management, having paid an upfront refundable security deposit amounting to ₹30,000.\n\n2. That during the entire subsistence of the tenancy, I regularly cleared monthly rent and utility charges without default, fulfilling all reciprocal obligations under law.\n\n3. That peaceful and vacant possession of the premises was formally handed over on or about As specified in communication. The premises was delivered in clean, habitable condition, subject only to normal wear and tear recognized under Section 108(m) of the Transfer of Property Act, 1882.\n\n4. That despite repeated amicable requests and follow-ups, you have wrongfully withheld/delayed refunding the said security deposit of ₹30,000, without any legitimate justification or itemized damage proofs.\n\n5. DEMAND: You are hereby called upon to refund the entire sum of ₹30,000 to my bank account within 15 days of receipt of this notice, failing which I shall be constrained to initiate appropriate legal remedies before the competent Rent Authority / Civil Court under applicable laws, including claiming statutory interest @ 18% p.a. and litigation costs entirely at your risk.\n\nYours sincerely,\n\nRamesh Kumar\n(Tenant / Aggrieved Party)\n\n--------------------------------------------------\nLEGAL NOTICE DISCLAIMER:\nCONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+    "disclaimer": "CONFIDENTIAL DRAFT — PREPARED BY LAWPILOT AI FOR INFORMATIONAL & PRE-LITIGATION GUIDANCE ONLY. THIS DRAFT MUST BE CAREFULLY REVIEWED, VERIFIED, AND APPROVED BY A QUALIFIED ADVOCATE BEFORE FORMAL SERVICE, EXECUTION, OR FILING IN ANY COURT OR TRIBUNAL IN INDIA.",
+    "pdf_available": true,
+    "docx_available": true,
+    "_status_code": 200,
+    "_elapsed_sec": 0.005
+  }
+}

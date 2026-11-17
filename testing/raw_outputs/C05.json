@@ -1,0 +1,68 @@
+{
+  "test_id": "C05",
+  "category": "Consumer Protection",
+  "prompt": "I bought a washing machine that stopped working on day 2. The brand says 'no replacement policy'.",
+  "language": "en",
+  "expected": "Product liability Section 84-85 CPA 2019; manufacturer liability for defective products; 'no replacement' cannot override statutory consumer rights.",
+  "status": "PASS",
+  "reason": "Generated structured grounded response.",
+  "elapsed_sec": 0.023,
+  "timestamp": "2026-11-17T22:39:34.550110",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n### | Your Situation\nYou have shared a civil dispute or inquiry. LawPilot AI specializes in three everyday civil legal domains:\n1. 🏠 **Tenant & Landlord Disputes**\n2. 🛒 **Consumer Protection & Refunds**\n3. 💼 **Employment & Wage Issues**\n\n### | Practical Next Steps\n1. Share specific details regarding the parties, location, and disputed amount.\n2. Identify available written documents, receipts, or communication records.\n\n### ℹ️ Information I still need from you\nCould you share more details about which of these domains your issue relates to?",
+    "timestamp": "2026-11-17T22:39:34.546423",
+    "citations": [
+      {
+        "act_name": "The Consumer Protection Act, 2019",
+        "section": "Section 2(47)",
+        "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+        "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+        "commencement_date": "2020-07-20",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Legal Services Authorities Act, 1987",
+        "section": "Section 12",
+        "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+        "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+        "official_url": "https://nalsa.gov.in/",
+        "commencement_date": "1995-11-09",
+        "jurisdiction": "Central / All India",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Payment of Wages Act, 1936",
+        "section": "Section 5 & Section 15",
+        "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+        "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+        "commencement_date": "1937-03-28",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      },
+      {
+        "act_name": "The Transfer of Property Act, 1882",
+        "section": "Section 106",
+        "title": "Duration of certain leases in absence of written contract or local usage",
+        "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+        "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+        "commencement_date": "1882-07-01",
+        "jurisdiction": "Central",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [
+      "What is the exact amount of money (in ₹) involved in this dispute?"
+    ],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.023,
+    "_session_id": "eval_8cd5308b"
+  }
+}

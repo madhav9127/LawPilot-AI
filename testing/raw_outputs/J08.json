@@ -1,0 +1,16 @@
+{
+  "test_id": "J08",
+  "category": "Technical Reliability",
+  "prompt": "Upload unsupported executable file test.",
+  "language": "en",
+  "expected": "Upload endpoint cleanly rejects or marks unsupported file format without server crash.",
+  "status": "PASS",
+  "reason": "Rejected unsupported executable upload with HTTP 400.",
+  "elapsed_sec": 0.005,
+  "timestamp": "2026-11-17T22:43:01.923426",
+  "raw_response": {
+    "error": "HTTP 400",
+    "_status_code": 400,
+    "_elapsed_sec": 0.005
+  }
+}

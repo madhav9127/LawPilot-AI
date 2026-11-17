@@ -1,0 +1,38 @@
+{
+  "test_id": "E02",
+  "category": "Multilingual",
+  "prompt": "मेरे नियोक्ता ने पिछले दो महीनों से मेरा वेतन नहीं दिया है।",
+  "language": "hi",
+  "expected": "Understands Bangalore/employment salary withholding; responds in fluent Devanagari Hindi with Hindi section headers.",
+  "status": "FAIL",
+  "reason": "Did not respond in Hindi Devanagari script.",
+  "elapsed_sec": 0.924,
+  "timestamp": "2026-11-17T22:42:59.501023",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Thank you for reaching out. Based on your description, this matter falls under general civil law principles in India.\n\n### | Your Situation\nYou have shared a civil dispute or inquiry. LawPilot AI specializes in three everyday civil legal domains:\n1. 🏠 **Tenant & Landlord Disputes**\n2. 🛒 **Consumer Protection & Refunds**\n3. 💼 **Employment & Wage Issues**\n\n### | Practical Next Steps\n1. Share specific details regarding the parties, location, and disputed amount.\n2. Identify available written documents, receipts, or communication records.\n\n### ℹ️ Information I still need from you\nCould you share more details about which of these domains your issue relates to?",
+    "timestamp": "2026-11-17T22:42:59.208072",
+    "citations": [
+      {
+        "act_name": "The Legal Services Authorities Act, 1987",
+        "section": "Section 12",
+        "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+        "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+        "official_url": "https://nalsa.gov.in/",
+        "commencement_date": "1995-11-09",
+        "jurisdiction": "Central / All India",
+        "verification_status": "Verified source available"
+      }
+    ],
+    "verification_status": "Verified source available",
+    "missing_info": [],
+    "follow_up_questions": [
+      "कृपया बताएं कि कुल कितनी सुरक्षा राशि (रुपयों में) विवादित है?"
+    ],
+    "escalation_detected": false,
+    "escalation_details": null,
+    "_status_code": 200,
+    "_elapsed_sec": 0.924,
+    "_session_id": "eval_a76db547"
+  }
+}

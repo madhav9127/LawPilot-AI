@@ -1,0 +1,19 @@
+{
+  "test_id": "A06",
+  "category": "Basic Conversational",
+  "prompt": "My landlord is refusing to return my security deposit.",
+  "language": "en",
+  "expected": "Recognizes tenancy issue, outlines rights under Model Tenancy Act / TPA and asks for facts.",
+  "status": "FAIL",
+  "reason": "HTTP status code 500",
+  "elapsed_sec": 1652.941,
+  "timestamp": "2026-11-17T22:39:32.977798",
+  "raw_response": {
+    "role": "assistant",
+    "content": "Error: timed out",
+    "_status_code": 500,
+    "_elapsed_sec": 1652.941,
+    "_session_id": "eval_5bf83411",
+    "citations": []
+  }
+}

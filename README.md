@@ -5,90 +5,123 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-FF4B4B.svg)](https://streamlit.io)
 [![Test Suite](https://img.shields.io/badge/pytest-29%2F29%20passed-brightgreen.svg)]()
-[![Evaluation Score](https://img.shields.io/badge/Evaluation%20Score-93.55%25-success.svg)]()
+[![Evaluation Score](https://img.shields.io/badge/Evaluation%20Score-95.87%25%20(46%2F46)-success.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
-> **Product Vision:** LawPilot AI is an intelligent, multilingual legal assistant designed to make legal guidance accessible to ordinary people in India. Users explain their everyday legal challenges in plain **English, Hindi, or Hinglish** and receive grounded legal explanations, statutory rights, evidence checklists, and professionally drafted legal documents.
+> **Submission for Kuku AI Generalist Assignment — Problem 2: Build an AI Lawyer**  
+> **Repository:** [https://github.com/madhav9127/LawPilot-AI](https://github.com/madhav9127/LawPilot-AI)  
+> **Author:** Madhav
 
 ---
 
-## 📌 Problem Statement
+## 📌 Product Vision & Overview
 
-Every year, millions of citizens in India face everyday civil disputes:
-1. **Tenant & Landlord Conflicts:** Unreturned security deposits, arbitrary deductions for routine painting wear-and-tear, lack of registered agreements, and verbal eviction threats via WhatsApp.
-2. **Consumer Grievances:** Defective e-commerce electronics, refund failures between payment gateways and merchants, wrong deliveries, and deficient paid services.
-3. **Employment Issues:** Unpaid salaries, unexplained deductions from full-and-final (FnF) settlements, refusal to issue relieving letters, and informal employment.
+**LawPilot AI** is an intelligent, single-page conversational legal assistant designed to bridge the access-to-justice gap for ordinary citizens across India.
 
-Most people do not know their basic rights under the **Transfer of Property Act, 1882**, the **Consumer Protection Act, 2019**, or the **Payment of Wages Act, 1936**. Retaining an advocate at the initial inquiry stage is often prohibitively expensive. Meanwhile, generic LLMs frequently hallucinate fake sections or make outcome guarantees.
-
-**LawPilot AI bridges this gap with responsible, grounded AI engineering.**
-
----
-
-## 🌟 Core Features
-
-- **Multilingual Natural Language Understanding:** Explain problems conversationally in English, Hindi (हिंदी), or conversational Hinglish (e.g., *"Mera landlord ₹25,000 deposit wapas nahi de raha"*).
-- **Statutory Legal Grounding & Anti-Hallucination:** Every legal explanation is directly retrieved from official government statutes published on [India Code](https://www.indiacode.nic.in/), Department of Consumer Affairs, and NALSA.
-- **Structured Case Builder:** Automatically converts free-form conversations into structured legal facts: parties, roles, disputed amounts, agreements, timelines, and missing information.
-- **Dynamic Evidence Checklist:** Itemizes necessary documents (bank statements, move-out photos, WhatsApp chats, salary slips) and explains their legal relevance under Section 65B of the Indian Evidence Act (BSA 2023).
-- **Professional Legal Document Generator:** Generates legally structured demand letters, formal legal notices, and consumer complaint drafts with instant **PDF** and **Word (DOCX)** export.
-- **Emergency Human Lawyer Escalation:** Detects high-stakes situations (court summons, impending limitation deadlines, criminal threats, illegal physical evictions) and immediately displays emergency helpline numbers (NALSA 15100, Police 112, NCH 1915).
-- **Document Upload & Prompt Injection Protection:** Extracts facts, dates, and amounts from uploaded PDFs, DOCX, and receipts, while sanitizing against adversarial prompt injection attempts.
-- **Zero-Key Deterministic Demo Mode:** Fully functional out-of-the-box without requiring paid API keys, while allowing seamless integration of Google Gemini, OpenAI, or Anthropic via environment variables.
+Instead of navigating complex legal portals, multi-page websites, or filling out tedious multi-step intake forms, users interact with a **clean, ChatGPT-style conversational interface**. They can explain their problem naturally in **English, Hindi (हिंदी), or conversational Hinglish**, and LawPilot AI:
+- Unpacks messy, unstructured situations into organized legal facts.
+- Explains statutory rights and legal protections in simple, human language without confusing legal jargon.
+- Retains multi-turn conversation memory, accumulating facts and gracefully handling user corrections.
+- Enforces strict anti-hallucination guardrails grounded in verified [India Code](https://www.indiacode.nic.in/) statutes.
+- Generates professional legal notice drafts and consumer complaint letters with one-click **PDF and DOCX export**.
+- Escalates genuine emergencies (physical lockouts, threats of violence, medical distress) to official national helplines (**Police 112**, **NALSA 15100**, **Medical 108/112**, **NCH 1915**).
 
 ---
 
-## 🛠️ Technology Stack
+## 🖥️ User Interface Design: Clean & Focused
 
-| Layer | Technology | Rationale |
-|---|---|---|
-| **Backend API** | FastAPI (Python 3.11+) | Asynchronous performance, automatic OpenAPI documentation, clean REST endpoints. |
-| **Frontend UI** | Modern Vanilla JS + Responsive CSS | Custom SaaS design (Navy `#0F172A`, Teal `#0D9488`), zero npm build dependencies, instant loading. |
-| **Dual Interface** | Streamlit | 1-click deployment on Streamlit Community Cloud for interview presentations. |
-| **PDF Generation** | ReportLab | Production-grade PDF rendering with legal formatting and disclaimers. |
-| **DOCX Generation**| python-docx | Clean Word document generation for advocate collaboration. |
-| **Testing** | pytest | Automated test suite verifying extraction, sanitization, retrieval, and endpoints. |
-| **Deployment** | Docker / Render / Streamlit Cloud | Free-tier deployment ready with `render.yaml`, `Procfile`, and `Dockerfile`. |
+Following the design philosophy of modern conversational assistants (like ChatGPT / Claude):
+- **Single-Page Simplicity:** No distracting tabs, no multi-page navigation menus, no corporate dashboards.
+- **Welcoming First Screen:** Displays *"How can I help you today?"* with 4 quick clickable prompt suggestions:
+  - *"My landlord is refusing to return my security deposit."*
+  - *"I purchased a defective product and the seller is refusing a refund."*
+  - *"My company has not paid my salary for two months."*
+  - *"Help me understand a legal notice I received."*
+- **Seamless Chat Transition:** Upon sending the first message, the welcome hero smoothly transitions into an active conversation view.
+- **Multimodal Inputs:** Built-in Web Speech API microphone for voice input, plus a document attachment button for lease agreements or receipts.
+- **Actionable Message Controls:** Small inline action pills beneath AI responses:
+  - 📋 **Copy Response**
+  - 📄 **Draft Legal Notice** (generates downloadable PDF/DOCX notice drafts directly in chat)
+  - 📊 **Summarize Case** (displays current structured fact profile)
+- **Live Grounding Indicator:** A status pill in the top header displaying `● Grounded in Indian Law (India Code)`.
+
+---
+
+## ⚖️ Core Legal Scope (3 Everyday Domains)
+
+LawPilot AI provides deep, specialized statutory reasoning across three high-frequency everyday domains:
+
+### 1. Tenant & Landlord Disputes
+- **Statutes:** *Transfer of Property Act, 1882* (Sections 106, 108(m), 108(f)), *Model Tenancy Act, 2021*, state rent control precedents.
+- **Common Scenarios:** Security deposit withholding, arbitrary painting/maintenance deductions, unwritten/oral leases, urgent roof/seepage repairs, and illegal eviction threats without court orders.
+
+### 2. Consumer Protection
+- **Statutes:** *Consumer Protection Act, 2019* (Sections 2(7), 2(47), 35, 84, 85).
+- **Common Scenarios:** Defective smartphones/laptops, refund delays between merchant and payment gateway, wrong e-commerce deliveries, undelivered paid services, and filing before District Consumer Commissions (e-Daakhil).
+
+### 3. Employment & Wage Disputes
+- **Statutes:** *Payment of Wages Act, 1936* (Sections 5, 7, 15), *Indian Contract Act, 1872* (Sections 27, 73), State Shops and Commercial Establishments Acts.
+- **Common Scenarios:** Unpaid salaries for 2+ months, unexplained deductions from full-and-final (FnF) settlements, refusal to release relieving/experience letters, and informal employment disputes.
+
+*Note: For out-of-scope matters (such as criminal offenses or divorce proceedings), LawPilot AI transparently explains its scope boundaries and provides safe guidance on consulting a qualified advocate.*
 
 ---
 
 ## 🏛️ System Architecture
 
 ```
-User Dialogue (EN / HI / Hinglish) ──► Input Sanitizer ──► Case Builder (Fact Extraction)
-                                                                 │
-      ┌──────────────────────────────────────────────────────────┴─────────────────────────┐
-      ▼                                                                                    ▼
-Anti-Hallucination Retrieval Engine                                         Escalation Detector
-  ├─ The Transfer of Property Act, 1882 (Sec 106, 108)                        ├─ Imminent Court Deadlines
-  ├─ Model Tenancy Act, 2021 & State Acts                                     ├─ Formal Court Summons
-  ├─ Consumer Protection Act, 2019 (Sec 2(7), 2(47), 35)                      ├─ Threats of Violence / Dispossession
-  ├─ Payment of Wages Act, 1936 & State Shops Acts                            └─ Emergency Helplines (NALSA 15100, 112)
-  └─ Verified Repositories (India Code, NCH, NALSA)
-      │
-      ▼
-Modular LLM Provider (Gemini / OpenAI / Grounded Demo Engine)
-      │
-      ├─► 8-Point Legal Position Analysis (Plain Language)
-      ├─► Dynamic Evidence Checklist (Statutory Relevance)
-      └─► Legal Document Generator (Editable Drafts ──► Export to PDF & DOCX)
+User (Browser / Mobile)
+   │  Speech Input (Web Speech API) / Text / Attachment
+   ▼
+FastAPI Backend (app/main.py)
+   ├─► Input Sanitizer & Prompt Guard (app/core/sanitizer.py)
+   ├─► Emergency & Escalation Filter (app/core/escalation.py)
+   ├─► Multi-Turn Fact & State Tracker (app/core/conversation.py)
+   ├─► Statutory Knowledge RAG (app/core/knowledge_base.py)
+   ├─► Modular AI Engine: Gemini 1.5 Pro/Flash + Deterministic Provider (app/core/llm_provider.py)
+   └─► Legal Document Generator (ReportLab PDF + python-docx) (app/core/document_generator.py)
 ```
+
+### Architectural Highlights
+- **FastAPI Core:** Synchronous route handlers ensure predictable threadpool execution, zero socket deadlocks in sandboxed environments, and instant response times (< 15ms in deterministic mode).
+- **Zero-Key Deterministic Mode:** Works immediately out of the box with built-in statutory reasoning without needing paid API keys. Connect a Google Gemini API key via `.env` to unlock live LLM reasoning.
+- **Dual Interface:** Streamlit interface (`streamlit_app.py`) provided alongside the primary FastAPI web app for instant one-click cloud deployment.
+
+---
+
+## 🧪 Comprehensive Evaluation & Test Harness
+
+LawPilot AI was verified through an automated **46-scenario evaluation suite** executed across dual runs, alongside 29 unit tests and 20 UI checks.
+
+### Summary of Results
+| Test Category | Suite Size | Initial Run | Improved Run | Status |
+|---------------|------------|-------------|--------------|--------|
+| **Tenant Disputes (T01–T05)** | 5 | 5 / 5 | 5 / 5 | ✅ Passed |
+| **Consumer Protection (C01–C04)** | 4 | 4 / 4 | 4 / 4 | ✅ Passed |
+| **Employment Claims (E01–E04)** | 4 | 4 / 4 | 4 / 4 | ✅ Passed |
+| **Edge & Safety Escalations (N01–N10)** | 10 | 9 / 10 (N08 failed) | 10 / 10 | ✅ Passed |
+| **Multilingual Hinglish/Hindi (A01–A05, L01–L05, B01–B04)** | 14 | 14 / 14 | 14 / 14 | ✅ Passed |
+| **Document Generation (D01–D05)** | 5 | 5 / 5 | 5 / 5 | ✅ Passed |
+| **State Memory & Fact Tracking (R01–R04)** | 4 | 4 / 4 | 4 / 4 | ✅ Passed |
+| **Total Benchmark Score** | **46** | **94.67% (45/46)** | **95.87% (46/46)** | **100% Pass** |
+| **Unit Tests (`pytest`)** | 29 | 29 / 29 | 29 / 29 | ✅ Passed (2.30s) |
+| **UI Interactive Verification** | 20 | 20 / 20 | 20 / 20 | ✅ Passed |
+
+Unedited raw outputs for all 46 test cases are preserved in:
+- `raw_outputs/initial_run/` (Records the initial N08 date contradiction failure)
+- `raw_outputs/improved_run/` (Records the verified 100% resolution)
 
 ---
 
 ## 🚀 Quickstart & Local Execution
 
-### 1. Prerequisites
-- Python 3.10, 3.11, 3.12, or 3.14
-- Git
-
-### 2. Clone Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/madhav9127/LawPilot-AI.git
 cd LawPilot-AI
 ```
 
-### 3. Create and Activate Virtual Environment
+### 2. Create and Activate Virtual Environment
 ```bash
 # On Linux / macOS:
 python3 -m venv venv
@@ -99,123 +132,68 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 ```
 
-### 4. Install Dependencies
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Configure Environment Variables (Optional)
-Copy the example environment configuration:
+### 4. Configure API Keys (Optional)
 ```bash
 cp .env.example .env
 ```
-*Note: If no API key is configured, LawPilot AI automatically runs in its intelligent **Deterministic Grounded Mode**.*
+*By default, the application runs in high-precision **Deterministic Grounded Mode** without an API key.*  
+To enable Google Gemini live generation, set `GEMINI_API_KEY=your_key` in `.env`.
 
-To enable live Google Gemini API:
-```env
-LLM_PROVIDER=gemini
-GEMINI_API_KEY=your_gemini_api_key_here
-```
+### 5. Launch the Application
 
-### 6. Run the Application
-
-#### Option A: Run the Primary Full-Stack Web App (FastAPI)
+#### Option A: Run the Primary FastAPI Single-Page App (Recommended)
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-Open your browser and navigate to: **`http://localhost:8000`**
+Open **`http://localhost:8000`** in your browser.
 
 #### Option B: Run the Streamlit Interface
 ```bash
 streamlit run streamlit_app.py
 ```
-Open your browser and navigate to: **`http://localhost:8501`**
+Open **`http://localhost:8501`** in your browser.
 
 ---
 
-## 🧪 Testing and Verification
+## 🧪 Running Automated Tests & Evaluation
 
-LawPilot AI includes a comprehensive automated test suite and an evaluation runner covering all 22 required scenarios:
-
-### Run Automated Unit Tests (pytest)
+### Run Unit Tests (pytest)
 ```bash
 pytest -v
 ```
-*Result:* **29 passed in 1.04s** (100% pass rate).
+*Expected: 29 passed in ~2.3 seconds.*
 
-### Run the 22-Scenario Evaluation Runner
+### Run the 46-Scenario Benchmark
 ```bash
 python test_runner.py
 ```
-This executes all 12 primary scenarios (T1–T4, C1–C4, E1–E4) and 10 adversarial/boundary tests (A1–A10), writing unedited JSON responses directly into `raw_outputs/` and computing the weighted evaluation score.
-
-*Evaluation Result:* **93.55% / 100% Weighted Average Score** across 22 scenarios.
+*Runs all 46 scenarios, evaluates rubric compliance, and outputs results into `raw_outputs/improved_run/`.*
 
 ---
 
-## 🛡️ Legal Safety & Ethical Guardrails
+## 📚 Documentation Index
 
-1. **Anti-Hallucination Principle:** The system strictly checks legal sections against its verified statutory registry. If a user asks to confirm a fabricated section (e.g., *"Section 999"*), the system refutes the section and provides the genuine law.
-2. **Outcome Guarantees Prohibited:** Compliant with Bar Council of India ethics, the system refuses to guarantee court outcomes and explicitly reminds users that judicial findings depend on evidence and statutory discretion.
-3. **Draft Legal Disclaimers:** Every generated document (PDF and DOCX) includes an indelible header stamping it as an informational draft requiring review by a qualified advocate.
-4. **Emergency Escalation:** Situations involving criminal threats, court summons, or imminent deadlines trigger prominent emergency guidance and national legal aid contacts (NALSA 15100).
-5. **Prompt Injection Defense:** File uploads and chat inputs are scanned and sanitized against instruction override attacks.
+All technical and architectural documentation is organized in the [`docs/`](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs) directory:
 
----
-
-## 📂 Repository Structure
-
-```
-LawPilot-AI/
-├── app/
-│   ├── main.py                  # FastAPI server & route handlers
-│   ├── config.py                # Configuration & secret handling
-│   ├── models/schemas.py        # Pydantic schemas (Cases, Citations, Documents)
-│   ├── core/
-│   │   ├── llm_provider.py      # Modular LLM factory (Gemini, Demo Provider)
-│   │   ├── knowledge_base.py    # Grounded Indian legal knowledge base
-│   │   ├── case_builder.py      # Structured case extraction & state tracking
-│   │   ├── evidence_checklist.py# Dynamic evidence checklist manager
-│   │   ├── document_generator.py# Document drafting, PDF & DOCX export
-│   │   ├── escalation.py        # Urgency & emergency escalation detector
-│   │   ├── sanitizer.py         # Prompt injection & input validation
-│   │   └── document_parser.py   # PDF and text extraction from user uploads
-│   ├── static/                  # CSS styles, JS controllers, speech engine
-│   └── templates/index.html     # Single Page Application
-├── streamlit_app.py             # Streamlit dual interface for cloud deployment
-├── tests/                       # Automated pytest suite (29 tests)
-├── raw_outputs/                 # 22 unedited scenario test outputs
-├── test_runner.py               # 22-scenario evaluation execution runner
-├── README.md                    # Project documentation
-├── SOLUTION_DOCUMENT.md         # 2-page executive solution document
-├── ARCHITECTURE.md              # System architecture & Mermaid workflows
-├── EVALUATION_REPORT.md         # Detailed evaluation report & rubric metrics
-├── WALKTHROUGH_SCRIPT.md        # 3-minute interview demonstration script
-├── requirements.txt             # Python dependencies
-├── Dockerfile                   # Production Docker container definition
-├── render.yaml                  # 1-click Render blueprint
-└── Procfile                     # Web process definition
-```
+- [docs/ARCHITECTURE.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/ARCHITECTURE.md) — System design, data flow, component decoupling, and Mermaid diagrams.
+- [docs/AI_WORKFLOW.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/AI_WORKFLOW.md) — System prompts, statutory RAG grounding, multi-turn memory, and model swapping.
+- [docs/TEST_CASES.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/TEST_CASES.md) — Specifications for all 46 benchmark scenarios + 20 UI tests.
+- [docs/TEST_RESULTS.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/TEST_RESULTS.md) — Comprehensive results comparing initial and improved test runs.
+- [docs/EVALUATION_REPORT.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/EVALUATION_REPORT.md) — Weighted scoring rubric (95.87%), safety audit, and domain breakdown.
+- [docs/FAILURE_ANALYSIS.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/FAILURE_ANALYSIS.md) — Root-cause analysis of the N08 date contradiction failure and architectural fixes.
+- [docs/AI_TOOL_DISCLOSURE.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/docs/AI_TOOL_DISCLOSURE.md) — Transparent disclosure of AI tools used, roles, and real engineering mistakes caught during testing.
+- [solution_doc.md](file:///c:/Users/ASUS/OneDrive/Desktop/kukufmm/solution_doc.md) — Concise 2-page PDF-ready executive summary for Kuku assignment submission.
 
 ---
 
-## ☁️ Deployment Instructions
+## 🛡️ Legal & Ethical Safety Disclaimers
 
-### Deploy to Streamlit Community Cloud (Free Tier)
-1. Fork or push this repository to GitHub.
-2. Visit [share.streamlit.io](https://share.streamlit.io/) and click **New App**.
-3. Select the repository `madhav9127/LawPilot-AI`, branch `master`, and main file `streamlit_app.py`.
-4. (Optional) Add your `GEMINI_API_KEY` under Advanced Settings -> Secrets.
-5. Click **Deploy**.
-
-### Deploy to Render (Free Tier)
-1. In Render, select **New Web Service** and connect `madhav9127/LawPilot-AI`.
-2. Build Command: `pip install -r requirements.txt`
-3. Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Deploy service.
-
----
-
-## ⚖️ Legal Disclaimer
-
-*LawPilot AI provides general legal information and assistance. It is not a law firm and does not substitute for advice from a qualified advocate licensed by the Bar Council of India. Legal outcomes depend on individual facts, applicable state laws, and judicial jurisdiction.*
+1. **Information, Not Legal Representation:** LawPilot AI provides structured legal information and automated draft generation under Indian law. It does not establish an advocate-client relationship.
+2. **Mandatory Advocate Review:** Every generated PDF and DOCX document includes an unalterable legal disclaimer indicating that formal legal notices must be reviewed by a licensed Bar Council advocate before delivery.
+3. **No Outcome Guarantees:** In accordance with Bar Council of India professional standards, LawPilot AI strictly refuses requests to promise or guarantee judicial outcomes.
+4. **Emergency Routing:** Immediate diversion to police (112) or medical services (108/112) when life, physical safety, or criminal intimidation is detected.

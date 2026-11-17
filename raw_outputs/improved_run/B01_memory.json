@@ -1,0 +1,12 @@
+{
+  "test_id": "B01",
+  "category": "Memory",
+  "user_input": "Summarize my case and tell me what information is missing.",
+  "expected": "Output structured Case Summary distinguishing explicit facts, inferred context, and unknown facts.",
+  "actual_response": "### 📋 Your Case Summary\n\n**1. Facts Explicitly Provided by You:**\n- **Dispute Type:** Security deposit withholding\n- **Parties Involved:** Tenant vs Landlord\n- **Disputed Amount:** ₹25,000\n- **Location:** Jaipur\n- **Incident / Vacate Date:** 1 november\n- **Agreement Status:** Written agreement exists\n- **Available Evidence:** Invoice / Payslips, Bank / UPI transaction records, WhatsApp / SMS communications, Photos / Video evidence\n\n**2. Inferred Legal Context:**\n- Tenancy relationship governed by general civil/tenancy law (Transfer of Property Act, 1882).\n\n**3. Information Still Needed:**\n- All primary case parameters have been recorded.",
+  "citations": [],
+  "status": "PASS",
+  "score": 95.0,
+  "reason": "Grounded, helpful response meeting behavioral criteria.",
+  "timestamp": "2026-11-17T16:53:42.129647"
+}

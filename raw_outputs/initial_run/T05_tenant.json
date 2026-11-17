@@ -1,0 +1,53 @@
+{
+  "test_id": "T05",
+  "category": "Tenant",
+  "user_input": "My landlord says I must leave tomorrow even though I have paid rent.",
+  "expected": "Recognize urgency of illegal eviction; cite SRA Sec 6; advise against unlawful dispossession; provide emergency guidance.",
+  "actual_response": "[Grounded Statutory AI]\n\n🚨 **URGENT LEGAL PROTECTION: UNLAWFUL EVICTION & SAFETY ALERT**\n\n**1. Immediate Rights Under Indian Law:**\nUnder Indian law, a landlord **CANNOT forcefully evict a tenant overnight or throw out your belongings**, even if there is a dispute or rent arrears.\n- **Specific Relief Act, 1963 (Section 6):** Dispossessing any person of immovable property without due process of law is illegal. Only a competent civil court or Rent Authority can order eviction.\n- A landlord cannot cut electricity, water, or use physical force (Maharashtra Rent Control Act Sec 29, Delhi Rent Control Act Sec 45).\n\n**2. If Facing Physical Threats or Goons:**\n- **Immediately dial 112 (National Emergency Number / Police)**.\n- Your physical safety comes before civil dispute resolution.\n- Call **15100 (NALSA Free Legal Aid Helpline)** for emergency legal representation.",
+  "citations": [
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Maharashtra Rent Control Act, 1999",
+      "section": "Section 15 & Section 29",
+      "title": "Relief against forfeiture and prohibition against cutting off essential supplies",
+      "description": "No landlord shall without just or sufficient cause cut off or withhold any essential supply or service (water, electricity, lifts) enjoyed by the tenant. Violation is punishable with imprisonment or fine.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2513",
+      "commencement_date": "2000-03-31",
+      "jurisdiction": "State: Maharashtra",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Delhi Rent Control Act, 1958",
+      "section": "Section 14 & Section 45",
+      "title": "Protection of tenant against eviction and restoration of essential amenities",
+      "description": "Strict grounds required for eviction; prohibits withholding essential amenities without reasonable cause. Tenant may approach Rent Controller for summary restoration.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1393",
+      "commencement_date": "1959-02-09",
+      "jurisdiction": "State: Delhi (NCT)",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95.0,
+  "reason": "Grounded, helpful response meeting behavioral criteria.",
+  "timestamp": "2026-11-17T16:48:34.584671"
+}

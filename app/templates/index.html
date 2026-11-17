@@ -3,475 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LawPilot AI — Navigate Legal Challenges. Know Your Rights. Take Action.</title>
-    <!-- Stylesheets -->
+    <title>LawPilot AI — Your AI Assistant for Everyday Legal Problems in India</title>
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%200%22%20100%22%20100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 </head>
 <body>
 
-    <!-- Header & Navigation -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="brand-logo" onclick="switchTab('home')">
-                <div class="brand-icon">⚖️</div>
-                <div>
-                    <div>LawPilot AI</div>
-                    <div style="font-size: 0.65rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.02em;">INDIA LEGAL ASSISTANT</div>
-                </div>
-            </a>
-
-            <nav>
-                <ul class="nav-links">
-                    <li class="nav-item active" data-tab="home">Home</li>
-                    <li class="nav-item" data-tab="assistant">Legal Assistant</li>
-                    <li class="nav-item" data-tab="cases">My Cases</li>
-                    <li class="nav-item" data-tab="docs">Document Generator</li>
-                    <li class="nav-item" data-tab="about">About</li>
-                    <li>
-                        <span class="badge-demo" id="providerBadge">
-                            <span style="font-size: 0.85rem;">🛡️</span> Grounded Mode
-                        </span>
-                    </li>
-                </ul>
-            </nav>
+    <!-- Minimal Header -->
+    <header class="app-header">
+        <div class="header-brand">
+            <span class="brand-logo-icon">⚖️</span>
+            <div>
+                <span class="brand-name">LawPilot AI</span>
+                <span class="brand-tagline">Your AI assistant for everyday legal problems in India</span>
+            </div>
+        </div>
+        <div class="header-status">
+            <span class="status-indicator">
+                <span class="status-dot"></span>
+                <span id="groundingStatusText">Grounded in Official Statutes</span>
+            </span>
+            <button class="btn-icon" id="newChatBtn" title="New Conversation">🔄 Reset</button>
         </div>
     </header>
 
-    <main class="main-wrapper">
+    <!-- Main Chat Workspace -->
+    <main class="chat-viewport" id="chatViewport">
+        
+        <!-- Welcome Screen (Shown initially, hidden after first message) -->
+        <div class="welcome-container" id="welcomeScreen">
+            <div class="welcome-badge">⚖️ India Legal Assistant</div>
+            <h1 class="welcome-heading">How can I help you today?</h1>
+            <p class="welcome-desc">
+                Describe your legal challenge in simple English, Hindi, or Hinglish.
+                LawPilot AI helps you understand your rights, organize your evidence, and generate legal notices.
+            </p>
 
-        <!-- ==================== TAB 1: HOME ==================== -->
-        <section id="tab-home" class="tab-content active">
-            <div class="hero-box">
-                <h1 class="hero-heading">Legal clarity starts with one conversation.</h1>
-                <p class="hero-subtitle">Explain your problem. Understand your rights. Discover your next step. Specially designed for everyday tenant, consumer, and employment disputes in India.</p>
-                
-                <div style="max-width: 720px; margin: 0 auto; display: flex; gap: 0.5rem; background: #fff; padding: 0.5rem; border-radius: 12px; border: 1px solid var(--border-slate); box-shadow: var(--shadow-md);">
-                    <input type="text" id="homeQuickInput" placeholder="Describe your issue in English, Hindi, or Hinglish (e.g. Landlord deposit return nahi kar raha)..." style="flex: 1; border: none; outline: none; padding: 0.6rem 0.8rem; font-size: 0.95rem;">
-                    <button class="btn-primary" onclick="startScenario(document.getElementById('homeQuickInput').value)">Analyze Rights →</button>
-                </div>
+            <div class="example-prompts-grid">
+                <button class="prompt-chip" onclick="useExamplePrompt('My landlord is refusing to return my security deposit.')">
+                    <span class="chip-icon">🏠</span>
+                    <span class="chip-text">My landlord is refusing to return my security deposit.</span>
+                </button>
+                <button class="prompt-chip" onclick="useExamplePrompt('I purchased a defective product and the seller is refusing a refund.')">
+                    <span class="chip-icon">🛒</span>
+                    <span class="chip-text">I purchased a defective product and the seller is refusing a refund.</span>
+                </button>
+                <button class="prompt-chip" onclick="useExamplePrompt('My company has not paid my salary for two months.')">
+                    <span class="chip-icon">💼</span>
+                    <span class="chip-text">My company has not paid my salary for two months.</span>
+                </button>
+                <button class="prompt-chip" onclick="useExamplePrompt('Help me understand a legal notice I received.')">
+                    <span class="chip-icon">📑</span>
+                    <span class="chip-text">Help me understand a legal notice I received.</span>
+                </button>
             </div>
+        </div>
 
-            <!-- Core Legal Domains -->
-            <div style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
-                <div>
-                    <h2 style="font-size: 1.5rem; font-weight: 800;">Everyday Legal Domains</h2>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Select a domain or try one of the realistic test scenarios below:</p>
-                </div>
-            </div>
-
-            <div class="category-grid">
-                <!-- Domain 1: Tenant & Landlord -->
-                <div class="cat-card">
-                    <div class="cat-header">
-                        <div class="cat-icon-wrap tenant-bg">🏠</div>
-                        <div>
-                            <div class="cat-title">Tenant & Landlord</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted);">Transfer of Property Act & Rent Control</div>
-                        </div>
-                    </div>
-                    <p class="cat-desc">Security deposit withholding, arbitrary painting deductions, lack of written agreement, or unlawful eviction threats.</p>
-                    <div class="example-list">
-                        <div class="example-item" onclick="startScenario('Tenant paid ₹25,000 as security deposit. Landlord refuses to return it after the tenant vacates.')">
-                            ▶ ₹25,000 deposit not returned after vacating
-                        </div>
-                        <div class="example-item" onclick="startScenario('Landlord deducts ₹10,000 from a ₹20,000 deposit for alleged painting damage without providing evidence.')">
-                            ▶ Unfair ₹10,000 deduction for painting wear & tear
-                        </div>
-                        <div class="example-item" onclick="startScenario('Landlord threatens immediate eviction through WhatsApp.')">
-                            ▶ WhatsApp eviction threat without legal notice
-                        </div>
-                        <div class="example-item" onclick="startScenario('Tenant has no written rental agreement but has bank transfer proof and WhatsApp conversations.')">
-                            ▶ Oral tenancy dispute with bank transfer proofs
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Domain 2: Consumer Protection -->
-                <div class="cat-card">
-                    <div class="cat-header">
-                        <div class="cat-icon-wrap consumer-bg">🛒</div>
-                        <div>
-                            <div class="cat-title">Consumer Protection</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted);">Consumer Protection Act, 2019 & E-Commerce Rules</div>
-                        </div>
-                    </div>
-                    <p class="cat-desc">Defective electronics, refund delays, wrong delivery from e-commerce platforms, or services paid for but never delivered.</p>
-                    <div class="example-list">
-                        <div class="example-item" onclick="startScenario('Customer purchased a ₹15,000 smartphone online. It arrived defective and the seller refuses a refund.')">
-                            ▶ Defective ₹15,000 phone with refund refused
-                        </div>
-                        <div class="example-item" onclick="startScenario('Refund is marked successful on e-commerce app but money has not reached the customer bank account.')">
-                            ▶ App shows refund successful but bank not credited
-                        </div>
-                        <div class="example-item" onclick="startScenario('Customer receives a different product from the one ordered online.')">
-                            ▶ Received wrong product from online seller
-                        </div>
-                        <div class="example-item" onclick="startScenario('Customer paid for an appliance service that was never delivered.')">
-                            ▶ Service not delivered after advance payment
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Domain 3: Employment Issues -->
-                <div class="cat-card">
-                    <div class="cat-header">
-                        <div class="cat-icon-wrap employment-bg">💼</div>
-                        <div>
-                            <div class="cat-title">Employment Issues</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted);">Payment of Wages Act & Shops & Establishments</div>
-                        </div>
-                    </div>
-                    <p class="cat-desc">Unpaid or delayed salaries, unexplained full & final deductions, refusal to provide relieving letters, or lack of formal contract.</p>
-                    <div class="example-list">
-                        <div class="example-item" onclick="startScenario('Employee has not received two months of salary from employer.')">
-                            ▶ 2 months of earned salary unpaid
-                        </div>
-                        <div class="example-item" onclick="startScenario('Employer makes unexplained deductions from final settlement statement.')">
-                            ▶ Unexplained deductions from FnF settlement
-                        </div>
-                        <div class="example-item" onclick="startScenario('Employee resigned and employer refuses to provide final settlement and relieving letter.')">
-                            ▶ Employer refuses settlement & relieving letter
-                        </div>
-                        <div class="example-item" onclick="startScenario('Employee has no formal appointment letter but has salary slips and bank statements.')">
-                            ▶ No appointment letter but salary slips available
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How It Works -->
-            <div style="background: #ffffff; border: 1px solid var(--border-slate); border-radius: 14px; padding: 2rem; margin-bottom: 2rem;">
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; text-align: center;">How LawPilot AI Works</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center;">
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🗣️</div>
-                        <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">1. Explain Naturally</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Type or speak in English, Hindi, or Hinglish. No legal jargon required.</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📚</div>
-                        <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">2. Grounded Retrieval</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Directly mapped to verified Indian statutes (India Code, CPA 2019, TPA 1882). Zero hallucinations.</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📑</div>
-                        <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">3. Evidence Checklist</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Get an itemized checklist of what proofs matter under Indian Evidence Act.</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">✍️</div>
-                        <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">4. Generate Legal Drafts</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Export formal demand notices and consumer complaints directly to PDF & DOCX.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Privacy & Legal Disclaimer -->
-            <div class="legal-disclaimer-footer">
-                <p><b>Statutory Notice & Ethics Disclaimer:</b> LawPilot AI provides general legal information and assistance. It is not a substitute for advice from a qualified advocate. Legal outcomes depend on the facts, applicable laws and jurisdiction. LawPilot AI never guarantees court victory and strictly complies with the Bar Council of India standards.</p>
-            </div>
-        </section>
-
-
-        <!-- ==================== TAB 2: LEGAL ASSISTANT (CHAT) ==================== -->
-        <section id="tab-assistant" class="tab-content">
-            <div class="chat-container">
-                <!-- Main Chat Window -->
-                <div class="chat-panel">
-                    <div class="chat-header">
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-weight: 700; font-size: 1rem;">⚖️ Legal Assistant</span>
-                            <span class="status-badge status-verified" style="margin-bottom: 0;">Grounded Statutory AI</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.6rem;">
-                            <!-- State Selector -->
-                            <select id="stateSelect" style="padding: 0.3rem 0.5rem; font-size: 0.8rem; border-radius: 6px; border: 1px solid var(--border-slate); outline: none;">
-                                <option value="All India (Central)">Jurisdiction: All India (Central)</option>
-                                <option value="Maharashtra">Maharashtra (Mumbai/Pune)</option>
-                                <option value="Delhi">Delhi (NCT)</option>
-                                <option value="Karnataka">Karnataka (Bengaluru)</option>
-                                <option value="Tamil Nadu">Tamil Nadu (Chennai)</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            </select>
-
-                            <!-- Language Selector -->
-                            <select id="languageSelect" style="padding: 0.3rem 0.5rem; font-size: 0.8rem; border-radius: 6px; border: 1px solid var(--border-slate); outline: none;">
-                                <option value="en">English</option>
-                                <option value="hi">हिंदी (Hindi)</option>
-                                <option value="hinglish">Hinglish</option>
-                            </select>
-
-                            <button class="btn-icon" id="clearChatBtn" title="Reset Session">🔄</button>
-                        </div>
-                    </div>
-
-                    <!-- Messages Feed -->
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="msg-bubble msg-ai">
-                            <div class="status-badge status-verified">Verified Source Available</div>
-                            <div class="markdown-body">
-                                <b>Namaste! I am LawPilot AI.</b><br>
-                                Explain your legal challenge in simple English, Hindi, or Hinglish. I can assist with:<br>
-                                • <b>Tenant & Landlord disputes</b> (Deposits, unfair deductions, illegal eviction threats)<br>
-                                • <b>Consumer Protection</b> (Defective products, online refunds, deficient services)<br>
-                                • <b>Employment issues</b> (Unpaid wages, settlement delays, lack of contract)<br><br>
-                                <i>All legal explanations are strictly grounded in verified Indian statutes.</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input Bar -->
-                    <div class="chat-input-bar">
-                        <div class="input-wrapper">
-                            <!-- File Upload Trigger -->
-                            <input type="file" id="fileUploadInput" style="display: none;" accept=".pdf,.docx,.txt,.md">
-                            <button class="btn-icon" id="uploadFileBtn" title="Upload Agreement, Notice, or Payslip (PDF/DOCX/TXT)">📎</button>
-                            
-                            <!-- Mic Trigger -->
-                            <button class="btn-icon" id="micBtn" title="Speak in English or Hindi">🎤</button>
-                            
-                            <textarea id="chatInput" class="chat-textarea" rows="1" placeholder="Type your legal issue (e.g. My landlord refuses to return ₹25,000 security deposit)..."></textarea>
-                            <button class="btn-primary" id="sendBtn">Send ➔</button>
-                        </div>
-                        <div style="font-size: 0.725rem; color: var(--text-muted); margin-top: 0.35rem; display: flex; justify-content: space-between;">
-                            <span>Protected by Input Sanitization & Anti-Hallucination Grounding</span>
-                            <span>Microphone supports English & Hindi</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar Case Snapshot -->
-                <div class="sidebar-panel">
-                    <div class="sidebar-title">
-                        <span>📋 Case Snapshot</span>
-                        <button class="btn-icon" onclick="switchTab('cases')" style="font-size: 0.75rem; color: var(--accent-teal);" title="Edit in Full Dashboard">Edit Details ↗</button>
-                    </div>
-
-                    <div class="case-fact-box">
-                        <div class="fact-label">Category</div>
-                        <div class="fact-value" id="sideCategory">GENERAL INQUIRY</div>
-                    </div>
-
-                    <div class="case-fact-box">
-                        <div class="fact-label">Disputed Amount</div>
-                        <div class="fact-value" id="sideAmount">Not specified</div>
-                    </div>
-
-                    <div class="case-fact-box">
-                        <div class="fact-label">Parties</div>
-                        <div class="fact-value" id="sideParties">User vs Opponent</div>
-                    </div>
-
-                    <div class="case-fact-box">
-                        <div class="fact-label">Available Proofs</div>
-                        <div class="fact-value" id="sideEvidence">Pending collection</div>
-                    </div>
-
-                    <div style="margin-top: auto; border-top: 1px solid var(--border-slate); padding-top: 1rem;">
-                        <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 0.4rem;">Emergency Helplines (India)</div>
-                        <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.25rem;">
-                            <div>• <b>NALSA Free Legal Aid:</b> 15100</div>
-                            <div>• <b>Consumer Grievance (NCH):</b> 1915</div>
-                            <div>• <b>National Emergency:</b> 112</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==================== TAB 3: MY CASES DASHBOARD ==================== -->
-        <section id="tab-cases" class="tab-content">
-            <div style="margin-bottom: 1.5rem;">
-                <h2 style="font-size: 1.5rem; font-weight: 800;">Structured Case Dashboard</h2>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Review extracted case facts, edit details, and track your evidence checklist.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <!-- Case Fields Form -->
-                <div class="cat-card">
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid var(--border-slate); padding-bottom: 0.5rem;">Factual Case Summary</h3>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 0.85rem;">
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Case Category</label>
-                            <input type="text" id="caseFieldCategory" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-                            <div>
-                                <label style="font-size: 0.8rem; font-weight: 600;">Your Role</label>
-                                <input type="text" id="caseFieldUserRole" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                            </div>
-                            <div>
-                                <label style="font-size: 0.8rem; font-weight: 600;">Opposing Party</label>
-                                <input type="text" id="caseFieldOpponent" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                            </div>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Financial Amount in Dispute</label>
-                            <input type="text" id="caseFieldAmount" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Incident Description</label>
-                            <textarea id="caseFieldIncident" rows="3" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;"></textarea>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Contract / Agreement Status</label>
-                            <input type="text" id="caseFieldAgreement" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-slate);">
-                        <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.4rem;">IDENTIFIED MISSING INFORMATION:</h4>
-                        <ul id="caseMissingList" style="list-style: none; font-size: 0.825rem;">
-                            <li>No critical information missing.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Evidence Checklist Module -->
-                <div class="cat-card">
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid var(--border-slate); padding-bottom: 0.5rem;">Dynamic Evidence Checklist</h3>
-                    <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1rem;">Under Indian Evidence Act (BSA 2023), documentary and electronic proofs substantiate claims before courts.</p>
-                    <div id="evidenceContainer">
-                        <!-- Loaded dynamically -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==================== TAB 4: DOCUMENT GENERATOR ==================== -->
-        <section id="tab-docs" class="tab-content">
-            <div style="margin-bottom: 1.5rem;">
-                <h2 style="font-size: 1.5rem; font-weight: 800;">Legal Document Generator</h2>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Generate professionally formatted legal notices, demand letters, and consumer complaints. Export to PDF and DOCX.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 420px 1fr; gap: 1.5rem;">
-                <!-- Form Inputs -->
-                <div class="cat-card">
-                    <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem;">Draft Parameters</h3>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Document Template</label>
-                            <select id="docTypeSelect" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                                <option value="security_deposit_demand">Security Deposit Demand Letter</option>
-                                <option value="consumer_complaint_draft">Consumer Complaint (District Commission)</option>
-                                <option value="unpaid_salary_demand">Unpaid Salary & Dues Demand</option>
-                                <option value="formal_legal_notice">Formal Legal Notice Draft</option>
-                                <option value="refund_request_letter">Refund Request Letter</option>
-                                <option value="final_settlement_request">Full & Final Settlement Demand</option>
-                                <option value="notice_reply">Reply to Landlord / Employer Notice</option>
-                                <option value="advocate_brief_summary">Advocate Briefing Summary</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Your Name</label>
-                            <input type="text" id="docUserName" value="Aman Sharma" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Your Address / City</label>
-                            <input type="text" id="docUserAddress" value="Flat 402, Green Glen Layout, Bengaluru, Karnataka" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Opposing Party Name</label>
-                            <input type="text" id="docOpponentName" value="Ramesh Kumar (Landlord)" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Opposing Party Address</label>
-                            <input type="text" id="docOpponentAddress" value="12, Indiranagar, Bengaluru, Karnataka" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                            <div>
-                                <label style="font-size: 0.8rem; font-weight: 600;">Disputed Amount</label>
-                                <input type="text" id="docAmount" value="₹25,000" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                            </div>
-                            <div>
-                                <label style="font-size: 0.8rem; font-weight: 600;">Notice Days</label>
-                                <input type="number" id="docDays" value="15" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                            </div>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Summary of Facts</label>
-                            <textarea id="docFacts" rows="2" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">Vacated premises on scheduled date in clean condition. Landlord refusing to refund security deposit without valid basis.</textarea>
-                        </div>
-                        <div>
-                            <label style="font-size: 0.8rem; font-weight: 600;">Specific Demand</label>
-                            <input type="text" id="docDemands" value="Immediate refund of ₹25,000 to bank account within 15 days" style="width: 100%; padding: 0.45rem; border: 1px solid var(--border-slate); border-radius: 6px; font-size: 0.875rem;">
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <button class="btn-primary" id="generateDocBtn" style="justify-content: center;">Generate Draft 📝</button>
-                    </div>
-                </div>
-
-                <!-- Document Preview & Export -->
-                <div class="cat-card" style="display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <h3 style="font-size: 1.05rem; font-weight: 700;">Live Document Draft Preview</h3>
-                        <div style="display: flex; gap: 0.5rem;">
-                            <button class="btn-primary" id="downloadPdfBtn" style="background: #be123c;">📄 Download PDF</button>
-                            <button class="btn-primary" id="downloadDocxBtn" style="background: #1d4ed8;">📑 Download Word (DOCX)</button>
-                        </div>
-                    </div>
-
-                    <div style="font-size: 0.75rem; color: #991b1b; background: #fef2f2; border: 1px solid #fecaca; padding: 0.5rem 0.75rem; border-radius: 6px; margin-bottom: 0.75rem;">
-                        ⚠️ <b>Mandatory Notice:</b> This draft is generated by LawPilot AI for informational guidance. It must be reviewed and verified by a qualified advocate before formal legal service or court filing.
-                    </div>
-
-                    <textarea id="docPreviewBox" style="flex: 1; min-height: 400px; width: 100%; font-family: monospace; font-size: 0.875rem; padding: 1rem; border: 1px solid var(--border-slate); border-radius: 8px; line-height: 1.5; resize: vertical;" readonly>Click "Generate Draft" to populate the formatted legal notice.</textarea>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==================== TAB 5: ABOUT & ETHICAL SYSTEM ==================== -->
-        <section id="tab-about" class="tab-content">
-            <div style="max-width: 860px; margin: 0 auto;">
-                <div style="margin-bottom: 1.5rem; text-align: center;">
-                    <h2 style="font-size: 2rem; font-weight: 800;">About LawPilot AI</h2>
-                    <p style="font-size: 1rem; color: var(--text-muted);">Intelligent, Multilingual Legal Assistant for Everyday Legal Rights in India.</p>
-                </div>
-
-                <div class="cat-card" style="margin-bottom: 1.5rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Product Mission & Identity</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
-                        LawPilot AI is designed to demystify Indian law for ordinary citizens. Millions of Indians face everyday disputes—landlords withholding security deposits, online retailers refusing refunds for defective goods, or employers delaying full and final settlements. Most people do not know their basic rights under the Transfer of Property Act, 1882, the Consumer Protection Act, 2019, or the Payment of Wages Act, 1936.
-                    </p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-                        LawPilot AI provides a clear bridge: simple natural language input in English, Hindi, or Hinglish, grounded statutory rights, evidence checklists, and professionally drafted notices.
-                    </p>
-                </div>
-
-                <div class="cat-card" style="margin-bottom: 1.5rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Anti-Hallucination & Retrieval System</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
-                        Standard LLMs frequently hallucinate legal sections or cite outdated statutes. LawPilot AI solves this through a dedicated statutory grounding engine:
-                    </p>
-                    <ul style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-left: 1.25rem;">
-                        <li><b>Statutory Registry:</b> Every cited section is retrieved from verified repositories on India Code (https://www.indiacode.nic.in/).</li>
-                        <li><b>Refusal to Fabricate:</b> The system refuses requests to invent laws or guarantee court victories.</li>
-                        <li><b>Citation Verification:</b> If a user cites a false section (e.g. "Section 999"), the anti-hallucination engine refutes it and cites the genuine provision.</li>
-                        <li><b>State Specificity:</b> Distinguishes Central Acts from State-specific tenancy acts (e.g. Maharashtra Rent Control Act, Delhi Rent Control Act).</li>
-                    </ul>
-                </div>
-
-                <div class="cat-card">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Ethical Guardrails & Advocate Escalation</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.5rem;">
-                        LawPilot AI does not replace licensed advocates. Whenever critical risks are detected—such as criminal summons, approaching court deadlines, threats of physical violence, or illegal lockouts—the system activates an emergency escalation alert directing the user to official helplines (NALSA 15100, Police 112) and licensed advocates.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- Conversation Stream -->
+        <div class="messages-stream" id="messagesStream"></div>
 
     </main>
 
-    <!-- Core Scripts -->
+    <!-- Floating Chat Input Bar -->
+    <footer class="input-container">
+        <div class="input-card">
+            <!-- Hidden File Input -->
+            <input type="file" id="fileAttachment" style="display: none;" accept=".pdf,.docx,.txt,.md">
+            
+            <button class="input-action-btn" id="attachBtn" title="Attach rental agreement, payslip or notice (PDF/DOCX/TXT)">
+                📎
+            </button>
+            <button class="input-action-btn" id="voiceBtn" title="Speak in English or Hindi">
+                🎤
+            </button>
+            
+            <textarea id="chatInput" rows="1" placeholder="Describe your legal issue in plain English, Hindi, or Hinglish..." autofocus></textarea>
+            
+            <button class="send-btn" id="sendBtn" title="Send message">
+                ➔
+            </button>
+        </div>
+        <div class="input-disclaimer">
+            LawPilot AI provides general legal information grounded in Indian statutes. It is not a substitute for advice from a qualified advocate.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="/static/js/speech.js"></script>
     <script src="/static/js/app.js"></script>
 </body>

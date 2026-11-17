@@ -14,7 +14,7 @@ def test_health_endpoint():
 def test_home_page():
     html = serve_home()
     assert "LawPilot AI" in html
-    assert "Legal clarity starts with one conversation" in html
+    assert "How can I help you today?" in html
 
 def test_chat_endpoint_tenant():
     req = ChatRequest(

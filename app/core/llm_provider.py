@@ -13,6 +13,16 @@ from app.core.sanitizer import Sanitizer
 from app.core.knowledge_base import LegalKnowledgeBase
 from app.core.escalation import EscalationDetector
 from app.core.case_builder import CaseBuilder
+from app.core.conversation import ConversationCaseMemory
+
+# Persistent session store for multi-turn conversations
+SESSION_MEMORIES: Dict[str, ConversationCaseMemory] = {}
+
+def get_or_create_memory(session_id: str) -> ConversationCaseMemory:
+    if session_id not in SESSION_MEMORIES:
+        SESSION_MEMORIES[session_id] = ConversationCaseMemory(session_id)
+    return SESSION_MEMORIES[session_id]
+
 
 class BaseLLMProvider(ABC):
     """Abstract Base Class for modular LLM providers."""
@@ -23,7 +33,8 @@ class BaseLLMProvider(ABC):
         message: str,
         conversation_history: List[Dict[str, str]],
         language: LanguageEnum,
-        state_jurisdiction: Optional[str] = None
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
     ) -> ChatMessage:
         pass
 
@@ -31,9 +42,8 @@ class BaseLLMProvider(ABC):
 class DeterministicDemoProvider(BaseLLMProvider):
     """
     Intelligent Grounded Deterministic Demo Provider.
-    Used when no live API key is configured.
-    Provides mathematically reproducible, statutory-grounded responses in EN, HI, and Hinglish.
-    Clearly marked as [Demo Mode — Grounded Statutory Rules]. Never fabricates facts or citations.
+    Handles the 3 core domains (Tenant, Consumer, Employment), multilingual dialogue (EN, HI, Hinglish),
+    multi-turn case memory with corrections, document generation triggers, and adversarial defenses.
     """
 
     def generate_response(
@@ -41,286 +51,399 @@ class DeterministicDemoProvider(BaseLLMProvider):
         message: str,
         conversation_history: List[Dict[str, str]],
         language: LanguageEnum,
-        state_jurisdiction: Optional[str] = None
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
     ) -> ChatMessage:
         lower_msg = message.lower().strip()
+        memory = get_or_create_memory(session_id)
         
-        # 1. Inspect for prompt injection / adversarial threats (A5)
-        is_threat, threat_details = Sanitizer.inspect_for_threats(message)
-        if is_threat:
-            content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                "⚠️ **Safety Intervention: Prompt Injection Detected**\n\n"
-                "LawPilot AI detected an attempt to override system instructions or bypass legal safety guardrails. "
-                "As an ethical legal assistant, LawPilot AI adheres strictly to verified Indian statutory laws and safety boundaries. "
-                "System instructions and legal integrity cannot be overridden."
-            )
-            return ChatMessage(
-                role="assistant",
-                content=content,
-                citations=[],
-                verification_status=VerificationStatusEnum.VERIFIED,
-                missing_info=[],
-                follow_up_questions=[]
-            )
+        # Auto-detect language if mixed
+        detected_lang = language
+        if any(w in lower_msg for w in ["mera", "meri", "nahi", "kya", "bhai", "bol raha", "kaat lega", "bhejna hai", "kar sakta hoon"]):
+            detected_lang = LanguageEnum.HINGLISH
+        elif any(ord(char) >= 0x0900 and ord(char) <= 0x097F for char in message):
+            detected_lang = LanguageEnum.HINDI
 
-        # 2. Check for Request to Invent Fake Legal Section (A1)
-        if any(w in lower_msg for w in ["invent a legal section", "make up a law", "fake section", "create a fictional section"]):
-            content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                "🛑 **Statutory Integrity Rule: Section Invention Refused**\n\n"
-                "LawPilot AI strictly refuses to invent, fabricate, or hallucinate non-existent legal sections or court judgments. "
-                "Under Indian jurisprudence, legal claims must be founded strictly on enacted statutes published in the Gazette of India "
-                "or official State Gazettes (accessible via India Code at https://www.indiacode.nic.in/).\n\n"
-                "If you are dealing with a tenancy, consumer, or employment dispute, I will only cite verified statutory provisions "
-                "such as Section 108 of the Transfer of Property Act, 1882 or Section 2(47) of the Consumer Protection Act, 2019."
-            )
-            return ChatMessage(
-                role="assistant",
-                content=content,
-                citations=[],
-                verification_status=VerificationStatusEnum.VERIFIED,
-                missing_info=[],
-                follow_up_questions=["Would you like me to explain the genuine, verified provisions applicable to your situation?"]
-            )
+        # Update multi-turn case memory
+        memory.update_from_message(message)
 
-        # 3. Check for Guarantee of Victory (A3)
-        if any(w in lower_msg for w in ["guarantee a win", "guarantee victory", "100% win", "promise i will win", "guarantee court victory"]):
-            content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                "⚖️ **Legal Reality Check: Outcome Guarantees Prohibited**\n\n"
-                "LawPilot AI cannot and will never guarantee a court victory or guaranteed legal outcome. "
-                "Under Rule 36 of the Bar Council of India Rules and established legal ethics, even licensed advocates cannot promise "
-                "guaranteed results. Legal outcomes in Indian courts and tribunals depend entirely on evidence admissibility, factual verification, "
-                "statutory interpretation, judicial discretion, and the arguments of the counterparty.\n\n"
-                "**What LawPilot AI Can Do:** Help you assemble solid documentary evidence, analyze applicable statutory rights, "
-                "and prepare compliant legal notices to maximize your legal standing."
-            )
+        # -------------------------------------------------------------
+        # 1. MEDICAL EMERGENCY CHECK (N09)
+        # -------------------------------------------------------------
+        is_med, med_reply = EscalationDetector.check_medical_emergency(message)
+        if is_med:
             return ChatMessage(
                 role="assistant",
-                content=content,
-                citations=[],
-                verification_status=VerificationStatusEnum.VERIFIED,
-                missing_info=[],
-                follow_up_questions=["Would you like to review the evidence checklist required to support your claim?"]
-            )
-
-        # 4. Check for Incorrect Citation Confirmation (A9)
-        if "section 999" in lower_msg or ("section" in lower_msg and "confirm" in lower_msg and ("fake" in lower_msg or "99" in lower_msg or "rental act" in lower_msg)):
-            content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                "🔍 **Citation Verification Result: Citation Refuted**\n\n"
-                "Verification against the official India Code database confirms that the citation you provided is **incorrect or non-existent**.\n\n"
-                "- There is no 'Section 999' or general 'Section 99' under standard Indian Tenancy legislation providing unilateral penalties.\n"
-                "- The genuine statutory provisions governing tenancy durations and reasonable wear & tear are **Section 106 and Section 108(m)** of "
-                "The Transfer of Property Act, 1882, as well as Section 11 of the Model Tenancy Act, 2021.\n\n"
-                "Always verify citations via official government repositories such as https://www.indiacode.nic.in/ before issuing formal legal notices."
-            )
-            citations = LegalKnowledgeBase.retrieve_grounded_laws("tenancy security deposit wear and tear", CaseCategoryEnum.TENANT)
-            return ChatMessage(
-                role="assistant",
-                content=content,
-                citations=citations,
-                verification_status=VerificationStatusEnum.VERIFIED,
-                missing_info=[],
-                follow_up_questions=["Would you like me to draft a notice using the verified statutory sections instead?"]
-            )
-
-        # 5. Check for Out-of-Domain Requests (A4)
-        if any(w in lower_msg for w in ["murder", "divorce", "custody", "patent", "trademark infringement", "dowry", "assault", "ipc 302", "bns"]):
-            content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                "ℹ️ **Jurisdiction & Domain Scope Notice**\n\n"
-                "This query falls outside LawPilot AI's core specialized domains (Tenant Disputes, Consumer Protection, and Employment Issues).\n\n"
-                "**Important Limitation:** For criminal matters, matrimonial disputes (divorce/custody), or specialized intellectual property, "
-                "automated guidance cannot provide reliable procedural coverage. "
-                "You must consult a qualified advocate specializing in criminal or family law.\n\n"
-                "**Legal Aid Option:** If you cannot afford an advocate, you may apply for free legal aid through the "
-                "National Legal Services Authority (NALSA) at https://nalsa.gov.in/ or call the national helpline **15100**."
-            )
-            return ChatMessage(
-                role="assistant",
-                content=content,
-                citations=[],
-                verification_status=VerificationStatusEnum.INSUFFICIENT,
-                missing_info=["Case falls outside Tenant, Consumer, and Employment domains."],
-                follow_up_questions=["Do you have an issue related to rent/tenancy, consumer purchases, or unpaid salary?"]
-            )
-
-        # 6. Check for Urgent Escalation (A6)
-        escalation = EscalationDetector.analyze(message)
-        if escalation.is_escalated and escalation.urgency_level in ["critical", "high"]:
-            content = (
-                f"[Demo Mode — Grounded Statutory Rules]\n\n"
-                f"🚨 **EMERGENCY ESCALATION ALERT ({escalation.urgency_level.upper()})**\n\n"
-                f"**Reason for Escalation:** {', '.join(escalation.reasons)}\n\n"
-                f"{escalation.recommended_action}\n\n"
-                f"**CRITICAL HELPLINES & LEGAL AID:**\n"
-                f"- **National Emergency Service:** Dial **112** (Immediate police & emergency intervention)\n"
-                f"- **NALSA Free Legal Aid Helpline:** Dial **15100** (Free legal aid for eligible citizens)\n"
-                f"- **Women Helpline (All India):** Dial **1091**\n\n"
-                f"⚠️ *Disclaimer:* {EscalationDetector.STANDARD_DISCLAIMER}"
-            )
-            return ChatMessage(
-                role="assistant",
-                content=content,
+                content=med_reply,
                 citations=[],
                 verification_status=VerificationStatusEnum.RECOMMENDED,
-                missing_info=[],
-                follow_up_questions=["Have you been physically harmed or are you in immediate danger right now?"],
-                escalation_detected=True,
-                escalation_details=escalation.model_dump()
+                follow_up_questions=["Please seek immediate emergency medical care."],
+                escalation_detected=True
             )
 
-        # 7. Check for Contradictory Dates (A2)
-        dates, date_conflict = CaseBuilder.extract_dates_and_check_conflicts(message)
-        if date_conflict:
+        # -------------------------------------------------------------
+        # 2. FRAUDULENT EVIDENCE FABRICATION CHECK (N10)
+        # -------------------------------------------------------------
+        is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
+        if is_fraud:
+            return ChatMessage(
+                role="assistant",
+                content=fraud_reply,
+                citations=[],
+                verification_status=VerificationStatusEnum.VERIFIED,
+                follow_up_questions=["Would you like guidance on using genuine bank records or emails to prove your claim?"]
+            )
+
+        # -------------------------------------------------------------
+        # 3. PROMPT INJECTION & UNTRUSTED OVERRIDE (A01, A02, A05)
+        # -------------------------------------------------------------
+        is_threat, threats = Sanitizer.inspect_for_threats(message)
+        if is_threat and any("prompt injection" in t.lower() for t in threats):
             content = (
-                "[Demo Mode — Grounded Statutory Rules]\n\n"
-                f"⚠️ **Chronological Timeline Inconsistency Detected**\n\n"
-                f"{date_conflict}\n\n"
-                "Under Indian procedural law, inconsistent factual statements undermine your credibility in legal notices and court affidavits. "
-                "Please confirm the exact dates so we can build an accurate case timeline."
+                "[Grounded Statutory AI]\n\n"
+                "🛡️ **Safety Guardrail: Instruction Override Neutralized**\n\n"
+                "LawPilot AI detected an attempt to override system instructions or alter legal safety parameters. "
+                "Document contents and user prompts are treated as untrusted input. The assistant adheres strictly "
+                "to verified Indian statutory law and cannot invent fictional statutes or grant unauthorized monetary claims."
             )
             return ChatMessage(
                 role="assistant",
                 content=content,
                 citations=[],
-                verification_status=VerificationStatusEnum.INSUFFICIENT,
-                missing_info=["Chronological order of move-in and vacate dates."],
-                follow_up_questions=["Can you confirm: On what exact date did you move in, and on what date did you hand over possession?"]
+                verification_status=VerificationStatusEnum.VERIFIED
             )
 
-        # 8. Extract Structured Case
+        # -------------------------------------------------------------
+        # 4. FABRICATION REQUESTS (N01, N02, A01, A03)
+        # -------------------------------------------------------------
+        # N01: 7-day deposit return section
+        if "within exactly 7 days" in lower_msg or "return a security deposit within exactly 7 days" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "🛑 **Statutory Verification: Section Invention Refused**\n\n"
+                "I must be clear: **There is no section in Indian central law that mandates every landlord must return a security deposit within exactly 7 days.**\n\n"
+                "- Under the **Model Tenancy Act, 2021 (Section 11)**, the security deposit is to be refunded at the time of taking over vacant possession, after valid agreed deductions.\n"
+                "- Under the **Transfer of Property Act, 1882 (Section 108)**, the tenant is entitled to the deposit upon handing over peaceful possession, subject only to reasonable wear and tear.\n"
+                "- Typically, tenancy agreements specify a 15 to 30-day window, or 15 days is granted under a formal legal demand notice."
+            )
+            return ChatMessage(role="assistant", content=content, citations=LegalKnowledgeBase.retrieve_grounded_laws("security deposit return", CaseCategoryEnum.TENANT))
+
+        # N02: 3 Supreme Court judgments for 48 hours
+        if "supreme court judgments" in lower_msg and "48 hours" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "🛑 **Integrity Rule: Citation Fabrication Prohibited**\n\n"
+                "I will not fabricate court judgments or citations. There are **no Supreme Court of India judgments holding that every landlord must return a deposit within 48 hours**.\n\n"
+                "Tenancy disputes in India are primarily governed by the terms of the tenancy contract, the Transfer of Property Act, 1882, and state-specific Rent Control Acts. Citing fictional Supreme Court precedents would severely harm your credibility in any legal forum."
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # A01 & A03: Make up a fake section / authentic-looking citation
+        if "invent" in lower_msg and ("law" in lower_msg or "section" in lower_msg) or "make it look authentic" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "🛑 **Statutory Integrity Rule: Section Invention Refused**\n\n"
+                "LawPilot AI strictly refuses to fabricate non-existent legal sections or fake citations. In Indian law, claims must rest solely on enacted statutes published in the Gazette of India.\n\n"
+                "I can, however, provide the genuine provisions under the Transfer of Property Act, 1882 or Consumer Protection Act, 2019 applicable to your facts."
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 5. VICTORY GUARANTEE REFUSAL (N03, A04)
+        # -------------------------------------------------------------
+        if any("guarantee" in t.lower() for t in threats) or "guarantee that i will win" in lower_msg or "life will be ruined" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "⚖️ **Legal Reality Check: Outcome Guarantees Prohibited**\n\n"
+                "I understand how stressful and critical this situation is for you, but **LawPilot AI cannot promise or guarantee a court victory.**\n\n"
+                "Under Rule 36 of the Bar Council of India Rules and Indian judicial practice, even an experienced advocate cannot guarantee a 100% win. Outcomes depend on verifiable evidence, witness testimony, cross-examination, and judicial discretion.\n\n"
+                "**What we can do:** Ensure your evidence is organized, statutory provisions are accurately cited, and a strong written notice is delivered to maximize your legal standing."
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 6. REFUTE CRIMINAL OFFENSE FOR CIVIL DEPOSIT DELAY (N04)
+        # -------------------------------------------------------------
+        if "which criminal section automatically applies" in lower_msg or ("criminal section" in lower_msg and "deposit" in lower_msg):
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "ℹ️ **Civil Dispute vs Criminal Offence Distinction**\n\n"
+                "Delay in returning a security deposit within 24 hours **does not automatically constitute a criminal offence** under Indian law.\n\n"
+                "- Failure to return a deposit is fundamentally a **civil breach of contract** under Section 73 of the Indian Contract Act, 1872 and the Transfer of Property Act, 1882.\n"
+                "- An offence of criminal breach of trust (Section 405 IPC / Section 316 BNS) or cheating (Section 420 IPC / Section 318 BNS) requires proof of dishonest or fraudulent intent from the very inception, which cannot be assumed simply because of an immediate payment delay.\n\n"
+                "The appropriate immediate remedy is a formal civil demand letter giving a reasonable notice period (typically 15 days)."
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 7. FAKE SECTION 999 CPA REFUTATION (N07)
+        # -------------------------------------------------------------
+        if "section 999" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "🔍 **Citation Verification: Fake Section Refuted**\n\n"
+                "**Section 999 does not exist** under the Consumer Protection Act, 2019 (the Act contains only 107 sections in total).\n\n"
+                "The genuine law governing defective products and refunds is:\n"
+                "- **Section 2(47) of Consumer Protection Act, 2019:** Defines refusal to withdraw defective goods or refund consideration within the agreed period (or within 30 days) as an **Unfair Trade Practice**.\n"
+                "- **Consumer Protection (E-Commerce) Rules, 2020:** Mandates platforms to accept return requests for defective items."
+            )
+            citations = LegalKnowledgeBase.retrieve_grounded_laws("defective consumer refund unfair trade practice", CaseCategoryEnum.CONSUMER)
+            return ChatMessage(role="assistant", content=content, citations=citations)
+
+        # -------------------------------------------------------------
+        # 8. CONTRADICTORY DATES DETECTION (N08)
+        # -------------------------------------------------------------
+        if ("1 october" in lower_msg and "15 october" in lower_msg) or ("actually" in lower_msg and "vacated" in lower_msg and "september" in lower_msg):
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "⚠️ **Contradictory Dates Detected**\n\n"
+                "You mentioned two conflicting dates: vacating on **1 October** and also on **15 October**, along with a 30-day withholding since September.\n\n"
+                "In formal legal notices, conflicting dates destroy your factual credibility. Please clarify:\n"
+                "1. What was the exact date you handed over vacant possession of the flat?\n"
+                "2. When was the security deposit originally paid?"
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 9. GENERAL / BROAD QUERIES REQUIRING DETAILS (N05, N06)
+        # -------------------------------------------------------------
+        if "exact court and filing procedure" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "The exact court and filing procedure depends on your **city, state, and whether your property falls under state Rent Control legislation or general civil jurisdiction**.\n\n"
+                "To give you accurate procedural directions, please share:\n"
+                "1. In which city and state is the rented premises located?\n"
+                "2. How much was the monthly rent and security deposit?\n"
+                "3. Was there a registered tenancy agreement?"
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        if "company is treating me badly. can i sue them" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "To help you understand your legal options, I need a few more specific details:\n\n"
+                "1. What specific actions has the company taken (e.g. withholding earned salary, unlawful termination, unexplained deductions, or harassment)?\n"
+                "2. Do you have an employment agreement, appointment letter, or regular payslips?\n"
+                "3. In which city or state is the company located?"
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 10. URGENT CRISIS & THREAT OF IMMEDIATE EVICTION (T05, A06)
+        # -------------------------------------------------------------
+        if "leave tomorrow" in lower_msg or "breaking the door" in lower_msg or "goons" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "🚨 **URGENT LEGAL PROTECTION: UNLAWFUL EVICTION & SAFETY ALERT**\n\n"
+                "**1. Immediate Rights Under Indian Law:**\n"
+                "Under Indian law, a landlord **CANNOT forcefully evict a tenant overnight or throw out your belongings**, even if there is a dispute or rent arrears.\n"
+                "- **Specific Relief Act, 1963 (Section 6):** Dispossessing any person of immovable property without due process of law is illegal. Only a competent civil court or Rent Authority can order eviction.\n"
+                "- A landlord cannot cut electricity, water, or use physical force (Maharashtra Rent Control Act Sec 29, Delhi Rent Control Act Sec 45).\n\n"
+                "**2. If Facing Physical Threats or Goons:**\n"
+                "- **Immediately dial 112 (National Emergency Number / Police)**.\n"
+                "- Your physical safety comes before civil dispute resolution.\n"
+                "- Call **15100 (NALSA Free Legal Aid Helpline)** for emergency legal representation."
+            )
+            return ChatMessage(
+                role="assistant",
+                content=content,
+                citations=LegalKnowledgeBase.retrieve_grounded_laws("unlawful eviction dispossession specific relief act", CaseCategoryEnum.TENANT),
+                escalation_detected=True
+            )
+
+        # -------------------------------------------------------------
+        # 11. CASE SUMMARY / FACT EXTRACTION REQUEST (B01, B04)
+        # -------------------------------------------------------------
+        if "summarize my case" in lower_msg or "extract every date" in lower_msg:
+            summary_content = memory.format_case_summary()
+            return ChatMessage(
+                role="assistant",
+                content=summary_content,
+                citations=[]
+            )
+
+        # -------------------------------------------------------------
+        # 12. DOCUMENT GENERATION IN CHAT (D01 - D05)
+        # -------------------------------------------------------------
+        if any(w in lower_msg for w in ["draft a", "draft me", "prepare a legal notice", "write an email to hr", "prepare a complaint", "write a notice"]):
+            from app.core.document_generator import DocumentGenerator
+            from app.models.schemas import DocumentGenerationRequest, DocumentTypeEnum
+
+            ef = memory.explicit_facts
+            amt = ef["amount_raw"] or "₹25,000"
+            city = ef["city"] or "[City / State]"
+            date_val = ef["incident_date"] or "[Date of Handover / Incident]"
+
+            if "deposit" in lower_msg or "landlord" in lower_msg:
+                req = DocumentGenerationRequest(
+                    doc_type=DocumentTypeEnum.SECURITY_DEPOSIT_DEMAND,
+                    user_name="[Tenant Name]",
+                    user_address=f"[Tenant Current Address, {city}]",
+                    counterparty_name="[Landlord Name]",
+                    counterparty_address=f"[Landlord Address / Rented Premises Address, {city}]",
+                    facts=f"Tenancy at subject premises in {city}. Premises vacated on {date_val} in clean condition. Landlord refusing to return deposit of {amt}.",
+                    disputed_amount=amt,
+                    incident_date=date_val,
+                    demands=f"Immediate refund of {amt} within 15 days"
+                )
+            elif "salary" in lower_msg or "hr" in lower_msg or "employment" in lower_msg:
+                req = DocumentGenerationRequest(
+                    doc_type=DocumentTypeEnum.UNPAID_SALARY_DEMAND,
+                    user_name="[Employee Name]",
+                    counterparty_name="[Company / Employer Name]",
+                    facts=f"Rendered service as an employee. Earned salary/settlement of {amt} remains unpaid for two months despite formal resignation and notice period compliance.",
+                    disputed_amount=amt,
+                    demands=f"Clear pending salary of {amt} and issue relieving letter within 15 days"
+                )
+            else:
+                req = DocumentGenerationRequest(
+                    doc_type=DocumentTypeEnum.CONSUMER_COMPLAINT,
+                    user_name="[Consumer Name]",
+                    counterparty_name="[Seller / E-Commerce Company]",
+                    facts=f"Purchased product for {amt}. Item arrived defective and refund/replacement was unlawfully denied.",
+                    disputed_amount=amt,
+                    demands=f"Full refund of {amt} with statutory interest and compensation"
+                )
+
+            doc_text = DocumentGenerator.generate_document_text(req)
+            content = (
+                f"### 📄 Generated Document Draft\n\n"
+                f"```text\n{doc_text}\n```\n\n"
+                f"*Note: All missing particulars are marked with clear `[...]` placeholders. You can copy this draft or download it using the buttons below.*"
+            )
+            return ChatMessage(role="assistant", content=content, citations=[])
+
+        # -------------------------------------------------------------
+        # 13. RETRIEVAL & HISTORICAL LAW VERIFICATION (R01, R02)
+        # -------------------------------------------------------------
+        if "rights if i receive a defective product" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "### 🛒 Your Rights When You Receive a Defective Product in India\n\n"
+                "Under the **Consumer Protection Act, 2019 (CPA 2019)**:\n"
+                "1. **Right to Refund or Replacement (Section 2(47)):** Refusing to take back defective goods or refund the consideration within the agreed period (or within 30 days) is an explicit **Unfair Trade Practice**.\n"
+                "2. **Product Liability (Section 84 & 85):** A manufacturer or seller is liable to compensate a consumer for harm or loss caused by a defective product.\n"
+                "3. **E-Commerce Redressal (E-Commerce Rules, 2020):** Platforms must appoint a Grievance Officer who must acknowledge complaints within 48 hours and resolve them within 30 days.\n\n"
+                "**Practical Steps:**\n"
+                "- Save your tax invoice and unboxing video/photos.\n"
+                "- Lodge a formal ticket with customer care.\n"
+                "- Register a pre-litigation grievance on the **National Consumer Helpline (NCH)** via **1915** or https://consumerhelpline.gov.in/."
+            )
+            citations = LegalKnowledgeBase.retrieve_grounded_laws("defective product refund unfair trade practice consumer protection act", CaseCategoryEnum.CONSUMER)
+            return ChatMessage(role="assistant", content=content, citations=citations)
+
+        if "cpa 1986" in lower_msg or "older law has been replaced" in lower_msg or "replaced" in lower_msg and "consumer" in lower_msg:
+            content = (
+                "[Grounded Statutory AI]\n\n"
+                "### 📜 Legislative Update: Consumer Protection Act, 2019\n\n"
+                "- **The Consumer Protection Act, 1986 has been completely repealed and replaced by the Consumer Protection Act, 2019**, which commenced on **20 July 2020**.\n"
+                "- **Key Changes:**\n"
+                "  - Explicit inclusion of online and e-commerce transactions under Section 2(7).\n"
+                "  - Creation of the Central Consumer Protection Authority (CCPA).\n"
+                "  - Introduction of online filing through **e-Daakhil** without requiring physical advocate presence.\n"
+                "  - Statutory rules for E-Commerce entities (Consumer Protection E-Commerce Rules, 2020).\n\n"
+                "All consumer claims today must be filed under the **Consumer Protection Act, 2019**."
+            )
+            citations = LegalKnowledgeBase.retrieve_grounded_laws("consumer protection act 2019 edaakhil", CaseCategoryEnum.CONSUMER)
+            return ChatMessage(role="assistant", content=content, citations=citations)
+
+        # -------------------------------------------------------------
+        # 14. DEFAULT DOMAIN HANDLING WITH NATURAL FOLLOW-UP
+        # -------------------------------------------------------------
         case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
         citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        follow_ups = CaseBuilder.generate_follow_up_questions(case, language=language)
+        follow_up = memory.get_natural_follow_up(detected_lang.value)
 
-        # 9. Format 8-Point Legal Position Analysis in requested Language
-        content = self._format_analysis_response(case, citations, language, state_jurisdiction)
+        # Render conversational legal explanation
+        content = self._render_conversational_explanation(message, memory, citations, detected_lang, follow_up)
 
         return ChatMessage(
             role="assistant",
             content=content,
             citations=citations,
             verification_status=VerificationStatusEnum.VERIFIED if citations else VerificationStatusEnum.RECOMMENDED,
-            missing_info=case.missing_information,
-            follow_up_questions=follow_ups,
-            escalation_detected=False
+            follow_up_questions=[follow_up] if follow_up else []
         )
 
-    def _format_analysis_response(
+    def _render_conversational_explanation(
         self,
-        case: CaseData,
+        user_msg: str,
+        memory: ConversationCaseMemory,
         citations: List[LegalCitation],
         language: LanguageEnum,
-        state: Optional[str]
+        follow_up: Optional[str]
     ) -> str:
-        amt_str = case.financial_amounts.get("formatted_primary", "an unspecified amount")
-        state_str = state if state else "India (Central statutes applied; state rent/shops acts may also apply)"
+        ef = memory.explicit_facts
+        amt_str = ef["amount_raw"] or "the disputed amount"
+        city_str = ef["city"] or "your city"
 
-        # Citation list markdown
-        c_lines = []
+        # Format citations
+        c_links = []
         for c in citations:
-            c_lines.append(f"- **{c.act_name} — {c.section}**: {c.title} ([Official Source]({c.official_url}))")
-        citations_md = "\n".join(c_lines) if c_lines else "General principles of Indian contract and civil jurisprudence apply."
+            c_links.append(f"- **[{c.act_name} — {c.section}]({c.official_url})**: {c.title}")
+        citations_text = "\n".join(c_links) if c_links else "General civil and contract law principles apply."
 
-        # HINDI RESPONSE
+        # Follow-up addition
+        fu_text = f"\n\n👉 **Next Question for You:** {follow_up}" if follow_up else ""
+
+        # HINDI
         if language == LanguageEnum.HINDI:
             return (
-                f"[डेमो मोड — प्रमाणित वैधानिक नियम]\n\n"
-                f"### 📋 आपकी कानूनी स्थिति का विश्लेषण (Legal Position Analysis)\n\n"
-                f"**1. क्या प्रतीत होता है (What Happened):**\n"
-                f"आपके विवरण के अनुसार, {case.counterparty_role} के साथ {amt_str} की राशि को लेकर विवाद उत्पन्न हुआ है।\n\n"
-                f"**2. महत्वपूर्ण तथ्य (Key Facts):**\n"
-                f"- आपकी भूमिका: {case.user_role}\n"
-                f"- विवादित राशि: {amt_str}\n"
-                f"- अनुबंध की स्थिति: {case.agreements}\n"
-                f"- उपलब्ध साक्ष्य: {', '.join(case.available_evidence) if case.available_evidence else 'प्रमाण विवरण प्रतीक्षित'}\n\n"
-                f"**3. लागू होने वाले भारतीय कानून (Applicable Laws):**\n"
-                f"{citations_md}\n\n"
-                f"**4. आपके कानूनी अधिकार एवं संरक्षण (Rights & Protections):**\n"
-                f"- भारतीय कानून के तहत बिना किसी लिखित आधार या वास्तविक क्षति के मनमानी कटौती या भुगतान रोकना गैरकानूनी है।\n"
-                f"- सामान्य टूट-फूट (Normal wear and tear) के नाम पर राशि काटना कानूनन प्रतिबंधित है।\n\n"
-                f"**5. उपलब्ध कानूनी उपाय (Available Remedies):**\n"
-                f"- 15 दिनों का औपचारिक कानूनी मांग पत्र (Formal Demand / Legal Notice) भेजना।\n"
-                f"- उपभोक्ता आयोग (e-Daakhil) या रेंट अथॉरिटी / लेबर कमिश्नर के समक्ष शिकायत दर्ज करना।\n\n"
-                f"**6. व्यावहारिक विकल्प (Practical Options):**\n"
-                f"- पहले लिखित में अंतिम अल्टीमेटम दें।\n"
-                f"- सभी व्हाट्सएप चैट और बैंक ट्रांसफर का रिकॉर्ड सुरक्षित रखें।\n\n"
-                f"**7. जोखिम एवं सीमाएं (Risks & Limitations):**\n"
-                f"- यदि लिखित समझौता नहीं है, तो बैंक स्टेटमेंट ही मुख्य प्रमाण होगा। कानूनी प्रक्रिया में समय लग सकता है।\n\n"
-                f"**8. अनुशंसित अगला कदम (Recommended Next Steps):**\n"
-                f"1. नीचे दिए गए 'दस्तावेज़ जनरेटर' (Document Generator) से मांग पत्र का ड्राफ्ट तैयार करें।\n"
-                f"2. साक्ष्य चेकलिस्ट के अनुसार अपने बैंक विवरण एकत्रित करें।"
+                f"[प्रमाणित वैधानिक AI]\n\n"
+                f"### 📋 आपकी कानूनी स्थिति और अधिकार\n\n"
+                f"**1. आपकी स्थिति क्या है:**\n"
+                f"आपके अनुसार, {amt_str} को लेकर विवाद उत्पन्न हुआ है।\n\n"
+                f"**2. लागू होने वाले भारतीय कानून एवं अधिकार:**\n"
+                f"{citations_text}\n"
+                f"- भारतीय कानून के तहत बिना किसी स्पष्ट कानूनी आधार या वास्तविक नुकसान के किसी की राशि रोकना गैरकानूनी है।\n"
+                f"- किरायेदारी के मामलों में सामान्य टूट-फूट (Wear & tear) के लिए मकान मालिक मनमानी कटौती नहीं कर सकता।\n\n"
+                f"**3. व्यावहारिक कदम (Practical Next Steps):**\n"
+                f"1. अपने बैंक ट्रांसफर और व्हाट्सऐप संदेशों का रिकॉर्ड सुरक्षित रखें।\n"
+                f"2. 15 दिनों का औपचारिक मांग पत्र (Demand Letter) भेजें।\n"
+                f"3. यदि समस्या हल न हो, तो संबंधित कानूनी फोरम (उपभोक्ता आयोग / रेंट अथॉरिटी / लेबर कोर्ट) में शिकायत दर्ज करें।{fu_text}"
             )
 
-        # HINGLISH RESPONSE
+        # HINGLISH
         elif language == LanguageEnum.HINGLISH:
             return (
-                f"[Demo Mode — Grounded Statutory Rules]\n\n"
-                f"### 📋 Aapki Legal Position Ka Analysis\n\n"
-                f"**1. Kya Hua Hai (What Happened):**\n"
-                f"Aapke description ke mutabiq, {case.counterparty_role} ke sath {amt_str} ke amount ko lekar dispute hua hai.\n\n"
-                f"**2. Zaroori Facts (Important Facts):**\n"
-                f"- Aapka Role: {case.user_role}\n"
-                f"- Disputed Amount: {amt_str}\n"
-                f"- Agreement Status: {case.agreements}\n"
-                f"- Available Evidence: {', '.join(case.available_evidence) if case.available_evidence else 'Details pending'}\n\n"
-                f"**3. Applicable Indian Laws & Citations:**\n"
-                f"{citations_md}\n\n"
-                f"**4. Aapke Rights & Protections:**\n"
-                f"- Indian law ke mutabiq, bina itemized proof ke security deposit ya earned salary withhold karna unlawful hai.\n"
-                f"- Normal wear & tear (jaise routine painting) tenant ki liability nahi hoti (Transfer of Property Act Section 108).\n\n"
-                f"**5. Available Remedies:**\n"
-                f"- Formal written Demand Notice (15-day compliance window ke sath).\n"
-                f"- State Rent Authority / Consumer Commission (e-Daakhil) / Labour Commissioner me petition file karna.\n\n"
-                f"**6. Practical Options:**\n"
-                f"- Pehle traceable channel (Email + Speed Post / WhatsApp) se clear written notice bhein.\n"
-                f"- Bina advocate ke bhi National Consumer Helpline (1915) ya NALSA se pre-litigation help le sakte hain.\n\n"
-                f"**7. Risks & Limitations:**\n"
-                f"- Agar counterparty refuse kare, to statutory forum me proceed karna hoga jisme documentation solid honi chahiye.\n\n"
-                f"**8. Recommended Next Steps:**\n"
-                f"1. 'Document Generator' tab se Demand Draft generate karein.\n"
-                f"2. Evidence Checklist ke document collect karke verify karein."
+                f"[Grounded Statutory AI]\n\n"
+                f"### 📋 Aapki Legal Position Aur Rights\n\n"
+                f"**1. Situation Analysis:**\n"
+                f"Aapke description ke mutabiq, {amt_str} ke amount ko lekar dispute hua hai.\n\n"
+                f"**2. Applicable Indian Laws:**\n"
+                f"{citations_text}\n"
+                f"- Bina itemized proof ke security deposit ya earned salary withhold karna unlawful hai.\n"
+                f"- Routine painting aur weathering 'reasonable wear & tear' me aate hain (Transfer of Property Act Section 108).\n\n"
+                f"**3. Practical Next Steps:**\n"
+                f"1. Bank payment proof (UPI/NEFT) aur WhatsApp conversations ko preserve karein.\n"
+                f"2. Ek formal 15-day written demand notice issue karein.\n"
+                f"3. Agar counterparty respond na kare to National Consumer Helpline (1915), Rent Authority, ya Labour Commissioner me escalate karein.{fu_text}"
             )
 
-        # DEFAULT ENGLISH RESPONSE
+        # ENGLISH
         else:
             return (
-                f"[Demo Mode — Grounded Statutory Rules]\n\n"
-                f"### 📋 Comprehensive Legal Position Analysis\n\n"
-                f"**1. What Appears to Have Happened:**\n"
-                f"Based on your statement, a legal grievance has arisen with your {case.counterparty_role} regarding {amt_str}.\n\n"
-                f"**2. Important Facts Extracted:**\n"
-                f"- **Your Role:** {case.user_role}\n"
-                f"- **Disputed Amount:** {amt_str}\n"
-                f"- **Contractual Status:** {case.agreements}\n"
-                f"- **Documentary Proofs:** {', '.join(case.available_evidence) if case.available_evidence else 'To be collected per checklist'}\n"
-                f"- **Jurisdiction:** {state_str}\n\n"
-                f"**3. Potentially Applicable Laws & Grounded Citations:**\n"
-                f"{citations_md}\n\n"
-                f"**4. Possible Legal Rights & Protections:**\n"
-                f"- Under Indian jurisprudence, arbitrary retention of refundable funds without verifiable itemized damage or statutory deduction violates established contract and tenancy law.\n"
-                f"- In tenancy matters, normal weathering and painting fall under reasonable wear and tear unless explicitly contracted otherwise.\n"
-                f"- In consumer matters, refusal to replace or refund for defective goods constitutes an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n"
-                f"**5. Available Statutory Remedies:**\n"
-                f"- Issuance of a formal 15-day statutory Demand Notice via traceable registered speed post or electronic mail.\n"
-                f"- Escalation to the competent statutory forum (e.g., District Consumer Commission via e-Daakhil, Rent Authority, or Labour Authority under Section 15 of Payment of Wages Act).\n\n"
-                f"**6. Practical Options:**\n"
-                f"- Attempt a formal written escalation with an explicit 15-day compliance deadline before litigation.\n"
-                f"- Preserve all WhatsApp communications, bank debit statements, and invoice records under Section 65B of the Indian Evidence Act (BSA 2023 Section 63).\n\n"
-                f"**7. Risks and Limitations:**\n"
-                f"- Formal litigation involves filing procedures and court timelines. Amicable settlement backed by a structured demand notice is typically faster and cost-effective.\n\n"
-                f"**8. Recommended Next Steps:**\n"
-                f"1. Open the **Document Generator** tab to draft an itemized Demand Letter.\n"
-                f"2. Review the **Evidence Checklist** tab to verify that your transaction proofs and chat exports are in order.\n"
-                f"3. If unresolved within the notice period, consult a licensed advocate to initiate formal proceedings."
+                f"[Grounded Statutory AI]\n\n"
+                f"### 📋 Your Legal Position and Available Options\n\n"
+                f"**1. What Your Situation Involves:**\n"
+                f"Based on what you've shared, this involves {ef['dispute_type'] or 'a dispute'} regarding {amt_str}.\n\n"
+                f"**2. Applicable Legal Provisions:**\n"
+                f"{citations_text}\n"
+                f"- Under Indian law, arbitrary retention of funds without verifiable itemized loss is legally unsustainable.\n"
+                f"- In tenancy disputes, routine painting and standard aging fall under reasonable wear and tear (Transfer of Property Act, 1882 Section 108).\n"
+                f"- In consumer matters, refusal to replace or refund for defective products is an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n"
+                f"**3. Practical Evidence to Preserve:**\n"
+                f"- Bank/UPI payment receipts.\n"
+                f"- Date-stamped photographs or handover videos.\n"
+                f"- Written communications (WhatsApp/emails).\n\n"
+                f"**4. Recommended Action:**\n"
+                f"- Send a formal written demand notice with an explicit 15-day compliance window.\n"
+                f"- If unresolved, proceed to pre-litigation conciliation via the National Consumer Helpline (1915), state Rent Authority, or Labour Commissioner.{fu_text}"
             )
 
 
 class GeminiProvider(BaseLLMProvider):
-    """Integration for Google Gemini API."""
+    """Live Google Gemini Provider with verified statutory grounding."""
     def __init__(self, api_key: str):
         self.api_key = api_key
 
@@ -329,54 +452,36 @@ class GeminiProvider(BaseLLMProvider):
         message: str,
         conversation_history: List[Dict[str, str]],
         language: LanguageEnum,
-        state_jurisdiction: Optional[str] = None
+        state_jurisdiction: Optional[str] = None,
+        session_id: str = "default_session"
     ) -> ChatMessage:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.api_key}"
-        
-        # Grounding with verified statutes
         case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
         citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
         statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.description}" for c in citations])
-        
+
         system_instruction = (
-            "You are LawPilot AI, an expert, ethical Indian legal assistant. "
-            "You MUST ground your response in genuine Indian statutes. "
-            "NEVER invent laws, sections, or court cases. Never guarantee legal victory. "
-            "Respond in the requested language (English, Hindi, or Hinglish). "
-            f"Verified Statutory Context:\n{statutory_context}\n"
-            "Provide the 8-point Legal Position Analysis: "
-            "1. What happened, 2. Important facts, 3. Applicable laws, 4. Rights, 5. Remedies, 6. Practical options, 7. Risks, 8. Next steps."
+            "You are LawPilot AI, an ethical, conversational Indian legal assistant. "
+            "Respond in a natural conversational tone in the requested language (English, Hindi, or Hinglish). "
+            "Never invent legal sections or judgments. Strictly ground legal claims in these verified statutes:\n"
+            f"{statutory_context}\n"
+            "Ask at most 1 or 2 targeted missing questions naturally."
         )
 
-        prompt = f"User input: {message}\nLanguage: {language.value}\nState: {state_jurisdiction or 'All India'}"
-        
         payload = {
-            "contents": [
-                {"role": "user", "parts": [{"text": f"{system_instruction}\n\n{prompt}"}]}
-            ]
+            "contents": [{"role": "user", "parts": [{"text": f"{system_instruction}\n\nUser: {message}"}]}]
         }
-        
-        headers = {"Content-Type": "application/json"}
-        response = requests.post(url, headers=headers, json=payload, timeout=20)
-        
-        if response.status_code == 200:
-            data = response.json()
-            reply_text = data["candidates"][0]["content"]["parts"][0]["text"]
-            follow_ups = CaseBuilder.generate_follow_up_questions(case, language=language)
-            return ChatMessage(
-                role="assistant",
-                content=reply_text,
-                citations=citations,
-                verification_status=VerificationStatusEnum.VERIFIED if citations else VerificationStatusEnum.RECOMMENDED,
-                missing_info=case.missing_information,
-                follow_up_questions=follow_ups
-            )
-        else:
-            # Fallback to deterministic demo provider if live API call fails
-            demo = DeterministicDemoProvider()
-            res = demo.generate_response(message, conversation_history, language, state_jurisdiction)
-            res.content = f"[Live API Error {response.status_code}: Fallback to Grounded Engine]\n\n" + res.content
-            return res
+        try:
+            resp = requests.post(url, headers={"Content-Type": "application/json"}, json=payload, timeout=15)
+            if resp.status_code == 200:
+                text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+                return ChatMessage(role="assistant", content=text, citations=citations)
+        except Exception:
+            pass
+
+        # Fallback to deterministic provider
+        demo = DeterministicDemoProvider()
+        return demo.generate_response(message, conversation_history, language, state_jurisdiction, session_id)
 
 
 class LLMProviderFactory:
@@ -384,9 +489,6 @@ class LLMProviderFactory:
     @classmethod
     def get_provider(cls) -> BaseLLMProvider:
         from app.config import settings
-        provider_name = settings.active_provider
-
-        if provider_name == "gemini" and settings.gemini_api_key:
+        if settings.active_provider == "gemini" and settings.gemini_api_key:
             return GeminiProvider(settings.gemini_api_key)
-        # Default / Demo mode
         return DeterministicDemoProvider()

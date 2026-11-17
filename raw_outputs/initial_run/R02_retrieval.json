@@ -1,0 +1,53 @@
+{
+  "test_id": "R02",
+  "category": "Retrieval",
+  "user_input": "Has the Consumer Protection Act 1986 been replaced by a current law?",
+  "expected": "Affirm that CPA 1986 was repealed and replaced by CPA 2019.",
+  "actual_response": "[Grounded Statutory AI]\n\n### 📜 Legislative Update: Consumer Protection Act, 2019\n\n- **The Consumer Protection Act, 1986 has been completely repealed and replaced by the Consumer Protection Act, 2019**, which commenced on **20 July 2020**.\n- **Key Changes:**\n  - Explicit inclusion of online and e-commerce transactions under Section 2(7).\n  - Creation of the Central Consumer Protection Authority (CCPA).\n  - Introduction of online filing through **e-Daakhil** without requiring physical advocate presence.\n  - Statutory rules for E-Commerce entities (Consumer Protection E-Commerce Rules, 2020).\n\nAll consumer claims today must be filed under the **Consumer Protection Act, 2019**.",
+  "citations": [
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 35 & Section 38",
+      "title": "Manner in which complaint shall be made and Procedure before District Commission",
+      "description": "A complaint in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided may be filed with a District Commission by the consumer, including online through the e-Daakhil portal.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(7)",
+      "title": "Definition of Consumer (Including E-commerce and Offline Purchases)",
+      "description": "Defines a consumer as any person who buys goods or hires/avails any services for a consideration paid or promised, including offline or online transactions through electronic means or by teleshopping or direct selling.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "National Consumer Helpline (Department of Consumer Affairs)",
+      "section": "Portal & Toll-Free 1915 Redressal Process",
+      "title": "Pre-litigation Conciliation and Dispute Resolution via NCH / INGRAM",
+      "description": "Official Department of Consumer Affairs portal (https://consumerhelpline.gov.in) enabling consumers to register grievances against registered convergence companies for quick pre-litigation resolution.",
+      "official_url": "https://consumerhelpline.gov.in/",
+      "commencement_date": "Continuous Service",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95.0,
+  "reason": "Grounded, helpful response meeting behavioral criteria.",
+  "timestamp": "2026-11-17T16:48:34.679408"
+}

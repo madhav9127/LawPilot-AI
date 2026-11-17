@@ -1,0 +1,33 @@
+{
+  "test_id": "C03",
+  "category": "Consumer",
+  "user_input": "I ordered a laptop worth ₹60,000 but received a different model.",
+  "expected": "Identify wrong delivery as deficiency in service; recommend preserving delivery photos and filing grievance.",
+  "actual_response": "[Grounded Statutory AI]\n\n### 📋 Your Legal Position and Available Options\n\n**1. What Your Situation Involves:**\nBased on what you've shared, this involves Refund delay or denial regarding ₹25,000.\n\n**2. Applicable Legal Provisions:**\n- **[The Legal Services Authorities Act, 1987 — Section 12](https://nalsa.gov.in/)**: Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)\n- **[The Consumer Protection Act, 2019 — Section 2(47)](https://www.indiacode.nic.in/handle/123456789/15256)**: Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund\n- Under Indian law, arbitrary retention of funds without verifiable itemized loss is legally unsustainable.\n- In tenancy disputes, routine painting and standard aging fall under reasonable wear and tear (Transfer of Property Act, 1882 Section 108).\n- In consumer matters, refusal to replace or refund for defective products is an Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\n**3. Practical Evidence to Preserve:**\n- Bank/UPI payment receipts.\n- Date-stamped photographs or handover videos.\n- Written communications (WhatsApp/emails).\n\n**4. Recommended Action:**\n- Send a formal written demand notice with an explicit 15-day compliance window.\n- If unresolved, proceed to pre-litigation conciliation via the National Consumer Helpline (1915), state Rent Authority, or Labour Commissioner.",
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice and Refusal to Take Back Defective Goods or Refund",
+      "description": "Refusing to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration contemplated within the period stipulated, or within 30 days if no period is stipulated, constitutes an unfair trade practice.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/15256",
+      "commencement_date": "2020-07-20",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95.0,
+  "reason": "Grounded, helpful response meeting behavioral criteria.",
+  "timestamp": "2026-11-17T16:48:34.592836"
+}

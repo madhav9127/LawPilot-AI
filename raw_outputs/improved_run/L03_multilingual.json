@@ -1,0 +1,53 @@
+{
+  "test_id": "L03",
+  "category": "Multilingual",
+  "user_input": "Ab mujhe company ko legal notice bhejna hai for unpaid salary.",
+  "expected": "Maintain context and respond in Hinglish with notice drafting guidance.",
+  "actual_response": "[Grounded Statutory AI]\n\n### 📋 Aapki Legal Position Aur Rights\n\n**1. Situation Analysis:**\nAapke description ke mutabiq, ₹25,000 ke amount ko lekar dispute hua hai.\n\n**2. Applicable Indian Laws:**\n- **[The Payment of Wages Act, 1936 — Section 5 & Section 15](https://www.indiacode.nic.in/handle/123456789/2405)**: Time of payment of wages and Claims arising out of deductions from wages or delay in payment\n- **[State Shops and Commercial Establishments Acts — Settlement of Dues and Service Conditions Provision](https://shramsuvidha.gov.in/)**: Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees\n- **[The Indian Contract Act, 1872 — Section 73](https://www.indiacode.nic.in/handle/123456789/2187)**: Compensation for loss or damage caused by breach of contract\n- **[The Payment of Wages Act, 1936 — Section 7](https://www.indiacode.nic.in/handle/123456789/2405)**: Deductions which may be made from wages\n- Bina itemized proof ke security deposit ya earned salary withhold karna unlawful hai.\n- Routine painting aur weathering 'reasonable wear & tear' me aate hain (Transfer of Property Act Section 108).\n\n**3. Practical Next Steps:**\n1. Bank payment proof (UPI/NEFT) aur WhatsApp conversations ko preserve karein.\n2. Ek formal 15-day written demand notice issue karein.\n3. Agar counterparty respond na kare to National Consumer Helpline (1915), Rent Authority, ya Labour Commissioner me escalate karein.",
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "status": "PASS",
+  "score": 95.0,
+  "reason": "Grounded, helpful response meeting behavioral criteria.",
+  "timestamp": "2026-11-17T16:53:42.120337"
+}

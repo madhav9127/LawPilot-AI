@@ -54,7 +54,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | Your Situation",
             "legal_position": "### | Your Legal Position",
             "next_steps": "### | Practical Next Steps",
-            "info_needed": "### ℹ️ Information I still need from you"
+            "info_needed": "### | Information I still need from you"
         }
     },
     "hi": {
@@ -64,7 +64,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | आपकी स्थिति",
             "legal_position": "### | आपकी कानूनी स्थिति",
             "next_steps": "### | व्यावहारिक अगले कदम",
-            "info_needed": "### ℹ️ आपसे आवश्यक जानकारी"
+            "info_needed": "### | आपसे आवश्यक जानकारी"
         }
     },
     "gu": {
@@ -74,7 +74,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | તમારી પરિસ્થિતિ",
             "legal_position": "### | તમારો કાનૂની પક્ષ",
             "next_steps": "### | વ્યવહારુ આગલા પગલાં",
-            "info_needed": "### ℹ️ તમારી પાસેથી જરૂરી માહિતી"
+            "info_needed": "### | તમારી પાસેથી જરૂરી માહિતી"
         }
     },
     "ml": {
@@ -84,7 +84,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | നിങ്ങളുടെ സാഹചര്യം",
             "legal_position": "### | നിങ്ങളുടെ നിയമപരമായ അവകാശം",
             "next_steps": "### | പ്രായോഗിക അടുത്ത നടപടികൾ",
-            "info_needed": "### ℹ️ നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ"
+            "info_needed": "### | നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ"
         }
     },
     "ta": {
@@ -94,7 +94,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | உங்கள் நிலைமை",
             "legal_position": "### | உங்கள் சட்டப்பூர்வ நிலை",
             "next_steps": "### | நடைமுறை அடுத்த கட்டங்கள்",
-            "info_needed": "### ℹ️ உங்களிடம் இருந்து தேவைப்படும் தகவல்கள்"
+            "info_needed": "### | உங்களிடம் இருந்து தேவைப்படும் தகவல்கள்"
         }
     },
     "te": {
@@ -104,7 +104,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | మీ పరిస్థితి",
             "legal_position": "### | మీ చట్టపరమైన స్థితి",
             "next_steps": "### | ఆచరణాత్మక తదుపరి చర్యలు",
-            "info_needed": "### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం"
+            "info_needed": "### | మీ నుండి ఇంకా అవసరమైన సమాచారం"
         }
     },
     "bn": {
@@ -114,7 +114,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | আপনার বর্তমান পরিস্থিতি",
             "legal_position": "### | আপনার আইনি অবস্থান",
             "next_steps": "### | ব্যবহারিক পরবর্তী পদক্ষেপ",
-            "info_needed": "### ℹ️ আপনার কাছ থেকে প্রয়োজনীয় তথ্য"
+            "info_needed": "### | আপনার কাছ থেকে প্রয়োজনীয় তথ্য"
         }
     },
     "hinglish": {
@@ -124,7 +124,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | Your Situation (Aapki Situation)",
             "legal_position": "### | Your Legal Position (Aapke Kanooni Adhikar)",
             "next_steps": "### | Practical Next Steps (Agla Kadam)",
-            "info_needed": "### ℹ️ Information I still need from you (Zaroori Jankari)"
+            "info_needed": "### | Information I still need from you (Zaroori Jankari)"
         }
     },
     "kn": {
@@ -134,7 +134,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ",
             "legal_position": "### | ನಿಮ್ಮ ಕಾನೂನು ಸ್ಥಾನ",
             "next_steps": "### | ಪ್ರಾಯೋಗಿಕ ಮುಂದಿನ ಕ್ರಮಗಳು",
-            "info_needed": "### ℹ️ ನಿಮ್ಮಿಂದ ಇನ್ನೂ ಅಗತ್ಯವಿರುವ ಮಾಹಿತಿ"
+            "info_needed": "### | ನಿಮ್ಮಿಂದ ಇನ್ನೂ ಅಗತ್ಯವಿರುವ ಮಾಹಿತಿ"
         }
     },
     "mr": {
@@ -144,7 +144,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | तुमची परिस्थिती",
             "legal_position": "### | तुमची कायदेशीर स्थिती",
             "next_steps": "### | व्यावहारिक पुढील पावले",
-            "info_needed": "### ℹ️ तुमच्याकडून आवश्यक माहिती"
+            "info_needed": "### | तुमच्याकडून आवश्यक माहिती"
         }
     },
     "pa": {
@@ -154,7 +154,7 @@ LANGUAGE_CONFIG = {
             "situation": "### | ਤੁਹਾਡੀ ਸਥਿਤੀ",
             "legal_position": "### | ਤੁਹਾਡੀ ਕਾਨੂੰਨੀ ਸਥਿਤੀ",
             "next_steps": "### | ਅਮਲੀ ਅਗਲੇ ਕਦਮ",
-            "info_needed": "### ℹ️ ਤੁਹਾਡੇ ਤੋਂ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ"
+            "info_needed": "### | ਤੁਹਾਡੇ ਤੋਂ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ"
         }
     },
     "or": {
@@ -164,44 +164,127 @@ LANGUAGE_CONFIG = {
             "situation": "### | ଆପଣଙ୍କ ପରିସ୍ଥିତି",
             "legal_position": "### | ଆପଣଙ୍କ ଆଇନଗତ ସ୍ଥିତି",
             "next_steps": "### | ବ୍ୟବହାରିକ ପରବର୍ତ୍ତୀ ପଦକ୍ଷେପ",
-            "info_needed": "### ℹ️ ଆପଣଙ୍କଠାରୁ ଆବଶ୍ୟକ ସୂଚନା"
+            "info_needed": "### | ଆପଣଙ୍କଠାରୁ ଆବଶ୍ୟକ ସୂଚନା"
         }
     }
+}
+
+
+# Distinctive vocabulary sets for reliable language detection
+UNAMBIGUOUS_HINGLISH_WORDS = {
+    # Pronouns / Demonstratives
+    "mera", "meri", "mere", "mujhe", "mujhko", "apna", "apni", "apne",
+    "aapka", "aapki", "aapke", "tumhara", "tumhari", "tumhare",
+    "unka", "unki", "unke", "inka", "inki", "inke", "unhone", "inhone",
+    "kisi", "kisko", "jisko",
+    # Question words
+    "kya", "kyun", "kyu", "kaise", "kahan", "kitna", "kitni", "kitne", "kab",
+    # Verbs & Auxiliaries (unambiguous romanized Hindi forms)
+    "nahi", "nahin", "nhi", "mat",
+    "chahiye", "chahta", "chahti", "chahte",
+    "karein", "karna", "karta", "karti", "karte", "karo", "karu", "karoon", "kiya", "kiye",
+    "hoga", "hogi", "hoge", "hote", "hoti", "hota", "hona",
+    "raha", "rahi", "rahe", "hoon", "gaya", "gayi", "gaye",
+    "sakta", "sakti", "sakte", "sakenge",
+    "batao", "batayein", "bataiye", "samjhao", "samjhaiye",
+    "bheja", "bheji", "bheje", "bhejna", "bhejein",
+    "dunga", "dungi", "denge", "dena", "diya", "dega", "degi",
+    "liya", "liye", "lena", "lega", "legi",
+    "rok", "rakha", "rakhi", "rakhe", "chhod",
+    # Domain nouns & legal Hinglish terms
+    "paisa", "paise", "rupaye", "kiraya", "kirayedaar", "makan", "makanmalik", "ghar",
+    "naukri", "vetan", "shikayat", "faisla", "dhokha", "madad", "bhai",
+    # Conjunctions / Adverbs
+    "lekin", "magar", "kyunki", "isliye", "warna", "sirf", "zaroor", "kripya"
+}
+
+HINGLISH_PHRASES = [
+    "kya karu", "kya karna", "kya karein", "kya hoga", "nahi diya", "nahi de raha",
+    "nahi de rahe", "nahi mila", "paise wapas", "paisa wapas", "deposit wapas", "salary nahi",
+    "makan malik", "notice bhejna", "madad chahiye", "madad karein", "batao kya",
+    "batayein kya", "kuch nahi", "ab kya", "kaise karein", "kaise karu", "case karna",
+    "complaint karna", "fir darj", "police thana", "vakil karna", "court jana"
+]
+
+ENGLISH_WORDS = {
+    "the", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had",
+    "do", "does", "did", "a", "an", "and", "but", "if", "or", "because", "as", "until",
+    "while", "of", "at", "by", "for", "with", "about", "against", "between", "into",
+    "through", "during", "before", "after", "above", "below", "to", "from", "up", "down",
+    "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here",
+    "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more",
+    "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so",
+    "than", "too", "very", "can", "will", "just", "don", "should", "now", "i", "my",
+    "me", "we", "our", "you", "your", "he", "him", "his", "she", "her", "they", "them",
+    "their", "what", "which", "who", "whom", "this", "that", "these", "those", "am",
+    "would", "could", "please", "help", "problem", "issue", "dispute", "court",
+    "landlord", "tenant", "deposit", "rent", "agreement", "police", "notice", "salary",
+    "refund", "money", "product", "defective", "company", "employer", "rights", "legal"
+}
+
+MARATHI_DISTINCTIVE_WORDS = {
+    "आहे", "आहेत", "नाही", "नाहीत", "काय", "मला", "माझे", "माझी", "माझ्या", "माझं",
+    "आता", "करू", "शकतो", "शकते", "केला", "केली", "केले", "केलेली", "केलेले", "दिले",
+    "दिली", "होते", "होती", "झाले", "झाला", "झाली", "सांगा", "मिळाले", "मिळाली",
+    "घरमालक", "घरमालकाने", "घरमालकाकडून", "भाडेकरू", "दोषपूर्ण", "विक्रेता", "पैसे",
+    "परत", "देत", "नोटीस", "समजून", "समजण्यासाठी", "मदत", "पगार", "करणे", "तुम्ही",
+    "द्या", "करा", "करावे", "पाहिजे", "घेऊन", "जास्त", "फार", "फारच", "खरेदी", "मोबाईल"
+}
+
+HINDI_DISTINCTIVE_WORDS = {
+    "है", "हैं", "था", "थी", "थे", "नहीं", "क्या", "मुझे", "मेरा", "मेरी", "मेरे",
+    "किया", "दिए", "दिया", "दी", "रहा", "रही", "रहे", "सकता", "सकती", "सकते",
+    "चाहिए", "बताएं", "बताओ", "करूँ", "करूं", "हुई", "हुआ", "हुए", "मकान",
+    "मालिक", "किराया", "वेतन", "पैसे", "वापस", "मदद", "खरीदा", "दुकानदार"
 }
 
 
 def detect_message_language(message: str, explicit_lang: Optional[Any] = None) -> str:
     """
     Automatically detects language of the user's latest message independently.
-    The language used in the user's latest message determines the response language.
-    Supports English, Hindi, Gujarati, Malayalam, Tamil, Telugu, Bengali,
-    Kannada, Marathi, Punjabi, Odia, and Hinglish.
+    Follows strict priority:
+    1. Explicit language request in text (e.g. 'answer in English', 'in Hindi', 'ગુજરાતીમાં').
+    2. Unicode Indic script frequency (Gujarati, Malayalam, Tamil, Telugu, Bengali, Kannada, Punjabi, Odia, Marathi/Hindi).
+    3. Latin script analysis: Unambiguous Hinglish markers vs dominant English vocabulary.
+    4. Explicit request parameter fallback.
     """
-    if not message:
+    if not message or not message.strip():
         return "en"
 
     lower_msg = message.strip().lower()
 
-    # 1. Explicit user language request in text (highest priority)
+    # Priority 1: Explicit user instruction for response language
     explicit_requests = [
-        (r"\b(in\s+gujarati|gujarati\s+ma|ગુજરાતીમાં|in\s+gujrati)\b", "gu"),
-        (r"\b(in\s+hindi|hindi\s+me|हिंदी\s+में)\b", "hi"),
-        (r"\b(in\s+hinglish|hinglish\s+me)\b", "hinglish"),
-        (r"\b(in\s+malayalam|മലയാളത്തിൽ)\b", "ml"),
-        (r"\b(in\s+tamil|தமிழில்)\b", "ta"),
-        (r"\b(in\s+telugu|తెలుగులో)\b", "te"),
-        (r"\b(in\s+bengali|বাংলায়|bangla\s+te)\b", "bn"),
-        (r"\b(in\s+kannada|ಕನ್ನಡದಲ್ಲಿ)\b", "kn"),
-        (r"\b(in\s+marathi|मराठीत)\b", "mr"),
-        (r"\b(in\s+punjabi|ਪੰਜਾਬੀ\s+ਵਿੱਚ)\b", "pa"),
-        (r"\b(in\s+odia|ଓଡ଼ିଆରେ)\b", "or"),
-        (r"\b(in\s+english|english\s+me)\b", "en")
+        # English
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+english\b|english\s+me\b|english\s+mein\b|अंग्रेजी\s+में\b|અંગ્રેજીમાં\b|इंग्रजीत\b", "en"),
+        # Hinglish
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+hinglish\b|hinglish\s+me\b|hinglish\s+mein\b", "hinglish"),
+        # Hindi
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+hindi\b|hindi\s+me\b|hindi\s+mein\b|हिंदी\s*में\b|हिन्दी\s*में\b", "hi"),
+        # Gujarati
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+(?:gujarati|gujrati)\b|gujarati\s+ma\b|ગુજરાતીમાં\b", "gu"),
+        # Marathi
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+marathi\b|मराठीत\b|मराठी\s*मध्ये\b|marathi\s+madhye\b", "mr"),
+        # Malayalam
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+malayalam\b|മലയാളത്തിൽ\b", "ml"),
+        # Tamil
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+tamil\b|தமிழில்\b", "ta"),
+        # Telugu
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+telugu\b|తెలుగులో\b", "te"),
+        # Bengali
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+(?:bengali|bangla)\b|বাংলায়\b|bangla\s+te\b", "bn"),
+        # Kannada
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+kannada\b|ಕನ್ನಡದಲ್ಲಿ\b", "kn"),
+        # Punjabi
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+punjabi\b|ਪੰਜਾਬੀ\s*ਵਿੱਚ\b", "pa"),
+        # Odia
+        (r"\b(?:in|reply\s+in|answer\s+in|respond\s+in|speak\s+in|explain\s+in|write\s+in)\s+odia\b|ଓଡ଼ିଆରେ\b", "or"),
     ]
     for pattern, lang_code in explicit_requests:
         if re.search(pattern, lower_msg, re.IGNORECASE):
             return lang_code
 
-    # 2. Unicode Indic script frequency analysis
+    # Priority 2: Unicode Indic script frequency analysis
     script_counts = {
         "gu": 0,  # Gujarati: 0x0A80 - 0x0AFF
         "hi": 0,  # Devanagari: 0x0900 - 0x097F
@@ -238,41 +321,41 @@ def detect_message_language(message: str, explicit_lang: Optional[Any] = None) -
     dominant_script, max_count = max(script_counts.items(), key=lambda x: x[1])
     if max_count >= 2:
         if dominant_script == "hi":
-            marathi_indicators = [
-                "आहे", "माझे", "नाही", "करावे", "पाहिजे", "झाले", "दिले", "माझ्या",
-                "मी", "मला", "आता", "काय", "करू", "शकतो", "शकते", "केला", "केलेली",
-                "केलेले", "केले", "दोषपूर्ण", "विक्रेता", "पैसे", "परत", "देत", "होते",
-                "आहोत", "करा", "सांगा", "मिळाले", "झाला", "झाली", "केलेला", "घेऊन",
-                "जास्त", "फार", "फारच", "खरेदी", "मोबाईल", "घरमालक", "घरमालकाकडून",
-                "पगार", "कायदेशीर", "नोटीस", "समजून", "समजण्यासाठी", "मदत"
-            ]
+            # Disambiguate Devanagari: Marathi vs Hindi
             has_marathi_la = "\u0933" in message
-            if has_marathi_la or any(w in message for w in marathi_indicators):
+            devanagari_tokens = set(re.split(r'[\s,।?.!:\-\"\'()]+', message))
+            marathi_hits = sum(1 for w in devanagari_tokens if w in MARATHI_DISTINCTIVE_WORDS)
+            hindi_hits = sum(1 for w in devanagari_tokens if w in HINDI_DISTINCTIVE_WORDS)
+
+            if has_marathi_la or marathi_hits > hindi_hits:
                 return "mr"
+            return "hi"
         return dominant_script
 
-    # 3. Latin script: Hinglish vs English
-    hinglish_markers = {
-        "mera", "meri", "mere", "nahi", "kya", "bhai", "bol", "raha", "rahi", "rahe",
-        "kaat", "bhejna", "bhejein", "kar", "sakta", "sakti", "sakte", "hoon", "ab", "mujhe",
-        "paisa", "paise", "rupaye", "chahiye", "karu", "de", "dunga", "dena", "apna", "apni",
-        "apne", "main", "hum", "madad", "batayein", "batao", "bataiye", "hoga", "hogi", "hoge",
-        "karna", "karein", "unhone", "inkaar", "unka", "unki", "unke", "kaise", "kab", "kyu",
-        "kyun", "kuch", "aur", "lekin", "magar", "par", "ko", "se", "ne", "ki", "ka", "ke",
-        "hai", "hain", "tha", "thi", "the", "di", "karo", "kisi", "bhi"
-    }
-    words = re.findall(r'[a-zA-Z]+', lower_msg)
-    hinglish_hits = sum(1 for w in words if w in hinglish_markers)
-    hinglish_phrases = ["ab mujhe", "legal notice bhejna", "salary nahi di", "nahi diya", "kar sakta", "kya karu"]
-    has_phrase = any(p in lower_msg for p in hinglish_phrases)
+    # Priority 3: Latin script analysis: Hinglish vs English
+    tokens = re.findall(r'\b[a-zA-Z]+\b', lower_msg)
+    if not tokens:
+        return "en"
 
-    if hinglish_hits >= 2 or has_phrase:
+    h_hits = sum(1 for w in tokens if w in UNAMBIGUOUS_HINGLISH_WORDS)
+    e_hits = sum(1 for w in tokens if w in ENGLISH_WORDS)
+    has_h_phrase = any(phrase in lower_msg for phrase in HINGLISH_PHRASES)
+
+    if has_h_phrase:
+        if e_hits >= h_hits * 3 and h_hits <= 1:
+            return "en"
         return "hinglish"
 
-    # 4. Fallback to explicit_lang if specified and not auto/en
+    if h_hits >= 2:
+        if e_hits >= h_hits * 2:
+            return "en"
+        if (h_hits / max(len(tokens), 1)) >= 0.15 or h_hits >= 3:
+            return "hinglish"
+
+    # Priority 4: Fallback to explicit_lang if valid and not auto/none
     if explicit_lang:
         val = explicit_lang.value if hasattr(explicit_lang, "value") else str(explicit_lang).lower()
-        if val not in ["en", "auto", "none", ""]:
+        if val not in ["en", "auto", "none", "", "null"]:
             return val
 
     return "en"
@@ -292,6 +375,10 @@ def validate_and_sanitize_response(text: str, target_lang: str) -> str:
     # Strip any English headers in parens from Indic output
     if t_lang not in ["en", "hinglish"]:
         text = re.sub(r'\s*\((?:Your Situation|Your Legal Position|Practical Next Steps|Information I still need from you)\)', '', text, flags=re.IGNORECASE)
+    
+    # Strip any Hinglish headers in parens from English output
+    if t_lang == "en":
+        text = re.sub(r'\s*\((?:Aapki Situation|Aapke Kanooni Adhikar|Agla Kadam|Zaroori Jankari)\)', '', text, flags=re.IGNORECASE)
     
     replacements = {
         "gu": {
@@ -1802,6 +1889,36 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "Ask how you can assist them with their legal problem today. Do NOT output legal dispute section headers for simple greetings.]\n"
             )
 
+        if lang_str == "en":
+            target_lang_directive = (
+                "====================================================================================\n"
+                "TARGET RESPONSE LANGUAGE FOR THIS TURN: English (Latin script).\n"
+                "MANDATORY LANGUAGE DIRECTIVE: The user's query is in English. You MUST generate your ENTIRE response in clear, professional English.\n"
+                "- Generate all explanations, analysis, advice, and section headers strictly in English.\n"
+                "- Do NOT use Hindi, Hinglish, or Devanagari words anywhere in your response (e.g. do NOT use words like 'Aap', 'Kanooni Adhikar', 'Agla Kadam', 'Karein', etc.).\n"
+                "- Ground all statutory references in Indian law using formal English legal titles.\n"
+                "====================================================================================\n\n"
+            )
+        elif lang_str == "hinglish":
+            target_lang_directive = (
+                "====================================================================================\n"
+                "TARGET RESPONSE LANGUAGE FOR THIS TURN: Hinglish (Latin script - Conversational Hindi written in English letters).\n"
+                "MANDATORY LANGUAGE DIRECTIVE: The user's query is in Hinglish. You MUST generate your ENTIRE response in natural, conversational Hinglish using the Latin alphabet.\n"
+                "- Combine conversational Hindi vocabulary with standard English legal terms.\n"
+                "- Do NOT output in Devanagari script.\n"
+                "====================================================================================\n\n"
+            )
+        else:
+            target_lang_directive = (
+                "====================================================================================\n"
+                f"TARGET RESPONSE LANGUAGE FOR THIS TURN: {lang_name} ({lang_script} script).\n"
+                f"MANDATORY LANGUAGE DIRECTIVE: The user's query is in {lang_name}. You MUST generate your ENTIRE response in fluent, authentic {lang_name} written in {lang_script} script.\n"
+                f"- Do NOT respond in English or Hinglish.\n"
+                f"- Translate all explanations and section headers into {lang_name}.\n"
+                f"- Where an official legal term (e.g. Act name, section number, legal writ) is conventionally written in English, retain the English term or transliteration alongside its meaning in {lang_name}.\n"
+                "====================================================================================\n\n"
+            )
+
         system_instruction = (
             "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens across India.\n"
             "You provide comprehensive legal guidance across all major domains of Indian law, including:\n"
@@ -1835,10 +1952,15 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             "Never invent section numbers, court judgments, or fake URLs. If reliable documentation is unavailable on a specific local point, clearly state that limitation.\n\n"
             "====================================================================================\n"
             "MANDATORY MULTILINGUAL RESPONSE DIRECTIVE:\n"
-            "Always identify the language of the user's latest message and respond in that same language. "
-            "This rule applies to every response, including greetings, legal explanations, follow-up questions, case summaries, evidence checklists and generated document drafts.\n\n"
-            "Do not default to English.\n\n"
-            "If the user changes language during an ongoing conversation, immediately switch the response language to match the latest message while preserving the existing conversation context.\n\n"
+            "The language used in the user's latest message determines the language of your response.\n"
+            "- If the user writes in English, you MUST respond entirely in English.\n"
+            "- If the user writes in Hindi, you MUST respond in Hindi (Devanagari script).\n"
+            "- If the user writes in Hinglish, you MUST respond in Hinglish (Latin script).\n"
+            "- If the user writes in Gujarati, Marathi, Malayalam, Tamil, Telugu, Bengali, Kannada, Punjabi, or Odia, you MUST respond in that exact language and script.\n"
+            "- If the user changes language during an ongoing conversation (e.g. English -> Hindi or Hindi -> English), immediately switch your response language to match their latest message while preserving all previously discussed case facts and legal context.\n"
+            "- Always respect explicit instructions such as 'answer in English' or 'in Hindi'.\n"
+            "- Use natural, fluent language rather than word-for-word machine translation.\n"
+            "- Keep legal act names, section numbers and official legal terminology accurate.\n\n"
             "SPECIAL DIRECTIVE FOR LEGAL NOTICES RECEIVED (E.G. FROM LANDLORD OR EMPLOYER):\n"
             "If the user states they received a legal notice (e.g. from landlord, owner, employer) or asks for help understanding/explaining a notice:\n"
             "- Recognize this as Legal Document/Notice Explanation under the Tenancy or relevant domain.\n"
@@ -1847,16 +1969,8 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             "- Inform the user that sensitive personal data (Aadhaar, bank account credentials, personal phone numbers) can be redacted or omitted before sharing.\n"
             "- Highlight that under Indian law, a tenant cannot be evicted without due process of law, nor can essential services (electricity/water) be cut.\n"
             "- DO NOT invent facts, deposit amounts, eviction dates, or vacating history not stated by the user.\n"
-            "- Generate the entire response strictly in the target language with ZERO English phrases leaking.\n"
-            "Always identify the language of the user's latest message and respond in that same language. "
-            "This rule applies to every response, including greetings, legal explanations, follow-up questions, case summaries, evidence checklists and generated document drafts.\n\n"
-            "Do not default to English.\n\n"
-            "If the user changes language during an ongoing conversation, immediately switch the response language to match the latest message while preserving the existing conversation context.\n\n"
-            "Use natural, fluent language rather than word-for-word machine translation.\n\n"
-            "Keep legal act names, section numbers and official legal terminology accurate. Where an official legal term is conventionally written in English, retain the original term and explain its meaning in the user's language.\n"
-            "====================================================================================\n\n"
-            f"TARGET RESPONSE LANGUAGE FOR THIS TURN: {lang_name} ({lang_script} script).\n"
-            f"You MUST generate your entire response in {lang_name}. Do NOT output in English when the user writes in {lang_name}.\n\n"
+            "- Generate the entire response strictly in the target language with ZERO English phrases leaking.\n\n"
+            f"{target_lang_directive}"
             "====================================================================================\n"
             "NON-LEGAL QUERY & SCOPE GUARDRAIL DIRECTIVE:\n"
             "LawPilot AI is strictly specialized in Indian law and legal dispute assistance.\n"

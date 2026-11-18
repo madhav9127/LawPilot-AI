@@ -289,39 +289,9 @@ class IntentClassifier:
 
     @classmethod
     def detect_language(cls, text: str, explicit_lang: Optional[str] = None) -> str:
-        """Detects the language of the message."""
-        if explicit_lang and explicit_lang in NON_LEGAL_SCOPE_RESPONSES:
-            return explicit_lang
-
-        # Unicode script checks
-        if re.search(r"[\u0A80-\u0AFF]", text):
-            return "gu"
-        if re.search(r"[\u0D00-\u0D7F]", text):
-            return "ml"
-        if re.search(r"[\u0B80-\u0BFF]", text):
-            return "ta"
-        if re.search(r"[\u0C00-\u0C7F]", text):
-            return "te"
-        if re.search(r"[\u0980-\u09FF]", text):
-            return "bn"
-        if re.search(r"[\u0900-\u097F]", text):
-            # Check for Marathi markers
-            marathi_markers = ["आहे", "नाही", "काय", "मला", "तुम्ही", "करणे", "झाले", "सांगा", "हवा", "होते", "द्या"]
-            if any(m in text for m in marathi_markers):
-                return "mr"
-            return "hi"
-
-        # Latin script checks
-        lower = text.lower()
-        hinglish_words = [
-            "kya", "hai", "mujhe", "mera", "meri", "hum", "nahi", "raha", "rahi", "karo", "batayein",
-            "paisa", "makan", "kiraya", "naukri", "pulis", "thana", "madad", "bhai", "sir", "karna", "chahiye"
-        ]
-        match_count = sum(1 for w in hinglish_words if re.search(rf"\b{w}\b", lower))
-        if match_count >= 2:
-            return "hinglish"
-
-        return "en"
+        """Detects the language of the message using unified detector."""
+        from app.core.llm_provider import detect_message_language
+        return detect_message_language(text, explicit_lang)
 
     @classmethod
     def classify_intent(

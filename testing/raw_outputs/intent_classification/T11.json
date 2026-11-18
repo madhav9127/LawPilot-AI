@@ -1,0 +1,14 @@
+{
+  "test_id": "T11",
+  "input": "Hi",
+  "expected_intent": "GREETING_OR_SOCIAL",
+  "detected_intent": "GREETING_OR_SOCIAL",
+  "is_mixed": false,
+  "expected_action": "Greet naturally without refusal",
+  "http_status": 200,
+  "latency_seconds": 0.008,
+  "grade": "PASS",
+  "explanation": "Natural greeting or identity inquiry; respond warmly without rejection.",
+  "actual_response_snippet": "Hello! Main **LawPilot AI** hoon, India me sabhi major legal matters ke liye aapka comprehensive legal assistant.\n\nMain Indian law ke sabhi areas me aapki madad karta hoon:\n- 🏠 Property, RERA & Tenancy (deposit refund, eviction protection, possession delays)\n- ⚖️ Criminal Law (BNS/BNSS/BSA 2023, FIR",
+  "full_response": "Hello! Main **LawPilot AI** hoon, India me sabhi major legal matters ke liye aapka comprehensive legal assistant.\n\nMain Indian law ke sabhi areas me aapki madad karta hoon:\n- 🏠 Property, RERA & Tenancy (deposit refund, eviction protection, possession delays)\n- ⚖️ Criminal Law (BNS/BNSS/BSA 2023, FIR, bail, fraud)\n- 🛒 Consumer Protection (defective items, refund issues, e-commerce grievances)\n- 💼 Employment & Wages (unpaid salary, FnF settlement, relieving letter)\n- 💳 Banking & Cyber (online fraud, account freeze, cheque bounce 138)\n- 📜 Family, Civil, Tax & RTI (divorce, maintenance, civil recovery, IT notice, RTI)\n\nAap apni situation simple English, Hindi ya Hinglish me batayein — main poori legal guidance dunga."
+}

@@ -1538,7 +1538,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 "You can also generate formal legal notices, police complaints, cheque bounce notices, and RTI applications directly in the chat."
             )
 
-        if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2", "tell me a joke"]):
+        if len(lower_msg.split()) <= 6 and any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2", "tell me a joke"]):
             return (
                 "I am LawPilot AI, a comprehensive legal assistant specialising in Indian law. "
                 "I can help you understand your legal rights, analyse statutory provisions, explore procedural options, and draft legal documents. "
@@ -1593,6 +1593,10 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             "2. Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS) — replaces Code of Criminal Procedure, 1973 (CrPC)\n"
             "3. Bharatiya Sakshya Adhiniyam, 2023 (BSA) — replaces Indian Evidence Act, 1872 (IEA)\n"
             "Always state the CURRENT operative BNS/BNSS/BSA provisions as primary. You may mention former IPC/CrPC/IEA sections only as historical equivalents.\n\n"
+            "CRITICAL SCOPE RESTRICTION:\n"
+            "You are LawPilot AI, a specialised assistant for Indian legal matters ONLY. "
+            "You must NEVER answer unrelated general-purpose questions (such as general trivia, coding/programming, general science, math puzzles, jokes, recipes, weather, workouts, sports, or general homework). "
+            "If the user asks an unrelated general topic, politely decline, explain that you specialise exclusively in Indian law, and ask if there is an Indian legal issue you can assist with.\n\n"
             f"{mixed_note}"
             "====================================================================================\n"
             "MANDATORY MULTILINGUAL RESPONSE DIRECTIVE:\n"
@@ -1677,7 +1681,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         if is_oos and oos_reply:
             return ChatMessage(role="assistant", content=oos_reply, citations=[])
 
-        fast_reply = self._check_fast_track(lower_msg, lang_str)
+        fast_reply = self._check_fast_track(lower_msg, lang_str) if not is_mixed else None
         if fast_reply:
             return ChatMessage(role="assistant", content=fast_reply, citations=[])
 
@@ -1825,7 +1829,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         yield {"type": "metadata", "title": title, "citations": citations_data}
 
         # 6. Fast-track conversational responses (<5ms)
-        fast_reply = self._check_fast_track(lower_msg, lang_str)
+        fast_reply = self._check_fast_track(lower_msg, lang_str) if not is_mixed else None
         if fast_reply:
             for chunk in re.split(r'(\s+)', fast_reply):
                 if chunk:

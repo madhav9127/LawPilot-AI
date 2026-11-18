@@ -261,7 +261,7 @@ class LegalKnowledgeBase:
             "section": "Section 13, Section 13B & Section 24",
             "title": "Divorce, Divorce by Mutual Consent, and Maintenance Pendente Lite",
             "category": CaseCategoryEnum.FAMILY,
-            "keywords": ["divorce", "mutual consent divorce", "13b hma", "cruelty", "desertion", "alimony", "interim maintenance", "section 24"],
+            "keywords": ["divorce", "mutual consent divorce", "13b hma", "cruelty", "desertion", "alimony", "interim maintenance", "section 24", "घटस्फोट", "तलाक", "છૂટાછેડા", "विवाह", "വിവാഹമോചനം", "விவாகரத்து"],
             "description": "Section 13 specifies fault grounds (cruelty, desertion, adultery). Section 13B provides divorce by mutual consent upon 1 year separation. Section 24 provides interim maintenance and expenses of proceedings to a spouse with insufficient independent income.",
             "official_url": "https://www.indiacode.nic.in/handle/123456789/1560",
             "commencement_date": "1955-05-18",

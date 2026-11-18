@@ -1,0 +1,14 @@
+{
+  "test_id": "T17",
+  "input": "મને એક જોક કહો",
+  "expected_intent": "NON_LEGAL_QUERY",
+  "detected_intent": "NON_LEGAL_QUERY",
+  "is_mixed": false,
+  "expected_action": "Politely decline joke request in Gujarati",
+  "http_status": 200,
+  "latency_seconds": 0.012,
+  "grade": "PASS",
+  "explanation": "Purely non-legal general inquiry; politely declined with scope limitation.",
+  "actual_response_snippet": "હું LawPilot AI છું, ભારતમાં કાનૂની બાબતો માટે એક વિશિષ્ટ સહાયક. હું તમને કાનૂની અધિકારો સમજવામાં, કાનૂની વિકલ્પો શોધવામાં, કાનૂની દસ્તાવેજોનું વિશ્લેષણ કરવામાં અને કાનૂની ડ્રાફ્ટ તૈયાર કરવામાં મદદ કરી શકું છું. હું કાયદા સાથે અસંબંધિત સામાન્ય વિષયોમાં સહાય કરવામાં અસમર્થ છું. શું કોઈ ભારતીય કાનૂની",
+  "full_response": "હું LawPilot AI છું, ભારતમાં કાનૂની બાબતો માટે એક વિશિષ્ટ સહાયક. હું તમને કાનૂની અધિકારો સમજવામાં, કાનૂની વિકલ્પો શોધવામાં, કાનૂની દસ્તાવેજોનું વિશ્લેષણ કરવામાં અને કાનૂની ડ્રાફ્ટ તૈયાર કરવામાં મદદ કરી શકું છું. હું કાયદા સાથે અસંબંધિત સામાન્ય વિષયોમાં સહાય કરવામાં અસમર્થ છું. શું કોઈ ભારતીય કાનૂની બાબત છે જેમાં હું તમને મદદ કરી શકું?"
+}

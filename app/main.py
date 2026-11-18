@@ -168,27 +168,15 @@ def chat_endpoint(request: ChatRequest):
         f"Lang={decision.detected_language}"
     )
 
-    # 1. Non-Legal, Ambiguous, Urgent Safety: Intercept at gate
-    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
-        from app.models.schemas import VerificationStatusEnum
-        v_status = VerificationStatusEnum.VERIFIED if decision.intent != UserIntentEnum.AMBIGUOUS else VerificationStatusEnum.RECOMMENDED
-        fu = ["Is there an Indian legal matter I can assist you with?"] if decision.intent == UserIntentEnum.NON_LEGAL_QUERY else []
-        return ChatMessage(
-            role="assistant",
-            content=decision.direct_response,
-            citations=[],
-            verification_status=v_status,
-            follow_up_questions=fu
-        )
-
-    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
+    # Delegate all response generation to Google Gemini using user's API key
     provider = LLMProviderFactory.get_provider()
     response = provider.generate_response(
         message=request.message,
         conversation_history=request.conversation_history,
         language=request.language,
         state_jurisdiction=request.state_jurisdiction,
-        session_id=request.session_id or "default_session"
+        session_id=request.session_id or "default_session",
+        user_intent=decision.intent.value if decision.intent else None
     )
     if decision.is_mixed:
         mixed_note = (
@@ -196,12 +184,13 @@ def chat_endpoint(request: ChatRequest):
             "**Scope Note:** Please note that LawPilot AI specialises strictly in legal assistance under Indian law. "
             "While I have addressed your legal query above, general questions or unrelated requests are outside my legal assistance scope."
         )
-        response.content += mixed_note
+        if "outside" not in response.content.lower() and "scope" not in response.content.lower():
+            response.content += mixed_note
     return response
 
 @app.post("/api/chat/stream")
 def chat_stream_endpoint(request: ChatRequest):
-    """Streams genuine token-by-token reasoning, gated by IntentGate."""
+    """Streams genuine token-by-token reasoning generated via Google Gemini model key."""
     from app.core.intent_gate import IntentGate, UserIntentEnum
     import uuid
     import re
@@ -219,33 +208,11 @@ def chat_stream_endpoint(request: ChatRequest):
     logger.info(
         f"ReqID={req_id} | Intent={decision.intent.value} | Confidence={decision.confidence:.2f} | "
         f"ContextInfluenced={decision.context_influenced} | TopicChanged={decision.topic_changed} | "
-        f"Route={'LEGAL_AI_PIPELINE' if decision.intent == UserIntentEnum.LEGAL_QUERY else 'DIRECT_GATE_RESPONSE'} | "
-        f"RAGInvoked={decision.rag_invoked} | LegalGenInvoked={decision.legal_generation_invoked} | "
+        f"Route=GEMINI_MODEL_RESPONSE | RAGInvoked={decision.rag_invoked} | "
         f"Lang={decision.detected_language}"
     )
 
-    # 1. Non-Legal, Ambiguous, Urgent Safety: Stream directly from Gate without RAG
-    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
-        def gate_stream():
-            title = "LawPilot AI"
-            yield f"data: {json.dumps({'type': 'metadata', 'title': title, 'citations': []}, ensure_ascii=False)}\n\n"
-            for chunk in re.split(r'(\s+)', decision.direct_response):
-                if chunk:
-                    yield f"data: {json.dumps({'type': 'token', 'content': chunk}, ensure_ascii=False)}\n\n"
-            yield f"data: {json.dumps({'type': 'done', 'title': title, 'citations': [], 'content': decision.direct_response}, ensure_ascii=False)}\n\n"
-
-        return StreamingResponse(
-            gate_stream(),
-            media_type="text/event-stream; charset=utf-8",
-            headers={
-                "Cache-Control": "no-cache",
-                "Connection": "keep-alive",
-                "X-Accel-Buffering": "no",
-                "Content-Type": "text/event-stream; charset=utf-8"
-            }
-        )
-
-    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
+    # Delegate all streaming response generation directly to Gemini model
     provider = LLMProviderFactory.get_provider()
 
     def event_stream():
@@ -260,7 +227,8 @@ def chat_stream_endpoint(request: ChatRequest):
             conversation_history=request.conversation_history,
             language=request.language,
             state_jurisdiction=request.state_jurisdiction,
-            session_id=request.session_id or "default_session"
+            session_id=request.session_id or "default_session",
+            user_intent=decision.intent.value if decision.intent else None
         ):
             if decision.is_mixed:
                 if event.get("type") == "token":

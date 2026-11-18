@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-07-ML-NOTICE",
+  "input_prompt": "എന്റെ വീട്ടുടമസ്ഥനിൽ നിന്ന് ലഭിച്ച ലീഗൽ നോട്ടീസ് മനസ്സിലാക്കാൻ എന്നെ സഹായിക്കുക.",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Tenant Rights Issue",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "നിങ്ങളുടെ പ്രശ്നത്തിൽ സഹായിക്കാൻ സാധിച്ചതിൽ എനിക്ക് അതിയായ സന്തോഷമുണ്ട്, ദയവായി വിഷമിക്കേണ്ടതില്ല.\n\n### | നിങ്ങളുടെ സാഹചര്യം\nനിങ്ങളുടെ വീട്ടുടമസ്ഥനിൽ നിന്ന് ലഭിച്ച ലീഗൽ നോട്ടീസിലെ ഉള്ളടക്കം നിയമപരമായി പരിശോധിക്കാൻ ഞാൻ നിങ്ങളെ സഹായിക്കാം. നോട്ടീസ് ലഭിക്കുന്നത് നിയമപരമായ ഒരു വിധി അല്ലാത്തതുകൊണ്ട് പരിഭ്രമിക്കേണ്ടതില്ല, എന്നാൽ മറുപടി നൽകാൻ നിശ്ചിത സമയപരിധി ഉണ്ടെന്നത് ഓർക്കുക.\n\n### | നിങ്ങളുടെ നിയമപരമായ അവകാശം\n*   ട്രാൻസ്ഫർ ഓഫ് പ്രോപ്പർട്ടി ആക്റ്റ്, 1882 സെക്ഷൻ 106 പ്രകാരം, രേഖാമൂലമുള്ള കരാർ ഇല്ലെങ്കിൽ വാടക മാസത്തിലൊരിക്കൽ എന്ന നിലയിൽ കണക്കാക്കുകയും 15 ദിവസത്തെ നോട്ടീസ് നൽകി മാത്രമേ കരാർ അവസാനിപ്പിക്കാൻ സാധിക്കുകയുള്ളൂ.\n*   ഇന്ത്യൻ നിയമപ്രകാരം, നിയമപരമായ നടപടിക്രമങ്ങൾ പാലിക്കാതെ ഒരു വാടകക്കാരെയും വീട്ടിൽ നിന്ന് പുറത്താക്കാൻ സാധിക്കില്ല. കൂടാതെ, വാടകക്കാരനെ ഭീഷണിപ്പെടുത്താനോ വൈദ്യുതി, വെള്ളം തുടങ്ങിയ അവശ്യ സേവനങ്ങൾ തടസ്സപ്പെടുത്താനോ ഉടമസ്ഥന് അവകാശമില്ല.\n*   സ്പെസിഫിക് റിലീഫ് ആക്റ്റ്, 1963 സെക്ഷൻ 6 പ്രകാരം, നിയമവിരുദ്ധമായി ഒരാളെ വസ്തുവിൽ നിന്ന് പുറത്താക്കിയാൽ, അക്കാര്യം കാണിച്ച് കോടതിയെ സമീപിക്കാനും കൈവശാവകാശം തിരികെ ലഭിക്കാനും വാടകക്കാരന് അർഹതയുണ്ട്.\n*   സാധാരണ രീതിയിലുള്ള ഉപയോഗം (Reasonable wear and tear) മൂലം കെട്ടിടത്തിന് സംഭവിക്കുന്ന ചെറിയ കേടുപാടുകൾക്ക് വാടകക്കാരൻ ഉത്തരവാദിയല്ല.\n\n### | പ്രായോഗിക അടുത്ത നടപടികൾ\n1. ലഭിച്ച നോട്ടീസിന്റെ പകർപ്പ് ശ്രദ്ധാപൂർവ്വം വായിക്കുക. അതിൽ ആവശ്യപ്പെട്ടിരിക്കുന്ന കാര്യങ്ങളും നൽകിയിരിക്കുന്ന സമയപരിധിയും വ്യക്തമായി മനസ്സിലാക്കുക.\n2. ആധാർ, ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ തുടങ്ങിയ സ്വകാര്യ വിവരങ്ങൾ മറച്ചുവെച്ചുകൊണ്ട് നോട്ടീസിന്റെ പകർപ്പ് ഇവിടെ പങ്കുവെക്കുകയോ അതിലെ പ്രധാന കാര്യങ്ങൾ എഴുതുകയോ ചെയ്യുക.\n3. നോട്ടീസിൽ പറഞ്ഞിരിക്കുന്ന കാര്യങ്ങൾ തെറ്റാണെങ്കിൽ, ഒരു വക്കീലിന്റെ സഹായത്തോടെയോ അല്ലെങ്കിൽ നിയമപരമായ രേഖകളിലൂടെയോ 15 ദിവസത്തിനുള്ളിൽ മറുപടി നൽകുക.\n\n### ℹ️ നിങ്ങളിൽ നിന്ന് ആവശ്യമായ കൂടുതൽ വിവരങ്ങൾ\n1. നിങ്ങളുടെ വീട്ടുടമസ്ഥൻ അയച്ച നോട്ടീസിൽ പ്രധാനമായും എന്താണ് ആവശ്യപ്പെട്ടിരിക്കുന്നത് (ഉദാഹരണത്തിന്: വീട് ഒഴിയാൻ ആവശ്യപ്പെട്ടതാണോ അതോ വാടക കുടിശ്ശികയെ കുറിച്ചാണോ)?\n2. നിങ്ങൾക്ക് ലഭിച്ച നോട്ടീസിൽ മറുപടി നൽകാൻ എത്ര ദിവസത്തെ സമയമാണ് അനുവദിച്ചിരിക്കുന്നത്?",
+  "evaluated_at": "2026-11-18 06:25:45 UTC"
+}

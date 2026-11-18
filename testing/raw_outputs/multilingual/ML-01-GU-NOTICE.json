@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-01-GU-NOTICE",
+  "input_prompt": "મને મારા મકાનમાલિક તરફથી મળેલી કાનૂની નોટિસ સમજવામાં મદદ કરો.",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Tenant Landlord Dispute",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "નમસ્તે, હું તમને તમારી કાનૂની નોટિસ સમજવામાં અને તે મુજબ આગળ વધવામાં મદદ કરવા માટે અહીં છું.\n\n### | તમારી પરિસ્થિતિ\nતમારા મકાનમાલિક તરફથી તમને કાનૂની નોટિસ મળી છે અને તમે તેની કાયદાકીય અસરો વિશે ચિંતિત છો. આ નોટિસ ભાડૂઆત અને મકાનમાલિક વચ્ચેના વિવાદ અથવા ખાલી કરાવવાની માંગ સાથે સંબંધિત હોઈ શકે છે.\n\n### | તમારો કાનૂની પક્ષ\n* ગભરાશો નહીં, કાનૂની નોટિસ એ કોર્ટનો ચુકાદો કે તાત્કાલિક ઘર ખાલી કરવાનો આદેશ નથી, પરંતુ તેનો જવાબ નિર્ધારિત સમય મર્યાદામાં આપવો અત્યંત આવશ્યક છે.\n* ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ ની કલમ ૧૦૬ મુજબ, મકાનમાલિકે ભાડૂઆતને યોગ્ય નોટિસ આપવી જરૂરી છે.\n* ભારતીય કાયદા મુજબ, કોઈપણ ભાડૂઆતને કાયદેસરની યોગ્ય પ્રક્રિયા વિના ઘરની બહાર કાઢી શકાતા નથી, તેમ જ વીજળી કે પાણી જેવી આવશ્યક સુવિધાઓ કાપી શકાતી નથી (સ્પેસિફિક રિલીફ એક્ટ, ૧૯૬૩ ની કલમ ૬).\n* મકાનમાલિક સામાન્ય ઘસારા (Reasonable wear and tear) માટે ભાડૂઆત પાસેથી મનસ્વી રીતે પૈસા કાપી શકે નહીં, જે ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, ૧૮૮૨ ની કલમ ૧૦૮(m) અને (o) હેઠળ સુરક્ષિત છે.\n\n### | વ્યવહારુ આગલા પગલાં\n૧. નોટિસની એક નકલ અથવા તેનો ટેક્સ્ટ અહીં અપલોડ કરો જેથી હું તેની ચોક્કસ શરતો અને માંગણીઓ તપાસી શકું (કૃપા કરીને તમારું નામ કે આધાર જેવી સંવેદનશીલ વિગતો હટાવી દેવી).\n૨. નોટિસ મળ્યાની તારીખ નોંધો અને તેમાં આપેલ સમય મર્યાદા (સામાન્ય રીતે ૧૫ થી ૩૦ દિવસ) ની અંદર લેખિતમાં જવાબ તૈયાર કરો.\n૩. તમારા ભાડા કરાર (Rent Agreement) અને અત્યાર સુધી ચૂકવેલા ભાડાની પહોંચ એકત્રિત કરો, જે પુરાવા તરીકે કામ લાગશે.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\nતમને આ નોટિસ કયા કારણોસર મળી છે (જેમ કે ભાડું બાકી હોવું કે ઘર ખાલી કરવાની માંગ) અને આ નોટિસ તમને કઈ તારીખે મળી હતી તે જણાવશો?",
+  "evaluated_at": "2026-11-18 06:25:13 UTC"
+}

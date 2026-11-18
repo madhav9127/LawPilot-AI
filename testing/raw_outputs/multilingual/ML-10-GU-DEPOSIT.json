@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-10-GU-DEPOSIT",
+  "input_prompt": "મેં મકાન ખાલી કરી દીધું છે પણ મકાનમાલિક ₹25,000 ડિપોઝિટ પરત આપતા નથી.",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Security Deposit Dispute",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "તમારી પરિસ્થિતિ સાંભળીને મને દુઃખ થયું છે અને હું તમને આ બાબતે મદદ કરવા માટે અહીં હાજર છું.\n\n### | તમારી પરિસ્થિતિ\nતમે મકાન ખાલી કરી દીધું છે, પરંતુ તમારા મકાનમાલિક તમારી ₹25,000 ની સિક્યોરિટી ડિપોઝિટ પાછી આપવાનો ઇનકાર કરી રહ્યા છે. આ મુદ્દો ભાડૂત અને મકાનમાલિક વચ્ચેના નાણાકીય વિવાદ હેઠળ આવે છે.\n\n### | તમારો કાનૂની પક્ષ\n* મોડેલ ટેનન્સી એક્ટ, 2021 મુજબ, મકાનમાલિક ભાડૂતના મકાન ખાલી કર્યા પછી સિક્યોરિટી ડિપોઝિટ પરત કરવા માટે બંધાયેલા છે, જેમાંથી માત્ર કરારમાં દર્શાવેલ યોગ્ય કપાત જ કરી શકાય છે.\n* ટ્રાન્સફર ઓફ પ્રોપર્ટી એક્ટ, 1882 ની કલમ 108(m) અને (o) મુજબ, ભાડૂતે મકાનને જે સ્થિતિમાં મેળવ્યું હતું, તેને તે જ સ્થિતિમાં (સામાન્ય ઘસારા અથવા 'રીઝનેબલ વેર એન્ડ ટીયર' સિવાય) પાછું આપવાનું હોય છે. મકાનમાલિક માત્ર સામાન્ય વપરાશના નામે મનસ્વી રીતે ડિપોઝિટ કાપી શકતા નથી.\n* જો મકાનમાલિક ગેરકાયદેસર રીતે ડિપોઝિટ રાખે છે, તો તે ગ્રાહક સેવા અથવા ભાડા નિયંત્રણ સત્તાધિકારી (રેન્ટ ઓથોરિટી) સમક્ષ દાવો કરવા માટેનો આધાર બને છે.\n\n### | વ્યવહારુ આગલા પગલાં\n1. તમારી પાસે રહેલા ભાડા કરારની નકલ, મકાન ખાલી કર્યા તારીખના પુરાવા અને મકાનમાલિક સાથે થયેલી વાતચીતના રેકોર્ડ્સ (વોટ્સએપ કે મેસેજ) તૈયાર રાખો.\n2. મકાનમાલિકને એક લેખિત નોટિસ મોકલો જેમાં તેમને 15 દિવસની સમયમર્યાદા આપીને બાકી રકમ પરત કરવા જણાવો.\n3. જો 15 દિવસમાં જવાબ ન મળે, તો તમે સ્થાનિક રેન્ટ ઓથોરિટી અથવા કન્ઝ્યુમર ફોરમમાં કાનૂની કાર્યવાહી શરૂ કરવા માટે અરજી કરી શકો છો.\n\n### ℹ️ તમારી પાસેથી જરૂરી માહિતી\n1. શું તમારી પાસે મકાનમાલિક સાથેનો કોઈ લેખિત ભાડા કરાર છે કે જે ડિપોઝિટ અને તેના પરત કરવાની શરતોનો ઉલ્લેખ કરે છે?\n2. મકાનમાલિક ડિપોઝિટ ન આપવા માટે શું કારણ આપી રહ્યા છે?",
+  "evaluated_at": "2026-11-18 06:26:03 UTC"
+}

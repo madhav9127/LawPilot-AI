@@ -1061,11 +1061,6 @@ async function loadSystemStatus() {
                 const isAvail = data.knowledge_and_grounding.retrieval_available;
                 retEl.innerHTML = `<span class="status-dot"></span> ${isAvail ? 'Online & Available' : 'Unavailable'}`;
             }
-
-            const sourcesEl = document.getElementById('statusSources');
-            if (sourcesEl && data.knowledge_and_grounding.source_categories) {
-                sourcesEl.innerHTML = data.knowledge_and_grounding.source_categories.map(s => `<li>${s}</li>`).join('');
-            }
         }
 
         // 3. Capabilities

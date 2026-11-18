@@ -1,0 +1,21 @@
+{
+  "test_id": "ML-14-GU-OFFTOPIC",
+  "input_prompt": "2 + 2 કેટલા થાય?",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "2 2",
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "2 + 2 is **4**.\n\nI am LawPilot AI, dedicated to assisting you with Indian legal matters (tenancy, consumer rights, and employment wages). How can I help you with your legal situation today?",
+  "evaluated_at": "2026-11-18 06:26:19 UTC"
+}

@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-03-HI-NOTICE",
+  "input_prompt": "मुझे मेरे मकान मालिक की तरफ से लीगल नोटिस मिला है, इसे समझने में मेरी मदद करें।",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Tenant Rights Issue",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "नमस्ते, मैं आपकी इस चिंता को समझता हूँ और आपकी सहायता करने के लिए यहाँ हूँ। कृपया घबराएं नहीं, कानूनी नोटिस का मतलब कोई अदालती फैसला या निष्कासन आदेश (eviction order) नहीं होता है, लेकिन इसका समय रहते जवाब देना महत्वपूर्ण है।\n\n### | आपकी स्थिति\nआपको अपने मकान मालिक से एक कानूनी नोटिस प्राप्त हुआ है जिसमें किरायेदारी या संपत्ति खाली करने से संबंधित कोई मांग की गई है। कृपया स्पष्ट करें कि इस नोटिस में मुख्य मांग क्या है और यह आपको कब प्राप्त हुआ था।\n\n### | आपकी कानूनी स्थिति\n* संपत्ति हस्तांतरण अधिनियम, 1882 (Transfer of Property Act, 1882) की धारा 106 के अनुसार, यदि कोई लिखित अनुबंध नहीं है, तो किरायेदारी महीने-दर-महीने मानी जाती है और इसे समाप्त करने के लिए 15 दिन का नोटिस देना अनिवार्य है।\n* विशिष्ट राहत अधिनियम, 1963 (Specific Relief Act, 1963) की धारा 6 स्पष्ट करती है कि कानून की उचित प्रक्रिया का पालन किए बिना किसी किरायेदार को उसकी सहमति के बिना संपत्ति से बेदखल नहीं किया जा सकता है।\n* मकान मालिक किसी भी स्थिति में बिजली या पानी जैसी आवश्यक सेवाओं को नहीं काट सकता है और न ही आपको जबरन बाहर निकाल सकता है।\n* सामान्य टूट-फूट (reasonable wear and tear) के लिए मकान मालिक मनमाने ढंग से सुरक्षा जमा राशि (security deposit) नहीं काट सकता है।\n\n### | व्यावहारिक अगले कदम\n1. नोटिस की एक प्रति सुरक्षित रखें और उसमें दी गई समय सीमा (आमतौर पर 15-30 दिन) को नोट करें।\n2. नोटिस में कही गई बातों का लिखित में जवाब देने की तैयारी करें, जिसमें यदि मकान मालिक की मांगें गलत हैं तो उन्हें साक्ष्यों के साथ चुनौती दें।\n3. यदि मकान मालिक आपको परेशान कर रहा है या अवैध रूप से निकालने की धमकी दे रहा है, तो आप अपने स्थानीय रेंट अथॉरिटी या कानूनी सलाहकार से संपर्क कर सकते हैं।\n\n### ℹ️ आपसे आवश्यक जानकारी\n1. क्या आप मुझे उस कानूनी नोटिस की मुख्य बातें बता सकते हैं या व्यक्तिगत जानकारी हटाकर उसका टेक्स्ट यहाँ पेस्ट कर सकते हैं ताकि मैं उसे बेहतर समझ सकूँ?\n2. क्या आपके पास मकान मालिक के साथ कोई लिखित रेंट एग्रीमेंट है और क्या आपने समय पर किराया चुकाया है?",
+  "evaluated_at": "2026-11-18 06:25:24 UTC"
+}

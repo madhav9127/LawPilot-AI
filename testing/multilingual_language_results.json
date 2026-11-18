@@ -1,0 +1,244 @@
+{
+  "suite_name": "LawPilot AI Multilingual Comprehension & Generation Evaluation",
+  "total_tests": 15,
+  "passed_tests": 15,
+  "failed_tests": 0,
+  "pass_rate_percentage": 100.0,
+  "evaluated_at": "2026-11-18 06:29:54 UTC",
+  "test_results": [
+    {
+      "id": "ML-01-GU-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Landlord Dispute",
+      "response_length": 1521,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "નમસ્તે, હું તમને તમારી કાનૂની નોટિસ સમજવામાં અને તે મુજબ આગળ વધવામાં મદદ કરવા માટે અહીં છું.\n\n### | તમારી પરિસ્થિતિ\nતમારા મકાનમાલિક તરફથી તમને કાનૂની નોટિસ મળી છે અને તમે તેની કાયદાકીય અસરો વિશે ચિંતિ..."
+    },
+    {
+      "id": "ML-02-MR-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Landlord Dispute",
+      "response_length": 1713,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "नमस्कार, तुम्हाला मिळालेली कायदेशीर नोटीस पाहून काळजी करू नका, मी तुम्हाला ती समजून घेण्यास नक्कीच मदत करेन.\n\n### | तुमची परिस्थिती\nतुम्हाला तुमच्या घरमालकाकडून कायदेशीर नोटीस मिळाली आहे, ज्याचा अर्थ ..."
+    },
+    {
+      "id": "ML-03-HI-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Rights Issue",
+      "response_length": 1855,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "नमस्ते, मैं आपकी इस चिंता को समझता हूँ और आपकी सहायता करने के लिए यहाँ हूँ। कृपया घबराएं नहीं, कानूनी नोटिस का मतलब कोई अदालती फैसला या निष्कासन आदेश (eviction order) नहीं होता है, लेकिन इसका समय रहते..."
+    },
+    {
+      "id": "ML-04-HINGLISH-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "LawPilot AI Overview",
+      "response_length": 1885,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "Mujhe yeh jaan kar afsos hua ki aapko legal notice mila hai, par kripya ghabrayein nahi, kyunki ek legal notice ka matlab court ka faisla ya bedakhali ka aadesh nahi hota hai.\n\n### | Your Situation (A..."
+    },
+    {
+      "id": "ML-05-EN-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "LawPilot AI Overview",
+      "response_length": 2284,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "I understand that receiving a legal notice can be stressful, but please remain calm as we navigate this situation together.\n\n### | Your Situation\nYou have received a legal notice from your landlord re..."
+    },
+    {
+      "id": "ML-06-TA-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Legal Consultation",
+      "response_length": 1832,
+      "citations_count": 1,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "வணக்கம், உங்கள் வீட்டு உரிமையாளரிடமிருந்து வந்த சட்டப்பூர்வ நோட்டீஸைக் கண்டு நீங்கள் பதற்றமடைய வேண்டாம், அதற்குத் தகுந்த சட்டப்பூர்வமான பதிலை உரிய நேரத்தில் அளிப்பது அவசியமாகும்.\n\n### | உங்கள் நிலைமை\n..."
+    },
+    {
+      "id": "ML-07-ML-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Rights Issue",
+      "response_length": 1996,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "നിങ്ങളുടെ പ്രശ്നത്തിൽ സഹായിക്കാൻ സാധിച്ചതിൽ എനിക്ക് അതിയായ സന്തോഷമുണ്ട്, ദയവായി വിഷമിക്കേണ്ടതില്ല.\n\n### | നിങ്ങളുടെ സാഹചര്യം\nനിങ്ങളുടെ വീട്ടുടമസ്ഥനിൽ നിന്ന് ലഭിച്ച ലീഗൽ നോട്ടീസിലെ ഉള്ളടക്കം നിയമപരമായി..."
+    },
+    {
+      "id": "ML-08-TE-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Landlord Dispute",
+      "response_length": 1533,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": true,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "మీరు ఇబ్బంది పడకండి, మీ సమస్యను పరిష్కరించడంలో మీకు సహాయపడటానికి నేను ఇక్కడ ఉన్నాను.\n\n### | మీ పరిస్థితి\nమీరు మీ ఇంటి యజమాని నుండి చట్టపరమైన నోటీసును అందుకున్నారు మరియు దానిలోని అంశాలను అర్థం చేసుకోవడ..."
+    },
+    {
+      "id": "ML-09-BN-NOTICE",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Landlord Dispute",
+      "response_length": 1752,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": {
+        "not_court_decree_explained": false,
+        "upload_or_paste_requested": true,
+        "redact_sensitive_info_advised": true,
+        "deadlines_highlighted": true,
+        "no_hallucinated_deposit_facts": true
+      },
+      "passed": true,
+      "response_snippet": "আপনার বাড়িওয়ালার পাঠানো আইনি নোটিস নিয়ে চিন্তিত হবেন না, আমি আপনাকে এটি বুঝতে এবং পরবর্তী পদক্ষেপ নিতে সাহায্য করছি।\n\n### | আপনার বর্তমান পরিস্থিতি\nআপনার বাড়িওয়ালা আপনাকে একটি আইনি নোটিস পাঠিয়েছ..."
+    },
+    {
+      "id": "ML-10-GU-DEPOSIT",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Security Deposit Dispute",
+      "response_length": 1518,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "તમારી પરિસ્થિતિ સાંભળીને મને દુઃખ થયું છે અને હું તમને આ બાબતે મદદ કરવા માટે અહીં હાજર છું.\n\n### | તમારી પરિસ્થિતિ\nતમે મકાન ખાલી કરી દીધું છે, પરંતુ તમારા મકાનમાલિક તમારી ₹25,000 ની સિક્યોરિટી ડિપોઝિટ..."
+    },
+    {
+      "id": "ML-11-MR-CONSUMER",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Defective Product Refund",
+      "response_length": 1911,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "नमस्कार, आपण ऑनलाइन खरेदी केलेल्या वस्तूबाबत आपल्याला येत असलेल्या अडचणीबद्दल जाणून घेऊन मला दुःख झाले आहे, परंतु काळजी करू नका, आपण कायदेशीर मार्गाने यावर उपाय शोधू शकतो.\n\n### | तुमची परिस्थिती\nतुम्ह..."
+    },
+    {
+      "id": "ML-12-HI-SALARY",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Unpaid Salary Issue",
+      "response_length": 1723,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "नमस्ते, मैं आपकी इस चिंता को समझ सकता हूँ और आपकी सहायता के लिए यहाँ हूँ।\n\n### | आपकी स्थिति\nआपकी कंपनी ने पिछले दो महीनों से आपका वेतन (Salary) नहीं दिया है। यह स्थिति आपके रोजगार अनुबंध और भारतीय श्..."
+    },
+    {
+      "id": "ML-13-MR-EVICTION",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "Tenant Landlord Dispute",
+      "response_length": 1752,
+      "citations_count": 4,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "तुमच्या कठीण प्रसंगात मी तुम्हाला मदत करण्यासाठी येथे आहे आणि तुम्ही अजिबात घाबरू नका.\n\n### | तुमची परिस्थिती\nतुमचा घरमालक तुम्हाला कोणतीही कायदेशीर पूर्वसूचना न देता उद्याच घर रिकामे करण्याची धमकी दे..."
+    },
+    {
+      "id": "ML-14-GU-OFFTOPIC",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "generated_title": "2 2",
+      "response_length": 189,
+      "citations_count": 1,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "2 + 2 is **4**.\n\nI am LawPilot AI, dedicated to assisting you with Indian legal matters (tenancy, consumer rights, and employment wages). How can I help you with your legal situation today?"
+    },
+    {
+      "id": "ML-15-MR-GENERAL",
+      "status_code": 200,
+      "latency_seconds": 0.03,
+      "generated_title": "माझ एक कायदेशीर अडचण",
+      "response_length": 478,
+      "citations_count": 1,
+      "no_leaked_placeholders": true,
+      "notice_specific_checks": null,
+      "passed": true,
+      "response_snippet": "नमस्कार, मी 'लॉ-पायलट एआय' (LawPilot AI) आहे आणि तुमच्या कायदेशीर समस्या सोडवण्यासाठी मी तुम्हाला नक्कीच मदत करेन.\n\nतुमच्या परिस्थितीची सविस्तर माहिती देण्यासाठी कृपया खालीलपैकी कोणत्या विषयाशी संबंधि..."
+    }
+  ]
+}

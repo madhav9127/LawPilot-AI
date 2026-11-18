@@ -109,31 +109,18 @@ def system_status():
             "total_statutory_provisions": total_statutes,
             "retrieval_mode": "Statutory Keyword & Vector Pre-Retrieval",
             "source_categories": [
-                "Constitutional Law (Constitution of India 1950 - Articles 14, 19, 21, 32, 226)",
-                "Criminal Law & Procedure (BNS 2023, BNSS 2023, BSA 2023 - FIRs, Bail, Fraud)",
-                "Civil Law & Procedure (CPC 1908 Orders 37 & 39, Limitation Act 1963, Specific Relief Act 1963)",
-                "Family Law (Hindu Marriage Act 1955, Special Marriage Act 1954, PWDVA 2005, BNSS Sec 144 Maintenance)",
-                "Property & Real Estate (RERA 2016, Transfer of Property Act 1882, Registration Act 1908)",
-                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020, e-Daakhil, NCH 1915)",
-                "Employment & Labour (Payment of Wages 1936, POSH Act 2013, Gratuity 1972, Industrial Disputes 1947)",
-                "Cyber & Digital Privacy (Information Technology Act 2000, 1930 Portal, DPDP Act 2023)",
-                "Banking & Finance (Negotiable Instruments Act Sec 138, BNSS Sec 107 Freeze, RBI Ombudsman 2021)",
-                "Taxation Law (Income Tax Act 1961 Sec 148, CGST Act 2017 Sec 73/74)",
-                "Intellectual Property (Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970)",
-                "Motor Vehicle & Accidents (Motor Vehicles Act 1988/2019 MACT Sec 166, Hit & Run Sec 161)",
-                "Insurance Law (Insurance Ombudsman Rules 2017, IRDAI Regulations)",
-                "Environmental Law (National Green Tribunal Act 2010, Environment Protection Act 1986)",
-                "Administrative & Regulatory (Right to Information Act 2005 Sec 6/7/19, CAT)",
-                "Immigration & Citizenship (Passports Act 1967, Citizenship Act 1955)",
-                "Alternative Dispute Resolution (Arbitration & Conciliation Act 1996, Mediation Act 2023, Lok Adalat)"
+                "Tenancy & Rent Control (Transfer of Property Act 1882, Model Tenancy Act 2021, State Rent Control Acts)",
+                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020)",
+                "Employment & Wages (Payment of Wages Act 1936, Industrial Disputes Act 1947, Contract Act 1872)",
+                "Procedural & Evidentiary (Specific Relief Act 1963, e-Daakhil, NCH 1915)"
             ],
             "grounding_disclaimer": "Statutory analysis is grounded in verified Indian statutes and official government gazette databases. This system provides legal guidance; it does not claim exhaustive statutory coverage and does not substitute for an enrolled advocate."
         },
         "capabilities": {
-            "multilingual_support": "Automatic language detection across English, Hindi, Gujarati, Marathi, Tamil, Telugu, Malayalam, Bengali, Kannada, Punjabi, Odia, and Hinglish",
+            "multilingual_support": "English, Hindi (हिंदी), Hinglish, Malayalam (മലയാളം)",
             "voice_input": "Web Speech Recognition with Real-Time Audio Track",
             "conversation_memory": "Multi-turn session memory with isolated context window and persistent history",
-            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices, cheque bounce notices, police complaints, cyber reports, RTI applications)"
+            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices)"
         },
         "safety": {
             "legal_uncertainty_handling": "Explicit statutory ambiguity caveats, jurisdictional variance notices, and advisory disclaimers",
@@ -144,42 +131,7 @@ def system_status():
 
 @app.post("/api/chat", response_model=ChatMessage)
 def chat_endpoint(request: ChatRequest):
-    """Processes legal conversation message through the dedicated Intent Gate."""
-    from app.core.intent_gate import IntentGate, UserIntentEnum
-    import uuid
-    import logging
-    logger = logging.getLogger("lawpilot.chat")
-
-    req_id = f"req_{uuid.uuid4().hex[:8]}"
-    lang_val = request.language.value if hasattr(request.language, "value") else str(request.language)
-    decision = IntentGate.evaluate(
-        message=request.message,
-        conversation_history=request.conversation_history,
-        language=lang_val
-    )
-
-    logger.info(
-        f"ReqID={req_id} | Intent={decision.intent.value} | Confidence={decision.confidence:.2f} | "
-        f"ContextInfluenced={decision.context_influenced} | TopicChanged={decision.topic_changed} | "
-        f"Route={'LEGAL_AI_PIPELINE' if decision.intent == UserIntentEnum.LEGAL_QUERY else 'DIRECT_GATE_RESPONSE'} | "
-        f"RAGInvoked={decision.rag_invoked} | LegalGenInvoked={decision.legal_generation_invoked} | "
-        f"Lang={decision.detected_language}"
-    )
-
-    # 1. Non-Legal, Ambiguous, Urgent Safety, or Pure Greeting: Intercept at gate
-    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
-        from app.models.schemas import VerificationStatusEnum
-        v_status = VerificationStatusEnum.VERIFIED if decision.intent != UserIntentEnum.AMBIGUOUS else VerificationStatusEnum.RECOMMENDED
-        fu = ["Is there an Indian legal matter I can assist you with?"] if decision.intent == UserIntentEnum.NON_LEGAL_QUERY else []
-        return ChatMessage(
-            role="assistant",
-            content=decision.direct_response,
-            citations=[],
-            verification_status=v_status,
-            follow_up_questions=fu
-        )
-
-    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
+    """Processes legal conversation message and returns grounded analysis."""
     provider = LLMProviderFactory.get_provider()
     response = provider.generate_response(
         message=request.message,
@@ -192,51 +144,7 @@ def chat_endpoint(request: ChatRequest):
 
 @app.post("/api/chat/stream")
 def chat_stream_endpoint(request: ChatRequest):
-    """Streams genuine token-by-token reasoning, gated by IntentGate."""
-    from app.core.intent_gate import IntentGate, UserIntentEnum
-    import uuid
-    import re
-    import logging
-    logger = logging.getLogger("lawpilot.chat_stream")
-
-    req_id = f"req_{uuid.uuid4().hex[:8]}"
-    lang_val = request.language.value if hasattr(request.language, "value") else str(request.language)
-    decision = IntentGate.evaluate(
-        message=request.message,
-        conversation_history=request.conversation_history,
-        language=lang_val
-    )
-
-    logger.info(
-        f"ReqID={req_id} | Intent={decision.intent.value} | Confidence={decision.confidence:.2f} | "
-        f"ContextInfluenced={decision.context_influenced} | TopicChanged={decision.topic_changed} | "
-        f"Route={'LEGAL_AI_PIPELINE' if decision.intent == UserIntentEnum.LEGAL_QUERY else 'DIRECT_GATE_RESPONSE'} | "
-        f"RAGInvoked={decision.rag_invoked} | LegalGenInvoked={decision.legal_generation_invoked} | "
-        f"Lang={decision.detected_language}"
-    )
-
-    # 1. Non-Legal, Ambiguous, Urgent Safety: Stream directly from Gate without RAG
-    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
-        def gate_stream():
-            title = "LawPilot AI"
-            yield f"data: {json.dumps({'type': 'metadata', 'title': title, 'citations': []}, ensure_ascii=False)}\n\n"
-            for chunk in re.split(r'(\s+)', decision.direct_response):
-                if chunk:
-                    yield f"data: {json.dumps({'type': 'token', 'content': chunk}, ensure_ascii=False)}\n\n"
-            yield f"data: {json.dumps({'type': 'done', 'title': title, 'citations': [], 'content': decision.direct_response}, ensure_ascii=False)}\n\n"
-
-        return StreamingResponse(
-            gate_stream(),
-            media_type="text/event-stream; charset=utf-8",
-            headers={
-                "Cache-Control": "no-cache",
-                "Connection": "keep-alive",
-                "X-Accel-Buffering": "no",
-                "Content-Type": "text/event-stream; charset=utf-8"
-            }
-        )
-
-    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
+    """Streams genuine token-by-token legal reasoning using Server-Sent Events (SSE)."""
     provider = LLMProviderFactory.get_provider()
 
     def event_stream():
@@ -341,7 +249,6 @@ def download_docx(req: DocumentGenerationRequest):
     )
 
 @app.post("/api/upload")
-@app.post("/api/document/upload")
 def upload_document(file: UploadFile = File(...)):
     """Parses and sanitizes user-uploaded documents (Rental agreement, invoice, pay slip)."""
     # Size and extension verification

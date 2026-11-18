@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-08-TE-NOTICE",
+  "input_prompt": "నా ఇంటి యజమాని నుండి వచ్చిన లీగల్ నోటీసును అర్థం చేసుకోవడంలో నాకు సహాయం చేయండి.",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Tenant Landlord Dispute",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "మీరు ఇబ్బంది పడకండి, మీ సమస్యను పరిష్కరించడంలో మీకు సహాయపడటానికి నేను ఇక్కడ ఉన్నాను.\n\n### | మీ పరిస్థితి\nమీరు మీ ఇంటి యజమాని నుండి చట్టపరమైన నోటీసును అందుకున్నారు మరియు దానిలోని అంశాలను అర్థం చేసుకోవడంలో సహాయం కోరుతున్నారు. చట్టపరమైన నోటీసు అందినంత మాత్రాన అది కోర్టు తీర్పు లేదా ఖాళీ చేయమని ఇచ్చే ఆదేశం కాదని మీరు గ్రహించాలి.\n\n### | మీ చట్టపరమైన స్థితి\n* భారతీయ చట్టాల ప్రకారం, సరైన న్యాయ ప్రక్రియ (due process of law) అనుసరించకుండా ఏ అద్దెదారుని కూడా బలవంతంగా ఖాళీ చేయించకూడదు.\n* ట్రాన్స్‌ఫర్ ఆఫ్ ప్రాపర్టీ యాక్ట్, 1882 సెక్షన్ 106 ప్రకారం, నెలవారీ అద్దె ఒప్పందాన్ని ముగించాలంటే కనీసం 15 రోజుల నోటీసు పీరియడ్ ఇవ్వాలి.\n* ఒకవేళ ఆ నోటీసులో అద్దె బకాయిలు లేదా ఖాళీ చేయమని అడిగితే, దానికి నిర్ణీత కాలవ్యవధిలో (సాధారణంగా 15 నుండి 30 రోజులు) స్పందించడం చాలా ముఖ్యం.\n* యజమాని అకారణంగా విద్యుత్ లేదా నీటి సరఫరా వంటి కనీస సదుపాయాలను నిలిపివేయడం చట్టవిరుద్ధం.\n\n### | ఆచరణాత్మక తదుపరి చర్యలు\n1. ఆ నోటీసులో ఉన్న ప్రతి అంశాన్ని జాగ్రత్తగా చదవండి మరియు అందులో పేర్కొన్న కాలపరిమితిని (deadline) గమనించండి.\n2. నోటీసు కాపీని సురక్షితంగా ఉంచుకోండి; అందులో మీ వ్యక్తిగత వివరాలు (ఆధార్, బ్యాంకు వివరాలు) ఉంటే వాటిని తొలగించి, ఆ నోటీసులోని ముఖ్యమైన క్లాజులను లేదా దాని ఫోటోను ఇక్కడ షేర్ చేయండి.\n3. మీ యజమాని పంపిన నోటీసులోని అంశాలను బట్టి, ఒక న్యాయవాది ద్వారా సరైన సమాధానం (Reply Notice) సిద్ధం చేసి పంపవలసి ఉంటుంది.\n\n### ℹ️ మీ నుండి ఇంకా అవసరమైన సమాచారం\n1. మీ యజమాని పంపిన నోటీసులో వారు మిమ్మల్ని ఖాళీ చేయమని కోరారా లేక అద్దెకు సంబంధించిన అంశాలు ఏవైనా ఉన్నాయా?\n2. ఆ నోటీసులో వారు ఏవైనా నిర్దిష్టమైన గడువు తేదీలను లేదా చట్టపరమైన సెక్షన్లను పేర్కొన్నారా?",
+  "evaluated_at": "2026-11-18 06:25:53 UTC"
+}

@@ -1,0 +1,21 @@
+{
+  "test_id": "ML-15-MR-GENERAL",
+  "input_prompt": "माझी एक कायदेशीर अडचण आहे, मला मदतीची गरज आहे.",
+  "status_code": 200,
+  "latency_seconds": 0.03,
+  "title": "माझ एक कायदेशीर अडचण",
+  "citations": [
+    {
+      "act_name": "The Legal Services Authorities Act, 1987",
+      "section": "Section 12",
+      "title": "Criteria for giving legal services (Free Legal Aid via NALSA / SLSA / DLSA)",
+      "description": "Provides free competent legal services to eligible persons, including women, children, industrial workmen, and persons with annual income below specified statutory thresholds.",
+      "official_url": "https://nalsa.gov.in/",
+      "commencement_date": "1995-11-09",
+      "jurisdiction": "Central / All India",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "नमस्कार, मी 'लॉ-पायलट एआय' (LawPilot AI) आहे आणि तुमच्या कायदेशीर समस्या सोडवण्यासाठी मी तुम्हाला नक्कीच मदत करेन.\n\nतुमच्या परिस्थितीची सविस्तर माहिती देण्यासाठी कृपया खालीलपैकी कोणत्या विषयाशी संबंधित तुमची अडचण आहे ते सांगा: १) घरमालक आणि भाडेकरू वाद, २) ग्राहक संरक्षण, किंवा ३) रोजगाराच्या समस्या.\n\nतुमच्या कायदेशीर अडचणीबद्दल अधिक माहिती दिल्यास, मी तुम्हाला भारतीय कायद्यानुसार योग्य सल्ला देऊ शकेन. कृपया तुम्हाला नक्की काय समस्या येत आहे, त्याबद्दल थोडक्यात माहिती द्या.",
+  "evaluated_at": "2026-11-18 06:26:24 UTC"
+}

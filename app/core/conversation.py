@@ -74,8 +74,13 @@ class ConversationCaseMemory:
         # 2. Extract Category (with domain switch detection)
         detected_category = None
         if any(w in lower for w in [
-            "landlord", "tenant", "deposit", "rent", "flat", "evict", "painting", "makandari", "kiraya", "makaan malik",
-            "સિક્યોરિટી", "ડિપોઝિટ", "મકાનમાલિક", "ભાડું", "किराया", "डिपॉज़िट", "വാടക", "ഡെപ്പോസിറ്റ്", "வாடகை", "வைப்புத்தொகை", "అద్దె", "డిపాజిట్", "ভাড়া"
+            "landlord", "tenant", "deposit", "rent", "flat", "evict", "painting", "makandari", "kiraya", "makaan malik", "legal notice", "court notice", "notice received",
+            "સિક્યોરિટી", "ડિપોઝિટ", "મકાનમાલિક", "ભાડું", "કાનૂની નોટિસ", "લીગલ નોટિસ", "किराया", "डिपॉज़िट", "मकान मालिक", "कानूनी नोटिस",
+            "घरमालक", "घरमालकाकडून", "घरमालकाने", "भाडेकरू", "भाडे", "कायदेशीर नोटीस", "लीगल नोटीस",
+            "വാടക", "ഡെപ്പോസിറ്റ്", "വാടകക്കാരൻ", "വീട്ടുടമസ്ഥൻ", "നോട്ടീസ്",
+            "வாடகை", "வைப்புத்தொகை", "வீட்டு உரிமையாளர்", "நோட்டீஸ்",
+            "అద్దె", "డిపాజిట్", "ఇంటి యజమాని", "నోటీసు",
+            "ভাড়া", "আমানত", "বাড়িওয়ালা", "আইনি নোটিশ"
         ]):
             detected_category = "tenant"
         elif any(w in lower for w in [

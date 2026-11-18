@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-12-HI-SALARY",
+  "input_prompt": "मेरी कंपनी ने पिछले दो महीने से मेरा वेतन नहीं दिया है। मुझे क्या कानूनी कदम उठाने चाहिए?",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Unpaid Salary Issue",
+  "citations": [
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 5 & Section 15",
+      "title": "Time of payment of wages and Claims arising out of deductions from wages or delay in payment",
+      "description": "Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Payment of Wages Act, 1936",
+      "section": "Section 7",
+      "title": "Deductions which may be made from wages",
+      "description": "Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
+      "commencement_date": "1937-03-28",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "State Shops and Commercial Establishments Acts",
+      "section": "Settlement of Dues and Service Conditions Provision",
+      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
+      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
+      "official_url": "https://shramsuvidha.gov.in/",
+      "commencement_date": "State Specific",
+      "jurisdiction": "State Specific",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Indian Contract Act, 1872",
+      "section": "Section 73",
+      "title": "Compensation for loss or damage caused by breach of contract",
+      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
+      "commencement_date": "1872-09-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "नमस्ते, मैं आपकी इस चिंता को समझ सकता हूँ और आपकी सहायता के लिए यहाँ हूँ।\n\n### | आपकी स्थिति\nआपकी कंपनी ने पिछले दो महीनों से आपका वेतन (Salary) नहीं दिया है। यह स्थिति आपके रोजगार अनुबंध और भारतीय श्रम कानूनों का सीधा उल्लंघन है।\n\n### | आपकी कानूनी स्थिति\n*   मजदूरी भुगतान अधिनियम, 1936 (Payment of Wages Act, 1936) की धारा 5 के अनुसार, वेतन का भुगतान मजदूरी अवधि समाप्त होने के 7वें दिन के भीतर अनिवार्य रूप से हो जाना चाहिए।\n*   धारा 15 के तहत, यदि वेतन का भुगतान करने में देरी होती है या बिना किसी वैध कारण के कटौती की जाती है, तो आप श्रम आयुक्त (Labour Commissioner) के पास आवेदन कर सकते हैं और मुआवजे की मांग कर सकते हैं।\n*   भारतीय अनुबंध अधिनियम, 1872 की धारा 73 के अनुसार, अनुबंध के उल्लंघन के कारण होने वाले किसी भी नुकसान के लिए आप नियोक्ता से मुआवजे के हकदार हैं।\n*   आपके राज्य का 'दुकान और वाणिज्यिक स्थापना अधिनियम' (Shops and Commercial Establishments Act) भी आपको निर्धारित समय के भीतर वेतन पाने और सेवा शर्तों के संरक्षण का कानूनी अधिकार देता है।\n\n### | व्यावहारिक अगले कदम\n1. अपने सभी साक्ष्य जैसे नियुक्ति पत्र (Appointment Letter), पिछले महीनों की वेतन पर्चियां (Salary Slips), बैंक स्टेटमेंट और कंपनी के साथ हुई ईमेल या व्हाट्सएप पर बातचीत के स्क्रीनशॉट सुरक्षित रखें।\n2. कंपनी के एचआर या प्रबंधन को एक औपचारिक ईमेल या पंजीकृत डाक द्वारा नोटिस भेजें, जिसमें बकाया वेतन का विवरण दें और भुगतान के लिए 15 दिनों का समय दें।\n3. यदि 15 दिनों के भीतर भुगतान नहीं होता है, तो अपने क्षेत्र के श्रम आयुक्त (Labour Commissioner) के कार्यालय में शिकायत दर्ज कराएं या एक औपचारिक कानूनी नोटिस भेजें।\n\n### ℹ️ आपसे आवश्यक जानकारी\n1. क्या आपके पास अपनी कंपनी के साथ हुआ कोई लिखित नियुक्ति पत्र या अनुबंध (Employment Contract) है?\n2. क्या आपने इस देरी के बारे में अपने नियोक्ता को पहले कोई लिखित सूचना या ईमेल भेजा है?",
+  "evaluated_at": "2026-11-18 06:26:14 UTC"
+}

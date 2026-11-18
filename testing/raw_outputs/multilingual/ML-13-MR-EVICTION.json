@@ -1,0 +1,51 @@
+{
+  "test_id": "ML-13-MR-EVICTION",
+  "input_prompt": "माझा घरमालक मला उद्याच घर रिकामे करण्याची धमकी देत आहे आणि गुंड पाठवण्याची भाषा करत आहे. मी काय करू?",
+  "status_code": 200,
+  "latency_seconds": 0.01,
+  "title": "Tenant Landlord Dispute",
+  "citations": [
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 106",
+      "title": "Duration of certain leases in absence of written contract or local usage",
+      "description": "In the absence of a contract or local law to the contrary, a lease of immovable property for other than agricultural or manufacturing purposes is deemed to be month-to-month, terminable on 15 days' notice expiring with the end of a month of the tenancy.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Transfer of Property Act, 1882",
+      "section": "Section 108(m) & (o)",
+      "title": "Rights and liabilities of lessor and lessee - Repairs and Reasonable Wear and Tear",
+      "description": "Lessee is bound to keep and restore the property in as good condition as it was at the time he was put in possession, subject only to reasonable wear and tear and irresistible force. Landlord cannot make arbitrary deductions for normal usage painting without explicit contractual basis.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2338?view_type=browse&sam_handle=123456789/1362",
+      "commencement_date": "1882-07-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "Model Tenancy Act, 2021 (Guidelines & State Enactments)",
+      "section": "Section 11 & Section 13",
+      "title": "Cap on Security Deposit and Condition for Deductions",
+      "description": "Limits security deposit for residential premises to a maximum of two months' rent. Requires refund of security deposit to the tenant at the time of taking over vacant possession of the premises, after making valid deductions agreed under the tenancy agreement.",
+      "official_url": "https://mohua.gov.in/upload/uploadfiles/files/Model_Tenancy_Act_English.pdf",
+      "commencement_date": "2021-06-02",
+      "jurisdiction": "Model Central Act (Adopted by States such as AP, TN, UP)",
+      "verification_status": "Verified source available"
+    },
+    {
+      "act_name": "The Specific Relief Act, 1963",
+      "section": "Section 6",
+      "title": "Suit by person dispossessed of immovable property without due process",
+      "description": "If any person is dispossessed without his consent of immovable property otherwise than in due course of law, he or any person claiming through him may, by suit, recover possession thereof notwithstanding any other title that may be set up.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1583",
+      "commencement_date": "1964-03-01",
+      "jurisdiction": "Central",
+      "verification_status": "Verified source available"
+    }
+  ],
+  "full_response": "तुमच्या कठीण प्रसंगात मी तुम्हाला मदत करण्यासाठी येथे आहे आणि तुम्ही अजिबात घाबरू नका.\n\n### | तुमची परिस्थिती\nतुमचा घरमालक तुम्हाला कोणतीही कायदेशीर पूर्वसूचना न देता उद्याच घर रिकामे करण्याची धमकी देत आहे. तसेच, त्यांनी तुम्हाला धमकावण्यासाठी बाहेरील व्यक्तींना पाठवण्याची भाषा केली आहे.\n\n### | तुमची कायदेशीर स्थिती\n* मालमत्ता हस्तांतरण कायदा (Transfer of Property Act, 1882) च्या कलम १०६ नुसार, घरमालकाला भाडेकरूला घर रिकामे करण्यासाठी किमान १५ दिवसांची कायदेशीर नोटीस देणे अनिवार्य आहे.\n* विशेष निवारण कायदा (Specific Relief Act, 1963) च्या कलम ६ नुसार, कोणतीही व्यक्ती किंवा घरमालक तुम्हाला कायद्याच्या योग्य प्रक्रियेचे (Due Process of Law) पालन केल्याशिवाय घराबाहेर काढू शकत नाही.\n* स्वतःच्या हाताने कायदा हातात घेणे किंवा भाडेकरूला धमकावणे हा फौजदारी गुन्हा आहे. तसेच, घरमालक वीज किंवा पाणी यांसारख्या आवश्यक सेवा तोडू शकत नाही.\n* तुम्हाला भाड्याच्या करारात नमूद केल्याशिवाय किंवा कायदेशीर प्रक्रियेचा वापर केल्याशिवाय बळजबरीने घराबाहेर काढण्याचा अधिकार कोणालाही नाही.\n\n### | व्यावहारिक पुढील पावले\n१. सर्वप्रथम स्थानिक पोलीस ठाण्यात जाऊन घरमालकाच्या धमकीबद्दल लेखी तक्रार (NC - Non-Cognizable Offence) नोंदवा आणि त्याची प्रत जपून ठेवा.\n२. तुमच्याकडे जर भाडेकरार (Rental Agreement) असेल, तर तो आणि मागील काही महिन्यांचे भाडे भरल्याच्या पावत्या (ऑनलाइन व्यवहार किंवा रसीद) जवळ ठेवा.\n३. जर घरमालकाने तुम्हाला कोणतीही लेखी नोटीस दिली असेल, तर ती स्वीकारून त्यावर स्पष्टपणे नमूद करा की तुम्ही कायद्याच्या प्रक्रियेशिवाय घर रिकामे करणार नाही, अन्यथा स्थानिक भाडे प्राधिकरणाकडे (Rent Authority) किंवा दिवाणी न्यायालयात दाद मागा.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\n१. तुमच्या आणि घरमालकामध्ये कोणताही लेखी भाडेकरार झाला आहे का?\n२. तुम्ही शेवटचे भाडे कधी दिले होते आणि तुम्हाला ही धमकी कशाद्वारे (फोनवर, प्रत्यक्ष भेटीत किंवा पत्राद्वारे) दिली गेली आहे?",
+  "evaluated_at": "2026-11-18 06:26:19 UTC"
+}

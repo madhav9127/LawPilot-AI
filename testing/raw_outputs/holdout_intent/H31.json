@@ -1,0 +1,17 @@
+{
+  "test_id": "H31",
+  "category": "Tamil Non-Legal (Humor)",
+  "input": "ஒரு நகைச்சுவை சொல்லுங்கள்",
+  "expected_intent": "NON_LEGAL_QUERY",
+  "detected_intent": "NON_LEGAL_QUERY",
+  "confidence": 0.96,
+  "context_influenced": false,
+  "topic_changed": false,
+  "rag_invoked": false,
+  "legal_generation_invoked": false,
+  "http_status": 200,
+  "latency_seconds": 0.03,
+  "grade": "PASS",
+  "explanation": "Unrelated non-legal topic; excluded from legal pipeline and declined with scope notification.",
+  "snippet": "நான் LawPilot AI, இந்திய சட்ட விவகாரங்களுக்கான ஒரு பிரத்யேக உதவியாளர். சட்ட உரிமைகளைப் புரிந்துகொள்ளவும், சட்ட வழிகளை ஆராயவும், சட்ட வரைவுகளைத் தயாரிக்கவும் என்னால் உதவ முடியும். சட்டம் சாராத பொதுவான தலைப்புகளில் என்னால் உதவ முடியாது. நான் உதவக்கூடிய"
+}

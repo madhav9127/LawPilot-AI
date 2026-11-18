@@ -1,0 +1,17 @@
+{
+  "test_id": "H13",
+  "category": "Unseen Legal (Succession / Legal Heir)",
+  "input": "How can I obtain a legal heir certificate after my father passed away without leaving a will?",
+  "expected_intent": "LEGAL_QUERY",
+  "detected_intent": "LEGAL_QUERY",
+  "confidence": 0.95,
+  "context_influenced": false,
+  "topic_changed": false,
+  "rag_invoked": true,
+  "legal_generation_invoked": true,
+  "http_status": 200,
+  "latency_seconds": 2.39,
+  "grade": "PASS",
+  "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
+  "snippet": "Thank you for consulting LawPilot AI. Based on the facts shared, here is a comprehensive analysis under Indian law:\n\n### Understanding Your Situation\nYou have presented a legal query or dispute concerning the disputed amount in your city.\n\n### Releva"
+}

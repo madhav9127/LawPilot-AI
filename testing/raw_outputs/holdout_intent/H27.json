@@ -1,0 +1,17 @@
+{
+  "test_id": "H27",
+  "category": "Context Continuation (Legal Follow-Up)",
+  "input": "What is the fee to file a complaint on e-Daakhil?",
+  "expected_intent": "LEGAL_QUERY",
+  "detected_intent": "LEGAL_QUERY",
+  "confidence": 0.95,
+  "context_influenced": false,
+  "topic_changed": false,
+  "rag_invoked": true,
+  "legal_generation_invoked": true,
+  "http_status": 200,
+  "latency_seconds": 4.094,
+  "grade": "PASS",
+  "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
+  "snippet": "I can help you with this consumer dispute. Here is an analysis based on the Consumer Protection Act, 2019 and E-Commerce Rules, 2020:\n\n### Understanding Your Situation\nYou purchased a product or service involving the disputed amount in your city whic"
+}

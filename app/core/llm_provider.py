@@ -1397,14 +1397,6 @@ class DeterministicDemoProvider(BaseLLMProvider):
         state_jurisdiction: Optional[str] = None,
         session_id: str = "default_session"
     ):
-        from app.core.title_generator import generate_conversation_title
-        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
-        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        title = generate_conversation_title(message, case.category)
-        citations_data = [c.dict() for c in citations]
-
-        yield {"type": "metadata", "title": title, "citations": citations_data}
-
         resp = self.generate_response(
             message=message,
             conversation_history=conversation_history,
@@ -1412,6 +1404,16 @@ class DeterministicDemoProvider(BaseLLMProvider):
             state_jurisdiction=state_jurisdiction,
             session_id=session_id
         )
+
+        from app.core.title_generator import generate_conversation_title
+        case_cat = CaseCategoryEnum.OTHER
+        if resp.citations:
+            case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+            case_cat = case.category
+        title = generate_conversation_title(message, case_cat)
+        citations_data = [c.dict() for c in resp.citations] if resp.citations else []
+
+        yield {"type": "metadata", "title": title, "citations": citations_data}
 
         words = re.split(r'(\s+)', resp.content)
         for w in words:
@@ -1648,11 +1650,18 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         session_id: str = "default_session"
     ) -> ChatMessage:
         req_id = f"req_{uuid.uuid4().hex[:8]}"
-        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
-        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
+        lang_str = self._detect_language(message, language)
+        lower_msg = message.strip().lower()
 
-        # Pre-screen safety guardrails
+        # 1. Domain Guardrail & Intent Gate: Run BEFORE any legal RAG / retrieval
+        from app.core.domain_guardrail import DomainGuardrail
+        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
+            message, conversation_history, lang_str=lang_str
+        )
+        if is_oos and oos_reply:
+            return ChatMessage(role="assistant", content=oos_reply, citations=[])
+
+        # 2. Safety guardrails
         is_med, med_reply = EscalationDetector.check_medical_emergency(message)
         if is_med:
             return ChatMessage(role="assistant", content=med_reply, citations=[], escalation_detected=True)
@@ -1670,20 +1679,14 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             )
             return ChatMessage(role="assistant", content=content, citations=[])
 
-        lang_str = self._detect_language(message, language)
-        lower_msg = message.strip().lower()
-
-        # Domain Guardrail: Legal Specialisation Check
-        from app.core.domain_guardrail import DomainGuardrail
-        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
-            message, conversation_history, lang_str=lang_str
-        )
-        if is_oos and oos_reply:
-            return ChatMessage(role="assistant", content=oos_reply, citations=[])
-
         fast_reply = self._check_fast_track(lower_msg, lang_str) if not is_mixed else None
         if fast_reply:
             return ChatMessage(role="assistant", content=fast_reply, citations=[])
+
+        # 3. Only genuine legal queries invoke CaseBuilder and LegalKnowledgeBase
+        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
+        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
 
         full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context, is_mixed=is_mixed)
         headers = {
@@ -1769,34 +1772,44 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         Falls back seamlessly to Deterministic streaming on API quotas or network timeouts.
         """
         req_id = f"req_{uuid.uuid4().hex[:8]}"
-        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
-        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        citations_data = [c.dict() for c in citations]
-        from app.core.title_generator import generate_conversation_title
-        title = generate_conversation_title(message, case.category)
+        lang_str = self._detect_language(message, language)
+        lower_msg = message.strip().lower()
+
+        # 1. Domain Guardrail: Check scope BEFORE any RAG or Case extraction
+        from app.core.domain_guardrail import DomainGuardrail
+        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
+            message, conversation_history, lang_str=lang_str
+        )
+        if is_oos and oos_reply:
+            yield {"type": "metadata", "title": "LawPilot AI", "citations": []}
+            for chunk in re.split(r'(\s+)', oos_reply):
+                if chunk:
+                    yield {"type": "token", "content": chunk}
+            yield {"type": "done", "title": "LawPilot AI", "citations": [], "content": oos_reply}
+            return
 
         # 2. Safety checks
         is_med, med_reply = EscalationDetector.check_medical_emergency(message)
         if is_med:
-            yield {"type": "metadata", "title": title, "citations": []}
+            yield {"type": "metadata", "title": "LawPilot AI", "citations": []}
             for chunk in re.split(r'(\s+)', med_reply):
                 if chunk:
                     yield {"type": "token", "content": chunk}
-            yield {"type": "done", "title": title, "citations": [], "content": med_reply}
+            yield {"type": "done", "title": "LawPilot AI", "citations": [], "content": med_reply}
             return
 
         is_fraud, fraud_reply = EscalationDetector.check_fraud_request(message)
         if is_fraud:
-            yield {"type": "metadata", "title": title, "citations": []}
+            yield {"type": "metadata", "title": "LawPilot AI", "citations": []}
             for chunk in re.split(r'(\s+)', fraud_reply):
                 if chunk:
                     yield {"type": "token", "content": chunk}
-            yield {"type": "done", "title": title, "citations": [], "content": fraud_reply}
+            yield {"type": "done", "title": "LawPilot AI", "citations": [], "content": fraud_reply}
             return
 
         is_threat, threats = Sanitizer.inspect_for_threats(message)
         if is_threat and any("prompt injection" in t.lower() or "override" in t.lower() or "exfiltrate" in t.lower() or "credentials" in t.lower() or "authority" in t.lower() or "malicious" in t.lower() for t in threats):
-            yield {"type": "metadata", "title": title, "citations": []}
+            yield {"type": "metadata", "title": "LawPilot AI", "citations": []}
             content = (
                 "Safety Guardrail: Security & Instruction Integrity Enforced\n\n"
                 "LawPilot AI detected an attempt to override system instructions, exfiltrate confidential credentials, or alter legal safety parameters. "
@@ -1805,27 +1818,17 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             for chunk in re.split(r'(\s+)', content):
                 if chunk:
                     yield {"type": "token", "content": chunk}
-            yield {"type": "done", "title": title, "citations": [], "content": content}
+            yield {"type": "done", "title": "LawPilot AI", "citations": [], "content": content}
             return
 
-        # 3. Language auto-detection
-        lang_str = self._detect_language(message, language)
-        lower_msg = message.strip().lower()
+        # 3. Only genuine legal queries invoke CaseBuilder and LegalKnowledgeBase
+        case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
+        citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
+        citations_data = [c.dict() for c in citations]
+        from app.core.title_generator import generate_conversation_title
+        title = generate_conversation_title(message, case.category)
 
-        # 4. Domain Guardrail: Legal Specialisation Check
-        from app.core.domain_guardrail import DomainGuardrail
-        is_oos, oos_reply, is_mixed = DomainGuardrail.inspect_query_scope(
-            message, conversation_history, lang_str=lang_str
-        )
-        if is_oos and oos_reply:
-            yield {"type": "metadata", "title": title, "citations": []}
-            for chunk in re.split(r'(\s+)', oos_reply):
-                if chunk:
-                    yield {"type": "token", "content": chunk}
-            yield {"type": "done", "title": title, "citations": [], "content": oos_reply}
-            return
-
-        # 5. Metadata event for in-scope requests
+        # 4. Metadata event for legal queries
         yield {"type": "metadata", "title": title, "citations": citations_data}
 
         # 6. Fast-track conversational responses (<5ms)

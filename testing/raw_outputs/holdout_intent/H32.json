@@ -1,0 +1,17 @@
+{
+  "test_id": "H32",
+  "category": "Tamil Legal (Unpaid Wages)",
+  "input": "என் முதலாளி கடந்த மூன்று மாதங்களாக சம்பளம் கொடுக்கவில்லை",
+  "expected_intent": "LEGAL_QUERY",
+  "detected_intent": "LEGAL_QUERY",
+  "confidence": 0.95,
+  "context_influenced": false,
+  "topic_changed": false,
+  "rag_invoked": true,
+  "legal_generation_invoked": true,
+  "http_status": 200,
+  "latency_seconds": 5.047,
+  "grade": "PASS",
+  "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
+  "snippet": "I can help you with this employment and labour law issue. Here is your structured legal assessment:\n\n### உங்கள் நிலைமையைப் புரிந்துகொள்ளுதல் (Understanding Your Situation)\nYour employer in your city has withheld earned salary, final settlement dues o"
+}

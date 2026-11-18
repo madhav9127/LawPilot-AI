@@ -144,7 +144,42 @@ def system_status():
 
 @app.post("/api/chat", response_model=ChatMessage)
 def chat_endpoint(request: ChatRequest):
-    """Processes legal conversation message and returns grounded analysis."""
+    """Processes legal conversation message through the dedicated Intent Gate."""
+    from app.core.intent_gate import IntentGate, UserIntentEnum
+    import uuid
+    import logging
+    logger = logging.getLogger("lawpilot.chat")
+
+    req_id = f"req_{uuid.uuid4().hex[:8]}"
+    lang_val = request.language.value if hasattr(request.language, "value") else str(request.language)
+    decision = IntentGate.evaluate(
+        message=request.message,
+        conversation_history=request.conversation_history,
+        language=lang_val
+    )
+
+    logger.info(
+        f"ReqID={req_id} | Intent={decision.intent.value} | Confidence={decision.confidence:.2f} | "
+        f"ContextInfluenced={decision.context_influenced} | TopicChanged={decision.topic_changed} | "
+        f"Route={'LEGAL_AI_PIPELINE' if decision.intent == UserIntentEnum.LEGAL_QUERY else 'DIRECT_GATE_RESPONSE'} | "
+        f"RAGInvoked={decision.rag_invoked} | LegalGenInvoked={decision.legal_generation_invoked} | "
+        f"Lang={decision.detected_language}"
+    )
+
+    # 1. Non-Legal, Ambiguous, Urgent Safety, or Pure Greeting: Intercept at gate
+    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
+        from app.models.schemas import VerificationStatusEnum
+        v_status = VerificationStatusEnum.VERIFIED if decision.intent != UserIntentEnum.AMBIGUOUS else VerificationStatusEnum.RECOMMENDED
+        fu = ["Is there an Indian legal matter I can assist you with?"] if decision.intent == UserIntentEnum.NON_LEGAL_QUERY else []
+        return ChatMessage(
+            role="assistant",
+            content=decision.direct_response,
+            citations=[],
+            verification_status=v_status,
+            follow_up_questions=fu
+        )
+
+    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
     provider = LLMProviderFactory.get_provider()
     response = provider.generate_response(
         message=request.message,
@@ -157,7 +192,51 @@ def chat_endpoint(request: ChatRequest):
 
 @app.post("/api/chat/stream")
 def chat_stream_endpoint(request: ChatRequest):
-    """Streams genuine token-by-token legal reasoning using Server-Sent Events (SSE)."""
+    """Streams genuine token-by-token reasoning, gated by IntentGate."""
+    from app.core.intent_gate import IntentGate, UserIntentEnum
+    import uuid
+    import re
+    import logging
+    logger = logging.getLogger("lawpilot.chat_stream")
+
+    req_id = f"req_{uuid.uuid4().hex[:8]}"
+    lang_val = request.language.value if hasattr(request.language, "value") else str(request.language)
+    decision = IntentGate.evaluate(
+        message=request.message,
+        conversation_history=request.conversation_history,
+        language=lang_val
+    )
+
+    logger.info(
+        f"ReqID={req_id} | Intent={decision.intent.value} | Confidence={decision.confidence:.2f} | "
+        f"ContextInfluenced={decision.context_influenced} | TopicChanged={decision.topic_changed} | "
+        f"Route={'LEGAL_AI_PIPELINE' if decision.intent == UserIntentEnum.LEGAL_QUERY else 'DIRECT_GATE_RESPONSE'} | "
+        f"RAGInvoked={decision.rag_invoked} | LegalGenInvoked={decision.legal_generation_invoked} | "
+        f"Lang={decision.detected_language}"
+    )
+
+    # 1. Non-Legal, Ambiguous, Urgent Safety: Stream directly from Gate without RAG
+    if decision.intent != UserIntentEnum.LEGAL_QUERY and decision.direct_response:
+        def gate_stream():
+            title = "LawPilot AI"
+            yield f"data: {json.dumps({'type': 'metadata', 'title': title, 'citations': []}, ensure_ascii=False)}\n\n"
+            for chunk in re.split(r'(\s+)', decision.direct_response):
+                if chunk:
+                    yield f"data: {json.dumps({'type': 'token', 'content': chunk}, ensure_ascii=False)}\n\n"
+            yield f"data: {json.dumps({'type': 'done', 'title': title, 'citations': [], 'content': decision.direct_response}, ensure_ascii=False)}\n\n"
+
+        return StreamingResponse(
+            gate_stream(),
+            media_type="text/event-stream; charset=utf-8",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+                "X-Accel-Buffering": "no",
+                "Content-Type": "text/event-stream; charset=utf-8"
+            }
+        )
+
+    # 2. Genuine Legal Query: Proceed to Legal AI Pipeline
     provider = LLMProviderFactory.get_provider()
 
     def event_stream():

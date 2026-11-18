@@ -3,7 +3,7 @@
   "category": "Retrieval",
   "user_input": "What are my rights if I receive a defective product in India?",
   "expected": "Retrieve official CPA 2019 provisions and link to official source.",
-  "actual_response": "[LawPilot AI — Grounded Demo Mode]\n\n### 🛒 Your Rights When You Receive a Defective Product in India\n\nUnder the **Consumer Protection Act, 2019 (CPA 2019)**:\n1. **Right to Refund or Replacement (Section 2(47)):** Refusing to take back defective goods or refund the consideration within the agreed period (or within 30 days) is an explicit **Unfair Trade Practice**.\n2. **Product Liability (Section 84 & 85):** A manufacturer or seller is liable to compensate a consumer for harm or loss caused by a defective product.\n3. **E-Commerce Redressal (E-Commerce Rules, 2020):** Platforms must appoint a Grievance Officer who must acknowledge complaints within 48 hours and resolve them within 30 days.\n\n**Practical Steps:**\n- Save your tax invoice and unboxing video/photos.\n- Lodge a formal ticket with customer care.\n- Register a pre-litigation grievance on the **National Consumer Helpline (NCH)** via **1915** or https://consumerhelpline.gov.in/.",
+  "actual_response": "### 🛒 Your Rights When You Receive a Defective Product in India\n\nUnder the **Consumer Protection Act, 2019 (CPA 2019)**:\n1. **Right to Refund or Replacement (Section 2(47)):** Refusing to take back defective goods or refund the consideration within the agreed period (or within 30 days) is an explicit **Unfair Trade Practice**.\n2. **Product Liability (Section 84 & 85):** A manufacturer or seller is liable to compensate a consumer for harm or loss caused by a defective product.\n3. **E-Commerce Redressal (E-Commerce Rules, 2020):** Platforms must appoint a Grievance Officer who must acknowledge complaints within 48 hours and resolve them within 30 days.\n\n**Practical Steps:**\n- Save your tax invoice and unboxing video/photos.\n- Lodge a formal ticket with customer care.\n- Register a pre-litigation grievance on the **National Consumer Helpline (NCH)** via **1915** or https://consumerhelpline.gov.in/.",
   "citations": [
     {
       "act_name": "The Consumer Protection Act, 2019",
@@ -49,5 +49,5 @@
   "status": "PASS",
   "score": 95.0,
   "reason": "Grounded, helpful response meeting behavioral criteria.",
-  "timestamp": "2026-11-17T18:01:40.326119"
+  "timestamp": "2026-11-17T19:03:24.103499"
 }

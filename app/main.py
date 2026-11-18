@@ -109,18 +109,31 @@ def system_status():
             "total_statutory_provisions": total_statutes,
             "retrieval_mode": "Statutory Keyword & Vector Pre-Retrieval",
             "source_categories": [
-                "Tenancy & Rent Control (Transfer of Property Act 1882, Model Tenancy Act 2021, State Rent Control Acts)",
-                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020)",
-                "Employment & Wages (Payment of Wages Act 1936, Industrial Disputes Act 1947, Contract Act 1872)",
-                "Procedural & Evidentiary (Specific Relief Act 1963, e-Daakhil, NCH 1915)"
+                "Constitutional Law (Constitution of India 1950 - Articles 14, 19, 21, 32, 226)",
+                "Criminal Law & Procedure (BNS 2023, BNSS 2023, BSA 2023 - FIRs, Bail, Fraud)",
+                "Civil Law & Procedure (CPC 1908 Orders 37 & 39, Limitation Act 1963, Specific Relief Act 1963)",
+                "Family Law (Hindu Marriage Act 1955, Special Marriage Act 1954, PWDVA 2005, BNSS Sec 144 Maintenance)",
+                "Property & Real Estate (RERA 2016, Transfer of Property Act 1882, Registration Act 1908)",
+                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020, e-Daakhil, NCH 1915)",
+                "Employment & Labour (Payment of Wages 1936, POSH Act 2013, Gratuity 1972, Industrial Disputes 1947)",
+                "Cyber & Digital Privacy (Information Technology Act 2000, 1930 Portal, DPDP Act 2023)",
+                "Banking & Finance (Negotiable Instruments Act Sec 138, BNSS Sec 107 Freeze, RBI Ombudsman 2021)",
+                "Taxation Law (Income Tax Act 1961 Sec 148, CGST Act 2017 Sec 73/74)",
+                "Intellectual Property (Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970)",
+                "Motor Vehicle & Accidents (Motor Vehicles Act 1988/2019 MACT Sec 166, Hit & Run Sec 161)",
+                "Insurance Law (Insurance Ombudsman Rules 2017, IRDAI Regulations)",
+                "Environmental Law (National Green Tribunal Act 2010, Environment Protection Act 1986)",
+                "Administrative & Regulatory (Right to Information Act 2005 Sec 6/7/19, CAT)",
+                "Immigration & Citizenship (Passports Act 1967, Citizenship Act 1955)",
+                "Alternative Dispute Resolution (Arbitration & Conciliation Act 1996, Mediation Act 2023, Lok Adalat)"
             ],
             "grounding_disclaimer": "Statutory analysis is grounded in verified Indian statutes and official government gazette databases. This system provides legal guidance; it does not claim exhaustive statutory coverage and does not substitute for an enrolled advocate."
         },
         "capabilities": {
-            "multilingual_support": "English, Hindi (हिंदी), Hinglish, Malayalam (മലയാളം)",
+            "multilingual_support": "Automatic language detection across English, Hindi, Gujarati, Marathi, Tamil, Telugu, Malayalam, Bengali, Kannada, Punjabi, Odia, and Hinglish",
             "voice_input": "Web Speech Recognition with Real-Time Audio Track",
             "conversation_memory": "Multi-turn session memory with isolated context window and persistent history",
-            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices)"
+            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices, cheque bounce notices, police complaints, cyber reports, RTI applications)"
         },
         "safety": {
             "legal_uncertainty_handling": "Explicit statutory ambiguity caveats, jurisdictional variance notices, and advisory disclaimers",

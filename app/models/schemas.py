@@ -19,10 +19,26 @@ class LanguageEnum(str, Enum):
     AUTO = "auto"
 
 class CaseCategoryEnum(str, Enum):
-    TENANT = "tenant"
+    CONSTITUTIONAL = "constitutional"
+    CRIMINAL = "criminal"
+    CIVIL = "civil"
+    FAMILY = "family"
+    PROPERTY = "property"
     CONSUMER = "consumer"
     EMPLOYMENT = "employment"
+    CYBER = "cyber"
+    BANKING = "banking"
+    TAXATION = "taxation"
+    IPR = "ipr"
+    MOTOR_VEHICLE = "motor_vehicle"
+    INSURANCE = "insurance"
+    ENVIRONMENTAL = "environmental"
+    ADMINISTRATIVE = "administrative"
+    IMMIGRATION = "immigration"
+    ADR = "adr"
+    TENANT = "tenant"
     GENERAL = "general"
+    OTHER = "other"
 
 class EvidenceStatusEnum(str, Enum):
     AVAILABLE = "available"
@@ -43,6 +59,9 @@ class LegalCitation(BaseModel):
     commencement_date: Optional[str] = None
     jurisdiction: str = "Central"  # Central or specific State (e.g., Delhi, Maharashtra)
     verification_status: VerificationStatusEnum = VerificationStatusEnum.VERIFIED
+    is_current: bool = True
+    historical_equivalent: Optional[str] = None
+    portal_source: Optional[str] = "India Code / Official Gazette"
 
 class ChatMessage(BaseModel):
     role: str # "user", "assistant", "system"
@@ -99,6 +118,15 @@ class DocumentTypeEnum(str, Enum):
     FINAL_SETTLEMENT_REQUEST = "final_settlement_request"
     NOTICE_REPLY = "notice_reply"
     ADVOCATE_BRIEF = "advocate_brief_summary"
+    POLICE_COMPLAINT = "police_complaint"
+    CYBER_COMPLAINT = "cyber_complaint"
+    RTI_APPLICATION = "rti_application"
+    CHEQUE_BOUNCE_NOTICE = "cheque_bounce_notice"
+    MAINTENANCE_APPLICATION = "maintenance_application"
+    DOMESTIC_VIOLENCE_APPLICATION = "domestic_violence_application"
+    GENERAL_LEGAL_NOTICE = "general_legal_notice"
+    SETTLEMENT_PROPOSAL = "settlement_proposal"
+    ARBITRATION_NOTICE = "arbitration_notice"
 
 class DocumentGenerationRequest(BaseModel):
     doc_type: DocumentTypeEnum

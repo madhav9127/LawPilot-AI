@@ -1,8 +1,10 @@
 """
 LawPilot AI — Legal Domain Specialisation & Scope Guardrail
-Enforces specialized Indian legal scope (Tenancy, Consumer, Employment, Legal Docs).
-Politely redirects general-purpose inquiries (trivia, math, coding, jokes, sports)
-while intelligently supporting greetings, ambiguous distress, follow-ups, and mixed legal queries.
+Enforces comprehensive Indian legal scope covering all substantive and procedural
+areas of Indian law (Constitutional, Criminal, Civil, Family, Property, Consumer,
+Employment, Cyber, Banking, Tax, IPR, Motor Accident, Insurance, Environment, RTI, Immigration, ADR).
+Politely redirects purely general-purpose non-legal inquiries (trivia, math, coding, jokes, sports)
+while intelligently supporting greetings, ambiguous distress, follow-ups, and mixed queries.
 """
 
 import re
@@ -10,58 +12,56 @@ from typing import Tuple, Optional, List, Dict
 
 OUT_OF_SCOPE_RESPONSES = {
     "en": (
-        "I am LawPilot AI, an assistant specialising in everyday legal problems in India. "
-        "I can help you understand your legal rights, organise your case, identify possible options and prepare legal documents. "
-        "I cannot assist with general topics outside my legal-assistance scope. Is there a legal issue I can help you with?"
+        "I am LawPilot AI, a comprehensive legal assistant specialising in Indian law across constitutional, "
+        "criminal, civil, family, property, consumer, employment, cyber, banking, taxation, and administrative matters. "
+        "I can help you understand your legal rights, assess statutory provisions, explore procedural options, and draft legal documents. "
+        "I cannot assist with general topics outside Indian legal matters (such as general trivia, coding, or entertainment). "
+        "Is there an Indian legal issue or question I can help you with?"
     ),
     "hi": (
-        "मैं LawPilot AI हूँ, जो भारत में रोजमर्रा की कानूनी समस्याओं के लिए एक विशेष कानूनी सहायक है। "
-        "मैं आपके कानूनी अधिकारों को समझने, आपके मामले को व्यवस्थित करने और कानूनी दस्तावेज तैयार करने में मदद कर सकता हूँ। "
-        "मैं अपने कानूनी दायरे से बाहर के सामान्य विषयों में सहायता नहीं कर सकता। क्या कोई कानूनी समस्या है जिसमें मैं आपकी मदद कर सकता हूँ?"
+        "मैं LawPilot AI हूँ, जो भारतीय कानून के सभी प्रमुख क्षेत्रों (संवैधानिक, आपराधिक, दीवानी, पारिवारिक, संपत्ति, उपभोक्ता, रोजगार, साइबर, बैंकिंग, कराधान आदि) में सहायता प्रदान करने वाला एक व्यापक कानूनी सहायक है। "
+        "मैं आपके कानूनी अधिकारों को समझने, प्रासंगिक कानूनी धाराओं का विश्लेषण करने और कानूनी दस्तावेज तैयार करने में मदद कर सकता हूँ। "
+        "मैं भारतीय कानून के दायरे से बाहर के सामान्य विषयों (जैसे कोडिंग, सामान्य ज्ञान या मनोरंजन) में सहायता नहीं कर सकता। क्या कोई कानूनी समस्या है जिसमें मैं आपकी मदद कर सकता हूँ?"
     ),
     "gu": (
-        "હું LawPilot AI છું, ભારતમાં રોજિંદા કાનૂની અધિકારો માટે વિશેષ કાનૂની સહાયક. "
-        "હું તમને તમારા કાનૂની અધિકારો સમજવામાં, કેસ ગોઠવવામાં અને કાનૂની દસ્તાવેજો તૈયાર કરવામાં મદદ કરી શકું છું. "
-        "હું મારા કાનૂની કાર્યક્ષેત્ર બહારના સામાન્ય વિષયોમાં સહાય કરી શકતો નથી. શું કોઈ કાનૂની બાબત છે જેમાં હું તમને મદદ કરી શકું?"
+        "હું LawPilot AI છું, ભારતીય કાયદાના તમામ મુખ્ય ક્ષેત્રો (બંધારણીય, ફોજદારી, દીવાની, કૌટુંબિક, મિલકત, ગ્રાહક સુરક્ષા, રોજગાર, સાયબર, બેંકિંગ, કરવેરા વગેરે) માટેનો એક વ્યાપક કાનૂની સહાયક. "
+        "હું તમને તમારા કાનૂની અધિકારો સમજવામાં, કાનૂની જોગવાઈઓની ચકાસણી કરવામાં અને કાનૂની દસ્તાવેજો તૈયાર કરવામાં મદદ કરી શકું છું. "
+        "હું ભારતીય કાનૂની ક્ષેત્ર બહારના સામાન્ય વિષયોમાં સહાય કરી શકતો નથી. શું કોઈ કાનૂની બાબત છે જેમાં હું તમને મદદ કરી શકું?"
     ),
     "mr": (
-        "मी LawPilot AI आहे, भारतातील दैनंदिन नागरी कायदेशीर समस्यांसाठी एक विशेष कायदेशीर सहाय्यक. "
-        "मी तुमचे कायदेशीर हक्क समजून घेण्यास, तुमचा खटला तयार करण्यास आणि कायदेशीर कागदपत्रे तयार करण्यास मदत करू शकतो. "
-        "मी माझ्या कायदेशीर कार्यक्षेत्राबाहेरील सामान्य विषयांमध्ये मदत करू शकत नाही. मी तुम्हाला मदत करू शकेन असा कोणताही कायदेशीर प्रश्न आहे का?"
+        "मी LawPilot AI आहे, भारतीय कायद्याच्या सर्व प्रमुख क्षेत्रांमध्ये (घटनात्मक, फौजदारी, दिवाणी, कौटुंबिक, मालमत्ता, ग्राहक संरक्षण, रोजगार, सायबर, बँकिंग, कर इत्यादी) सहाय्य करणारा एक व्यापक कायदेशीर सहाय्यक. "
+        "मी तुमचे कायदेशीर हक्क समजून घेण्यास, वैधानिक तरतुदींचे विश्लेषण करण्यास आणि कायदेशीर कागदपत्रे तयार करण्यास मदत करू शकतो. "
+        "मी भारतीय कायद्याच्या बाहेरील सामान्य विषयांमध्ये मदत करू शकत नाही. मी तुम्हाला मदत करू शकेन असा कोणताही कायदेशीर प्रश्न आहे का?"
     ),
     "ml": (
-        "ഞാൻ LawPilot AI ആണ്, ഇന്ത്യയിലെ ദൈനംദിന നിയമ പ്രശ്നങ്ങളിൽ സഹായിക്കുന്ന ഒരു പ്രത്യേക നിയമ സഹായി. "
-        "നിങ്ങളുടെ നിയമപരമായ അവകാശങ്ങൾ മനസിലാക്കാനും രേഖകൾ തയ്യാറാക്കാനും ഞാൻ സഹായിക്കാം. "
-        "നിയമ സഹായ പരിധിക്ക് പുറത്തുള്ള പൊതുവായ വിഷയങ്ങളിൽ എനിക്ക് സഹായിക്കാനാകില്ല. ഞാൻ സഹായിക്കേണ്ട എന്തെങ്കിലും നിയമപരമായ പ്രശ്നമുണ്ടോ?"
+        "ഞാൻ LawPilot AI ആണ്, ഭരണഘടനാപരമായ, ക്രിമിനൽ, സിവിൽ, കുടുംബം, വസ്തുവകകൾ, ഉപഭോക്തൃ സംരക്ഷണം, തൊഴിൽ, സൈബർ, ബാങ്കിംഗ് തുടങ്ങി ഇന്ത്യൻ നിയമത്തിന്റെ എല്ലാ പ്രധാന മേഖലകളിലും സഹായിക്കുന്ന സമഗ്ര നിയമ സഹായി. "
+        "നിയമപരമായ വിഷയങ്ങളല്ലാത്ത പൊതുവായ കാര്യങ്ങളിൽ എനിക്ക് സഹായിക്കാനാകില്ല. ഞാൻ സഹായിക്കേണ്ട എന്തെങ്കിലും നിയമപരമായ പ്രശ്നമുണ്ടോ?"
     ),
     "ta": (
-        "நான் LawPilot AI, இந்தியாவில் அன்றாட சட்டப் பிரச்சனைகளுக்கான சிறப்பு சட்ட உதவியாளர். "
-        "உங்கள் சட்டப்பூர்வ உரிமைகளைப் புரிந்து கொள்ளவும் சட்ட ஆவணங்களைத் தயாரிக்கவும் நான் உங்களுக்கு உதவ முடியும். "
-        "சட்ட எல்லைக்கு அப்பாற்பட்ட பொதுவான தலைப்புகளில் என்னால் உதவ முடியாது. நான் உதவக்கூடிய சட்டப் பிரச்சனை ஏதேனும் உள்ளதா?"
+        "நான் LawPilot AI, அரசியலமைப்பு, குற்றவியல், சிவில், குடும்பம், சொத்து, நுகர்வோர் பாதுகாப்பு, வேலைவாய்ப்பு, சைபர், வங்கி மற்றும் வரி உள்ளிட்ட அனைத்து இந்திய சட்டப் பிரிவுகளிலும் உதவும் ஒரு விரிவான சட்ட உதவியாளர். "
+        "இந்திய சட்டம் சாராத பொதுவான தலைப்புகளில் என்னால் உதவ முடியாது. நான் உதவக்கூடிய ஏதேனும் சட்டப் பிரச்சனை உள்ளதா?"
     ),
     "te": (
-        "నేను LawPilot AI, భారతదేశంలో రోజువారీ చట్టపరమైన సవాళ్ల కోసం ప్రత్యేక సహాయకుడిని. "
-        "మీ చట్టపరమైన హక్కులను అర్థం చేసుకోవడానికి మరియు చట్టపరమైన పత్రాలను సిద్ధం చేయడానికి నేను సహాయపడగలను. "
-        "నా చట్టపరమైన పరిధికి వెలుపల ఉన్న సాధారణ అంశాలలో నేను సహాయం చేయలేను. నేను మీకు సహాయం చేయగల చట్టపరమైన సమస్య ఏదైనా ఉందా?"
+        "నేను LawPilot AI, రాజ్యాంగ, క్రిమినల్, సివిల్, కుటుంబ, ఆస్తి, వినియోగదారుల రక్షణ, ఉపాధి, సైబర్, బ్యాంకింగ్ మరియు పన్ను వంటి భారతీయ చట్టాల అన్ని విభాగాలలో సహాయపడే సమగ్ర చట్టపరమైన సహాయకుడిని. "
+        "చట్టపరమైన పరిధికి వెలుపల ఉన్న సాధారణ అంశాలలో నేను సహాయం చేయలేను. నేను మీకు సహాయం చేయగల చట్టపరమైన సమస్య ఏదైనా ఉందా?"
     ),
     "bn": (
-        "আমি LawPilot AI, ভারতে দৈনন্দিন নাগরিক আইনি সমস্যার জন্য একটি বিশেষ আইনি সহায়ক। "
-        "আমি আপনাকে আপনার অধিকার বুঝতে এবং আইনি নথি তৈরি করতে সাহায্য করতে পারি। "
-        "আমার আইনি সহায়তার পরিধির বাইরের সাধারণ বিষয়ে আমি সাহায্য করতে পারি না। এমন কোনো আইনি সমস্যা আছে যাতে আমি সাহায্য করতে পারি?"
+        "আমি LawPilot AI, সাংবিধানিক, ফৌজদারি, দেওয়ানি, পারিবারিক, সম্পত্তি, ভোক্তা সুরক্ষা, কর্মসংস্থান, সাইবার, ব্যাংকিং এবং কর সহ ভারতীয় আইনের সমস্ত প্রধান ক্ষেত্রে সহায়তা প্রদানকারী একটি ব্যাপক আইনি সহায়ক। "
+        "ভারতীয় আইনের বাইরের সাধারণ বিষয়ে আমি সাহায্য করতে পারি না। এমন কোনো আইনি বিষয় আছে যাতে আমি সাহায্য করতে পারি?"
     ),
     "hinglish": (
-        "Main LawPilot AI hoon, India me everyday legal problems ke liye aapka specialised legal assistant. "
-        "Main aapko legal rights samjhne, case organize karne aur legal documents draft karne me madad kar sakta hoon. "
-        "Main legal scope ke bahar general topics me help nahi kar sakta. Kya koi legal issue hai jisme main aapki madad karu?"
+        "Main LawPilot AI hoon, Indian law ke sabhi major areas (Constitutional, Criminal, Civil, Family, Property, Consumer, Employment, Cyber, Banking, Tax, RTI) me aapka comprehensive legal assistant. "
+        "Main aapke legal rights samjhne, statutory provisions analyze karne aur legal documents draft karne me madad kar sakta hoon. "
+        "Main Indian legal scope ke bahar general topics me help nahi kar sakta. Kya koi legal issue hai jisme main aapki madad karu?"
     )
 }
 
 class DomainGuardrail:
     """
-    Evaluates whether user input falls within LawPilot AI's legal assistance scope.
+    Evaluates whether user input falls within LawPilot AI's comprehensive Indian legal assistance scope.
     """
 
-    # Unambiguous out-of-scope triggers (trivia, coding, jokes, science, sports, creative)
+    # Unambiguous out-of-scope triggers (pure trivia, coding, jokes, science, sports, creative)
     OUT_OF_SCOPE_PATTERNS = [
         # Geography / Trivia
         r"\b(?:capital\s+of\s+[a-zA-Z]+|who\s+is\s+the\s+president\s+of|largest\s+ocean|tallest\s+building|currency\s+of\s+[a-zA-Z]+)\b",
@@ -79,10 +79,10 @@ class DomainGuardrail:
         r"\b(?:suggest\s+a\s+movie|recommend\s+a\s+movie|best\s+movies|recommend\s+a\s+book)\b"
     ]
 
-    # Explicit legal indicators
+    # Explicit legal indicators spanning all 18 Indian legal domains
     LEGAL_INDICATORS = [
-        r"\b(?:deposit|salary|wages|employer|landlord|tenant|evict|eviction|rent|refund|defective|notice|court|lawyer|advocate|police|fir|cheating|agreement|lease|painting|consumer|flat|workplace|commissioner|cheque|cheque bounce|dues|payslip|relieving)\b",
-        r"(?:डिपॉज़िट|वेतन|किराया|मकान\s*मालिक|सैलरी|रिफंड|दोषपूर्ण|नोटीस|સિક્યોરિટી|પગાર|ભાડું|મકાનમાલિક|રિફંડ|ખામીયુક્ત|ડિપોઝિટ|ശമ്പളം|വാടക|തൊഴിലുടമ|റീഫണ്ട്|சம்பளம்|வாடகை|நிறுவனம்|ஜீతం|అద్దె|డిపాజిట్|বেতন|ভাড়া|রিফান্ড|घरमालक)"
+        r"\b(?:deposit|salary|wages|employer|landlord|tenant|evict|eviction|rent|refund|defective|notice|court|lawyer|advocate|police|fir|cheating|agreement|lease|painting|consumer|flat|workplace|commissioner|cheque|cheque\s*bounce|dues|payslip|relieving|bns|bnss|bsa|ipc|crpc|bail|arrest|writ|article\s*(?:14|19|21|32|226)|injunction|order\s*37|order\s*39|stay\s*order|limitation|divorce|maintenance|custody|domestic\s*violence|pwdva|rera|partition|mutation|encroachment|posh|gratuity|cyber\s*crime|1930|phishing|upi\s*scam|bank\s*freeze|rbi\s*ombudsman|tax\s*notice|income\s*tax|gst|trademark|copyright|patent|mact|accident\s*claim|insurance\s*claim|ngt|pollution|rti|pio|passport\s*impounded|arbitration|mediation|lok\s*adalat)\b",
+        r"(?:डिपॉज़िट|वेतन|किराया|मकान\s*मालिक|सैलरी|रिफंड|दोषपूर्ण|नोटीस|एफआईआर|जमानत|तलाक|घरेलू\s*हिंसा|रेरा|चेक\s*बाउंस|સિક્યોરિટી|પગાર|ભાડું|મકાનમાલિક|રિફંડ|ખામીયુક્ત|ડિપોઝિટ|પોલીસ|એફઆઈઆર|જામીન|છૂટાછેડા|રેરા|ચેક\s*બાઉન્સ|શમ્બળ|ശമ്പളം|വാടക|തൊഴിലുടമ|റീഫണ്ട്|പോലീസ്|ஜாமீன்|சம்பளம்|வாடகை|நிறுவனம்|ஜீதம்|అద్దె|డిపాజిట్|బెయిల్|বেতন|ভাড়া|রিফান্ড|ঘরমালक|जामीन)"
     ]
 
     # Conversational in-scope messages (greetings, general help, distress)
@@ -131,5 +131,5 @@ class DomainGuardrail:
             resp_text = OUT_OF_SCOPE_RESPONSES.get(lang_str, OUT_OF_SCOPE_RESPONSES["en"])
             return True, resp_text, False
 
-        # In-scope or ambiguous (err on the side of helping the user)
+        # In-scope or ambiguous (err on the side of helping the citizen)
         return False, None, False

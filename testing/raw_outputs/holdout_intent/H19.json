@@ -10,7 +10,7 @@
   "rag_invoked": false,
   "legal_generation_invoked": false,
   "http_status": 200,
-  "latency_seconds": 0.006,
+  "latency_seconds": 0.008,
   "grade": "PASS",
   "explanation": "Unrelated non-legal topic; excluded from legal pipeline and declined with scope notification.",
   "snippet": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents and prepare legal drafts. I cannot assist with general topics unrelated to law. Is there a"

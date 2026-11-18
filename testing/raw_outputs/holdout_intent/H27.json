@@ -4,14 +4,14 @@
   "input": "What is the fee to file a complaint on e-Daakhil?",
   "expected_intent": "LEGAL_QUERY",
   "detected_intent": "LEGAL_QUERY",
-  "confidence": 0.95,
+  "confidence": 0.92,
   "context_influenced": false,
   "topic_changed": false,
   "rag_invoked": true,
   "legal_generation_invoked": true,
   "http_status": 200,
-  "latency_seconds": 4.094,
+  "latency_seconds": 3.159,
   "grade": "PASS",
-  "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
+  "explanation": "Mixed query: contains genuine Indian legal dispute alongside an unrelated non-legal request.",
   "snippet": "I can help you with this consumer dispute. Here is an analysis based on the Consumer Protection Act, 2019 and E-Commerce Rules, 2020:\n\n### Understanding Your Situation\nYou purchased a product or service involving the disputed amount in your city whic"
 }

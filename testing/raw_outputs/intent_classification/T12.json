@@ -6,9 +6,9 @@
   "is_mixed": false,
   "expected_action": "Ask targeted clarifying question",
   "http_status": 200,
-  "latency_seconds": 0.008,
+  "latency_seconds": 0.007,
   "grade": "PASS",
-  "explanation": "Ambiguous help request without substantive legal details; asking targeted clarifying questions.",
-  "actual_response_snippet": "I am here to help you. To understand your legal rights and options under Indian law, could you please share a few more details about your situation?\n\nFor example:\n- What specific dispute or problem are you experiencing?\n- Who is the other party involved (e.g. landlord, employer, seller, bank, family",
-  "full_response": "I am here to help you. To understand your legal rights and options under Indian law, could you please share a few more details about your situation?\n\nFor example:\n- What specific dispute or problem are you experiencing?\n- Who is the other party involved (e.g. landlord, employer, seller, bank, family member, neighbour, or authority)?\n- Have you received any notice, contract, agreement, or official document?"
+  "explanation": "Vague statement lacking factual legal dispute context; asking targeted clarifying question.",
+  "actual_response_snippet": "I am here to help. To understand whether your situation involves an Indian legal matter and what rights apply, could you please share a few more details about the dispute or problem you are experiencing?",
+  "full_response": "I am here to help. To understand whether your situation involves an Indian legal matter and what rights apply, could you please share a few more details about the dispute or problem you are experiencing?"
 }

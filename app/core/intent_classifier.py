@@ -331,122 +331,28 @@ class IntentClassifier:
         language: Optional[str] = None
     ) -> Tuple[UserIntentEnum, Optional[str], bool, str]:
         """
-        Classifies user intent into one of the 5 required outcomes.
+        Classifies user intent into one of the 5 required outcomes by delegating
+        to the authoritative IntentGate engine.
         Returns:
             (intent, response_text, is_mixed, explanation)
         """
-        if not message or not message.strip():
-            return (
-                UserIntentEnum.GREETING_OR_SOCIAL,
-                "Hello! I am LawPilot AI, your legal assistant for Indian law. How can I assist you with your legal questions today?",
-                False,
-                "Empty message treated as greeting."
-            )
-
-        trimmed = message.strip()
-        lower = trimmed.lower()
-        lang_str = cls.detect_language(trimmed, language)
-
-        # -------------------------------------------------------------
-        # STEP 1: URGENT SAFETY EXCEPTION (Highest Priority)
-        # -------------------------------------------------------------
-        for pat in cls.URGENT_SAFETY_PATTERNS:
-            if re.search(pat, lower) or re.search(pat, trimmed):
-                resp = URGENT_SAFETY_RESPONSES.get(lang_str, URGENT_SAFETY_RESPONSES["en"])
-                return (
-                    UserIntentEnum.URGENT_SAFETY,
-                    resp,
-                    False,
-                    "Urgent physical safety or cyber extortion detected; routed to emergency helplines 112/1091/1930."
-                )
-
-        # -------------------------------------------------------------
-        # STEP 2: CONTEXTUAL FOLLOW-UP EVALUATION
-        # Check if conversation history has an active legal context
-        # -------------------------------------------------------------
-        has_legal_history = False
-        if conversation_history:
-            for turn in conversation_history[-4:]:
-                turn_text = turn.get("content", "").lower()
-                if any(re.search(pat, turn_text) for pat in cls.LEGAL_KEYWORDS_BROAD):
-                    has_legal_history = True
-                    break
-
-        # Follow-up questions in active legal context (e.g., "What should I do next?")
-        is_follow_up_phrase = bool(re.search(
-            r"^(?:what\s+should\s+i\s+do\s+next\??|what\s+next\??|how\s+much\s+time\s+do\s+i\s+have\??|what\s+documents\s+are\s+needed\??|can\s+i\s+go\s+to\s+court\??|ab\s+kya\s+karein\??|aage\s+kya\s+karna\s+hoga\??)$",
-            lower
-        ))
-        if is_follow_up_phrase and has_legal_history:
-            return (
-                UserIntentEnum.LEGAL_QUERY,
-                None,
-                False,
-                "Contextual legal follow-up message linked to ongoing legal discussion."
-            )
-
-        # -------------------------------------------------------------
-        # STEP 3: AMBIGUOUS QUERY EVALUATION
-        # Short vague help requests without enough legal facts
-        # -------------------------------------------------------------
-        word_count = len(trimmed.split())
-        is_ambiguous_phrase = any(re.search(pat, lower) or re.search(pat, trimmed) for pat in cls.AMBIGUOUS_PATTERNS)
-        if is_ambiguous_phrase and word_count <= 12 and not has_legal_history:
-            resp = AMBIGUOUS_CLARIFYING_RESPONSES.get(lang_str, AMBIGUOUS_CLARIFYING_RESPONSES["en"])
-            return (
-                UserIntentEnum.AMBIGUOUS_QUERY,
-                resp,
-                False,
-                "Ambiguous help request without substantive legal details; asking targeted clarifying questions."
-            )
-
-        # -------------------------------------------------------------
-        # STEP 4: GREETING OR SOCIAL EVALUATION
-        # Pure greetings and identity questions without legal dispute
-        # -------------------------------------------------------------
-        has_greeting = any(re.search(pat, lower) or re.search(pat, trimmed) for pat in cls.GREETING_PATTERNS)
-        has_substantive_legal = any(re.search(pat, lower) or re.search(pat, trimmed) for pat in cls.LEGAL_KEYWORDS_BROAD)
-
-        if has_greeting and not has_substantive_legal and word_count <= 8:
-            return (
-                UserIntentEnum.GREETING_OR_SOCIAL,
-                None,  # Route to natural greeting generator
-                False,
-                "Natural greeting or identity inquiry; respond warmly without rejection."
-            )
-
-        # -------------------------------------------------------------
-        # STEP 5: NON-LEGAL QUERY EVALUATION
-        # Check for clearly unrelated non-legal topics
-        # -------------------------------------------------------------
-        is_non_legal_trigger = any(re.search(pat, lower) or re.search(pat, trimmed) for pat in cls.NON_LEGAL_PATTERNS)
-
-        # Mixed query check: legal issue present alongside non-legal request
-        if has_substantive_legal and is_non_legal_trigger:
-            return (
-                UserIntentEnum.LEGAL_QUERY,
-                None,
-                True,  # is_mixed = True
-                "Mixed query containing a substantive legal dispute and an unrelated non-legal request."
-            )
-
-        # Purely non-legal query without legal indicators or prior legal history
-        if is_non_legal_trigger and not has_substantive_legal and not has_legal_history:
-            resp = NON_LEGAL_SCOPE_RESPONSES.get(lang_str, NON_LEGAL_SCOPE_RESPONSES["en"])
-            return (
-                UserIntentEnum.NON_LEGAL_QUERY,
-                resp,
-                False,
-                "Purely non-legal general inquiry; politely declined with scope limitation."
-            )
-
-        # -------------------------------------------------------------
-        # STEP 6: DEFAULT TO LEGAL QUERY
-        # Open Indian legal scope: Any other genuine legal query across ANY domain
-        # -------------------------------------------------------------
+        from app.core.intent_gate import IntentGate, UserIntentEnum as GateIntentEnum
+        decision = IntentGate.evaluate(
+            message=message,
+            conversation_history=conversation_history,
+            language=language
+        )
+        intent_map = {
+            GateIntentEnum.LEGAL_QUERY: UserIntentEnum.LEGAL_QUERY,
+            GateIntentEnum.NON_LEGAL_QUERY: UserIntentEnum.NON_LEGAL_QUERY,
+            GateIntentEnum.GREETING_OR_SOCIAL: UserIntentEnum.GREETING_OR_SOCIAL,
+            GateIntentEnum.AMBIGUOUS: UserIntentEnum.AMBIGUOUS_QUERY,
+            GateIntentEnum.URGENT_SAFETY: UserIntentEnum.URGENT_SAFETY
+        }
+        mapped_intent = intent_map.get(decision.intent, UserIntentEnum.NON_LEGAL_QUERY)
         return (
-            UserIntentEnum.LEGAL_QUERY,
-            None,
-            False,
-            "Genuine legal query across substantive/procedural Indian law; proceeding to legal pipeline."
+            mapped_intent,
+            decision.direct_response,
+            decision.is_mixed,
+            decision.reasoning
         )

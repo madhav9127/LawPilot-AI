@@ -10,7 +10,7 @@
   "rag_invoked": false,
   "legal_generation_invoked": false,
   "http_status": 200,
-  "latency_seconds": 0.021,
+  "latency_seconds": 0.006,
   "grade": "PASS",
   "explanation": "Unrelated non-legal topic; excluded from legal pipeline and declined with scope notification.",
   "snippet": "আমি LawPilot AI, ভারতের আইনি বিষয়ে একটি বিশেষ সহায়ক। আমি আপনাকে আইনি অধিকার বুঝতে, আইনি বিকল্পগুলি সন্ধান করতে এবং আইনি খসড়া প্রস্তুত করতে সাহায্য করতে পারি। আইনের সাথে সম্পর্কিত নয় এমন সাধারণ বিষয়ে আমি সাহায্য করতে পারি না। এমন কোনো আইনি বিষয়"

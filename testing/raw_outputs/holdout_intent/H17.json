@@ -10,7 +10,7 @@
   "rag_invoked": true,
   "legal_generation_invoked": true,
   "http_status": 200,
-  "latency_seconds": 2.153,
+  "latency_seconds": 2.462,
   "grade": "PASS",
   "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
   "snippet": "Thank you for consulting LawPilot AI. Based on the facts shared, here is a comprehensive analysis under Indian law:\n\n### Understanding Your Situation (Aapki Situation)\nYou have presented a legal query or dispute concerning the disputed amount in your"

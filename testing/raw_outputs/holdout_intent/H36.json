@@ -10,7 +10,7 @@
   "rag_invoked": true,
   "legal_generation_invoked": true,
   "http_status": 200,
-  "latency_seconds": 4.25,
+  "latency_seconds": 2.292,
   "grade": "PASS",
   "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
   "snippet": "I can help you with this consumer dispute. Here is an analysis based on the Consumer Protection Act, 2019 and E-Commerce Rules, 2020:\n\n### আপনার পরিস্থিতি বোঝা (Understanding Your Situation)\nYou purchased a product or service involving the disputed a"

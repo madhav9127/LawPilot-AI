@@ -262,29 +262,29 @@ HOLDOUT_TEST_SET = [
         ]
     },
 
-    # 6. Ambiguous / Insufficient Facts
+    # 6. Non-Legal / No Dispute Facts (Users not having legal issues receive common refusal)
     {
         "id": "H28",
-        "category": "Ambiguous Query",
+        "category": "Non-Legal / No Legal Issue (Office Vague)",
         "input": "Something went wrong at my office.",
-        "expected_intent": "AMBIGUOUS",
-        "forbidden_tokens": ["unable to assist with general topics"],
+        "expected_intent": "NON_LEGAL_QUERY",
+        "forbidden_tokens": ["Industrial Disputes", "Payment of Wages"],
         "history": None
     },
     {
         "id": "H29",
-        "category": "Ambiguous Query",
+        "category": "Non-Legal / No Legal Issue (Courier Vague)",
         "input": "I received a courier yesterday.",
-        "expected_intent": "AMBIGUOUS",
-        "forbidden_tokens": ["unable to assist with general topics"],
+        "expected_intent": "NON_LEGAL_QUERY",
+        "forbidden_tokens": ["Consumer Protection Act", "deficiency in service"],
         "history": None
     },
     {
         "id": "H30",
-        "category": "Ambiguous Query",
+        "category": "Non-Legal / No Legal Issue (Anxiety Vague)",
         "input": "I am feeling very anxious about a situation.",
-        "expected_intent": "AMBIGUOUS",
-        "forbidden_tokens": ["unable to assist with general topics"],
+        "expected_intent": "NON_LEGAL_QUERY",
+        "forbidden_tokens": ["Civil Procedure", "Magistrate Court"],
         "history": None
     },
 

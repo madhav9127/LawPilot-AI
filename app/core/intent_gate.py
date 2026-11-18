@@ -396,11 +396,16 @@ class IntentGate:
 
         # Semantic Non-Legal Intent: General knowledge, coding, science, biology, DIY/household, sports, cooking, history, entertainment
         non_legal_semantic_intent = bool(re.search(
-            r"\b(?:capital\s+of\s+[a-zA-Z]+|who\s+is\s+the\s+president\s+of|largest\s+ocean|tallest\s+building|currency\s+of\s+[a-zA-Z]+|who\s+is\s+the\s+prime\s+minister\s+of\s+(?!india)|deepest\s+lake|highest\s+peak|when\s+did\s+world\s+war|fall\s+of\s+the\s+roman\s+empire|causes\s+of\s+the\s+fall|"
+            r"\b(?:where\s+is\s+|where\s+are\s+|where\s+can\s+i\s+find\s+|where\s+to\s+find\s+|where\s+in\s+the\s+world|"
+            r"what\s+is\s+(?!the\s+law|an?\s+fir|bail|anticipatory|a\s+legal|my\s+legal|the\s+section|the\s+act|the\s+procedure|the\s+punishment|the\s+penalty|the\s+fine|bns|bnss|bsa|ipc|crpc|cpa|rera|pwdva|posh|legal\s+heir|limitation|order\s+37|due\s+process|quash)|"
+            r"who\s+is\s+(?!the\s+magistrate|the\s+judge|the\s+police|the\s+advocate|the\s+lawyer|the\s+public\s+prosecutor|the\s+commissioner)|"
+            r"who\s+was\s+|who\s+were\s+|when\s+was\s+|when\s+did\s+|why\s+is\s+|why\s+are\s+|why\s+do\s+|"
+            r"teach\s+me\s+|teach\s+(?:oops\s+)?python|oops\s+python|learn\s+python|learn\s+coding|how\s+to\s+code|"
+            r"capital\s+of\s+[a-zA-Z]+|who\s+is\s+the\s+president\s+of|largest\s+ocean|tallest\s+building|currency\s+of\s+[a-zA-Z]+|who\s+is\s+the\s+prime\s+minister\s+of\s+(?!india)|deepest\s+lake|highest\s+peak|when\s+did\s+world\s+war|fall\s+of\s+the\s+roman\s+empire|causes\s+of\s+the\s+fall|"
             r"write\s+(?:a\s+)?(?:python|c\+\+|java|javascript|php|sql|ruby|go|c#)\s+(?:program|script|code|function)|python\s+code|sort\s+an?\s+(?:list|array)|binary\s+search|binary\s+search\s+trees|bubble\s+sort|leetcode|help\s+me\s+create\s+a\s+website|how\s+to\s+build\s+a\s+website|write\s+an\s+algorithm|debug\s+this\s+code|"
             r"explain\s+machine\s+learning|what\s+is\s+machine\s+learning|how\s+does\s+machine\s+learning\s+work|neural\s+networks?|deep\s+learning|nlp\s+model|linear\s+regression|"
             r"explain\s+quantum\s+physics|quantum\s+physics|theory\s+of\s+relativity|schrodinger|photosynthesis|chemical\s+equation\s+and\s+process\s+of\s+photosynthesis|crispr|gene\s+editing|solar\s+panels\s+convert\s+sunlight|solve\s+(?:this\s+)?mathematics|solve\s+(?:this\s+)?math|solve\s+(?:an?\s+)?equation|calculus|what\s+is\s+\d+\s*(?:\+|\-|\*|\/|plus|minus)\s*\d+|\d+\s*(?:\+|\-|\*|\/|plus)\s*\d+|periodic\s+table|gravity\s+formula|"
-            r"tell\s+me\s+a\s+(?:funny\s+)?joke|tell\s+(?:me\s+)?a\s+joke|write\s+a\s+(?:romantic\s+)?poem|sing\s+a\s+song|write\s+a\s+rap|write\s+a\s+story\s+about|bedtime\s+story|who\s+painted\s+the\s+starry\s+night|painted\s+the\s+starry|"
+            r"tell\s+me\s+a\s+(?:funny\s+)?joke|tell\s+(?:me\s+)?a\s+joke|write\s+a\s+(?:romantic\s+)?poem|romantic\s+poem|write\s+(?:a\s+)?poem|sing\s+a\s+song|write\s+a\s+rap|write\s+a\s+story\s+about|bedtime\s+story|who\s+painted\s+the\s+starry\s+night|painted\s+the\s+starry|"
             r"who\s+won\s+(?:yesterday'?s\s+)?cricket\s+match|who\s+won\s+the\s+match|cricket\s+match|ipl\s+score|football\s+score|fifa\s+world\s+cup|olympics|chess\s+opening|half\s+marathon|training\s+schedule\s+for\s+a\s+(?:half\s+)?marathon|"
             r"gym\s+workout\s+plan|workout\s+plan|fitness\s+plan|how\s+to\s+lose\s+weight|recipe\s+for|give\s+me\s+a\s+recipe|recipe\s+in\s+[a-zA-Z]+|how\s+to\s+bake|how\s+to\s+cook|sourdough\s+bread|paneer\s+butter\s+masala|"
             r"what\s+is\s+the\s+weather\s+today|weather\s+forecast|weather\s+kaisa\s+rahega|suggest\s+a\s+travel\s+itinerary|travel\s+itinerary|trip\s+to\s+[a-zA-Z]+|tourist\s+places\s+in|"
@@ -505,19 +510,20 @@ class IntentGate:
             )
 
         # -------------------------------------------------------------
-        # TIER 6: FAIL-SAFE ARCHITECTURE (Uncertain or Unclear Intent)
-        # CRITICAL RULE: NEVER silently default to LEGAL_QUERY!
-        # If confidence is insufficient, treat as AMBIGUOUS and ask for clarification.
+        # TIER 6: COMMON RESPONSE FOR USERS NOT HAVING LEGAL ISSUES
+        # Any query that does not present an Indian legal issue, legal dispute,
+        # or ambiguous plea for help is recognized as non-legal.
+        # All users without legal issues receive the EXACT SAME common response.
         # -------------------------------------------------------------
-        resp = AMBIGUOUS_CLARIFICATION_RESPONSES.get(lang_str, AMBIGUOUS_CLARIFICATION_RESPONSES["en"])
+        resp = STANDARD_NON_LEGAL_RESPONSES.get(lang_str, STANDARD_NON_LEGAL_RESPONSES["en"])
         return IntentDecision(
-            intent=UserIntentEnum.AMBIGUOUS,
-            confidence=0.50,
+            intent=UserIntentEnum.NON_LEGAL_QUERY,
+            confidence=0.95,
             is_mixed=False,
             context_influenced=False,
             topic_changed=False,
             detected_language=lang_str,
-            reasoning="Uncertain semantic intent. Fail-safe activated: routed to clarifying question rather than hallucinating legal advice.",
+            reasoning="Query does not present an Indian legal issue or dispute. Routed to common non-legal scope response.",
             direct_response=resp,
             rag_invoked=False,
             legal_generation_invoked=False

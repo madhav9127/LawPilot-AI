@@ -3,15 +3,15 @@
   "category": "Ambiguous Query",
   "input": "I received a courier yesterday.",
   "expected_intent": "AMBIGUOUS",
-  "detected_intent": "AMBIGUOUS",
-  "confidence": 0.5,
+  "detected_intent": "NON_LEGAL_QUERY",
+  "confidence": 0.95,
   "context_influenced": false,
   "topic_changed": false,
   "rag_invoked": false,
   "legal_generation_invoked": false,
   "http_status": 200,
-  "latency_seconds": 0.006,
-  "grade": "PASS",
-  "explanation": "Uncertain semantic intent. Fail-safe activated: routed to clarifying question rather than hallucinating legal advice.",
-  "snippet": "I am here to help. To understand whether your situation involves an Indian legal matter and what rights apply, could you please share a few more details about the dispute or problem you are experiencing?"
+  "latency_seconds": 0.008,
+  "grade": "PARTIAL",
+  "explanation": "Query does not present an Indian legal issue or dispute. Routed to common non-legal scope response.",
+  "snippet": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents and prepare legal drafts. I cannot assist with general topics unrelated to law. Is there a"
 }

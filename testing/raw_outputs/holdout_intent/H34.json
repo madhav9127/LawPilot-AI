@@ -10,7 +10,7 @@
   "rag_invoked": true,
   "legal_generation_invoked": true,
   "http_status": 200,
-  "latency_seconds": 2.404,
+  "latency_seconds": 2.749,
   "grade": "PASS",
   "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
   "snippet": "Thank you for consulting LawPilot AI. Based on the facts shared, here is a comprehensive analysis under Indian law:\n\n### మీ పరిస్థితిని అర్థం చేసుకోవడం (Understanding Your Situation)\nYou have presented a legal query or dispute concerning the disputed"

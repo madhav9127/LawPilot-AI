@@ -10,7 +10,7 @@
   "rag_invoked": false,
   "legal_generation_invoked": false,
   "http_status": 200,
-  "latency_seconds": 0.007,
+  "latency_seconds": 0.006,
   "grade": "PASS",
   "explanation": "Unrelated non-legal topic; excluded from legal pipeline and declined with scope notification.",
   "snippet": "నేను LawPilot AI, భారతదేశంలోని చట్టపరమైన విషయాల కోసం ప్రత్యేక సహాయకుడిని. చట్టపరమైన హక్కులను అర్థం చేసుకోవడానికి, చట్టపరమైన ఎంపికలను అన్వేషించడానికి మరియు చట్టపరమైన ముసాయిదాలను సిద్ధం చేయడానికి నేను సహాయపడగలను. చట్టంతో సంబంధం లేని సాధారణ అంశాలలో నేను"

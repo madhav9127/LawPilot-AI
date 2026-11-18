@@ -10,7 +10,7 @@
   "rag_invoked": true,
   "legal_generation_invoked": true,
   "http_status": 200,
-  "latency_seconds": 5.047,
+  "latency_seconds": 2.454,
   "grade": "PASS",
   "explanation": "Substantive Indian legal query across operative civil, criminal, property, labour, or regulatory statutes.",
   "snippet": "I can help you with this employment and labour law issue. Here is your structured legal assessment:\n\n### உங்கள் நிலைமையைப் புரிந்துகொள்ளுதல் (Understanding Your Situation)\nYour employer in your city has withheld earned salary, final settlement dues o"

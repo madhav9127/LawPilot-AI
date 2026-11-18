@@ -6,9 +6,9 @@
   "is_mixed": false,
   "expected_action": "Politely decline physics question",
   "http_status": 200,
-  "latency_seconds": 0.008,
+  "latency_seconds": 0.01,
   "grade": "PASS",
-  "explanation": "Purely non-legal general inquiry; politely declined with scope limitation.",
-  "actual_response_snippet": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents, and prepare legal drafts. I am unable to assist with general topics unrelated to law. Is there an Indian legal matter I can help you with?",
-  "full_response": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents, and prepare legal drafts. I am unable to assist with general topics unrelated to law. Is there an Indian legal matter I can help you with?"
+  "explanation": "Unrelated non-legal topic; excluded from legal pipeline and declined with scope notification.",
+  "actual_response_snippet": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents and prepare legal drafts. I cannot assist with general topics unrelated to law. Is there a legal matter I can help you with?",
+  "full_response": "I am LawPilot AI, a specialised assistant for legal matters in India. I can help you understand legal rights, explore legal options, interpret legal documents and prepare legal drafts. I cannot assist with general topics unrelated to law. Is there a legal matter I can help you with?"
 }

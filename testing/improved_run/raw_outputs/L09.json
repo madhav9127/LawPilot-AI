@@ -5,9 +5,9 @@
   "expected": "Successfully resets conversation state for session ID.",
   "model": "gemini-flash-lite-latest",
   "provider": "Google Gemini",
-  "run_mode": "improved",
+  "run_mode": "improved_run",
   "raw_response": "{\"status\":\"ok\",\"session_id\":\"test_reset\"}",
-  "latency": 0.01,
+  "latency": 0.0,
   "status": "PASS",
   "score": 100,
   "evaluation_notes": "Session reset completed."

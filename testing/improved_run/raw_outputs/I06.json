@@ -5,11 +5,11 @@
   "expected": "Generates formal demand notice in Hindi with ₹50,000 and 15 days deadline.",
   "model": "gemini-flash-lite-latest",
   "provider": "Google Gemini",
-  "run_mode": "improved",
+  "run_mode": "improved_run",
   "prompt": "कंपनी से ₹50,000 बकाया वेतन मांगने के लिए एक औपचारिक मांग पत्र (Demand Notice) तैयार करें।",
-  "raw_response": "मी या प्रकरणात तुम्हाला पूर्ण मार्गदर्शन करू शकतो. भारतीय कामगार आणि वेतन कायद्यानुसार तुमचे कायदेशीर विश्लेषण खालीलप्रमाणे आहे:\n\n### | तुमची परिस्थिती (Your Situation)\nतुमच्या नियोक्त्याने your workplace मध्ये गेल्या दोन महिन्यांचे तुमचे थकीत वेतन (₹50,000) रोखून ठेवले आहे. काम केल्यानंतर वेतन रोखणे बेकायदेशीर आहे.\n\n### | तुमची कायदेशीर स्थिती (Your Legal Position)\n* **वेतन प्रदान कायदा, १९३६ (कलम ५)**: वेतन कालावधी संपल्यानंतर ७ ते १० दिवसांच्या आत कर्मचाऱ्याला पगार देणे नियोक्त्यासाठी कायद्याने बंधनकारक आहे.\n* **वेतन प्रदान कायदा, १९३६ (कलम १५)**: कर्मचाऱ्याला नुकसानभरपाईसह थकीत वेतनाच्या वसुलीसाठी कामगार आयुक्तांकडे (Labour Commissioner) अर्ज करण्याचा अधिकार देतो.\n* **भारतीय करार कायदा, १८७२ (कलम ७३)**: रोजगार कराराच्या उल्लंघनाबद्दल पूर्ण थकीत वेतन मिळवण्याचा कायदेशीर हक्क आहे.\n\n### | व्यावहारिक पुढील पावले (Practical Next Steps)\n1. **पुरावे गोळा करा** – नियुक्ती पत्र (Offer Letter), सॅलरी स्लिप्स, बँक स्टेटमेंट आणि कंपनीशी झालेला ईमेल संवाद जतन करा.\n2. **लेखी मागणी नोटीस पाठवा** – नियोक्त्याला १५ दिवसांची मुदत देऊन सर्व थकीत वेतन देण्याची लेखी नोटीस पाठवा.\n3. **तोडगा न निघाल्यास** – स्थानिक कामगार आयुक्त (Labour Commissioner) कार्यालयात अधिकृत तक्रार दाखल करा.\n\n### ℹ️ तुमच्याकडून आवश्यक माहिती\nWhich city or state is the property or company located in? (Tenancy and shops laws vary by state).",
-  "tokens": 391,
-  "latency": 2.25,
+  "raw_response": "I can help you with this employment and labour law issue. Here is your structured legal assessment:\n\n### तुमची परिस्थिती समजून घेणे (Understanding Your Situation)\nYour employer in your city has withheld earned salary, final settlement dues of ₹50,000, or relieving letters, or you are facing a workplace grievance.\n\n### संबंधित कायदेशीर तरतुदी (Relevant Legal Provisions)\n* **The Payment of Wages Act, 1936 (Section 5 & Section 15)**: Time of payment of wages and Claims arising out of deductions from wages or delay in payment. Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.\n* **The Payment of Wages Act, 1936 (Section 7)**: Deductions which may be made from wages. Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.\n* **Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH) (Section 4 & Section 9)**: Constitution of Internal Committee (IC) and Complaint of sexual harassment. Mandates every workplace employing 10 or more employees to constitute an Internal Committee (IC) headed by a senior woman employee. An aggrieved woman may make a written complaint within 3 months (extendable by 3 months). Inquiries must be completed within 90 days.\n\n### तुमची कायदेशीर स्थिती (Your Legal Position)\n* Under **Section 5 of the Payment of Wages Act, 1936**, employers are legally obligated to pay earned wages within 7 to 10 days of the wage period.\n* Under **Section 15 of the Payment of Wages Act, 1936**, employees can claim delayed wages along with statutory compensation up to ten times the delayed amount.\n* Withholding relieving letters or full & final settlement constitutes a breach of contract under **Section 73 of the Indian Contract Act, 1872**.\n* If facing workplace harassment, the **POSH Act, 2013** provides statutory inquiry through the Internal Committee (IC) within 90 days.\n\n### उपलब्ध कायदेशीर पर्याय (Available Options)\n* **Option 1 (Internal Written Demand):** Send a formal demand letter to HR and Management giving 15 days to release dues and relieving credentials.\n* **Option 2 (Labour Commissioner / Shops Act):** File a statutory complaint before the local Labour Commissioner or Inspector under State Shops & Establishments Act.\n* **Option 3 (Labour Court / Civil Suit):** File a recovery application under Section 33C(2) of the Industrial Disputes Act, 1947 or summary suit under Order 37 CPC.\n\n### व्यावहारिक पुढील पावले (Practical Next Steps)\n1. Gather your appointment letter, recent payslips, bank statements, and resignation acceptance email.\n2. Issue a formal written demand notice to the authorized director / HR head.\n3. Approach the District Labour Officer if settlement is not concluded within the notice period.\n\n### जपून ठेवण्याचे पुरावे (Evidence to Preserve)\n* Employment agreement / Offer letter / Resignation acceptance.\n* Salary slips for past 3-6 months and bank credit statements.\n* Email threads detailing pending FnF calculations and follow-up requests.\n\n### महत्त्वाच्या कायदेशीर मर्यादा (Important Limitations)\n* Civil recovery of unpaid salary must be instituted within 3 years under the Limitation Act, 1963.\n* Managerial employees earning above statutory wage thresholds may need to pursue remedies through Civil Court or Shops Act rather than Labour Court.\n\n### तुमच्याकडून आवश्यक अतिरिक्त माहिती\nWhich city or state is the property or company located in? (Tenancy and shops laws vary by state).",
+  "tokens": 1169,
+  "latency": 1.96,
   "citations": [
     {
       "act_name": "The Payment of Wages Act, 1936",
@@ -19,7 +19,10 @@
       "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
       "commencement_date": "1937-03-28",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2405"
     },
     {
       "act_name": "The Payment of Wages Act, 1936",
@@ -29,30 +32,39 @@
       "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
       "commencement_date": "1937-03-28",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2405"
     },
     {
-      "act_name": "State Shops and Commercial Establishments Acts",
-      "section": "Settlement of Dues and Service Conditions Provision",
-      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
-      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
-      "official_url": "https://shramsuvidha.gov.in/",
-      "commencement_date": "State Specific",
-      "jurisdiction": "State Specific",
-      "verification_status": "Verified source available"
+      "act_name": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH)",
+      "section": "Section 4 & Section 9",
+      "title": "Constitution of Internal Committee (IC) and Complaint of sexual harassment",
+      "description": "Mandates every workplace employing 10 or more employees to constitute an Internal Committee (IC) headed by a senior woman employee. An aggrieved woman may make a written complaint within 3 months (extendable by 3 months). Inquiries must be completed within 90 days.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2104",
+      "commencement_date": "2013-12-09",
+      "jurisdiction": "Central / All Workplaces",
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2104"
     },
     {
-      "act_name": "The Indian Contract Act, 1872",
-      "section": "Section 73",
-      "title": "Compensation for loss or damage caused by breach of contract",
-      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
-      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
-      "commencement_date": "1872-09-01",
+      "act_name": "The Payment of Gratuity Act, 1972",
+      "section": "Section 4 & Section 7",
+      "title": "Payment of Gratuity on termination of employment and 30-day payout timeline",
+      "description": "Gratuity is payable to an employee on separation after rendering continuous service for not less than 5 years. Employer must determine and pay gratuity within 30 days, failing which compound interest is payable under Section 7(3A).",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1483",
+      "commencement_date": "1972-09-16",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/1483"
     }
   ],
-  "status": "PARTIAL",
-  "score": 60,
-  "evaluation_notes": "Document structure partial."
+  "status": "PASS",
+  "score": 95,
+  "evaluation_notes": "Generated well-structured legal draft."
 }

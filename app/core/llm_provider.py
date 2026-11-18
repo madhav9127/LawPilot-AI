@@ -649,6 +649,13 @@ class DeterministicDemoProvider(BaseLLMProvider):
 
         content = self._render_structured_explanation(case.category, memory, citations, detected_lang, follow_up, message)
 
+        if is_mixed:
+            content += (
+                "\n\n---\n"
+                "**Scope Note:** Please note that LawPilot AI specialises strictly in legal assistance under Indian law. "
+                "While I have addressed your legal query above, general entertainment or unrelated requests (such as movie recommendations or jokes) are outside my scope."
+            )
+
         return ChatMessage(
             role="assistant",
             content=content,
@@ -1700,10 +1707,17 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                                 break
 
                     if output_text:
-                        logger.info(f"ReqID={req_id} | Success Interactions model={model_name} | Length={len(output_text)}")
+                        text_val = output_text.strip()
+                        if is_mixed and not any(w in text_val.lower() for w in ["outside", "scope", "movie", "film", "joke"]):
+                            text_val += (
+                                "\n\n---\n"
+                                "**Scope Note:** Please note that LawPilot AI specialises strictly in legal assistance under Indian law. "
+                                "While I have addressed your legal query above, general entertainment or unrelated requests (such as movie recommendations) are outside my scope."
+                            )
+                        logger.info(f"ReqID={req_id} | Success Interactions model={model_name} | Length={len(text_val)}")
                         return ChatMessage(
                             role="assistant",
-                            content=output_text.strip(),
+                            content=text_val,
                             citations=citations,
                             verification_status=VerificationStatusEnum.VERIFIED if citations else VerificationStatusEnum.RECOMMENDED
                         )
@@ -1859,6 +1873,14 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                                 except Exception:
                                     pass
                     if full_output.strip():
+                        if is_mixed and not any(w in full_output.lower() for w in ["outside", "scope", "movie", "film", "joke"]):
+                            scope_note = (
+                                "\n\n---\n"
+                                "**Scope Note:** Please note that LawPilot AI specialises strictly in legal assistance under Indian law. "
+                                "While I have addressed your legal query above, general entertainment or unrelated requests (such as movie recommendations) are outside my scope."
+                            )
+                            full_output += scope_note
+                            yield {"type": "token", "content": scope_note}
                         stream_success = True
                         break
                 else:

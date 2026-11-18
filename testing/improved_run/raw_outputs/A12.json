@@ -5,11 +5,11 @@
   "expected": "Addresses the unpaid salary legal issue thoroughly; politely redirects the movie suggestion request as out of scope.",
   "model": "gemini-flash-lite-latest",
   "provider": "Google Gemini",
-  "run_mode": "improved",
+  "run_mode": "improved_run",
   "prompt": "My employer has not paid me. Also, suggest a movie.",
-  "raw_response": "Hello! I understand how stressful it is when your employer fails to pay your earned wages, but I cannot suggest a movie because I specialize exclusively in Indian legal matters.\n\n### | Your Situation\nAn employer has withheld your unpaid salary without providing timely payment for work completed. The key issue involves wage non-payment and financial recovery under Indian employment laws.\n\n### | Your Legal Position\n- Under Section 5 of The Payment of Wages Act, 1936, wages must be paid before the expiry of the 7th day after the last day of the wage period (or the 10th day if more than 1,000 persons are employed).\n- Under Section 7 of The Payment of Wages Act, 1936, any arbitrary, unauthorized, or unexplained withholding of your salary is illegal, as deductions can only be made for specifically permitted reasons.\n- Under Section 15 of The Payment of Wages Act, 1936, you have the statutory right to approach the designated Authority to claim delayed or unpaid wages, which includes seeking compensation up to ten times the amount unlawfully withheld.\n- Under Section 73 of The Indian Contract Act, 1872, you are entitled to claim compensation for loss or damage caused by the breach of your employment contract.\n\n### | Practical Next Steps\n1. Gather evidence such as your employment contract, appointment letter, salary slips, bank statements, and any written communication or emails requesting your unpaid wages.\n2. Send a formal written demand notice to your employer demanding the release of your full unpaid salary and granting a clear period of 15 days to comply.\n3. Approach the appropriate forum, such as filing an application before the designated Labour Commissioner or Authority under the Payment of Wages Act if the employer fails to settle your dues.\n\n### ℹ️ Information I still need from you\nWhat is your total unpaid salary amount and how many months of wages are currently pending from your employer?",
-  "tokens": 18,
-  "latency": 7.09,
+  "raw_response": "I can help you with this employment and labour law issue. Here is your structured legal assessment:\n\n### Understanding Your Situation\nYour employer in your city has withheld earned salary, final settlement dues of the disputed amount, or relieving letters, or you are facing a workplace grievance.\n\n### Relevant Legal Provisions\n* **The Payment of Wages Act, 1936 (Section 5 & Section 15)**: Time of payment of wages and Claims arising out of deductions from wages or delay in payment. Wages must be paid before the expiry of the 7th day after the wage period (or 10th day if more than 1,000 persons employed). Section 15 provides for application to the designated Authority for delayed wages with compensation up to ten times the amount deducted/delayed.\n* **The Payment of Wages Act, 1936 (Section 7)**: Deductions which may be made from wages. Strictly enumerates permissible deductions (such as authorized provident fund, income tax, or willful damage shown after formal inquiry). Any arbitrary or unauthorized deduction is unlawful.\n* **Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH) (Section 4 & Section 9)**: Constitution of Internal Committee (IC) and Complaint of sexual harassment. Mandates every workplace employing 10 or more employees to constitute an Internal Committee (IC) headed by a senior woman employee. An aggrieved woman may make a written complaint within 3 months (extendable by 3 months). Inquiries must be completed within 90 days.\n\n### Your Legal Position\n* Under **Section 5 of the Payment of Wages Act, 1936**, employers are legally obligated to pay earned wages within 7 to 10 days of the wage period.\n* Under **Section 15 of the Payment of Wages Act, 1936**, employees can claim delayed wages along with statutory compensation up to ten times the delayed amount.\n* Withholding relieving letters or full & final settlement constitutes a breach of contract under **Section 73 of the Indian Contract Act, 1872**.\n* If facing workplace harassment, the **POSH Act, 2013** provides statutory inquiry through the Internal Committee (IC) within 90 days.\n\n### Available Options\n* **Option 1 (Internal Written Demand):** Send a formal demand letter to HR and Management giving 15 days to release dues and relieving credentials.\n* **Option 2 (Labour Commissioner / Shops Act):** File a statutory complaint before the local Labour Commissioner or Inspector under State Shops & Establishments Act.\n* **Option 3 (Labour Court / Civil Suit):** File a recovery application under Section 33C(2) of the Industrial Disputes Act, 1947 or summary suit under Order 37 CPC.\n\n### Practical Next Steps\n1. Gather your appointment letter, recent payslips, bank statements, and resignation acceptance email.\n2. Issue a formal written demand notice to the authorized director / HR head.\n3. Approach the District Labour Officer if settlement is not concluded within the notice period.\n\n### Evidence to Preserve\n* Employment agreement / Offer letter / Resignation acceptance.\n* Salary slips for past 3-6 months and bank credit statements.\n* Email threads detailing pending FnF calculations and follow-up requests.\n\n### Important Limitations\n* Civil recovery of unpaid salary must be instituted within 3 years under the Limitation Act, 1963.\n* Managerial employees earning above statutory wage thresholds may need to pursue remedies through Civil Court or Shops Act rather than Labour Court.\n\n### Information I still need from you\nWhat was your agreed monthly salary and the total unpaid salary amount?\n\n---\n**Scope Note:** Please note that LawPilot AI specialises strictly in legal assistance under Indian law. While I have addressed your legal query above, general entertainment or unrelated requests (such as movie recommendations or jokes) are outside my scope.",
+  "tokens": 1199,
+  "latency": 2.12,
   "citations": [
     {
       "act_name": "The Payment of Wages Act, 1936",
@@ -19,7 +19,10 @@
       "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
       "commencement_date": "1937-03-28",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2405"
     },
     {
       "act_name": "The Payment of Wages Act, 1936",
@@ -29,30 +32,39 @@
       "official_url": "https://www.indiacode.nic.in/handle/123456789/2405",
       "commencement_date": "1937-03-28",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2405"
     },
     {
-      "act_name": "State Shops and Commercial Establishments Acts",
-      "section": "Settlement of Dues and Service Conditions Provision",
-      "title": "Statutory Payment of Earned Salary and Notice Pay for Private/Commercial Employees",
-      "description": "State-specific legislation (e.g., Delhi Shops Act, Karnataka Shops & Commercial Establishments Act, Maharashtra Shops Act) governing commercial and IT/office establishments. Mandates clearance of earned wages and final settlement upon termination or resignation within 3 to 15 days.",
-      "official_url": "https://shramsuvidha.gov.in/",
-      "commencement_date": "State Specific",
-      "jurisdiction": "State Specific",
-      "verification_status": "Verified source available"
+      "act_name": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH)",
+      "section": "Section 4 & Section 9",
+      "title": "Constitution of Internal Committee (IC) and Complaint of sexual harassment",
+      "description": "Mandates every workplace employing 10 or more employees to constitute an Internal Committee (IC) headed by a senior woman employee. An aggrieved woman may make a written complaint within 3 months (extendable by 3 months). Inquiries must be completed within 90 days.",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/2104",
+      "commencement_date": "2013-12-09",
+      "jurisdiction": "Central / All Workplaces",
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/2104"
     },
     {
-      "act_name": "The Indian Contract Act, 1872",
-      "section": "Section 73",
-      "title": "Compensation for loss or damage caused by breach of contract",
-      "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby.",
-      "official_url": "https://www.indiacode.nic.in/handle/123456789/2187",
-      "commencement_date": "1872-09-01",
+      "act_name": "The Payment of Gratuity Act, 1972",
+      "section": "Section 4 & Section 7",
+      "title": "Payment of Gratuity on termination of employment and 30-day payout timeline",
+      "description": "Gratuity is payable to an employee on separation after rendering continuous service for not less than 5 years. Employer must determine and pay gratuity within 30 days, failing which compound interest is payable under Section 7(3A).",
+      "official_url": "https://www.indiacode.nic.in/handle/123456789/1483",
+      "commencement_date": "1972-09-16",
       "jurisdiction": "Central",
-      "verification_status": "Verified source available"
+      "verification_status": "Verified source available",
+      "is_current": true,
+      "historical_equivalent": null,
+      "portal_source": "https://www.indiacode.nic.in/handle/123456789/1483"
     }
   ],
-  "status": "PARTIAL",
-  "score": 70,
-  "evaluation_notes": "Addressed legal issue but did not explicitly redirect the movie request."
+  "status": "PASS",
+  "score": 100,
+  "evaluation_notes": "Addressed unpaid salary and politely explained movie suggestions are outside scope."
 }

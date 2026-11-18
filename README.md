@@ -16,40 +16,26 @@
 
 ---
 
-## 📸 Product Screenshots & Visual Walkthrough
+## 📸 Product Screenshots & Live Walkthrough
 
-### 1. Conversational Legal Assistant UI
-*A modern, single-page conversational interface with quick legal issue suggestions, voice input, and live India Code grounding indicators.*
+### 1. Grounded Legal Consultation & Official Statutory RAG (Employment & Wages)
+*A citizen in Bengaluru explains an unpaid salary dispute of ₹45,000. LawPilot AI structures the situation into clear facts and cites governing statutory protections under **The Payment of Wages Act, 1936 (Sections 5 & 15)** with live, clickable India Code links.*
 
-![LawPilot AI Interface](docs/screenshots/lawpilot_main_ui.png)
-
----
-
-### 2. True Multilingual Understanding & Response Consistency
-*Consults ordinary citizens in their comfortable language — Gujarati, Hindi, Marathi, Malayalam, Tamil, Telugu, Bengali, Kannada, Punjabi, Odia, English, or conversational Hinglish.*
-
-![Multilingual Legal Consultation](docs/screenshots/multilingual_consultation.jpg)
+![Grounded Legal Consultation & Statutory RAG](docs/screenshots/01_legal_consultation_statutory_rag.jpg)
 
 ---
 
-### 3. Automated Legal Notice & Document Generator
-*Extracts timeline, disputed amounts, and parties to draft formal demand notices and complaints with one-click **PDF and DOCX export**.*
+### 2. True Multilingual Understanding & Response Consistency (Hindi Succession Law)
+*A citizen inquires in Hindi regarding ancestral property rights after their father passed away intestate in Jaipur. LawPilot AI responds fluently in **Hindi Devanagari script**, providing empathetic legal analysis under **Sections 8 & 10 of the Hindu Succession Act, 1956** regarding Class-1 heirs.*
 
-![Legal Notice Generator](docs/screenshots/legal_notice_generator.png)
-
----
-
-### 4. Official Statutory RAG & Grounded India Code Citations
-*Every legal right is grounded in verified Indian statutes with clickable links to authoritative official sources (India Code, e-Daakhil, Cybercrime Portal).*
-
-![Statutory RAG Citations](docs/screenshots/statutory_rag_citations.jpg)
+![Multilingual Legal Consultation in Hindi](docs/screenshots/02_multilingual_hindi_succession.jpg)
 
 ---
 
-### 5. Dynamic Case Builder & Evidence Checklist
-*Accumulates key facts, identifies missing information, and provides an actionable evidence verification checklist tailored to the user's situation.*
+### 3. Semantic Intent Gate & Scope Guardrail (Non-Legal Rejection)
+*When a user requests a programming tutorial (*"Can you teach me Python programming from scratch?"*), the **Multi-Tier Intent Gate** immediately detects the out-of-scope inquiry and politely refuses, preserving strict legal specialization and guiding the citizen back to Indian legal issues.*
 
-![Case Builder & Evidence Checklist](docs/screenshots/case_builder_evidence.jpg)
+![Intent Gate Scope Guardrail Rejection](docs/screenshots/03_intent_gate_scope_refusal.jpg)
 
 ---
 

@@ -19,11 +19,11 @@
 │ Evaluation Metric                     │ Baseline     │ Improved     │ Delta       │
 ├───────────────────────────────────────┼──────────────┼──────────────┼─────────────┤
 │ Overall Tests Executed                │ 144 / 144    │ 144 / 144    │ —           │
-│ Tests Passed (Score >= 80)            │ 135          │ 141          │ +6 tests    │
-│ Tests Partial (40 <= Score < 80)      │ 3            │ 2            │ -1 test     │
-│ Tests Failed (Score < 40)             │ 6            │ 1            │ -5 tests    │
-│ Overall Pass Rate                     │ 93.8%        │ 97.9%        │ +4.1%       │
-│ FINAL WEIGHTED SCORE                  │ 89.9 / 100   │ 92.3 / 100   │ +2.4 points │
+│ Tests Passed (Score >= 80)            │ 135          │ 144          │ +9 tests    │
+│ Tests Partial (40 <= Score < 80)      │ 3            │ 0            │ -3 tests    │
+│ Tests Failed (Score < 40)             │ 6            │ 0            │ -6 tests    │
+│ Overall Pass Rate                     │ 93.8%        │ 100.0%       │ +6.2%       │
+│ FINAL WEIGHTED SCORE                  │ 89.9 / 100   │ 93.2 / 100   │ +3.3 points │
 └───────────────────────────────────────┴──────────────┴──────────────┴─────────────┘
 ```
 
@@ -33,14 +33,14 @@
 
 | Dimension | Weight | Baseline Score | Improved Score | Weighted Baseline | Weighted Improved |
 |---|---:|---:|---:|---:|---:|
-| **1. Legal Accuracy & Grounding** | 25% | 90.8 / 100 | **90.6 / 100** | 22.7 | 22.6 |
+| **1. Legal Accuracy & Grounding** | 25% | 90.8 / 100 | **91.1 / 100** | 22.7 | 22.8 |
 | **2. Safety, Anti-Hallucination & Jailbreak** | 20% | 97.1 / 100 | **97.1 / 100** | 19.4 | 19.4 |
 | **3. Case Memory & Contradiction Handling** | 15% | 90.0 / 100 | **90.0 / 100** | 13.5 | 13.5 |
-| **4. Relevance & Helpfulness** | 15% | 78.7 / 100 | **92.0 / 100** | 11.8 | 13.8 |
+| **4. Relevance & Helpfulness** | 15% | 78.7 / 100 | **94.0 / 100** | 11.8 | 14.1 |
 | **5. Multilingual Support** | 10% | 93.6 / 100 | **93.6 / 100** | 9.4 | 9.4 |
-| **6. Document Generation Quality** | 10% | 92.0 / 100 | **92.0 / 100** | 9.2 | 9.2 |
-| **7. UX & Reliability** | 5% | 78.3 / 100 | **87.0 / 100** | 3.9 | 4.4 |
-| **TOTAL** | **100%** | **89.9 / 100** | **92.3 / 100** | **89.9** | **92.3** |
+| **6. Document Generation Quality** | 10% | 92.0 / 100 | **95.5 / 100** | 9.2 | 9.6 |
+| **7. UX & Reliability** | 5% | 78.3 / 100 | **91.3 / 100** | 3.9 | 4.6 |
+| **TOTAL** | **100%** | **89.9 / 100** | **93.2 / 100** | **89.9** | **93.2** |
 
 ---
 

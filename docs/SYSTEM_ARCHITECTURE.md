@@ -45,7 +45,7 @@ LawPilot AI is designed with an asymmetric decoupling between user-facing client
 | `app/core/llm_provider.py` | Primary intelligence layer implementing `GeminiInteractionsProvider`, streaming token generator, multilingual prompt builder, fast-track routing, and `DeterministicDemoProvider` fallback. |
 | `app/core/domain_guardrail.py` | Legal domain scope controller enforcing specialized Indian civil legal scope (tenancy, consumer, employment) and localized redirections. |
 | `app/core/sanitizer.py` | Multi-pattern regex defense engine protecting against prompt injections, secret exfiltration, authority manipulation, and evidence fabrication. |
-| `app/core/knowledge_base.py` | Grounded statutory repository indexing authentic sections of MTA 2021, CPA 2019, Payment of Wages Act 1936, and Legal Services Authorities Act. |
+| `app/core/knowledge_base.py` | Grounded statutory repository indexing 61 authentic provisions across 18+ Indian legal domains (BNS/BNSS/BSA, IPC/CrPC, CPC, Specific Relief, RERA, HMA, PWDVA, CPA 2019, Payment of Wages, POSH, MTA, IT Act, NI Act Sec 138, SARFAESI, Indian Contract Act, Trademarks, MACT, Writs, RTI, Income Tax, Hindu Succession, POCSO, RTE, NGT, NALSA) with India Code verification links. |
 | `app/core/case_builder.py` | Entity extractor isolating parties, financial amounts (INR), property addresses, transaction dates, and conflict detection. |
 | `app/core/conversation.py` | Persistent multi-turn session memory tracker maintaining chronological facts and resolving user fact corrections. |
 | `app/core/title_generator.py` | Automatic conversation title generator extracting 2–5 word concise, domain-relevant titles across Indian languages. |

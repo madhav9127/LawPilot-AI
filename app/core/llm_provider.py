@@ -1370,7 +1370,33 @@ class DeterministicDemoProvider(BaseLLMProvider):
                 )
 
         # -------------------------------------------------------------
-        # DOMAIN 4: GENERAL LEGAL INQUIRY
+        # EXPANDED MULTI-DOMAIN RETRIEVAL: CRIMINAL, PROPERTY, FAMILY, CYBER, BANKING, ETC.
+        # -------------------------------------------------------------
+        if citations:
+            statute_bullets = "\n".join([f"* **{c.act_name} ({c.section}):** {c.description}" for c in citations])
+            official_links = "\n".join([f"- [{c.act_name} - {c.section}]({c.official_url})" for c in citations if c.official_url])
+            headers = LANGUAGE_CONFIG.get(lang_val, LANGUAGE_CONFIG["en"])["headers"]
+            cat_name = case.category.value.replace('_', ' ').title() if case else "Indian Law"
+            
+            return (
+                f"I can help you understand your legal standing and statutory rights under Indian law regarding this matter.\n\n"
+                f"{headers['situation']}\n"
+                f"You have shared a legal inquiry concerning **{cat_name}**. "
+                f"Based on the facts provided, here is an analysis grounded in authoritative Indian legislation.\n\n"
+                f"{headers['legal_position']}\n"
+                f"{statute_bullets}\n\n"
+                f"**Authoritative Official Sources:**\n"
+                f"{official_links}\n\n"
+                f"{headers['next_steps']}\n"
+                f"1. **Preserve Documentary Evidence:** Keep all agreements, transaction receipts, bank memos, and written communications organized.\n"
+                f"2. **Serve Formal Notice / Intimation:** Deliver a formal written demand or representation granting statutory notice time (typically 15 to 30 days).\n"
+                f"3. **Approach Designated Statutory Forum:** If voluntary compliance is refused, file a complaint before the competent authority, tribunal, or court of jurisdiction.\n\n"
+                f"{headers['info_needed']}\n"
+                f"Could you share relevant transaction dates, location/state jurisdiction, and copies of any notices or communications received?"
+            )
+
+        # -------------------------------------------------------------
+        # DOMAIN 4: GENERAL LEGAL INQUIRY (NO RETRIEVED STATUTES)
         # -------------------------------------------------------------
         else:
             if lang_val in ["gu", "gujarati"]:
@@ -1562,94 +1588,149 @@ class GeminiInteractionsProvider(BaseLLMProvider):
                 )
             elif lang_str in ["gu", "gujarati"]:
                 return (
-                    "નમસ્તે! હું **LawPilot AI** છું, ભારતમાં રોજિંદા કાનૂની અધિકારો માટે તમારો કાનૂની સહાયક.\n\n"
-                    "હું તમને તમારા અધિકારો સમજવા, પુરાવા એકત્રિત કરવા અને ઔપચારિક કાનૂની નોટિસ તૈયાર કરવામાં મદદ કરું છું:\n"
-                    "1. ભાડૂઆત અને મકાનમાલિક વિવાદો (સિક્યોરિટી ડિપોઝિટ પરત, મકાન ખાલી કરાવવું)\n"
-                    "2. ગ્રાહક સુરક્ષા (ખામીયુક્ત વસ્તુઓ, રિફંડમાં વિલંબ, ઈ-કોમર્સ ફરિયાદો)\n"
-                    "3. રોજગાર અને વેતન વિવાદો (અટકેલો પગાર, અનુભવ પત્ર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટ)\n\n"
-                    "આજે હું તમને કેવી રીતે મદદ કરી શકું? કૃપા કરીને તમારી સમસ્યા જણાવો."
+                    "નમસ્તે! હું **LawPilot AI** છું, ભારતમાં તમારા તમામ કાનૂની અધિકારો માટે તમારો વિશ્વસનીય કાનૂની સહાયક.\n\n"
+                    "હું તમને તમારા કાનૂની અધિકારો સમજવા, સત્તાવાર પુરાવા એકત્રિત કરવા અને ઔપચારિક કાનૂની નોટિસ તૈયાર કરવામાં મદદ કરું છું:\n"
+                    "• ભાડૂઆત અને મકાનમાલિક વિવાદો (સિક્યોરિટી ડિપોઝિટ, ગેરકાયદેસર ખાલી કરાવવું)\n"
+                    "• ગ્રાહક સુરક્ષા (ખામીયુક્ત વસ્તુઓ, રિફંડ, ઈ-કોમર્સ ફરિયાદો)\n"
+                    "• રોજગાર અને વેતન (અટકેલો પગાર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટ, અનુભવ પત્ર)\n"
+                    "• સાયબર ક્રાઈમ અને ઓનલાઇન છેતરપિંડી (UPI ફ્રોડ, હેકિંગ, હેલ્પલાઇન 1930)\n"
+                    "• બેંકિંગ અને ચેક બાઉન્સ (કલમ 138 NI Act, લોન રિકવરી બાબતો)\n"
+                    "• મિલકત અને રેરા (RERA બિલ્ડર વિલંબ, જમીન દસ્તાવેજો)\n"
+                    "• પારિવારિક કાયદો (છૂટાછેડા, ભરણપોષણ, ઘરેલું હિંસા PWDVA)\n"
+                    "• મોટર વાહન અકસ્માત વળતર (MACT દાવા, હિટ એન્ડ રન)\n"
+                    "• ફોજદારી કાયદો અને પોલીસ પ્રક્રિયા (FIR, જામીન, BNS, BNSS)\n\n"
+                    "આજે હું તમને કેવી રીતે મદદ કરી શકું? કૃપા કરીને તમારી કાનૂની સમસ્યા જણાવો."
                 )
             elif lang_str in ["ml", "malayalam"]:
                 return (
-                    "നമസ്കാരം! ഞാൻ **LawPilot AI** ആണ്, ദൈനംദിന സിവിൽ നിയമപരമായ പ്രശ്നങ്ങൾക്കുള്ള നിങ്ങളുടെ സഹായി.\n\n"
+                    "നമസ്കാരം! ഞാൻ **LawPilot AI** ആണ്, ഇന്ത്യയിലെ വിവിധ നിയമപരമായ പ്രശ്നങ്ങൾക്കുള്ള നിങ്ങളുടെ വിശ്വസ്ത സഹായി.\n\n"
                     "ഇനിപ്പറയുന്ന പ്രധാന വിഷയങ്ങളിൽ ഞാൻ നിങ്ങളെ സഹായിക്കുന്നു:\n"
-                    "1. വാടകക്കാരനും വീട്ടുടമസ്ഥനും തമ്മിലുള്ള തർക്കങ്ങൾ (ഡെപ്പോസിറ്റ് തിരികെ ലഭിക്കൽ)\n"
-                    "2. ഉപഭോക്തൃ സംരക്ഷണം (തകരാറുള്ള ഉൽപ്പന്നങ്ങൾ, റീഫണ്ട് വൈകൽ)\n"
-                    "3. തൊഴിലും ശമ്പളവും (ശമ്പള കുടിശ്ശിക, റിലീവിംഗ് ലെറ്റർ)\n\n"
+                    "• വാടകക്കാരനും വീട്ടുടമസ്ഥനും തമ്മിലുള്ള തർക്കങ്ങൾ (ഡെപ്പോസിറ്റ് തിരികെ ലഭിക്കൽ)\n"
+                    "• ഉപഭോക്തൃ സംരക്ഷണം (തകരാറുള്ള ഉൽപ്പന്നങ്ങൾ, റീഫണ്ട് വൈകൽ)\n"
+                    "• തൊഴിലും ശമ്പളവും (ശമ്പള കുടിശ്ശിക, റിലീവിംഗ് ലെറ്റർ)\n"
+                    "• സൈബർ തട്ടിപ്പുകൾ (UPI തട്ടിപ്പ്, 1930 ഹെൽപ്പ്‌ലൈൻ)\n"
+                    "• ചെക്ക് മടങ്ങൽ & ബാങ്കിംഗ് (സെക്ഷൻ 138 NI ആക്ട്)\n"
+                    "• വസ്തു തർക്കങ്ങളും RERA ബിൽഡർ പരാതികളും\n"
+                    "• കുടുംബ നിയമം (വിവാഹമോചനം, ജീവനാംശം)\n"
+                    "• മോട്ടോർ വാഹനാപകട നഷ്ടപരിഹാരം (MACT ക്ലെയിമുകൾ)\n"
+                    "• ക്രിമിനൽ നിയമവും പോലീസ് നടപടികളും (FIR, ജാമ്യം, BNS, BNSS)\n\n"
                     "ഇന്ന് ഞാൻ നിങ്ങളെ എങ്ങനെ സഹായിക്കണം? നിങ്ങളുടെ പ്രശ്നം പങ്കുവെക്കൂ."
                 )
             elif lang_str in ["ta", "tamil"]:
                 return (
-                    "வணக்கம்! நான் **LawPilot AI**, இந்தியாவின் அன்றாட சட்டச் சவால்களுக்கான உங்கள் சட்ட உதவியாளர்.\n\n"
-                    "நான் முக்கியமாக பின்வரும் பகுதிகளில் உங்களுக்கு உதவுகிறேன்:\n"
-                    "1. வாடகை மற்றும் நில உரிமையாளர் தகராறுகள் (முன்பணம் திரும்பப் பெறுதல்)\n"
-                    "2. நுகர்வோர் பாதுகாப்பு (குறைபாடுள்ள பொருட்கள், பணத்தைத் திரும்பப் பெறுதல்)\n"
-                    "3. வேலைவாய்ப்பு மற்றும் சம்பளம் (வழங்கப்படாத சம்பளம், பணி அனுபவக் கடிதம்)\n\n"
-                    "இன்று நான் உங்களுக்கு எவ்வாறு உதவ முடியும்? உங்கள் பிரச்சனையை விவரிக்கவும்."
+                    "வணக்கம்! நான் **LawPilot AI**, இந்தியாவின் அனைத்து வகையான சட்டச் சவால்களுக்கான உங்கள் நம்பகமான சட்ட உதவியாளர்.\n\n"
+                    "நான் பின்வரும் முக்கிய பிரிவுகளில் உங்களுக்கு வழிகாட்டுகிறேன்:\n"
+                    "• வாடகை மற்றும் நில உரிமையாளர் தகராறுகள் (முன்பணம் திரும்பப் பெறுதல்)\n"
+                    "• நுகர்வோர் பாதுகாப்பு (குறைபாடுள்ள பொருட்கள், பணத்தைத் திரும்பப் பெறுதல்)\n"
+                    "• வேலைவாய்ப்பு மற்றும் சம்பளம் (வழங்கப்படாத சம்பளம், பணி அனுபவக் கடிதம்)\n"
+                    "• சைபர் குற்றங்கள் மற்றும் ஆன்லைன் மோசடி (UPI மோசடி, 1930 உதவி எண்)\n"
+                    "• காசோலை பவுன்ஸ் & வங்கி விவகாரங்கள் (பிரிவு 138 NI சட்டம்)\n"
+                    "• சொத்து மற்றும் RERA தகராறுகள்\n"
+                    "• குடும்ப சட்டம் (விவாகரத்து, ஜீவனாம்சம்)\n"
+                    "• மோட்டார் வாகன விபத்து இழப்பீடு (MACT இழப்பீடு)\n"
+                    "• குற்றவியல் சட்டம் மற்றும் காவல் நடைமுறைகள் (FIR, ஜாமீன், BNS, BNSS)\n\n"
+                    "இன்று நான் உங்களுக்கு எவ்வாறு உதவ முடியும்? உங்கள் சட்டப் பிரச்சனையை விவரிக்கவும்."
                 )
             elif lang_str in ["te", "telugu"]:
                 return (
-                    "నమస్కారం! నేను **LawPilot AI**, భారతదేశంలో రోజువారీ పౌర చట్టపరమైన సవాళ్లలో మీ సహాయకుడిని.\n\n"
-                    "నేను ఈ మూడు ప్రధాన విభాగాలలో మీకు సహాయం చేయగలను:\n"
-                    "1. అద్దెదారు మరియు ఇంటి యజమాని వివాదాలు (డిపాజిట్ వాపసు)\n"
-                    "2. వినియోగదారుల రక్షణ (లోపభూయిష్ట వస్తువులు, రీఫండ్ ఆలస్యం)\n"
-                    "3. ఉపాధి మరియు వేతనాలు (చెల్లించని జీతం, రిలీవింగ్ లేఖ)\n\n"
+                    "నమస్కారం! నేను **LawPilot AI**, భారతదేశంలో చట్టపరమైన సమస్యలలో మీ విశ్వసనీయ సహాయకుడిని.\n\n"
+                    "నేను ఈ క్రింది విభాగాలలో మీకు సహాయం చేయగలను:\n"
+                    "• అద్దెదారు మరియు ఇంటి యజమాని వివాదాలు (డిపాజిట్ వాపసు)\n"
+                    "• వినియోగదారుల రక్షణ (లోపభూయిష్ట వస్తువులు, రీఫండ్ ఆలస్యం)\n"
+                    "• ఉపాధి మరియు వేతనాలు (చెల్లించని జీతం, రిలీవింగ్ లేఖ)\n"
+                    "• సైబర్ క్రైమ్ మరియు ఆన్‌లైన్ మోసాలు (UPI మోసం, 1930 హెల్ప్‌లైన్)\n"
+                    "• చెక్ బౌన్స్ & బ్యాంకింగ్ (సెక్షన్ 138 NI చట్టం)\n"
+                    "• ఆస్తి వివాదాలు మరియు RERA సమస్యలు\n"
+                    "• కుటుంబ చట్టం (విడాకులు, భరణం)\n"
+                    "• మోటారు వాహన ప్రమాద పరిహారం (MACT క్లెయిమ్‌లు)\n"
+                    "• క్రిమినల్ చట్టం మరియు పోలీస్ విధానాలు (FIR, బెయిల్, BNS, BNSS)\n\n"
                     "ఈ రోజు నేను మీకు ఎలా సహాయపడగలను? దయచేసి మీ సమస్యను తెలియజేయండి."
                 )
             elif lang_str in ["bn", "bengali"]:
                 return (
-                    "নমস্কার! আমি **LawPilot AI**, ভারতে দৈনন্দিন আইনি অধিকারের জন্য আপনার আইনি সহায়ক।\n\n"
-                    "আমি আপনাকে আপনার অধিকার বুঝতে এবং আইনি নোটিস তৈরি করতে সহায়তা করি:\n"
-                    "1. বাড়িওয়ালা ও ভাড়াটিয়া বিরোধ (সিকিউরিটি ডিপোজিট ফেরত)\n"
-                    "2. ভোক্তা অধিকার ও সুরক্ষা (ত্রুটিযুক্ত পণ্য, রিফান্ড সমস্যা)\n"
-                    "3. কর্মসংস্থান ও বেতন বিরোধ (বকেয়া বেতন, রিলিজ লেটার)\n\n"
+                    "নমস্কার! আমি **LawPilot AI**, ভারতের আইন বিষয়ক বিভিন্ন ক্ষেত্রে আপনার বিশ্বস্ত আইনি সহায়ক।\n\n"
+                    "আমি আপনাকে নিম্নলিখিত বিষয়ে সাহায্য করতে পারি:\n"
+                    "• বাড়িওয়ালা ও ভাড়াটিয়া বিরোধ (সিকিউরিটি ডিপোজিট ফেরত)\n"
+                    "• ভোক্তা অধিকার ও সুরক্ষা (ত্রুটিযুক্ত পণ্য, রিফান্ড)\n"
+                    "• কর্মসংস্থান ও বেতন বিরোধ (বকেয়া বেতন, রিলিজ লেটার)\n"
+                    "• সাইবার ক্রাইম ও অনলাইন প্রতারণা (UPI প্রতারণা, ১৯৩০ হেল্পলাইন)\n"
+                    "• চেক বাউন্স ও ব্যাংকিং (ধারা ১৩৮ NI অ্যাক্ট)\n"
+                    "• সম্পত্তি ও RERA বিরোধ\n"
+                    "• পারিবারিক আইন (বিবাহবিচ্ছেদ, খোরপোশ)\n"
+                    "• মোটর দুর্ঘটনা ক্ষতিপূরণ (MACT দাবি)\n"
+                    "• ফৌজদারি আইন ও পুলিশ প্রক্রিয়া (FIR, জামিন, BNS, BNSS)\n\n"
                     "আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি? আপনার সমস্যাটি জানান।"
                 )
             elif lang_str in ["hinglish"]:
                 return (
-                    "Hello! Main **LawPilot AI** hoon, India me everyday legal problems ke liye aapka legal assistant.\n\n"
-                    "Main aapko rights samjhne, evidence collect karne aur legal notices draft karne me madad karta hoon:\n"
-                    "1. Rental & Tenancy Issues (deposit refund, deductions, eviction)\n"
-                    "2. Consumer Protection (defective products, refund delays, e-commerce issues)\n"
-                    "3. Employment & Wages (unpaid salary, relieving letter, FnF settlement)\n\n"
-                    "Aap apni situation simple English, Hindi ya Hinglish me batayein — main aapko poori legal guidance dunga."
+                    "Hello! Main **LawPilot AI** hoon, India me legal problems ke liye aapka trusted legal assistant.\n\n"
+                    "Main aapko rights samjhne, evidence organize karne aur legal notices draft karne me help karta hoon across Indian law:\n"
+                    "• Rental & Tenancy Issues (security deposit refund, eviction protection)\n"
+                    "• Consumer Protection (defective products, refund delays, e-commerce issues)\n"
+                    "• Employment & Wages (unpaid salary, relieving letters, FnF settlement)\n"
+                    "• Cybercrime & Online Fraud (UPI scams, phishing, 1930 helpline)\n"
+                    "• Banking & Cheque Bounce (Section 138 NI Act, loan app issues)\n"
+                    "• Property & RERA (builder possession delay, land title issues)\n"
+                    "• Family & Matrimonial Law (divorce, maintenance under BNSS 144, custody)\n"
+                    "• Motor Accidents & MACT (compensation claims, hit and run)\n"
+                    "• Criminal Law & Police Procedures (FIR, anticipatory bail, BNS, BNSS)\n\n"
+                    "Aap apni situation simple English, Hindi ya Hinglish me batayein — main aapko statutory guidance aur practical steps samjhaunga."
                 )
             else:
                 return (
-                    "Hello! I am **LawPilot AI**, your expert conversational legal assistant for everyday civil challenges in India.\n\n"
-                    "I specialize in helping you understand your rights, evaluate evidence, and draft formal legal notices across three core areas:\n"
-                    "1. Rental & Tenancy Issues (security deposit refunds, unlawful deductions, eviction protection)\n"
-                    "2. Consumer Protection (defective goods, refund delays, e-commerce grievances)\n"
-                    "3. Employment & Wages (unpaid salary, withheld relieving letters, full & final settlement)\n\n"
-                    "How can I assist you today? Feel free to describe your situation in plain English, Hindi, or any Indian language."
+                    "Hello! I am **LawPilot AI**, your expert conversational legal assistant for legal rights across India.\n\n"
+                    "I assist ordinary citizens in understanding statutory rights, evaluating evidence, and drafting formal legal documents across key domains:\n"
+                    "• Rental & Tenancy Issues (security deposit refunds, eviction protection, Model Tenancy Act)\n"
+                    "• Consumer Protection (defective goods, refund delays, e-commerce grievances under CPA 2019)\n"
+                    "• Employment & Labour (unpaid salary under Payment of Wages Act, relieving letters, severance)\n"
+                    "• Cybercrime & Online Fraud (UPI scams, identity theft, IT Act, 1930 helpline)\n"
+                    "• Banking & Cheque Bounce (Section 138 NI Act, RBI Ombudsman redressal)\n"
+                    "• Property, Real Estate & Land (RERA builder delay refund, sale deeds, mutation)\n"
+                    "• Family & Matrimonial Law (divorce, maintenance under BNSS 144 / HMA 24, PWDVA)\n"
+                    "• Motor Vehicle Claims (MACT compensation under Section 166, hit and run)\n"
+                    "• Criminal Law & Police Procedure (FIR registration under BNSS 173, bail, BNS 2023)\n"
+                    "• Constitutional Rights, RTI & Regulatory Grievances (Writs, Article 21, RTI Act)\n\n"
+                    "How can I assist you today? Feel free to describe your legal situation in plain English, Hindi, or any Indian language."
                 )
 
         if any(p in lower_msg for p in ["what is your name", "who are you", "your name"]):
             if lang_str in ["gu", "gujarati"]:
                 return (
                     "હું **LawPilot AI** છું, ભારતના સામાન્ય નાગરિકો માટે એક બુદ્ધિશાળી કાનૂની સહાયક. "
-                    "હું તમને તમારા કાનૂની અધિકારો સમજવામાં, વૈધાનિક અધિકારોની ચકાસણી કરવામાં અને ભાડૂઆત વિવાદો, ગ્રાહક ફરિયાદો અને રોજગાર બાબતો માટે ઔપચારિક કાનૂની નોટિસ તૈયાર કરવામાં મદદ કરું છું."
+                    "હું તમને તમારા કાનૂની અધિકારો સમજવામાં, વૈધાનિક અધિકારોની ચકાસણી કરવામાં અને ભાડૂઆત વિવાદો, ગ્રાહક ફરિયાદો, રોજગાર, સાયબર ક્રાઈમ, ચેક બાઉન્સ, જમીન અને પારિવારિક બાબતો માટે ઔપચારિક કાનૂની દસ્તાવેજો તૈયાર કરવામાં મદદ કરું છું."
                 )
             return (
                 "I am **LawPilot AI**, an intelligent legal assistant for ordinary citizens in India. "
-                "I help you understand your legal standing, verify statutory rights, and draft formal notices for tenancy disputes, consumer complaints, and employment matters."
+                "I help you understand your legal standing, verify statutory rights under Indian law, and draft formal legal notices and complaints across civil, criminal, property, family, consumer, employment, and cyber domains."
             )
 
         if any(p in lower_msg for p in ["what can you help me with", "what do you do", "help me with"]):
             if lang_str in ["gu", "gujarati"]:
                 return (
-                    "LawPilot AI ભારતમાં ત્રણ મુખ્ય દીવાની કાનૂની ક્ષેત્રોમાં સામાન્ય નાગરિકોને મદદ કરે છે:\n\n"
-                    "1. ભાડૂઆત અને મકાનમાલિક વિવાદો: સિક્યોરિટી ડિપોઝિટ પરત ન મળવી, કલરકામ/સમારકામની અન્યાયી કપાત, ગેરકાયદેસર રીતે મકાન ખાલી કરાવવાની ધમકીઓ.\n"
-                    "2. ગ્રાહક સુરક્ષા: ખામીયુક્ત કે ક્ષતિગ્રસ્ત ઉત્પાદનો, રિફંડ ન મળવું, ઈ-કોમર્સ છેતરપિંડી (ગ્રાહક સુરક્ષા કાયદો, 2019).\n"
-                    "3. રોજગાર અને વેતન: અટકેલો પગાર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટમાં વિલંબ, ગેરકાયદેસર કપાત અને અનુભવ પત્ર રોકી રાખવો (પેમેન્ટ ઓફ વેજીસ એક્ટ).\n\n"
-                    "તમે ભાડા કરાર અથવા બિલ પણ જોડી શકો છો, અથવા સીધા ચેટમાં ઔપચારિક કાનૂની માંગ નોટિસ તૈયાર કરી શકો છો."
+                    "LawPilot AI ભારતમાં સામાન્ય નાગરિકોને તમામ મુખ્ય કાનૂની બાબતોમાં મદદ કરે છે:\n\n"
+                    "૧. ભાડૂઆત અને મકાનમાલિક: સિક્યોરિટી ડિપોઝિટ, અન્યાયી કપાત, ખાલી કરાવવાની ધમકીઓ.\n"
+                    "૨. ગ્રાહક સુરક્ષા: ખામીયુક્ત સામાન, રિફંડમાં વિલંબ, ઈ-કોમર્સ છેતરપિંડી (CPA 2019).\n"
+                    "૩. રોજગાર અને વેતન: અટકેલો પગાર, ફુલ એન્ડ ફાઇનલ સેટલમેન્ટ, અનુભવ પત્ર.\n"
+                    "૪. સાયબર ક્રાઈમ: ઓનલાઇન નાણાકીય છેતરપિંડી, UPI ફ્રોડ, હેલ્પલાઇન 1930.\n"
+                    "૫. ચેક બાઉન્સ: કલમ 138 નેગોશિયેબલ ઇન્સ્ટ્રુમેન્ટ્સ એક્ટ હેઠળ 15 દિવસની કાનૂની નોટિસ.\n"
+                    "૬. મિલકત અને રેરા: બિલ્ડર દ્વારા ફ્લેટ સોંપવામાં વિલંબ, જમીન વિવાદ.\n"
+                    "૭. પારિવારિક કાયદો: છૂટાછેડા, ભરણપોષણ, ઘરેલું હિંસા.\n"
+                    "૮. મોટર વાહન અકસ્માત: MACT હેઠળ વળતરનો દાવો.\n\n"
+                    "તમે દસ્તાવેજો જોડી શકો છો અથવા સીધા ચેટમાં ઔપચારિક કાનૂની નોટિસ તૈયાર કરી શકો છો."
                 )
             return (
-                "LawPilot AI assists ordinary citizens across three core civil legal domains in India:\n\n"
-                "1. Tenant & Landlord Disputes: Security deposit non-refunds, arbitrary painting/repair deductions, unlawful eviction threats, and rent agreements.\n"
-                "2. Consumer Protection: Defective or damaged products, uncredited refunds, e-commerce fraud, and deficiency of services under CPA 2019.\n"
-                "3. Employment & Wages: Unpaid salary dues, delayed FnF settlements, illegal deductions, and withheld relieving letters under the Payment of Wages Act.\n\n"
-                "You can also attach rent agreements or invoices, or generate formal legal demand notices directly in the chat."
+                "LawPilot AI assists ordinary citizens across major legal domains in India:\n\n"
+                "1. Tenant & Landlord: Security deposits, wear and tear, eviction protection under Model Tenancy Act & TPA.\n"
+                "2. Consumer Protection: Defective goods, refund delays, e-commerce fraud under CPA 2019 & E-Commerce Rules.\n"
+                "3. Employment & Wages: Unpaid salary, delayed FnF settlements, illegal deductions under Payment of Wages Act.\n"
+                "4. Cybercrime & IT Law: UPI/banking frauds, identity theft, leaked data, reporting to 1930 / cybercrime.gov.in.\n"
+                "5. Banking & Cheques: 15-day statutory notices for cheque bounce under Section 138 NI Act, RBI Ombudsman.\n"
+                "6. Property & Real Estate: Builder delivery delays under Section 18 RERA, title verification, sale deeds.\n"
+                "7. Family Law: Divorce, maintenance under Section 144 BNSS / Section 24 HMA, domestic violence under PWDVA.\n"
+                "8. Motor Accidents: Compensation claims before MACT under Section 166, hit-and-run relief under Section 161.\n"
+                "9. Criminal Law: FIR rights under Section 173 BNSS, arrest safeguards under Section 35, anticipatory bail.\n"
+                "10. Constitutional Rights & RTI: Writs under Articles 32/226, Section 6 RTI applications, NGT pollution complaints.\n\n"
+                "You can explain your issue in plain language, upload agreements/invoices, or generate formal legal notices directly in the chat."
             )
 
         if any(p in lower_msg for p in ["what is 2 + 2", "what is 2+2", "2 + 2", "2+2"]):
@@ -1691,8 +1772,36 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         headers = lang_info["headers"]
 
         system_instruction = (
-            "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens in India.\n"
-            "You cover 3 everyday domains: (1) Tenant & Landlord Disputes, (2) Consumer Protection, (3) Employment Issues.\n\n"
+            "You are LawPilot AI, an expert, ethical Indian legal assistant designed for ordinary citizens across India.\n"
+            "You provide comprehensive legal guidance across all major domains of Indian law, including:\n"
+            "- Criminal Law & Procedure (BNS 2023, BNSS 2023, BSA 2023, FIR rights, Bail, Arrest safeguards)\n"
+            "- Civil Disputes & Procedure (CPC 1908, Specific Relief Act 1963, Limitation Act 1963, Injunctions)\n"
+            "- Property, Land & Real Estate (RERA 2016, Transfer of Property Act 1882, Builder Delays, Mutation)\n"
+            "- Family Law, Marriage & Maintenance (Hindu Marriage Act 1955, Special Marriage Act 1954, PWDVA 2005, BNSS Sec 144)\n"
+            "- Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020, e-Daakhil, NCH 1915)\n"
+            "- Employment & Labour (Payment of Wages 1936, Industrial Disputes 1947, POSH Act 2013, Gratuity 1972)\n"
+            "- Tenant & Landlord Disputes (Model Tenancy Act 2021, TPA 1882, State Rent Control Acts)\n"
+            "- Cybercrime & Online Fraud (IT Act 2000, 1930 Portal, DPDP Act 2023, UPI frauds, Sextortion)\n"
+            "- Banking, Loans & Finance (Section 138 NI Act, SARFAESI Act 2002, RBI Integrated Ombudsman)\n"
+            "- Contract & Business Law (Indian Contract Act 1872, Sale of Goods Act 1930, Partnership Act 1932)\n"
+            "- Intellectual Property Rights (Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970)\n"
+            "- Motor Vehicle & Accident Claims (Motor Vehicles Act 1988/2019, MACT Sec 166, Hit & Run Sec 161)\n"
+            "- Constitutional Rights & Fundamental Rights (Constitution of India Articles 14, 19, 21, 32, 226 Writs)\n"
+            "- Taxation & Regulatory (Income Tax Act 1961 Sec 148, CGST Act 2017, RTI Act 2005)\n"
+            "- Inheritance, Wills & Succession (Hindu Succession Act 1956 Sec 6 Coparcenary, Indian Succession Act 1925)\n"
+            "- Women & Child Protection (POCSO Act 2012, Dowry Prohibition Act 1961, Juvenile Justice Act 2015)\n"
+            "- Education & Service Disputes (RTE Act 2009 Sec 12, Central Administrative Tribunal Act 1985)\n"
+            "- Environmental Law (National Green Tribunal Act 2010, Environment Protection Act 1986)\n"
+            "- Free Legal Aid (Legal Services Authorities Act 1987, NALSA/DLSA)\n\n"
+            "====================================================================================\n"
+            "TRANSITIONAL CRIMINAL LAW DIRECTIVE (Effective 1 July 2024):\n"
+            "The Bharatiya Nyaya Sanhita, 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS), and Bharatiya Sakshya Adhiniyam, 2023 (BSA) came into force on 1 July 2024, replacing the Indian Penal Code (IPC), Code of Criminal Procedure (CrPC), and Indian Evidence Act (IEA).\n"
+            "- For offences committed on or after 1 July 2024, BNS and BNSS apply.\n"
+            "- For offences committed prior to 1 July 2024, IPC and CrPC apply.\n"
+            "Always state this transitional distinction clearly when discussing criminal offences or procedures.\n\n"
+            "GROUNDING & CLICKABLE OFFICIAL SOURCES DIRECTIVE:\n"
+            "When citing verified statutes or government portals from the statutory context below, provide clickable Markdown links so the citizen can verify the law at authoritative official sources (e.g. [The Bharatiya Nyaya Sanhita, 2023](https://www.indiacode.nic.in/handle/123456789/22002) or [National Cyber Crime Reporting Portal (1930)](https://cybercrime.gov.in/)).\n"
+            "Never invent section numbers, court judgments, or fake URLs. If reliable documentation is unavailable on a specific local point, clearly state that limitation.\n\n"
             "====================================================================================\n"
             "MANDATORY MULTILINGUAL RESPONSE DIRECTIVE:\n"
             "Always identify the language of the user's latest message and respond in that same language. "
@@ -1760,7 +1869,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
         req_id = f"req_{uuid.uuid4().hex[:8]}"
         case = CaseBuilder.extract_case(message, state_jurisdiction=state_jurisdiction)
         citations = LegalKnowledgeBase.retrieve_grounded_laws(message, case.category, state=state_jurisdiction)
-        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
+        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description} [Official Source: {c.official_url}]" for c in citations])
 
         # Pre-screen safety guardrails
         is_med, med_reply = EscalationDetector.check_medical_emergency(message)
@@ -1919,7 +2028,7 @@ class GeminiInteractionsProvider(BaseLLMProvider):
             return
 
         # 5. Genuine Google Gemini SSE Streaming
-        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description}" for c in citations])
+        statutory_context = "\n".join([f"- {c.act_name} {c.section}: {c.title} — {c.description} [Official Source: {c.official_url}]" for c in citations])
         full_prompt = self._build_prompt(message, conversation_history, lang_str, statutory_context)
 
         stream_models = ["gemini-3.1-flash-lite", "gemini-3-flash-preview", "gemini-flash-lite-latest"]

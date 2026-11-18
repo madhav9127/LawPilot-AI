@@ -81,17 +81,67 @@ def generate_conversation_title(message: str, category: Optional[CaseCategoryEnu
     if any(k in lower for k in ["warranty", "guarantee", "service center", "repair refusal"]):
         return "Consumer Warranty Grievance"
 
-    # 5. Legal Notices & Documents
+    # 5. Cybercrime & Online Fraud
+    if any(k in lower for k in ["cyber", "hacked", "upi", "phishing", "otp fraud", "online fraud", "identity theft", "1930"]):
+        return "Cyber Fraud Grievance"
+
+    # 6. Banking & Cheque Bounce
+    if any(k in lower for k in ["cheque bounce", "dishonour", "138", "bounced cheque", "loan app", "sarfaesi", "recovery agent"]):
+        return "Cheque Bounce & Banking"
+
+    # 7. Real Estate, Builder & Land
+    if any(k in lower for k in ["rera", "builder delay", "possession delay", "sale deed", "encroachment", "mutation", "patta", "land dispute"]):
+        return "Property & Real Estate"
+
+    # 8. Family, Divorce & Maintenance
+    if any(k in lower for k in ["divorce", "mutual consent", "alimony", "maintenance", "custody", "domestic violence", "pwdva"]):
+        return "Family & Matrimonial Law"
+
+    # 9. Criminal Law & Police
+    if any(k in lower for k in ["fir", "bail", "anticipatory bail", "police complaint", "arrest", "theft", "assault", "bns", "bnss"]):
+        return "Criminal Law Guidance"
+
+    # 10. Succession & Inheritance
+    if any(k in lower for k in ["will", "vasiyat", "ancestral property", "coparcenary", "inheritance", "succession", "legal heir"]):
+        return "Inheritance & Succession"
+
+    # 11. Motor Accidents & MACT
+    if any(k in lower for k in ["mact", "accident claim", "hit and run", "road accident", "third party insurance"]):
+        return "Motor Accident Compensation"
+
+    # 12. Legal Notices & Documents
     if any(k in lower for k in ["legal notice", "court notice", "notice received", "got a notice", "vakil ka notice"]):
         return "Legal Notice Assistance"
 
-    # 6. Category-based fallback if detected
+    # 13. Category-based fallback if detected
     if category == CaseCategoryEnum.TENANT:
         return "Tenant Rights Issue"
     elif category == CaseCategoryEnum.EMPLOYMENT:
         return "Employment Rights Issue"
     elif category == CaseCategoryEnum.CONSUMER:
         return "Consumer Rights Issue"
+    elif category == CaseCategoryEnum.CYBER:
+        return "Cybercrime Assistance"
+    elif category == CaseCategoryEnum.BANKING:
+        return "Banking Law Guidance"
+    elif category == CaseCategoryEnum.PROPERTY:
+        return "Property Law Guidance"
+    elif category == CaseCategoryEnum.FAMILY:
+        return "Family Law Guidance"
+    elif category == CaseCategoryEnum.CRIMINAL:
+        return "Criminal Law Rights"
+    elif category == CaseCategoryEnum.SUCCESSION:
+        return "Succession & Rights"
+    elif category == CaseCategoryEnum.MOTOR_VEHICLE:
+        return "Motor Accident Rights"
+    elif category == CaseCategoryEnum.CONTRACT:
+        return "Contract Dispute Guidance"
+    elif category == CaseCategoryEnum.CONSTITUTIONAL:
+        return "Constitutional Rights"
+    elif category == CaseCategoryEnum.TAXATION:
+        return "Taxation & Regulatory"
+    elif category == CaseCategoryEnum.ENVIRONMENTAL:
+        return "Environmental Grievance"
 
     # 7. Intelligent generic fallback: extract key content words (2-4 words)
     # Remove common filler words

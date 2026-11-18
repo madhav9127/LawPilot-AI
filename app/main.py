@@ -109,10 +109,25 @@ def system_status():
             "total_statutory_provisions": total_statutes,
             "retrieval_mode": "Statutory Keyword & Vector Pre-Retrieval",
             "source_categories": [
-                "Tenancy & Rent Control (Transfer of Property Act 1882, Model Tenancy Act 2021, State Rent Control Acts)",
-                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020)",
-                "Employment & Wages (Payment of Wages Act 1936, Industrial Disputes Act 1947, Contract Act 1872)",
-                "Procedural & Evidentiary (Specific Relief Act 1963, e-Daakhil, NCH 1915)"
+                "Criminal Law & Procedure (BNS 2023, BNSS 2023, BSA 2023, IPC/CrPC transitions, FIRs, Bail)",
+                "Civil Disputes & Procedure (CPC 1908, Specific Relief Act 1963, Limitation Act 1963)",
+                "Property, Land & Real Estate (RERA 2016, Transfer of Property Act 1882, Registration Act 1908)",
+                "Family Law, Marriage & Maintenance (Hindu Marriage Act 1955, Special Marriage Act 1954, PWDVA 2005, BNSS Sec 144)",
+                "Consumer Protection (Consumer Protection Act 2019, E-Commerce Rules 2020, e-Daakhil, NCH 1915)",
+                "Employment & Labour (Payment of Wages 1936, Industrial Disputes 1947, POSH Act 2013, Gratuity 1972)",
+                "Tenant & Landlord Disputes (Model Tenancy Act 2021, TPA 1882, State Rent Control Acts)",
+                "Cybercrime & IT Law (Information Technology Act 2000, 1930 Portal, DPDP Act 2023)",
+                "Banking, Loans & Finance (Negotiable Instruments Act Sec 138, SARFAESI Act 2002, RBI Ombudsman 2021)",
+                "Contract & Business Law (Indian Contract Act 1872, Sale of Goods Act 1930, Partnership Act 1932)",
+                "Intellectual Property Rights (Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970)",
+                "Motor Vehicle & Accident Claims (Motor Vehicles Act 1988/2019, MACT Sec 166, Hit & Run Sec 161)",
+                "Constitutional & Fundamental Rights (Constitution of India Articles 14, 19, 21, 32, 226 Writs)",
+                "Taxation & Regulatory Matters (Income Tax Act 1961 Sec 148, CGST Act 2017, RTI Act 2005)",
+                "Inheritance, Wills & Succession (Hindu Succession Act 1956 Sec 6 Coparcenary, Indian Succession Act 1925)",
+                "Women & Child Protection (POCSO Act 2012, Dowry Prohibition Act 1961, Juvenile Justice Act 2015)",
+                "Education & Service Disputes (RTE Act 2009 Sec 12, Central Administrative Tribunal Act 1985)",
+                "Environmental Law (National Green Tribunal Act 2010, Environment Protection Act 1986)",
+                "Legal Services & Free Aid (Legal Services Authorities Act 1987, NALSA/SLSA/DLSA)"
             ],
             "grounding_disclaimer": "Statutory analysis is grounded in verified Indian statutes and official government gazette databases. This system provides legal guidance; it does not claim exhaustive statutory coverage and does not substitute for an enrolled advocate."
         },
@@ -120,7 +135,7 @@ def system_status():
             "multilingual_support": "Automatic language detection across English, Hindi, Gujarati, Marathi, Tamil, Telugu, Malayalam, Bengali, and Hinglish",
             "voice_input": "Web Speech Recognition with Real-Time Audio Track",
             "conversation_memory": "Multi-turn session memory with isolated context window and persistent history",
-            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices)"
+            "document_generation": "Active (Instant PDF & Word DOCX generation for legal demand notices, cheque bounce notices, police complaints, cyber reports, RTI applications)"
         },
         "safety": {
             "legal_uncertainty_handling": "Explicit statutory ambiguity caveats, jurisdictional variance notices, and advisory disclaimers",
@@ -314,7 +329,11 @@ def generate_document(req: DocumentGenerationRequest):
         DocumentTypeEnum.REFUND_REQUEST_LETTER: "Refund Request Letter",
         DocumentTypeEnum.FINAL_SETTLEMENT_REQUEST: "Full & Final Settlement Clearance Notice",
         DocumentTypeEnum.NOTICE_REPLY: "Reply to Legal Notice",
-        DocumentTypeEnum.ADVOCATE_BRIEF: "Advocate Briefing Summary"
+        DocumentTypeEnum.ADVOCATE_BRIEF: "Advocate Briefing Summary",
+        DocumentTypeEnum.CHEQUE_BOUNCE_NOTICE: "Statutory Demand Notice under Section 138 NI Act",
+        DocumentTypeEnum.POLICE_COMPLAINT: "Draft Police Complaint (Section 173 BNSS / 154 CrPC)",
+        DocumentTypeEnum.RTI_APPLICATION: "RTI Application under Section 6(1)",
+        DocumentTypeEnum.MACT_CLAIM_NOTICE: "Motor Accident Claim Notice (MACT Section 166)"
     }
     title = titles.get(req.doc_type, "Legal Notice Draft")
     return DocumentResponse(

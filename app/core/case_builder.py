@@ -23,6 +23,66 @@ class CaseBuilder:
         r"\b(salary|employee|employer|boss|company|job|resigned|resignation|appointment letter|wages|dues|full and final|fnf|relieving letter|payslip|pf|workplace|manager|naukri|vetan|tanakhwah|kaam)\b",
         r"(પગાર|નિયોક્તા|કંપની|वेतन|नियोक्ता|तनख्वाह|തൊഴിലുടമ|ശമ്പളം|சம்பளம்|நிறுவனம்|జీతం|యజమాని|বেতন|নিয়োগকর্তা|ಸಂಬಳ)"
     ]
+    CYBER_KEYWORDS = [
+        r"\b(cyber|hacked|hacking|upi|phishing|otp|online fraud|identity theft|leaked photo|nude|morphing|sextortion|1930|cybercrime|fake profile|account takeover)\b",
+        r"(सायबर|हॅक|ऑनलाइन फसवणूक|સાયબર|ઓનલાઇન છેતરપિંડી|സൈബർ|சைபர்)"
+    ]
+    BANKING_KEYWORDS = [
+        r"\b(cheque|cheque bounce|dishonour|138|ni act|bounced cheque|loan default|npa|sarfaesi|recovery agent|bank ombudsman|loan app|emi|bank account freeze)\b",
+        r"(चेक बाउंस|धनादेश|बँक|खाते गोठवले|ચેક બાઉન્સ|ബാങ്ക്|வங்கி)"
+    ]
+    CRIMINAL_KEYWORDS = [
+        r"\b(fir|police|arrest|anticipatory bail|bail|theft|chori|assault|beaten|threat to kill|bns|bnss|ipc|crpc|warrant|charge sheet|criminal intimidation|defamation)\b",
+        r"(पोलीस|एफआयआर|जामीन|चोरी|ધમકી|પોલીસ|જામીન|പോലീസ്|ஜாமீன்|పోలీస్)"
+    ]
+    PROPERTY_KEYWORDS = [
+        r"\b(builder delay|rera|possession delay|flat possession|sale deed|mutation|patta|khata|encroachment|boundary dispute|land dispute|allottee|7/12|satbara)\b",
+        r"(जमीन|बिल्डर|रेरा|सातबारा|જમીન|દસ્તાવેજ|భూమి|நிலம்)"
+    ]
+    FAMILY_KEYWORDS = [
+        r"\b(divorce|mutual consent divorce|cruelty|alimony|maintenance|child custody|visitation|domestic violence|pwdva|hindu marriage act|hma|matrimonial)\b",
+        r"(घटस्फोट|पोटगी|घरगुती हिंसाचार|છૂટાછેડા|ભરણપોષણ|വിവാഹമോചനം|விவாகரத்து|విడాకులు)"
+    ]
+    SUCCESSION_KEYWORDS = [
+        r"\b(will|vasiyat|inheritance|ancestral property|coparcenary|daughter share|succession|probate|legal heir certificate|heir)\b",
+        r"(वारसा|इच्छापत्र|वारसदार|વારસો|વારસદાર|പൈതൃകം|வாரிசு)"
+    ]
+    CONTRACT_KEYWORDS = [
+        r"\b(breach of contract|agreement broken|damages|liquidated damages|penalty clause|commercial agreement|vendor dispute|partnership|sale of goods)\b",
+        r"(करार मोडला|व्यापारी करार|કરાર ભંગ|ஒப்பந்த மீறல்)"
+    ]
+    IPR_KEYWORDS = [
+        r"\b(trademark|copyright|patent|infringement|piracy|stolen logo|brand name copied|passing off|counterfeit)\b",
+        r"(ट्रेडमार्क|कॉपीराइट|ટ્રેડમાર્ક|பதிப்புரிமை)"
+    ]
+    MOTOR_VEHICLE_KEYWORDS = [
+        r"\b(mact|accident claim|hit and run|car accident|road accident|motor accident compensation|third party insurance|traffic challan)\b",
+        r"(अपघात|मोटार अपघात|અકસ્માત|விபத்து|ప్రమాదం)"
+    ]
+    CONSTITUTIONAL_KEYWORDS = [
+        r"\b(fundamental right|article 21|article 32|article 226|writ petition|habeas corpus|mandamus|unlawful detention|liberty)\b",
+        r"(मूलभूत हक्क|घटनात्मक|મૂળભૂત અધિકાર|அடிப்படை உரிமை)"
+    ]
+    TAXATION_KEYWORDS = [
+        r"\b(income tax notice|148 notice|tax scrutiny|gst notice|escaped assessment|tax penalty|rti|right to information|pio)\b",
+        r"(आयकर|माहिती अधिकार|આવકવેરો|માહિતી અધિકાર|தகவல் அறியும் உரிமை)"
+    ]
+    WOMEN_CHILD_KEYWORDS = [
+        r"\b(pocso|child abuse|dowry|dahej|dowry demand|498a|child cruelty|juvenile)\b",
+        r"(हुंडा|पोक्सो|દહેજ|வரதட்சணை|వరకట్నం)"
+    ]
+    EDUCATION_SERVICE_KEYWORDS = [
+        r"\b(rte|25% quota|ews admission|central administrative tribunal|cat|service dispute|pension withheld|promotion dispute)\b",
+        r"(शिक्षण हक्क|पेन्शन|શિક્ષણ અધિકાર|கல்வி உரிமை)"
+    ]
+    ENVIRONMENTAL_KEYWORDS = [
+        r"\b(ngt|national green tribunal|pollution|factory smoke|industrial waste|toxic effluent|tree cutting|environmental damage)\b",
+        r"(प्रदूषण|पर्यावरण|હવા પ્રદૂષણ|சுற்றுச்சூழல்)"
+    ]
+    CIVIL_KEYWORDS = [
+        r"\b(civil suit|stay order|injunction|temporary injunction|order 39|summary suit|specific performance|dispossessed)\b",
+        r"(दिवाणी दावा|मनाई हुकूम|દિવાની દાવો|தடை உத்தரவு)"
+    ]
 
     # Currency extraction regex patterns
     CURRENCY_PATTERNS = [
@@ -101,6 +161,81 @@ class CaseBuilder:
                 elif "appointment" in lower_text or "contract" in lower_text:
                     sub = "contract_or_appointment_dispute"
                 return (CaseCategoryEnum.EMPLOYMENT, sub)
+
+        # Check Cyber & Online Fraud
+        for pattern in cls.CYBER_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.CYBER, "cybercrime_or_online_fraud")
+
+        # Check Banking & Cheque Bounce
+        for pattern in cls.BANKING_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.BANKING, "banking_or_cheque_bounce")
+
+        # Check Criminal Law
+        for pattern in cls.CRIMINAL_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.CRIMINAL, "criminal_offence_or_procedure")
+
+        # Check Property & RERA
+        for pattern in cls.PROPERTY_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.PROPERTY, "real_estate_or_land_dispute")
+
+        # Check Family Law
+        for pattern in cls.FAMILY_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.FAMILY, "matrimonial_or_family_dispute")
+
+        # Check Succession & Wills
+        for pattern in cls.SUCCESSION_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.SUCCESSION, "succession_or_inheritance")
+
+        # Check Contract & Commercial
+        for pattern in cls.CONTRACT_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.CONTRACT, "contract_breach_or_commercial")
+
+        # Check Intellectual Property
+        for pattern in cls.IPR_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.IPR, "ipr_infringement")
+
+        # Check Motor Vehicle Claims
+        for pattern in cls.MOTOR_VEHICLE_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.MOTOR_VEHICLE, "mact_or_vehicle_accident")
+
+        # Check Constitutional Rights
+        for pattern in cls.CONSTITUTIONAL_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.CONSTITUTIONAL, "constitutional_or_fundamental_rights")
+
+        # Check Taxation & RTI
+        for pattern in cls.TAXATION_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.TAXATION, "taxation_or_regulatory")
+
+        # Check Women & Child Protection
+        for pattern in cls.WOMEN_CHILD_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.WOMEN_CHILD, "women_or_child_protection")
+
+        # Check Education & Service
+        for pattern in cls.EDUCATION_SERVICE_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.EDUCATION_SERVICE, "education_or_service_dispute")
+
+        # Check Environmental Law
+        for pattern in cls.ENVIRONMENTAL_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.ENVIRONMENTAL, "environmental_or_pollution_dispute")
+
+        # Check Civil Litigation
+        for pattern in cls.CIVIL_KEYWORDS:
+            if re.search(pattern, lower_text):
+                return (CaseCategoryEnum.CIVIL, "civil_litigation_or_injunction")
 
         return (CaseCategoryEnum.GENERAL, "general_inquiry")
 

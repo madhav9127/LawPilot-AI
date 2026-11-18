@@ -19,9 +19,24 @@ class LanguageEnum(str, Enum):
     AUTO = "auto"
 
 class CaseCategoryEnum(str, Enum):
-    TENANT = "tenant"
+    CRIMINAL = "criminal"
+    CIVIL = "civil"
+    PROPERTY = "property"
+    FAMILY = "family"
     CONSUMER = "consumer"
     EMPLOYMENT = "employment"
+    TENANT = "tenant"
+    CYBER = "cyber"
+    BANKING = "banking"
+    CONTRACT = "contract"
+    IPR = "ipr"
+    MOTOR_VEHICLE = "motor_vehicle"
+    CONSTITUTIONAL = "constitutional"
+    TAXATION = "taxation"
+    SUCCESSION = "succession"
+    WOMEN_CHILD = "women_child"
+    EDUCATION_SERVICE = "education_service"
+    ENVIRONMENTAL = "environmental"
     GENERAL = "general"
 
 class EvidenceStatusEnum(str, Enum):
@@ -99,6 +114,10 @@ class DocumentTypeEnum(str, Enum):
     FINAL_SETTLEMENT_REQUEST = "final_settlement_request"
     NOTICE_REPLY = "notice_reply"
     ADVOCATE_BRIEF = "advocate_brief_summary"
+    CHEQUE_BOUNCE_NOTICE = "cheque_bounce_notice"
+    POLICE_COMPLAINT = "police_complaint_draft"
+    RTI_APPLICATION = "rti_application_draft"
+    MACT_CLAIM_NOTICE = "mact_claim_notice"
 
 class DocumentGenerationRequest(BaseModel):
     doc_type: DocumentTypeEnum

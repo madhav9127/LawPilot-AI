@@ -406,17 +406,31 @@ class IntentGate:
 
         # Semantic Legal Intent: Rights, disputes, wrongs, liabilities, authorities, remedies, procedures
         legal_semantic_intent = bool(re.search(
-            r"\b(?:fir|police|complaint|arrest|bail|anticipatory|warrant|summons|charge\s*sheet|magistrate|court|judge|advocate|lawyer|bns|bnss|bsa|ipc|crpc|evidence|statute|statutory|offence|crime|cheating|fraud|theft|assault|extortion|defamation|contempt|habeas\s*corpus|mandamus|writ|appeal|revision|tribunal|quash|"
-            r"notice|legal\s*notice|court\s*notice|notice\s*received|received\s*a\s*notice|deposit|rent|tenant|landlord|eviction|evict|lease|agreement|possession|encroachment|property|land|registration|sub-registrar|mutation|patta|khata|rera|partition|will|probate|succession|legal\s*heir|gift\s*deed|sale\s*deed|title|trespass|boundary|trespassing|occupying\s*my\s*land|cut\s+down\s+a\s+tree|bachelors\s+from\s+renting|housing\s+society|rwa|residents\s+welfare|"
-            r"consumer|defective|refund|replacement|warranty|guarantee|e-commerce|seller|unfair\s*trade|deficiency\s*in\s*service|nch|e-daakhil|district\s*forum|ncdrc|contract|breach|damages|penalty|indemnity|promissory\s*note|arbitration|mediation|lok\s*adalat|"
+            r"\b(?:fir|police|complaint|arrest|bail|anticipatory|warrant|summons|charge\s*sheet|magistrate|court|judge|advocate|lawyer|bns|bnss|bsa|ipc|crpc|evidence|statute|statutory|offence|crime|cheating|fraud|theft|assault|extortion|defamation|contempt|habeas\s*corpus|mandamus|writ|appeal|revision|tribunal|quash|zero\s*fir|e-fir|"
+            r"notice|legal\s*notice|court\s*notice|notice\s*received|received\s*a\s*notice|deposit|rent|tenant|landlord|eviction|evict|lease|agreement|possession|encroachment|property|land|registration|sub-registrar|mutation|patta|khata|satbara|7/12|rera|partition|will|probate|succession|ancestral\s*property|coparcenary|legal\s*heir|gift\s*deed|sale\s*deed|title|trespass|boundary|trespassing|occupying\s*my\s*land|cut\s+down\s+a\s+tree|bachelors\s+from\s+renting|housing\s+society|rwa|residents\s+welfare|"
+            r"consumer|defective|refund|replacement|warranty|guarantee|e-commerce|seller|unfair\s*trade|deficiency\s*in\s*service|nch|e-daakhil|district\s*forum|ncdrc|contract|breach|damages|penalty|indemnity|promissory\s*note|arbitration|mediation|lok\s*adalat|specific\s*performance|"
             r"salary|wages|employer|employee|workplace|termination|terminate|resignation|fired|relieving|experience\s*(?:certificate|letter)|gratuity|provident\s*fund|pf|bonus|posh|harassment|discrimination|severance|labour\s*court|labour\s*commissioner|dues|withheld|full\s*and\s*final|"
-            r"cheque|cheque\s*bounce|dishonour|section\s*138|ni\s*act|bank\s*account|account\s*freeze|cyber\s*fraud|online\s*fraud|hacked|phishing|upi|unauthorized\s*transaction|rbi\s*ombudsman|insurance|claim\s*rejected|claim\s*was\s*rejected|policy|tax|income\s*tax|gst|tax\s*notice|scrutiny|challan|traffic\s*challan|meter\s*tampering|electricity\s*board|electricity\s*act|seize\s*my\s*(?:personal\s+)?smartphone|"
-            r"divorce|maintenance|alimony|custody|child\s*support|restitution|hindu\s*marriage|special\s*marriage|muslim\s*marriage|pwdva|domestic\s*violence|dowry|498a|"
-            r"trademark|copyright|patent|infringement|piracy|intellectual\s*property|defaming|fake\s*(?:1-star\s+)?reviews|rti|right\s*to\s*information|pio|first\s*appeal|mact|motor\s*accident|accident\s*claim|pollution|ngt|citizenship|passport\s*impounded|"
+            r"cheque|cheque\s*bounce|dishonour|section\s*138|ni\s*act|bank\s*account|account\s*freeze|sarfaesi|loan\s*app|loan\s*default|recovery\s*agent|drt|cyber\s*fraud|online\s*fraud|hacked|phishing|upi|unauthorized\s*transaction|rbi\s*ombudsman|insurance|claim\s*rejected|claim\s*was\s*rejected|policy|tax|income\s*tax|gst|tax\s*notice|scrutiny|challan|traffic\s*challan|meter\s*tampering|electricity\s*board|electricity\s*act|seize\s*my\s*(?:personal\s+)?smartphone|"
+            r"divorce|maintenance|alimony|custody|child\s*support|restitution|hindu\s*marriage|special\s*marriage|muslim\s*marriage|pwdva|domestic\s*violence|dowry|498a|pocso|child\s*abuse|"
+            r"trademark|copyright|patent|infringement|piracy|intellectual\s*property|defaming|fake\s*(?:1-star\s+)?reviews|rti|right\s*to\s*information|pio|first\s*appeal|mact|motor\s*accident|accident\s*claim|hit\s*and\s*run|pollution|ngt|citizenship|passport\s*impounded|rte|central\s*administrative\s*tribunal|free\s*legal\s*aid|nalsa|dlsa|"
             r"section\s+\d+|order\s+\d+|article\s+\d+|rule\s+\d+|act\s+of\s+\d{4}|tenancy\s+act|consumer\s+protection\s+act|penal\s+code|civil\s+procedure|criminal\s+procedure)\b",
             norm_text
         )) or bool(re.search(
-            r"(?:डिपॉज़िट|वेतन|किराया|मकान\s*मालिक|सैलरी|रिफंड|दोषपूर्ण|नोटीस|एफआईआर|जमानत|तलाक|घरेलू\s*हिंसा|रेरा|चेक\s*बाउंस|ચલણ|ટ્રાફિક|સિક્યોરિટી|પગાર|ભાડું|મકાનમાલિક|રિફંડ|ખામીયુક્ત|ડિપોઝિટ|પોલીસ|એફઆઈઆર|જામીન|છૂટાછેડા|રેરા|ચેક\s*બાઉન્સ|શમ્બળ|ശമ്പളം|വാടക|തൊഴിലുടമ|റീഫണ്ട്|പോലീസ്|ജാമ്യം|വിവാഹമോചനം|ஜாமீன்|சம்பளம்|வாடகை|நிறுவனம்|விவாகரத்து|ஜீதம்|అద్దె|డిపాజిట్|బెయిల్|విడాకులు|ఆక్రమించారు|భూమిని|বেতন|ভাড়া|রিফান্ড|ঘরমালিক|ডিভোর্স|জামিন|বাড়িওয়ালা|ডিপোজিট|जामीन|घटस्फोट|पोटगी|विवाह)",
+            r"(?:"
+            # Hindi / Devanagari (Hindi, Marathi)
+            r"डिपॉज़िट|वेतन|किराया|मकान\s*मालिक|सैलरी|रिफंड|दोषपूर्ण|नोटीस|नोटिस|एफआईआर|जमानत|तलाक|घरेलू\s*हिंसा|रेरा|चेक|बाउंस|बैंक|फ्रॉड|धोखाधड़ी|कोर्ट|अदालत|वकील|मुकदमा|चोरी|मारपीट|संपत्ति|ज़मीन|अधिकार|धारा|शिकायत|अपराध|क्षतिपूर्ति|"
+            r"जामीन|घटस्फोट|पोटगी|विवाह|घरमालक|भाडे|हक्क|वाद|न्यायालय|फसवणूक|तक्रार|गुन्हा|वारस|सातबारा|"
+            # Gujarati
+            r"ચલણ|ટ્રાફિક|સિક્યોરિટી|પગાર|ભાડું|મકાનમાલિક|રિફંડ|ખામીયુક્ત|ડિપોઝિટ|પોલીસ|એફઆઈઆર|જામીન|છૂટાછેડા|રેરા|ચેક|બાઉન્સ|ફ્રોડ|છેતરપિંડી|યુપીઆઇ|ફરિયાદ|કોર્ટ|અદાલત|નોટિસ|વકીલ|મિલકત|જમીન|અધિકાર|કલમ|ગુનો|વારસદાર|"
+            # Malayalam
+            r"ശമ്പളം|വാടക|തൊഴിലുടമ|റീഫണ്ട്|പോലീസ്|ജാമ്യം|വിവാഹമോചനം|ചെക്ക്|ബൗൺസ്|തട്ടിപ്പ്|പരാതി|കോടതി|നോട്ടീസ്|അഭിഭാഷകൻ|സ്വത്ത്|തകരാർ|നഷ്ടപരിഹാരം|കേസ്|ഉപഭോക്തൃ|അവകാശം|നിയമം|"
+            # Tamil
+            r"ஜாமீன்|சம்பளம்|வாடகை|நிறுவனம்|விவாகரத்து|காசோலை|பவுன்ஸ்|மோசடி|புகார்|போலீஸ்|நீதிமன்றம்|நோட்டீஸ்|வழக்கறிஞர்|சொத்து|சட்டம்|உரிமை|நுகர்வோர்|இழப்பீடு|வழக்கு|"
+            # Telugu
+            r"జీతం|అద్దె|డిపాజిట్|బెయిల్|విడాకులు|ఆక్రమించారు|భూమిని|చెక్|బౌన్స్|మోసం|ఫిర్యాదు|పోలీస్|కోర్టు|నోటీసు|న్యాయవాది|ఆస్తి|చట్టం|హక్కు|వినియోగదారుల|నష్టపరిహారం|కేసు|"
+            # Bengali
+            r"বেতন|ভাড়া|রিফান্ড|ঘরমালিক|ডিভোর্স|জামিন|বাড়িওয়ালা|ডিপোজিট|চেক|বাউন্স|প্রতারণা|অভিযোগ|পুলিশ|আদালত|নোটিশ|উকিল|সম্পত্তি|মামলা|ধারা|অধিকার|ক্রেতা|ক্ষতিপূরণ"
+            r")",
             trimmed
         ))
 
